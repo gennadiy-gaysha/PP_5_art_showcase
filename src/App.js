@@ -1,4 +1,5 @@
 import styles from "./App.module.css";
+import Footer from "./components/Footer";
 import NavBar from "./components/NavBar";
 import Container from "react-bootstrap/Container";
 import { Switch, Route } from "react-router-dom";
@@ -7,6 +8,7 @@ function App() {
   return (
     <div className={styles.App}>
       <NavBar />
+
       <Container className={styles.Main}>
         <Switch>
           <Route exact path="/" render={() => <h1>Artworks</h1>} />
@@ -16,6 +18,7 @@ function App() {
           <Route render={() => <p>Page not found!</p>} />
         </Switch>
       </Container>
+      <Footer />
     </div>
   );
 }

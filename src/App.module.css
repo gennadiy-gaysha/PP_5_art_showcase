@@ -3,11 +3,14 @@
   background-image: url("https://res.cloudinary.com/dkglcxx4y/image/upload/v1700136635/static/blog/img/background.dcfdccda3b47.jpg");
   background-position: center;
   background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
   min-height: 100vh;
 }
 
 .Main {
   padding-top: 81px;
+  flex: 1;
 }
 
 * {
@@ -23,8 +26,8 @@ a:hover {
   text-decoration: none;
 }
 
-a:hover i {
-  color: #2142b2;
+a:hover {
+  color: #901c1c;
   transition: color ease-in-out 0.3s;
 }
 
@@ -38,5 +41,5 @@ i {
 i:hover {
   cursor: pointer;
   transition: color ease-in-out 0.3s;
-  color: #2142b2;
+  color: #901c1c;
 }

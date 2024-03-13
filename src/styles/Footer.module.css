@@ -1,0 +1,36 @@
+.footer {
+  background-color: #ffffff;
+  border-top: 1px solid #dadadf;
+  color: #555555;
+  text-align: center;
+  padding-top: 0.3rem;
+  padding-bottom: 0.3rem;
+  font-size: 1em;
+  width: 100%;
+  position: relative;
+  margin-top: auto; /* Push the footer to the bottom */
+}
+
+.socialMediaRow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 0.8rem;
+}
+
+.followUs {
+  margin-right: 10px; /* Space between text and icons */
+}
+
+.footer a {
+  margin: 0 5px; /* Spacing between icons */
+}
+
+.footer i {
+  color: #555555; /* Color for the icons */
+  font-size: 20px; /* Size of the icons */
+}
+
+.footer a:hover i {
+  color: #901c1c; /* Color when hovered */
+}
