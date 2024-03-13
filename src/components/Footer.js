@@ -17,7 +17,7 @@ const Footer = () => {
                 rel="noopener noreferrer"
                 aria-label="Facebook"
               >
-                <i class="fa-brands fa-square-facebook"></i>
+                <i className="fa-brands fa-square-facebook"></i>
               </a>
               <a
                 href="https://www.instagram.com/"
@@ -25,7 +25,7 @@ const Footer = () => {
                 rel="noopener noreferrer"
                 aria-label="Instagram"
               >
-                <i class="fa-brands fa-square-instagram"></i>
+                <i className="fa-brands fa-square-instagram"></i>
               </a>
               <a
                 href="https://www.linkedin.com/"
@@ -33,7 +33,7 @@ const Footer = () => {
                 rel="noopener noreferrer"
                 aria-label="Linkedin"
               >
-                <i class="fa-brands fa-linkedin"></i>
+                <i className="fa-brands fa-linkedin"></i>
               </a>
               <a
                 href="https://twitter.com/"
@@ -41,7 +41,7 @@ const Footer = () => {
                 rel="noopener noreferrer"
                 aria-label="Twitter"
               >
-                <i class="fa-brands fa-square-x-twitter"></i>
+                <i className="fa-brands fa-square-x-twitter"></i>
               </a>
             </div>
           </Col>
