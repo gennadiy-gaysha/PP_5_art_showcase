@@ -1,0 +1,10 @@
+.Button:hover:active,
+.Button:active,
+.Button:focus {
+  background-color: #2142b2;
+}
+
+.Wide {
+  padding: 10px 50px;
+  width: 100%;
+}
