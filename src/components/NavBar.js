@@ -1,10 +1,36 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Nav, Navbar, Container } from "react-bootstrap";
 import logo from "../assets/logo.png";
 import styles from "../styles/NavBar.module.css";
 import { NavLink } from "react-router-dom";
+import { CurrentUserContext } from "../App";
 
 const NavBar = () => {
+  const currentUser = useContext(CurrentUserContext);
+
+  const loggedInIcons = <>{currentUser?.username}</>;
+
+  const loggedOutIcons = (
+    <>
+      <NavLink
+        exact
+        to="/registration"
+        className={styles.NavLink}
+        activeClassName={styles.Active}
+      >
+        REGISTER
+      </NavLink>
+      <NavLink
+        exact
+        to="/login"
+        className={styles.NavLink}
+        activeClassName={styles.Active}
+      >
+        LOGIN
+      </NavLink>
+    </>
+  );
+
   return (
     <Navbar className={styles.NavBar} expand="md" fixed="top">
       <Container>
@@ -24,22 +50,7 @@ const NavBar = () => {
             >
               ARTWORKS
             </NavLink>
-            <NavLink
-              exact
-              to="/registration"
-              className={styles.NavLink}
-              activeClassName={styles.Active}
-            >
-              REGISTER
-            </NavLink>
-            <NavLink
-              exact
-              to="/login"
-              className={styles.NavLink}
-              activeClassName={styles.Active}
-            >
-              LOGIN
-            </NavLink>
+            {currentUser ? loggedInIcons : loggedOutIcons}
             <NavLink
               exact
               to="/about"

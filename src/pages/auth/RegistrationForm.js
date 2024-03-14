@@ -45,8 +45,8 @@ const RegistrationForm = () => {
       await axios.post("/dj-rest-auth/registration/", registrationData);
       history.push("/login");
     } catch (err) {
-      console.log(err);
-      console.log(err.response);
+      // console.log(err);
+      // console.log(err.response);
       setErrors(err.response?.data);
     }
   };

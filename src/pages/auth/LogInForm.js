@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 
 import Form from "react-bootstrap/Form";
 import Alert from "react-bootstrap/Alert";
@@ -13,8 +13,11 @@ import styles from "../../styles/RegistrationForm.module.css";
 import btnStyles from "../../styles/Button.module.css";
 import appStyles from "../../App.module.css";
 import axios from "axios";
+import { setCurrentUserContext } from "../../App";
 
 function LogInForm() {
+  const setCurrentUser = useContext(setCurrentUserContext);
+
   const [showPassword, setShowPassword] = useState(false);
 
   const togglePasswordVisibility = () => {
@@ -42,11 +45,12 @@ function LogInForm() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      await axios.post("/dj-rest-auth/login/", logInData);
+      const { data } = await axios.post("/dj-rest-auth/login/", logInData);
+      setCurrentUser(data.user);
       history.push("/");
     } catch (err) {
-      console.log(err);
-      console.log(err.response);
+      // console.log(err);
+      // console.log(err.response);
       setErrors(err.response?.data);
     }
   };
