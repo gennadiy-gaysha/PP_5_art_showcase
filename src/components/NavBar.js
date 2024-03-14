@@ -26,7 +26,7 @@ const NavBar = () => {
             </NavLink>
             <NavLink
               exact
-              to="/register"
+              to="/registration"
               className={styles.NavLink}
               activeClassName={styles.Active}
             >
