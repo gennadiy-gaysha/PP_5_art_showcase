@@ -6,6 +6,15 @@
 
 .Avatar {
   border-radius: 50%;
-  margin: 0px 8px 0px 8px;
+  margin: 0px 8px 0px 0px;
   object-fit: cover;
+}
+
+.Username {
+  color: #555555;
+  font-size: 1.1rem;
+}
+
+.Username:hover {
+  color: #007bff;
 }

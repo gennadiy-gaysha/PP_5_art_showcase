@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Nav, Navbar, Container } from "react-bootstrap";
 import logo from "../assets/logo.png";
 import styles from "../styles/NavBar.module.css";
@@ -9,12 +9,14 @@ import {
   useSetCurrentUser,
 } from "../contexts/CurrentUserContext";
 import Avatar from "./Avatar";
-import { axiosReq } from "../api/axiosDefaults";
 import axios from "axios";
+import useClickOutsideToggle from "../hooks/useClickOutsideToggle";
 
 const NavBar = () => {
   const currentUser = useCurrentUser();
   const setCurrentUser = useSetCurrentUser();
+
+  const { expanded, setExpanded, ref } = useClickOutsideToggle();
 
   const handleLogOut = async () => {
     try {
@@ -42,7 +44,7 @@ const NavBar = () => {
     <>
       <NavLink
         to="/favourites"
-        className={styles.NavLink}
+        className={`${styles.NavLink} ${styles.NavLinkWithDivider}`}
         activeClassName={styles.Active}
       >
         faves
@@ -50,13 +52,17 @@ const NavBar = () => {
 
       <NavLink
         to="/watchlist"
-        className={styles.NavLink}
+        className={`${styles.NavLink} ${styles.NavLinkWithDivider}`}
         activeClassName={styles.Active}
       >
         watchlist
       </NavLink>
 
-      <NavLink to="/" onClick={handleLogOut} className={styles.NavLink}>
+      <NavLink
+        to="/"
+        onClick={handleLogOut}
+        className={`${styles.NavLink} ${styles.NavLinkWithDivider}`}
+      >
         log out
       </NavLink>
 
@@ -69,7 +75,7 @@ const NavBar = () => {
       </NavLink>
 
       <NavLink
-        style={{ textTransform: "none" }}
+        style={{ textTransform: "none", fontWeight: "bold" }}
         to={`/profiles/${currentUser?.profile_id}`}
         className={styles.NavLink}
         activeClassName={styles.Active}
@@ -88,7 +94,7 @@ const NavBar = () => {
       <NavLink
         exact
         to="/registration"
-        className={styles.NavLink}
+        className={`${styles.NavLink} ${styles.NavLinkWithDivider}`}
         activeClassName={styles.Active}
       >
         register
@@ -96,16 +102,22 @@ const NavBar = () => {
       <NavLink
         exact
         to="/login"
-        className={styles.NavLink}
+        className={`${styles.NavLink} ${styles.NavLinkSpacing}`}
         activeClassName={styles.Active}
       >
         login
       </NavLink>
+      <span className={styles.GuestUser}>hello, guest-user</span>
     </>
   );
 
   return (
-    <Navbar className={styles.NavBar} expand="lg" fixed="top">
+    <Navbar
+      expanded={expanded}
+      className={styles.NavBar}
+      expand="md"
+      fixed="top"
+    >
       <Container>
         <NavLink to="/">
           <Navbar.Brand>
@@ -113,13 +125,19 @@ const NavBar = () => {
           </Navbar.Brand>
         </NavLink>
         {currentUser && addPaintingIcon}
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Toggle
+          ref={ref}
+          onClick={() => {
+            setExpanded(!expanded);
+          }}
+          aria-controls="basic-navbar-nav"
+        />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mr-auto text-left">
             <NavLink
               exact
               to="/"
-              className={styles.NavLink}
+              className={`${styles.NavLink} ${styles.NavLinkWithDivider}`}
               activeClassName={styles.Active}
             >
               ARTWORKS

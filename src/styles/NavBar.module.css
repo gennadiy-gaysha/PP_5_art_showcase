@@ -9,7 +9,8 @@
 .NavLink {
   display: flex;
   align-items: center;
-  padding: 7px;
+  padding-right: 1px;
+  /* margin: 0 7px 0 7px; */
   text-transform: uppercase;
 }
 
@@ -27,4 +28,39 @@
   align-items: center;
   justify-content: center;
   gap: 2px;
+}
+
+.NavLinkWithDivider::after {
+  content: "|";
+  color: #000;
+  margin: 0 5px;
+  font-weight: normal;
+}
+
+/* Removes the divider from the last item */
+.NavLinkWithDivider:last-child::after {
+  content: "";
+  margin: 0;
+}
+
+.GuestUser {
+  margin-left: auto;
+  padding: 7px;
+  font-weight: bold;
+  color: #555555;
+  font-size: 1.1rem;
+}
+
+@media (max-width: 768px) {
+  .GuestUser {
+    margin-left: 0;
+  }
+
+  .NavLinkWithDivider::after {
+    content: "";
+  }
+
+  .NavLink {
+    padding: 10px 0 7px 0;
+  }
 }
