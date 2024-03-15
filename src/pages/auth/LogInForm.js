@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 
 import Form from "react-bootstrap/Form";
 import Alert from "react-bootstrap/Alert";
@@ -13,10 +13,10 @@ import styles from "../../styles/RegistrationForm.module.css";
 import btnStyles from "../../styles/Button.module.css";
 import appStyles from "../../App.module.css";
 import axios from "axios";
-import { setCurrentUserContext } from "../../App";
+import { useSetCurrentUser } from "../../contexts/CurrentUserContext";
 
 function LogInForm() {
-  const setCurrentUser = useContext(setCurrentUserContext);
+  const setCurrentUser = useSetCurrentUser();
 
   const [showPassword, setShowPassword] = useState(false);
 
