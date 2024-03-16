@@ -1,0 +1,20 @@
+.Container {
+  min-height: 453px;
+  margin-bottom: 10px;
+}
+
+.dimensionsContainer {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.5rem; /* spacing between last field and the buttons */
+}
+
+.dimensionsLabel {
+  margin-right: 0.5rem;
+  padding-left: 1px;
+}
+
+.dimensionInput {
+  width: 5rem; /* width of the field */
+  margin: 0.25rem 0.8rem 0.25rem 0; /* Spacing around the inputs */
+}
