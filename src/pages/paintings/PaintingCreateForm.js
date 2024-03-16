@@ -12,23 +12,23 @@ import styles from "../../styles/PaintingCreateEditForm.module.css";
 import appStyles from "../../App.module.css";
 import btnStyles from "../../styles/Button.module.css";
 import Asset from "../../components/Asset";
-import { Image } from "react-bootstrap";
+import { Alert, Image } from "react-bootstrap";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import { axiosReq } from "../../api/axiosDefaults";
 
 function PaintingCreateForm() {
-  const [paintingData, setPaintingData] = useState({});
-  const [errors, setErrors] = useState({
+  const [paintingData, setPaintingData] = useState({
     title: "",
     creation_year: "",
-    theme: "",
-    technique: "",
+    theme: "Select a theme",
+    technique: "Select a technique",
     price: "",
-    availability: "",
+    availability: "Select availability",
     width: "",
     height: "",
     image: "",
   });
+  const [errors, setErrors] = useState({});
 
   const {
     title,
@@ -143,6 +143,7 @@ function PaintingCreateForm() {
         <Form.Label className="d-none">Theme</Form.Label>
         <Form.Control as="select" name="theme" onChange={handleChange}>
           <option value="">Select a theme</option>
+
           {THEME_CHOICES.map((theme, i) => (
             <option key={i} value={theme}>
               {theme}
@@ -150,6 +151,14 @@ function PaintingCreateForm() {
           ))}
         </Form.Control>
       </Form.Group>
+      {errors?.theme?.map((message, i) => {
+        return (
+          <Alert variant="warning" key={i}>
+            {message}
+          </Alert>
+        );
+      })}
+
       <Form.Group controlId="technique">
         <Form.Label className="d-none">Technique</Form.Label>
         <Form.Control as="select" name="technique" onChange={handleChange}>
@@ -161,6 +170,13 @@ function PaintingCreateForm() {
           ))}
         </Form.Control>
       </Form.Group>
+      {errors?.technique?.map((message, i) => {
+        return (
+          <Alert variant="warning" key={i}>
+            {message}
+          </Alert>
+        );
+      })}
       <Form.Group controlId="price">
         <Form.Label className="d-none">Suggested price</Form.Label>
         <Form.Control
@@ -175,7 +191,7 @@ function PaintingCreateForm() {
       <Form.Group controlId="availability">
         <Form.Label className="d-none">Availability</Form.Label>
         <Form.Control as="select" name="availability" onChange={handleChange}>
-          <option value="">Select availability</option>
+          <option>Select availability</option>
           {AVAILABILITY_CHOICES.map((availability, i) => (
             <option key={i} value={availability}>
               {availability}
@@ -183,6 +199,13 @@ function PaintingCreateForm() {
           ))}
         </Form.Control>
       </Form.Group>
+      {errors?.availability?.map((message, i) => {
+        return (
+          <Alert variant="warning" key={i}>
+            {message}
+          </Alert>
+        );
+      })}
       <div className={styles.dimensionsContainer}>
         <span className={styles.dimensionsLabel}>Dimensions (cm):</span>
         <Form.Group controlId="width" className="mb-0">
@@ -214,7 +237,9 @@ function PaintingCreateForm() {
       <Button
         className="me-5"
         style={{ marginRight: "15px" }}
-        onClick={() => {}}
+        onClick={() => {
+          history.goBack();
+        }}
       >
         cancel
       </Button>
@@ -260,6 +285,13 @@ function PaintingCreateForm() {
                 ref={imageInput}
               />
             </Form.Group>
+            {errors?.image?.map((message, i) => {
+              return (
+                <Alert variant="warning" key={i}>
+                  {message}
+                </Alert>
+              );
+            })}
             <div className="d-md-none">{textFields}</div>
           </Container>
         </Col>
