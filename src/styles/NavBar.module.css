@@ -16,7 +16,7 @@
 
 .Active {
   font-weight: bold;
-  color: #000000;
+  color: #007bff;
 }
 
 .NavLinkSpacing {
@@ -32,9 +32,9 @@
 
 .NavLinkWithDivider::after {
   content: "|";
-  color: #000;
+  color: #000000;
   margin: 0 5px;
-  font-weight: normal;
+  font-weight: bold;
 }
 
 /* Removes the divider from the last item */
