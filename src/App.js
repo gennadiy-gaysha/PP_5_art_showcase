@@ -7,6 +7,7 @@ import "./api/axiosDefaults";
 import RegistrationForm from "./pages/auth/RegistrationForm";
 import LogInForm from "./pages/auth/LogInForm";
 import PaintingCreateForm from "./pages/paintings/PaintingCreateForm";
+import PaintingPage from "./pages/paintings/PaintingPage";
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
             path="/paintings/create"
             render={() => <PaintingCreateForm />}
           />
+          <Route exact path="/paintings/:id" render={() => <PaintingPage />} />
           <Route render={() => <p>Page not found!</p>} />
         </Switch>
       </Container>
