@@ -7,6 +7,7 @@ import Container from "react-bootstrap/Container";
 import appStyles from "../../App.module.css";
 import { useParams } from "react-router-dom";
 import { axiosReq } from "../../api/axiosDefaults";
+import Painting from "./Painting";
 
 function PaintingPage() {
   const { id } = useParams();
@@ -35,7 +36,12 @@ function PaintingPage() {
     <Row className="h-100">
       <Col className="py-2 p-0 p-lg-2" lg={8}>
         <p>Description for mobile</p>
-        <p>Painting component</p>
+        {/* {...painting.results[0]} "unpacks" the properties of the first painting object in the array and passes them as individual props to the Painting component */}
+        <Painting
+          {...painting.results[0]}
+          setPaintings={setPainting}
+          paintingPage
+        />
         <Container className={appStyles.Content}>Comments</Container>
       </Col>
       <Col lg={4} className="d-none d-lg-block p-0 p-lg-2">

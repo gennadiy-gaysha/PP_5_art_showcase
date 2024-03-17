@@ -1,8 +1,8 @@
-.AvatarContainer {
+/* .AvatarContainer {
   display: flex;
   align-items: center;
-  gap: 8px; /* Adjust if necessary to match your design */
-}
+  gap: 8px; 
+} */
 
 .Avatar {
   border-radius: 50%;
@@ -10,11 +10,11 @@
   object-fit: cover;
 }
 
-.Username {
+/* .Username {
   color: #555555;
   font-size: 1.1rem;
 }
 
 .Username:hover {
   color: #007bff;
-}
+} */

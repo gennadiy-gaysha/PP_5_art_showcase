@@ -1,0 +1,24 @@
+.Painting {
+  background-color: #ffffff;
+  border: 1px solid #dadadf;
+  border-radius: 2px;
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+.Painting figure,
+h5 {
+  margin: 0 0;
+}
+
+.Watch {
+  color: #f85032;
+}
+
+.Watch:hover {
+  color: #2142b2;
+}
+
+.WatchOutline:hover {
+  color: #f85032;
+}

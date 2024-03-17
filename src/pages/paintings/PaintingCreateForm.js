@@ -20,10 +20,10 @@ function PaintingCreateForm() {
   const [paintingData, setPaintingData] = useState({
     title: "",
     creation_year: "",
-    theme: "",
-    technique: "",
+    theme: "Select theme",
+    technique: "Select technique",
     price: "",
-    availability: "",
+    availability: "Select availability",
     width: "",
     height: "",
     image: "",
@@ -155,7 +155,7 @@ function PaintingCreateForm() {
       <Form.Group controlId="theme">
         <Form.Label className="d-none">Theme</Form.Label>
         <Form.Control as="select" name="theme" onChange={handleChange}>
-          <option value="Select a theme">Select a theme</option>
+          <option value="Select a theme">Select theme</option>
 
           {THEME_CHOICES.map((theme, i) => (
             <option key={i} value={theme}>
@@ -175,7 +175,7 @@ function PaintingCreateForm() {
       <Form.Group controlId="technique">
         <Form.Label className="d-none">Technique</Form.Label>
         <Form.Control as="select" name="technique" onChange={handleChange}>
-          <option value="Select a technique">Select a technique</option>
+          <option value="Select a technique">Select technique</option>
           {TECHNIQUE_CHOICES.map((tech, i) => (
             <option key={i} value={tech}>
               {tech}
