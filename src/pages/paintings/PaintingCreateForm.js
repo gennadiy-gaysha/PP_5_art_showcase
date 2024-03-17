@@ -20,10 +20,10 @@ function PaintingCreateForm() {
   const [paintingData, setPaintingData] = useState({
     title: "",
     creation_year: "",
-    theme: "Select a theme",
-    technique: "Select a technique",
+    theme: "",
+    technique: "",
     price: "",
-    availability: "Select availability",
+    availability: "",
     width: "",
     height: "",
     image: "",
@@ -122,9 +122,15 @@ function PaintingCreateForm() {
           onChange={handleChange}
           type="text"
           placeholder="Title"
-          required
         />
       </Form.Group>
+      {errors?.title?.map((message, i) => {
+        return (
+          <Alert variant="warning" key={i}>
+            {message}
+          </Alert>
+        );
+      })}
 
       <Form.Group controlId="creation_year">
         <Form.Label className="d-none">Year created</Form.Label>
@@ -136,13 +142,20 @@ function PaintingCreateForm() {
           min="1000"
           max="9999"
           placeholder="Year created"
-          required
         />
       </Form.Group>
+      {errors?.creation_year?.map((message, i) => {
+        return (
+          <Alert variant="warning" key={i}>
+            {message}
+          </Alert>
+        );
+      })}
+
       <Form.Group controlId="theme">
         <Form.Label className="d-none">Theme</Form.Label>
         <Form.Control as="select" name="theme" onChange={handleChange}>
-          <option value="">Select a theme</option>
+          <option value="Select a theme">Select a theme</option>
 
           {THEME_CHOICES.map((theme, i) => (
             <option key={i} value={theme}>
@@ -162,7 +175,7 @@ function PaintingCreateForm() {
       <Form.Group controlId="technique">
         <Form.Label className="d-none">Technique</Form.Label>
         <Form.Control as="select" name="technique" onChange={handleChange}>
-          <option value="">Select a technique</option>
+          <option value="Select a technique">Select a technique</option>
           {TECHNIQUE_CHOICES.map((tech, i) => (
             <option key={i} value={tech}>
               {tech}
@@ -177,6 +190,7 @@ function PaintingCreateForm() {
           </Alert>
         );
       })}
+
       <Form.Group controlId="price">
         <Form.Label className="d-none">Suggested price</Form.Label>
         <Form.Control
@@ -185,13 +199,20 @@ function PaintingCreateForm() {
           onChange={handleChange}
           type="text"
           placeholder="Suggested price"
-          required
         />
       </Form.Group>
+      {errors?.price?.map((message, i) => {
+        return (
+          <Alert variant="warning" key={i}>
+            {message}
+          </Alert>
+        );
+      })}
+
       <Form.Group controlId="availability">
         <Form.Label className="d-none">Availability</Form.Label>
         <Form.Control as="select" name="availability" onChange={handleChange}>
-          <option>Select availability</option>
+          <option value="Select availability">Select availability</option>
           {AVAILABILITY_CHOICES.map((availability, i) => (
             <option key={i} value={availability}>
               {availability}
@@ -206,6 +227,7 @@ function PaintingCreateForm() {
           </Alert>
         );
       })}
+
       <div className={styles.dimensionsContainer}>
         <span className={styles.dimensionsLabel}>Dimensions (cm):</span>
         <Form.Group controlId="width" className="mb-0">
@@ -217,7 +239,6 @@ function PaintingCreateForm() {
             onChange={handleChange}
             type="text"
             placeholder="Width"
-            required
           />
         </Form.Group>
 
@@ -230,10 +251,24 @@ function PaintingCreateForm() {
             onChange={handleChange}
             type="text"
             placeholder="Height"
-            required
           />
         </Form.Group>
       </div>
+      {errors?.width?.map((message, i) => {
+        return (
+          <Alert variant="warning" key={i}>
+            {`Width: ${message}`}
+          </Alert>
+        );
+      })}
+      {errors?.height?.map((message, i) => {
+        return (
+          <Alert variant="warning" key={i}>
+            {`Height: ${message}`}
+          </Alert>
+        );
+      })}
+
       <Button
         className="me-5"
         style={{ marginRight: "15px" }}
