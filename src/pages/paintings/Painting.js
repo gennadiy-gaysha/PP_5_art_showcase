@@ -4,6 +4,7 @@ import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { Card, Media, OverlayTrigger, Tooltip } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import Avatar from "../../components/Avatar";
+import { axiosRes } from "../../api/axiosDefaults";
 
 function Painting(props) {
   const {
@@ -27,12 +28,54 @@ function Painting(props) {
     observations_count,
     comments_count,
     paintingPage,
+    setPaintings,
   } = props;
 
   const currentUser = useCurrentUser();
   // checks if currently logged in user (currentUser?.username) is the
   // owner of the painting (owner):
   const is_owner = currentUser?.username === owner;
+
+  const handleObserve = async () => {
+    try {
+      const { data } = await axiosRes.post("/observations/", { painting: id });
+      setPaintings((prevPaintings) => ({
+        ...prevPaintings,
+        results: prevPaintings.results.map((painting) => {
+          return painting.id === id
+            ? {
+                ...painting,
+                observations_count: painting.observations_count + 1,
+                observation_id: data.id,
+              }
+            : painting;
+        }),
+      }));
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  const handleDoNotObserve = async () => {
+    try {
+      await axiosRes.delete(`/observations/${observation_id}`);
+      setPaintings((prevPaintings) => ({
+        ...prevPaintings,
+        results: prevPaintings.results.map((painting) => {
+          return painting.id === id
+            ? {
+                ...painting,
+                observations_count: painting.observations_count - 1,
+                observation_id: null,
+              }
+            : painting;
+        }),
+      }));
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   return (
     <Card className={styles.Painting}>
       <Card.Body>
@@ -64,11 +107,11 @@ function Painting(props) {
               <i className="fas fa-eye" />
             </OverlayTrigger>
           ) : observation_id ? (
-            <span onClick={() => {}}>
+            <span onClick={handleDoNotObserve}>
               <i className={`fas fa-eye ${styles.Observation}`} />
             </span>
           ) : currentUser ? (
-            <span onClick={() => {}}>
+            <span onClick={handleObserve}>
               <i className={`fas fa-eye ${styles.ObservationOutline}`} />
             </span>
           ) : (

@@ -11,14 +11,14 @@ h5 {
   margin: 0 0;
 }
 
-.Watch {
-  color: #f85032;
+.Observation {
+  color: #007bff;
 }
 
-.Watch:hover {
+.Observation:hover {
   color: #2142b2;
 }
 
-.WatchOutline:hover {
-  color: #f85032;
+.ObservationOutline:hover {
+  color: #007bff;
 }
