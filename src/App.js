@@ -44,7 +44,7 @@ function App() {
             render={() => (
               <PaintingsPage
                 message="No results found. Adjust the search keyword or click on the eye under the painting to follow it up."
-                filter={`'observations__owner__profile'=${profile_id}&ordering=-observationss__created_at&`}
+                filter={`observations__owner__profile=${profile_id}&ordering=-observations__created_at&`}
               />
             )}
           />
