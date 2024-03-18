@@ -3,7 +3,7 @@ import Form from "react-bootstrap/Form";
 
 // Props are passed for current selected theme and the setter function
 
-const ThemeFilter = ({ selectedTheme, setSelectedTheme }) => {
+const ThemeFilter = ({ selectedTheme, setSelectedTheme, labelFont }) => {
   const THEME_CHOICES = [
     "Portrait",
     "Still Life",
@@ -18,13 +18,13 @@ const ThemeFilter = ({ selectedTheme, setSelectedTheme }) => {
   return (
     <Form>
       <Form.Group controlId="themeSelect">
-        <Form.Label className="d-none">Theme</Form.Label>
+        <Form.Label className={labelFont}>Theme:</Form.Label>
         <Form.Control
           as="select"
           value={selectedTheme}
           onChange={(e) => setSelectedTheme(e.target.value)}
         >
-          <option value="">Select theme</option>
+          <option value="">--------</option>
           {THEME_CHOICES.map((theme, i) => (
             <option key={i} value={theme}>
               {theme}

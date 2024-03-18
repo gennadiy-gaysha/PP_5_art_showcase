@@ -72,32 +72,53 @@ function PaintingsPage({ message, filter = "" }) {
     priceOrder,
   ]);
 
+  const paintings_filters = (
+    <Row>
+      <Col xs={12} md={6} lg={2} className="mb-3">
+        <ThemeFilter
+          selectedTheme={selectedTheme}
+          setSelectedTheme={setSelectedTheme}
+          labelFont={styles.labelFont}
+        />
+      </Col>
+      <Col xs={12} md={6} lg={2} className="mb-3">
+        <TechniqueFilter
+          selectedTechnique={selectedTechnique}
+          setSelectedTechnique={setSelectedTechnique}
+          labelFont={styles.labelFont}
+        />
+      </Col>
+      <Col xs={12} md={6} lg={2} className="mb-3">
+        <AvailabilityFilter
+          selectedAvailability={selectedAvailability}
+          setSelectedAvailability={setSelectedAvailability}
+          labelFont={styles.labelFont}
+        />
+      </Col>
+      <Col xs={12} md={6} lg={2} className="mb-3">
+        <OrientationFilter
+          selectedOrientation={selectedOrientation}
+          setSelectedOrientation={setSelectedOrientation}
+          labelFont={styles.labelFont}
+        />
+      </Col>
+      <Col xs={12} md={6} lg={2} className="mb-3">
+        <PriceFilter
+          priceOrder={priceOrder}
+          setPriceOrder={setPriceOrder}
+          labelFont={styles.labelFont}
+        />
+      </Col>
+    </Row>
+  );
+
   return (
     <Container className="mt-3">
       {hasLoaded ? (
         <>
           {paintings.results.length ? (
             <>
-              <ThemeFilter
-                selectedTheme={selectedTheme}
-                setSelectedTheme={setSelectedTheme}
-              />
-              <TechniqueFilter
-                selectedTechnique={selectedTechnique}
-                setSelectedTechnique={setSelectedTechnique}
-              />
-              <AvailabilityFilter
-                selectedAvailability={selectedAvailability}
-                setSelectedAvailability={setSelectedAvailability}
-              />
-              <OrientationFilter
-                selectedOrientation={selectedOrientation}
-                setSelectedOrientation={setSelectedOrientation}
-              />
-              <PriceFilter
-                priceOrder={priceOrder}
-                setPriceOrder={setPriceOrder}
-              />
+              {paintings_filters}
               <Row>
                 {paintings.results.map((painting) => (
                   <Col sm={12} md={6} lg={4} className="mb-3" key={painting.id}>
@@ -107,9 +128,14 @@ function PaintingsPage({ message, filter = "" }) {
               </Row>
             </>
           ) : (
-            <Container className={`${appStyles.Content} ${styles.customWidth}`}>
-              <Asset src={NoResults} message={message} />
-            </Container>
+            <>
+              {paintings_filters}
+              <Container
+                className={`${appStyles.Content} ${styles.customWidth}`}
+              >
+                <Asset src={NoResults} message={message} />
+              </Container>
+            </>
           )}
         </>
       ) : (

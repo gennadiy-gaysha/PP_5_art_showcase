@@ -21,3 +21,10 @@
   width: 75%;
   margin: 0 auto;
 }
+
+.labelFont {
+  font-size: 0.9rem;
+  margin-left: 5px;
+  font-weight: 600;
+  color: #555555;
+}
