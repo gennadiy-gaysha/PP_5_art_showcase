@@ -14,6 +14,7 @@ import NoResults from "../../assets/no_results.png";
 import Asset from "../../components/Asset";
 
 function PaintingsPage({ message, filter = "" }) {
+  const [selectedTheme, setSelectedTheme] = useState("");
   const [paintings, setPaintings] = useState({
     results: [],
   });
@@ -23,7 +24,11 @@ function PaintingsPage({ message, filter = "" }) {
   useEffect(() => {
     const fetchPaintings = async () => {
       try {
-        const { data } = await axiosReq.get(`/paintings/?${filter}`);
+        let apiUrl = `/paintings/?${filter}`;
+        if (selectedTheme) {
+          apiUrl += `&theme=${encodeURIComponent(selectedTheme)}`;
+        }
+        const { data } = await axiosReq.get(apiUrl);
         setPaintings(data);
         setHasLoaded(true);
       } catch (err) {
@@ -33,20 +38,43 @@ function PaintingsPage({ message, filter = "" }) {
 
     setHasLoaded(false);
     fetchPaintings();
-  }, [filter, pathname]);
+  }, [filter, pathname, selectedTheme]);
 
   return (
     <Container className="mt-3">
       {hasLoaded ? (
         <>
           {paintings.results.length ? (
-            <Row>
-              {paintings.results.map((painting) => (
-                <Col sm={12} md={6} lg={4} className="mb-3" key={painting.id}>
-                  <Painting {...painting} setPaintings={setPaintings} />
-                </Col>
-              ))}
-            </Row>
+            <>
+              <Form>
+                <Form.Group controlId="themeSelect">
+                  <Form.Label className="d-none">Theme</Form.Label>
+                  <Form.Control
+                    as="select"
+                    value={selectedTheme}
+                    onChange={(e) => setSelectedTheme(e.target.value)}
+                  >
+                    <option value="">Select a theme</option>
+                    <option value="Portrait">Portrait</option>
+                    <option value="Still Life">Still Life</option>
+                    <option value="Landscape">Landscape</option>
+                    <option value="Seascape">Seascape</option>
+                    <option value="Abstract">Abstract</option>
+                    <option value="Figurative">Figurative</option>
+                    <option value="Genre">Genre</option>
+                    <option value="Animal">Animal</option>
+                  </Form.Control>
+                </Form.Group>
+              </Form>
+
+              <Row>
+                {paintings.results.map((painting) => (
+                  <Col sm={12} md={6} lg={4} className="mb-3" key={painting.id}>
+                    <Painting {...painting} setPaintings={setPaintings} />
+                  </Col>
+                ))}
+              </Row>
+            </>
           ) : (
             <Container className={`${appStyles.Content} ${styles.customWidth}`}>
               <Asset src={NoResults} message={message} />

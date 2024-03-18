@@ -155,7 +155,7 @@ function PaintingCreateForm() {
       <Form.Group controlId="theme">
         <Form.Label className="d-none">Theme</Form.Label>
         <Form.Control as="select" name="theme" onChange={handleChange}>
-          <option value="Select a theme">Select theme</option>
+          <option value="Select theme">Select theme</option>
 
           {THEME_CHOICES.map((theme, i) => (
             <option key={i} value={theme}>
@@ -175,7 +175,7 @@ function PaintingCreateForm() {
       <Form.Group controlId="technique">
         <Form.Label className="d-none">Technique</Form.Label>
         <Form.Control as="select" name="technique" onChange={handleChange}>
-          <option value="Select a technique">Select technique</option>
+          <option value="Select technique">Select technique</option>
           {TECHNIQUE_CHOICES.map((tech, i) => (
             <option key={i} value={tech}>
               {tech}
