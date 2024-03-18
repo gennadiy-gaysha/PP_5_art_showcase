@@ -12,6 +12,7 @@ import { axiosReq } from "../../api/axiosDefaults";
 import Painting from "./Painting";
 import NoResults from "../../assets/no_results.png";
 import Asset from "../../components/Asset";
+import ThemeFilter from "../../components/ThemeFilter";
 
 function PaintingsPage({ message, filter = "" }) {
   const [selectedTheme, setSelectedTheme] = useState("");
@@ -46,27 +47,10 @@ function PaintingsPage({ message, filter = "" }) {
         <>
           {paintings.results.length ? (
             <>
-              <Form>
-                <Form.Group controlId="themeSelect">
-                  <Form.Label className="d-none">Theme</Form.Label>
-                  <Form.Control
-                    as="select"
-                    value={selectedTheme}
-                    onChange={(e) => setSelectedTheme(e.target.value)}
-                  >
-                    <option value="">Select a theme</option>
-                    <option value="Portrait">Portrait</option>
-                    <option value="Still Life">Still Life</option>
-                    <option value="Landscape">Landscape</option>
-                    <option value="Seascape">Seascape</option>
-                    <option value="Abstract">Abstract</option>
-                    <option value="Figurative">Figurative</option>
-                    <option value="Genre">Genre</option>
-                    <option value="Animal">Animal</option>
-                  </Form.Control>
-                </Form.Group>
-              </Form>
-
+              <ThemeFilter
+                selectedTheme={selectedTheme}
+                setSelectedTheme={setSelectedTheme}
+              />
               <Row>
                 {paintings.results.map((painting) => (
                   <Col sm={12} md={6} lg={4} className="mb-3" key={painting.id}>
