@@ -24,7 +24,7 @@ const ThemeFilter = ({ selectedTheme, setSelectedTheme }) => {
           value={selectedTheme}
           onChange={(e) => setSelectedTheme(e.target.value)}
         >
-          <option value="">Select a theme</option>
+          <option value="">Select theme</option>
           {THEME_CHOICES.map((theme, i) => (
             <option key={i} value={theme}>
               {theme}

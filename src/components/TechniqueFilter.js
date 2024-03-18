@@ -24,7 +24,7 @@ const TechniqueFilter = ({ selectedTechnique, setSelectedTechnique }) => {
           value={selectedTechnique}
           onChange={(e) => setSelectedTechnique(e.target.value)}
         >
-          <option value="">Select a technique</option>
+          <option value="">Select technique</option>
           {TECHNIQUE_CHOICES.map((technique, i) => (
             <option key={i} value={technique}>
               {technique}

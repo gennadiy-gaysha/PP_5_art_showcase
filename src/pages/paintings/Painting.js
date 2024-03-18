@@ -99,6 +99,8 @@ function Painting(props) {
         {theme}
         <br />
         {technique}
+        <br />
+        {availability}
         <div className={styles.PaintingBar}>
           {is_owner ? (
             <OverlayTrigger
