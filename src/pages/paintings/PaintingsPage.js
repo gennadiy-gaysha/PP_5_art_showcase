@@ -13,8 +13,10 @@ import Painting from "./Painting";
 import NoResults from "../../assets/no_results.png";
 import Asset from "../../components/Asset";
 import ThemeFilter from "../../components/ThemeFilter";
+import TechniqueFilter from "../../components/TechniqueFilter";
 
 function PaintingsPage({ message, filter = "" }) {
+  const [selectedTechnique, setSelectedTechnique] = useState("");
   const [selectedTheme, setSelectedTheme] = useState("");
   const [paintings, setPaintings] = useState({
     results: [],
@@ -29,6 +31,9 @@ function PaintingsPage({ message, filter = "" }) {
         if (selectedTheme) {
           apiUrl += `&theme=${encodeURIComponent(selectedTheme)}`;
         }
+        if (selectedTechnique) {
+          apiUrl += `&technique=${encodeURIComponent(selectedTechnique)}`;
+        }
         const { data } = await axiosReq.get(apiUrl);
         setPaintings(data);
         setHasLoaded(true);
@@ -39,7 +44,7 @@ function PaintingsPage({ message, filter = "" }) {
 
     setHasLoaded(false);
     fetchPaintings();
-  }, [filter, pathname, selectedTheme]);
+  }, [filter, pathname, selectedTheme, selectedTechnique]);
 
   return (
     <Container className="mt-3">
@@ -50,6 +55,10 @@ function PaintingsPage({ message, filter = "" }) {
               <ThemeFilter
                 selectedTheme={selectedTheme}
                 setSelectedTheme={setSelectedTheme}
+              />
+              <TechniqueFilter
+                selectedTechnique={selectedTechnique}
+                setSelectedTechnique={setSelectedTechnique}
               />
               <Row>
                 {paintings.results.map((painting) => (

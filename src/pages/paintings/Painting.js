@@ -97,6 +97,8 @@ function Painting(props) {
         {owner && <Card.Text>{owner}</Card.Text>}
         {title && <Card.Title className="text-center">{title}</Card.Title>}
         {theme}
+        <br />
+        {technique}
         <div className={styles.PaintingBar}>
           {is_owner ? (
             <OverlayTrigger
