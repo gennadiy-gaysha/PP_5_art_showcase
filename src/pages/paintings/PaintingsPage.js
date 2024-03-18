@@ -16,8 +16,10 @@ import ThemeFilter from "../../components/ThemeFilter";
 import TechniqueFilter from "../../components/TechniqueFilter";
 import AvailabilityFilter from "../../components/AvailabilityFilter";
 import OrientationFilter from "../../components/OrientationFilter";
+import PriceFilter from "../../components/PriceFilter";
 
 function PaintingsPage({ message, filter = "" }) {
+  const [priceOrder, setPriceOrder] = useState("");
   const [selectedOrientation, setSelectedOrientation] = useState("");
   const [selectedAvailability, setSelectedAvailability] = useState("");
   const [selectedTechnique, setSelectedTechnique] = useState("");
@@ -44,6 +46,12 @@ function PaintingsPage({ message, filter = "" }) {
         if (selectedOrientation) {
           apiUrl += `&orientation=${encodeURIComponent(selectedOrientation)}`;
         }
+        if (priceOrder === "asc") {
+          apiUrl += `&ordering=price`;
+        } else if (priceOrder === "desc") {
+          apiUrl += `&ordering=-price`;
+        }
+
         const { data } = await axiosReq.get(apiUrl);
         setPaintings(data);
         setHasLoaded(true);
@@ -61,6 +69,7 @@ function PaintingsPage({ message, filter = "" }) {
     selectedTechnique,
     selectedAvailability,
     selectedOrientation,
+    priceOrder,
   ]);
 
   return (
@@ -84,6 +93,10 @@ function PaintingsPage({ message, filter = "" }) {
               <OrientationFilter
                 selectedOrientation={selectedOrientation}
                 setSelectedOrientation={setSelectedOrientation}
+              />
+              <PriceFilter
+                priceOrder={priceOrder}
+                setPriceOrder={setPriceOrder}
               />
               <Row>
                 {paintings.results.map((painting) => (

@@ -7,7 +7,7 @@ const OrientationFilter = ({ selectedOrientation, setSelectedOrientation }) => {
   const ORIENTATION_CHOICES = ["Landscape", "Portrait", "Square"];
   return (
     <Form>
-      <Form.Group controlId="techniqueSelect">
+      <Form.Group controlId="orientationSelect">
         <Form.Label className="d-none">Orientation</Form.Label>
         <Form.Control
           as="select"
