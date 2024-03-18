@@ -21,6 +21,7 @@ function Painting(props) {
     theme,
     width,
     height,
+    orientation,
     price,
     availability,
     image,
@@ -101,6 +102,8 @@ function Painting(props) {
         {technique}
         <br />
         {availability}
+        <br />
+        {orientation}
         <div className={styles.PaintingBar}>
           {is_owner ? (
             <OverlayTrigger

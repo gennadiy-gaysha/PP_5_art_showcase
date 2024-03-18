@@ -15,8 +15,10 @@ import Asset from "../../components/Asset";
 import ThemeFilter from "../../components/ThemeFilter";
 import TechniqueFilter from "../../components/TechniqueFilter";
 import AvailabilityFilter from "../../components/AvailabilityFilter";
+import OrientationFilter from "../../components/OrientationFilter";
 
 function PaintingsPage({ message, filter = "" }) {
+  const [selectedOrientation, setSelectedOrientation] = useState("");
   const [selectedAvailability, setSelectedAvailability] = useState("");
   const [selectedTechnique, setSelectedTechnique] = useState("");
   const [selectedTheme, setSelectedTheme] = useState("");
@@ -39,6 +41,9 @@ function PaintingsPage({ message, filter = "" }) {
         if (selectedAvailability) {
           apiUrl += `&availability=${encodeURIComponent(selectedAvailability)}`;
         }
+        if (selectedOrientation) {
+          apiUrl += `&orientation=${encodeURIComponent(selectedOrientation)}`;
+        }
         const { data } = await axiosReq.get(apiUrl);
         setPaintings(data);
         setHasLoaded(true);
@@ -55,6 +60,7 @@ function PaintingsPage({ message, filter = "" }) {
     selectedTheme,
     selectedTechnique,
     selectedAvailability,
+    selectedOrientation,
   ]);
 
   return (
@@ -74,6 +80,10 @@ function PaintingsPage({ message, filter = "" }) {
               <AvailabilityFilter
                 selectedAvailability={selectedAvailability}
                 setSelectedAvailability={setSelectedAvailability}
+              />
+              <OrientationFilter
+                selectedOrientation={selectedOrientation}
+                setSelectedOrientation={setSelectedOrientation}
               />
               <Row>
                 {paintings.results.map((painting) => (
