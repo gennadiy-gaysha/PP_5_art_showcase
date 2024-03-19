@@ -103,9 +103,8 @@ function Painting(props) {
         <br />
         {availability}
         <br />
-        {orientation}
-        <br />
-        {price}
+        {orientation} ({width}cm x {height}cm)
+        <br />£{price}
         <div className={styles.PaintingBar}>
           {is_owner ? (
             <OverlayTrigger

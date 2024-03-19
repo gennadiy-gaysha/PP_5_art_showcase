@@ -8,7 +8,7 @@ const OrientationFilter = ({
   setSelectedOrientation,
   labelFont,
 }) => {
-  const ORIENTATION_CHOICES = ["Landscape", "Portrait", "Square"];
+  const ORIENTATION_CHOICES = ["Horizontal", "Vertical", "Square"];
   return (
     <Form>
       <Form.Group controlId="orientationSelect">
