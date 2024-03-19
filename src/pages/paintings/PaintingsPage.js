@@ -15,8 +15,17 @@ import ThemeFilter from "../../components/ThemeFilter";
 import TechniqueFilter from "../../components/TechniqueFilter";
 import OrientationFilter from "../../components/OrientationFilter";
 import PriceFilter from "../../components/PriceFilter";
-
+import { useHistory } from "react-router-dom";
 function PaintingsPage({ message, filter = "" }) {
+  // useHistory and useLocation Hooks:
+  //These hooks from react-router-dom are used to programmatically navigate and access the current URL's details, respectively.
+  const history = useHistory();
+  const { search } = useLocation();
+  // Creates an instance of URLSearchParams with the current URL's search string that includes ${path}?resetFilters=true - see NavBar,  const resetFiltersAndNavigate!
+  const queryParams = new URLSearchParams(search);
+  // Looks for the resetFilters query parameter to determine whether the filters should be reset (resetFilters=true)
+  const resetFilters = queryParams.get("resetFilters") === "true";
+
   const [priceOrder, setPriceOrder] = useState(
     sessionStorage.getItem("priceOrder") || ""
   );
@@ -43,6 +52,16 @@ function PaintingsPage({ message, filter = "" }) {
   });
 
   useEffect(() => {
+    // Resets filters if URL contains 'resetFilters', another words if the user clicks the link on NavBar
+    if (resetFilters) {
+      setSelectedTheme("");
+      setSelectedTechnique("");
+      setSelectedOrientation("");
+      setPriceOrder("");
+      sessionStorage.clear(); // Clears session storage
+      history.push(pathname); // Navigates to the current path without the query parameter, cleaning up the URL
+    }
+
     const fetchPaintings = async () => {
       try {
         let apiUrl = `/paintings/?${filter}`;
@@ -78,6 +97,8 @@ function PaintingsPage({ message, filter = "" }) {
     selectedTechnique,
     selectedOrientation,
     priceOrder,
+    resetFilters,
+    history,
   ]);
 
   const paintings_filters = (

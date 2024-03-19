@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { Nav, Navbar, Container } from "react-bootstrap";
 import logo from "../assets/logo.png";
 import styles from "../styles/NavBar.module.css";
-import { NavLink } from "react-router-dom";
+import { NavLink, useHistory } from "react-router-dom";
 
 import {
   useCurrentUser,
@@ -13,6 +13,13 @@ import axios from "axios";
 import useClickOutsideToggle from "../hooks/useClickOutsideToggle";
 
 const NavBar = () => {
+  const history = useHistory();
+  // Function to trigger filter reset.
+  // Programmatically (useHistory hook) navigates to the desired path while appending a query parameter ?resetFilters=true to the URL to reset filters. See onClick event handler attribute in NavLinks below.
+  const resetFiltersAndNavigate = (path) => {
+    history.push(`${path}?resetFilters=true`);
+  };
+
   const currentUser = useCurrentUser();
   const setCurrentUser = useSetCurrentUser();
 
@@ -83,7 +90,7 @@ const NavBar = () => {
         <Avatar
           src={currentUser?.profile_image}
           text={currentUser?.username}
-          // text="Profile" // only fo testing!!!
+          // text="Profile" // only for testing!!!
           height={40}
         />
       </NavLink>
@@ -137,6 +144,10 @@ const NavBar = () => {
             <NavLink
               exact
               to="/"
+              onClick={(e) => {
+                e.preventDefault(); // Prevents the browser from automatically navigating to the link's href attribute thst is to="/"
+                resetFiltersAndNavigate("/"); // Navigate with resetFilters query parameter
+              }}
               className={`${styles.NavLink} ${styles.NavLinkWithDivider}`}
               activeClassName={styles.Active}
             >
