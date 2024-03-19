@@ -47,7 +47,8 @@ function LogInForm() {
     try {
       const { data } = await axios.post("/dj-rest-auth/login/", logInData);
       setCurrentUser(data.user);
-      history.push("/");
+
+      history.push("/?resetFilters=true");
     } catch (err) {
       // console.log(err);
       // console.log(err.response);
