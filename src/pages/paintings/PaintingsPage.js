@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 
-import Form from "react-bootstrap/Form";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container";
@@ -19,16 +18,34 @@ import OrientationFilter from "../../components/OrientationFilter";
 import PriceFilter from "../../components/PriceFilter";
 
 function PaintingsPage({ message, filter = "" }) {
-  const [priceOrder, setPriceOrder] = useState("");
-  const [selectedOrientation, setSelectedOrientation] = useState("");
-  const [selectedAvailability, setSelectedAvailability] = useState("");
-  const [selectedTechnique, setSelectedTechnique] = useState("");
-  const [selectedTheme, setSelectedTheme] = useState("");
+  const [priceOrder, setPriceOrder] = useState(
+    sessionStorage.getItem("priceOrder") || ""
+  );
+  const [selectedOrientation, setSelectedOrientation] = useState(
+    sessionStorage.getItem("selectedOrientation") || ""
+  );
+  const [selectedAvailability, setSelectedAvailability] = useState(
+    sessionStorage.getItem("selectedAvailability") || ""
+  );
+  const [selectedTechnique, setSelectedTechnique] = useState(
+    sessionStorage.getItem("selectedTechnique") || ""
+  );
+  const [selectedTheme, setSelectedTheme] = useState(
+    sessionStorage.getItem("selectedTheme") || ""
+  );
   const [paintings, setPaintings] = useState({
     results: [],
   });
   const [hasLoaded, setHasLoaded] = useState(false);
   const { pathname } = useLocation();
+
+  useEffect(() => {
+    sessionStorage.setItem("priceOrder", priceOrder);
+    sessionStorage.setItem("selectedOrientation", selectedOrientation);
+    sessionStorage.setItem("selectedAvailability", selectedAvailability);
+    sessionStorage.setItem("selectedTechnique", selectedTechnique);
+    sessionStorage.setItem("selectedTheme", selectedTheme);
+  });
 
   useEffect(() => {
     const fetchPaintings = async () => {
