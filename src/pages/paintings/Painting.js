@@ -23,7 +23,6 @@ function Painting(props) {
     height,
     orientation,
     price,
-    availability,
     image,
     observation_id,
     observations_count,
@@ -100,8 +99,6 @@ function Painting(props) {
         {theme}
         <br />
         {technique}
-        <br />
-        {availability}
         <br />
         {orientation} ({width}cm x {height}cm)
         <br />£{price}

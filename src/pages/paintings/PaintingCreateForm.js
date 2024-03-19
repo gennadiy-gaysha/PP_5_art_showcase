@@ -23,7 +23,6 @@ function PaintingCreateForm() {
     theme: "Select theme",
     technique: "Select technique",
     price: "",
-    availability: "Select availability",
     width: "",
     height: "",
     image: "",
@@ -36,7 +35,6 @@ function PaintingCreateForm() {
     theme,
     technique,
     price,
-    availability,
     width,
     height,
     image,
@@ -70,7 +68,6 @@ function PaintingCreateForm() {
     formData.append("theme", theme);
     formData.append("technique", technique);
     formData.append("price", price);
-    formData.append("availability", availability);
     formData.append("width", width);
     formData.append("height", height);
     formData.append("image", imageInput.current.files[0]);
@@ -109,8 +106,6 @@ function PaintingCreateForm() {
     "Genre",
     "Animal",
   ];
-
-  const AVAILABILITY_CHOICES = ["In stock", "Reserved", "Sold"];
 
   const textFields = (
     <div className="text-left">
@@ -202,25 +197,6 @@ function PaintingCreateForm() {
         />
       </Form.Group>
       {errors?.price?.map((message, i) => {
-        return (
-          <Alert variant="warning" key={i}>
-            {message}
-          </Alert>
-        );
-      })}
-
-      <Form.Group controlId="availability">
-        <Form.Label className="d-none">Availability</Form.Label>
-        <Form.Control as="select" name="availability" onChange={handleChange}>
-          <option value="Select availability">Select availability</option>
-          {AVAILABILITY_CHOICES.map((availability, i) => (
-            <option key={i} value={availability}>
-              {availability}
-            </option>
-          ))}
-        </Form.Control>
-      </Form.Group>
-      {errors?.availability?.map((message, i) => {
         return (
           <Alert variant="warning" key={i}>
             {message}
