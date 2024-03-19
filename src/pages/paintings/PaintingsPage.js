@@ -13,7 +13,7 @@ import NoResults from "../../assets/no_results.png";
 import Asset from "../../components/Asset";
 import ThemeFilter from "../../components/ThemeFilter";
 import TechniqueFilter from "../../components/TechniqueFilter";
-import AvailabilityFilter from "../../components/AvailabilityFilter";
+// import AvailabilityFilter from "../../components/AvailabilityFilter";
 import OrientationFilter from "../../components/OrientationFilter";
 import PriceFilter from "../../components/PriceFilter";
 
@@ -24,9 +24,9 @@ function PaintingsPage({ message, filter = "" }) {
   const [selectedOrientation, setSelectedOrientation] = useState(
     sessionStorage.getItem("selectedOrientation") || ""
   );
-  const [selectedAvailability, setSelectedAvailability] = useState(
-    sessionStorage.getItem("selectedAvailability") || ""
-  );
+  // const [selectedAvailability, setSelectedAvailability] = useState(
+  //   sessionStorage.getItem("selectedAvailability") || ""
+  // );
   const [selectedTechnique, setSelectedTechnique] = useState(
     sessionStorage.getItem("selectedTechnique") || ""
   );
@@ -42,7 +42,7 @@ function PaintingsPage({ message, filter = "" }) {
   useEffect(() => {
     sessionStorage.setItem("priceOrder", priceOrder);
     sessionStorage.setItem("selectedOrientation", selectedOrientation);
-    sessionStorage.setItem("selectedAvailability", selectedAvailability);
+    // sessionStorage.setItem("selectedAvailability", selectedAvailability);
     sessionStorage.setItem("selectedTechnique", selectedTechnique);
     sessionStorage.setItem("selectedTheme", selectedTheme);
   });
@@ -57,9 +57,9 @@ function PaintingsPage({ message, filter = "" }) {
         if (selectedTechnique) {
           apiUrl += `&technique=${encodeURIComponent(selectedTechnique)}`;
         }
-        if (selectedAvailability) {
-          apiUrl += `&availability=${encodeURIComponent(selectedAvailability)}`;
-        }
+        // if (selectedAvailability) {
+        //   apiUrl += `&availability=${encodeURIComponent(selectedAvailability)}`;
+        // }
         if (selectedOrientation) {
           apiUrl += `&orientation=${encodeURIComponent(selectedOrientation)}`;
         }
@@ -84,7 +84,7 @@ function PaintingsPage({ message, filter = "" }) {
     pathname,
     selectedTheme,
     selectedTechnique,
-    selectedAvailability,
+    // selectedAvailability,
     selectedOrientation,
     priceOrder,
   ]);
@@ -105,13 +105,13 @@ function PaintingsPage({ message, filter = "" }) {
           labelFont={styles.labelFont}
         />
       </Col>
-      <Col xs={12} md={6} lg={2} className="mb-3">
+      {/* <Col xs={12} md={6} lg={2} className="mb-3">
         <AvailabilityFilter
           selectedAvailability={selectedAvailability}
           setSelectedAvailability={setSelectedAvailability}
           labelFont={styles.labelFont}
         />
-      </Col>
+      </Col> */}
       <Col xs={12} md={6} lg={2} className="mb-3">
         <OrientationFilter
           selectedOrientation={selectedOrientation}
