@@ -1,4 +1,3 @@
-import React, { useEffect, useRef, useState } from "react";
 import { Nav, Navbar, Container } from "react-bootstrap";
 import logo from "../assets/logo.png";
 import styles from "../styles/NavBar.module.css";
@@ -53,6 +52,10 @@ const NavBar = () => {
         to="/favourites"
         className={`${styles.NavLink} ${styles.NavLinkWithDivider}`}
         activeClassName={styles.Active}
+        onClick={(event) => {
+          event.preventDefault(); // Prevents the browser from automatically navigating to the link's href attribute thst is to="/"
+          resetFiltersAndNavigate("/favourites"); // Navigate with resetFilters query parameter
+        }}
       >
         faves
       </NavLink>
@@ -61,6 +64,10 @@ const NavBar = () => {
         to="/watchlist"
         className={`${styles.NavLink} ${styles.NavLinkWithDivider}`}
         activeClassName={styles.Active}
+        onClick={(event) => {
+          event.preventDefault(); // Prevents the browser from automatically navigating to the link's href attribute thst is to="/"
+          resetFiltersAndNavigate("/watchlist"); // Navigate with resetFilters query parameter
+        }}
       >
         watchlist
       </NavLink>
@@ -126,7 +133,13 @@ const NavBar = () => {
       fixed="top"
     >
       <Container>
-        <NavLink to="/">
+        <NavLink
+          to="/"
+          onClick={(event) => {
+            event.preventDefault(); // Prevents the browser from automatically navigating to the link's href attribute thst is to="/"
+            resetFiltersAndNavigate("/"); // Navigate with resetFilters query parameter
+          }}
+        >
           <Navbar.Brand>
             <img src={logo} alt="logo" height="35" />
           </Navbar.Brand>
@@ -144,8 +157,8 @@ const NavBar = () => {
             <NavLink
               exact
               to="/"
-              onClick={(e) => {
-                e.preventDefault(); // Prevents the browser from automatically navigating to the link's href attribute thst is to="/"
+              onClick={(event) => {
+                event.preventDefault(); // Prevents the browser from automatically navigating to the link's href attribute thst is to="/"
                 resetFiltersAndNavigate("/"); // Navigate with resetFilters query parameter
               }}
               className={`${styles.NavLink} ${styles.NavLinkWithDivider}`}
