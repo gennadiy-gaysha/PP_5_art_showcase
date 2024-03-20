@@ -16,6 +16,7 @@ import TechniqueFilter from "../../components/TechniqueFilter";
 import OrientationFilter from "../../components/OrientationFilter";
 import PriceFilter from "../../components/PriceFilter";
 import { useHistory } from "react-router-dom";
+import { Form } from "react-bootstrap";
 function PaintingsPage({ message, filter = "" }) {
   // useHistory and useLocation Hooks:
   //These hooks from react-router-dom are used to programmatically navigate and access the current URL's details, respectively.
@@ -44,6 +45,8 @@ function PaintingsPage({ message, filter = "" }) {
   const [hasLoaded, setHasLoaded] = useState(false);
   const { pathname } = useLocation();
 
+  const [query, setQuery] = useState("");
+
   useEffect(() => {
     sessionStorage.setItem("priceOrder", priceOrder);
     sessionStorage.setItem("selectedOrientation", selectedOrientation);
@@ -64,7 +67,7 @@ function PaintingsPage({ message, filter = "" }) {
 
     const fetchPaintings = async () => {
       try {
-        let apiUrl = `/paintings/?${filter}`;
+        let apiUrl = `/paintings/?${filter}search=${query}`;
         if (selectedTheme) {
           apiUrl += `&theme=${encodeURIComponent(selectedTheme)}`;
         }
@@ -89,7 +92,13 @@ function PaintingsPage({ message, filter = "" }) {
     };
 
     setHasLoaded(false);
-    fetchPaintings();
+
+    const timer = setTimeout(() => {
+      fetchPaintings();
+    }, 500);
+    return () => {
+      clearTimeout(timer);
+    };
   }, [
     filter,
     pathname,
@@ -99,10 +108,11 @@ function PaintingsPage({ message, filter = "" }) {
     priceOrder,
     resetFilters,
     history,
+    query,
   ]);
 
   const paintings_filters = (
-    <Row>
+    <>
       <Col xs={12} md={6} lg={2} className="mb-3">
         <ThemeFilter
           selectedTheme={selectedTheme}
@@ -131,16 +141,37 @@ function PaintingsPage({ message, filter = "" }) {
           labelFont={styles.labelFont}
         />
       </Col>
-    </Row>
+    </>
   );
 
   return (
     <Container className="mt-3">
+      <Row>
+        <Col xs={12} md={12} lg={4} className="mb-3">
+          <i className={`fas fa-search ${styles.SearchIcon}`} />
+          <Form
+            className={styles.SearchBar}
+            onSubmit={(event) => event.preventDefault()}
+          >
+            <Form.Group controlId="searchPainting">
+              <Form.Label className={styles.labelFont}>
+                Search painting:
+              </Form.Label>
+              <Form.Control
+                type="text"
+                className="mr-sm-2"
+                value={query}
+                onChange={(event) => setQuery(event.target.value)}
+              ></Form.Control>
+            </Form.Group>
+          </Form>
+        </Col>
+        {paintings_filters}
+      </Row>
       {hasLoaded ? (
         <>
           {paintings.results.length ? (
             <>
-              {paintings_filters}
               <Row>
                 {paintings.results.map((painting) => (
                   <Col sm={12} md={6} lg={4} className="mb-3" key={painting.id}>
@@ -151,7 +182,6 @@ function PaintingsPage({ message, filter = "" }) {
             </>
           ) : (
             <>
-              {paintings_filters}
               <Container
                 className={`${appStyles.Content} ${styles.customWidth}`}
               >
