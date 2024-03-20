@@ -179,6 +179,7 @@ function PaintingsPage({ message, filter = "" }) {
                 className="mr-sm-2"
                 value={query}
                 onChange={(event) => setQuery(event.target.value)}
+                placeholder="Input title or artist's name"
               ></Form.Control>
             </Form.Group>
           </Form>
@@ -189,6 +190,7 @@ function PaintingsPage({ message, filter = "" }) {
         <>
           {paintings.results.length ? (
             <InfiniteScroll
+              style={{ overflow: "hidden" }}
               children={
                 <Row>
                   {paintings.results.map((painting) => (
