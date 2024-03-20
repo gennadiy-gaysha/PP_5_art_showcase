@@ -15,8 +15,9 @@ const NavBar = () => {
   const history = useHistory();
   // Function to trigger filter reset.
   // Programmatically (useHistory hook) navigates to the desired path while appending a query parameter ?resetFilters=true to the URL to reset filters. See onClick event handler attribute in NavLinks below.
+  // After adding search bar to the PaintingsPage component we add another parameter, resetSearch=true, to indicate that the search should be reset simultaneously with filters:
   const resetFiltersAndNavigate = (path) => {
-    history.push(`${path}?resetFilters=true`);
+    history.push(`${path}?resetFilters=true&resetSearch=true`);
   };
 
   const currentUser = useCurrentUser();

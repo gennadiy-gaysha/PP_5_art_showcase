@@ -17,6 +17,7 @@ import OrientationFilter from "../../components/OrientationFilter";
 import PriceFilter from "../../components/PriceFilter";
 import { useHistory } from "react-router-dom";
 import { Form } from "react-bootstrap";
+
 function PaintingsPage({ message, filter = "" }) {
   // useHistory and useLocation Hooks:
   //These hooks from react-router-dom are used to programmatically navigate and access the current URL's details, respectively.
@@ -26,6 +27,7 @@ function PaintingsPage({ message, filter = "" }) {
   const queryParams = new URLSearchParams(search);
   // Looks for the resetFilters query parameter to determine whether the filters should be reset (resetFilters=true)
   const resetFilters = queryParams.get("resetFilters") === "true";
+  const resetSearch = queryParams.get("resetSearch") === "true";
 
   const [priceOrder, setPriceOrder] = useState(
     sessionStorage.getItem("priceOrder") || ""
@@ -47,6 +49,7 @@ function PaintingsPage({ message, filter = "" }) {
 
   const [query, setQuery] = useState("");
 
+  // Hook logic to update session storage:
   useEffect(() => {
     sessionStorage.setItem("priceOrder", priceOrder);
     sessionStorage.setItem("selectedOrientation", selectedOrientation);
@@ -63,6 +66,9 @@ function PaintingsPage({ message, filter = "" }) {
       setPriceOrder("");
       sessionStorage.clear(); // Clears session storage
       history.push(pathname); // Navigates to the current path without the query parameter, cleaning up the URL
+    }
+    if (resetSearch) {
+      setQuery("");
     }
 
     const fetchPaintings = async () => {
@@ -95,7 +101,7 @@ function PaintingsPage({ message, filter = "" }) {
 
     const timer = setTimeout(() => {
       fetchPaintings();
-    }, 500);
+    }, 300);
     return () => {
       clearTimeout(timer);
     };
@@ -109,6 +115,7 @@ function PaintingsPage({ message, filter = "" }) {
     resetFilters,
     history,
     query,
+    resetSearch,
   ]);
 
   const paintings_filters = (
