@@ -47,7 +47,10 @@ function PaintingsPage({ message, filter = "" }) {
   const [hasLoaded, setHasLoaded] = useState(false);
   const { pathname } = useLocation();
 
-  const [query, setQuery] = useState("");
+  // When initializing the query state, we check if there's a value saved in sessionStorage and use it; otherwise, default to an empty string. This ensures that when the component mounts, it retrieves any previously saved search query.
+  const [query, setQuery] = useState(
+    sessionStorage.getItem("searchQuery") || ""
+  );
 
   // Hook logic to update session storage:
   useEffect(() => {
@@ -56,6 +59,11 @@ function PaintingsPage({ message, filter = "" }) {
     sessionStorage.setItem("selectedTechnique", selectedTechnique);
     sessionStorage.setItem("selectedTheme", selectedTheme);
   });
+
+  // Save the query to sessionStorage
+  useEffect(() => {
+    sessionStorage.setItem("searchQuery", query);
+  }, [query]);
 
   useEffect(() => {
     // Resets filters if URL contains 'resetFilters', another words if the user clicks the link on NavBar
