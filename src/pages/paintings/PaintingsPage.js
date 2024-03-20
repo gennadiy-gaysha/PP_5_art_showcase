@@ -17,6 +17,8 @@ import OrientationFilter from "../../components/OrientationFilter";
 import PriceFilter from "../../components/PriceFilter";
 import { useHistory } from "react-router-dom";
 import { Form } from "react-bootstrap";
+import InfiniteScroll from "react-infinite-scroll-component";
+import { fetchMoreData } from "../../utils/utils";
 
 function PaintingsPage({ message, filter = "" }) {
   // useHistory and useLocation Hooks:
@@ -186,15 +188,29 @@ function PaintingsPage({ message, filter = "" }) {
       {hasLoaded ? (
         <>
           {paintings.results.length ? (
-            <>
-              <Row>
-                {paintings.results.map((painting) => (
-                  <Col sm={12} md={6} lg={4} className="mb-3" key={painting.id}>
-                    <Painting {...painting} setPaintings={setPaintings} />
-                  </Col>
-                ))}
-              </Row>
-            </>
+            <InfiniteScroll
+              children={
+                <Row>
+                  {paintings.results.map((painting) => (
+                    <Col
+                      sm={12}
+                      md={6}
+                      lg={4}
+                      className="mb-3"
+                      key={painting.id}
+                    >
+                      <Painting {...painting} setPaintings={setPaintings} />
+                    </Col>
+                  ))}
+                </Row>
+              }
+              dataLength={paintings.results.length}
+              loader={<Asset spinner />}
+              hasMore={!!paintings.next}
+              next={() => {
+                fetchMoreData(paintings, setPaintings);
+              }}
+            />
           ) : (
             <>
               <Container
