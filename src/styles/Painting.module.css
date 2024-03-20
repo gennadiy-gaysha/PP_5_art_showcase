@@ -32,6 +32,7 @@ h5 {
   background-color: #fffefe;
 }
 
+/* Comment out these styles in Painting.js*/
 .PaintingImageContainer img {
   /* Absolute position the image in the center */
   position: absolute;

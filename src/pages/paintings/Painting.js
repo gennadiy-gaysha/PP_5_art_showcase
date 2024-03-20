@@ -85,17 +85,17 @@ function Painting(props) {
             {owner}
           </Link>
           <div className="d-flex align-items-center">
-            <span>published: {created_at}</span>
             {is_owner && paintingPage && "..."}
           </div>
         </Media>
       </Card.Body>
       <Link to={`/paintings/${id}`}>
-        <div className={styles.PaintingImageContainer}>
-          <Card.Img src={image} alt={title} />
-        </div>
+        {/* <div className={styles.PaintingImageContaine}> */}
+        <Card.Img src={image} alt={title} />
+        {/* </div> */}
       </Link>
       <Card.Body>
+        <span>published: {created_at}</span>
         {owner && <Card.Text>{owner}</Card.Text>}
         {title && <Card.Title className="text-center">{title}</Card.Title>}
         {theme}
