@@ -91,7 +91,9 @@ function Painting(props) {
         </Media>
       </Card.Body>
       <Link to={`/paintings/${id}`}>
-        <Card.Img src={image} alt={title} />
+        <div className={styles.PaintingImageContainer}>
+          <Card.Img src={image} alt={title} />
+        </div>
       </Link>
       <Card.Body>
         {owner && <Card.Text>{owner}</Card.Text>}
