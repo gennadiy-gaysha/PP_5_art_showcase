@@ -179,7 +179,7 @@ function PaintingsPage({ message, filter = "" }) {
                 className="mr-sm-2"
                 value={query}
                 onChange={(event) => setQuery(event.target.value)}
-                placeholder="Input title or artist's name"
+                placeholder="Input title or artist's name here"
               ></Form.Control>
             </Form.Group>
           </Form>

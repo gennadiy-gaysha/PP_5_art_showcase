@@ -119,7 +119,7 @@ function Painting(props) {
                       <Tooltip>Date when the painting was added</Tooltip>
                     }
                   >
-                    <span style={{ paddingRight: "2px" }}>{created_at}</span>
+                    <span style={{ paddingRight: "10px" }}>{created_at}</span>
                   </OverlayTrigger>
                   {is_owner && paintingPage && (
                     <MoreDropdown

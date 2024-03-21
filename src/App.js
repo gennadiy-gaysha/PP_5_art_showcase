@@ -10,6 +10,7 @@ import PaintingCreateForm from "./pages/paintings/PaintingCreateForm";
 import PaintingPage from "./pages/paintings/PaintingPage";
 import PaintingsPage from "./pages/paintings/PaintingsPage";
 import { useCurrentUser } from "./contexts/CurrentUserContext";
+import PaintingEditForm from "./pages/paintings/PaintingEditForm";
 
 function App() {
   const currentUser = useCurrentUser();
@@ -59,6 +60,10 @@ function App() {
             exact
             path="/paintings/create"
             render={() => <PaintingCreateForm />}
+          />
+          <Route
+            path="/paintings/:id/edit"
+            render={() => <PaintingEditForm />}
           />
           <Route exact path="/paintings/:id" render={() => <PaintingPage />} />
           <Route render={() => <p>Page not found!</p>} />
