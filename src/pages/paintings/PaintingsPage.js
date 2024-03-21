@@ -8,7 +8,7 @@ import appStyles from "../../App.module.css";
 import styles from "../../styles/PaintingsPage.module.css";
 import { useLocation } from "react-router-dom";
 import { axiosReq } from "../../api/axiosDefaults";
-import Painting from "./Painting";
+import PaintingList from "./PaintingList";
 import NoResults from "../../assets/no_results.png";
 import Asset from "../../components/Asset";
 import ThemeFilter from "../../components/ThemeFilter";
@@ -201,7 +201,7 @@ function PaintingsPage({ message, filter = "" }) {
                       className="mb-3"
                       key={painting.id}
                     >
-                      <Painting {...painting} setPaintings={setPaintings} />
+                      <PaintingList {...painting} setPaintings={setPaintings} />
                     </Col>
                   ))}
                 </Row>
