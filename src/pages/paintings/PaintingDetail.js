@@ -13,6 +13,8 @@ import {
 import { Link } from "react-router-dom";
 import Avatar from "../../components/Avatar";
 import { axiosRes } from "../../api/axiosDefaults";
+import { MoreDropdown } from "../../components/MoreDropdown";
+import { useHistory } from "react-router-dom";
 
 function Painting(props) {
   const {
@@ -43,6 +45,20 @@ function Painting(props) {
   // checks if currently logged in user (currentUser?.username) is the
   // owner of the painting (owner):
   const is_owner = currentUser?.username === owner;
+  const history = useHistory();
+
+  const handleEdit = () => {
+    history.push(`/paintings/${id}/edit`);
+  };
+
+  const handleDelete = async () => {
+    try {
+      await axiosRes.delete(`/paintings/${id}`);
+      history.goBack();
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   const handleObserve = async () => {
     try {
@@ -97,7 +113,20 @@ function Painting(props) {
                   {owner}
                 </Link>
                 <div className="d-flex align-items-center">
-                  {is_owner && paintingPage && "..."}
+                  <OverlayTrigger
+                    placement="top"
+                    overlay={
+                      <Tooltip>Date when the painting was added</Tooltip>
+                    }
+                  >
+                    <span style={{ paddingRight: "2px" }}>{created_at}</span>
+                  </OverlayTrigger>
+                  {is_owner && paintingPage && (
+                    <MoreDropdown
+                      handleEdit={handleEdit}
+                      handleDelete={handleDelete}
+                    />
+                  )}
                 </div>
               </Media>
             </Card.Body>
@@ -113,27 +142,31 @@ function Painting(props) {
                     <Tooltip>You can't follow up your own painting!</Tooltip>
                   }
                 >
-                  <i className="fas fa-eye" />
+                  <i className={`fas fa-eye ${styles.IconSize}`} />
                 </OverlayTrigger>
               ) : observation_id ? (
                 <span onClick={handleDoNotObserve}>
-                  <i className={`fas fa-eye ${styles.Observation}`} />
+                  <i
+                    className={`fas fa-eye ${styles.Observation} ${styles.IconSize}`}
+                  />
                 </span>
               ) : currentUser ? (
                 <span onClick={handleObserve}>
-                  <i className={`fas fa-eye ${styles.ObservationOutline}`} />
+                  <i
+                    className={`fas fa-eye ${styles.ObservationOutline} ${styles.IconSize}`}
+                  />
                 </span>
               ) : (
                 <OverlayTrigger
                   placement="top"
                   overlay={<Tooltip>Log in to follow up paintings!</Tooltip>}
                 >
-                  <i className="fas fa-eye" />
+                  <i className={`fas fa-eye ${styles.IconSize}`} />
                 </OverlayTrigger>
               )}
               {observations_count}
               <Link to={`/paintings/${id}`}>
-                <i className="far fa-comments"></i>
+                <i className={`far fa-comments ${styles.IconSize}`}></i>
               </Link>
               {comments_count}
             </div>
@@ -144,7 +177,6 @@ function Painting(props) {
         <Col md={4}>
           <Card>
             <Card.Body>
-              <span>published: {created_at}</span>
               {owner && <Card.Text>{owner}</Card.Text>}
               {title && <Card.Title>{title}</Card.Title>}
               {theme}

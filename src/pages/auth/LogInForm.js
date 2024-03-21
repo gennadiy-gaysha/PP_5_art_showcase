@@ -60,7 +60,7 @@ function LogInForm() {
     <Row className={styles.Row}>
       <Col className="my-auto p-0 p-md-2" md={6}>
         <Container className={`${appStyles.Content} p-4 `}>
-          <h1 className={styles.Header}>logging in</h1>
+          <h1 className={styles.Header}>log in</h1>
 
           <Form onSubmit={handleSubmit}>
             <Form.Group controlId="username">
