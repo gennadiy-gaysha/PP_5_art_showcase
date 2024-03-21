@@ -1,7 +1,15 @@
 import React from "react";
-import styles from "../../styles/Painting.module.css";
+import styles from "../../styles/PaintingDetail.module.css";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
-import { Card, Media, OverlayTrigger, Tooltip } from "react-bootstrap";
+import {
+  Card,
+  Col,
+  Container,
+  Media,
+  OverlayTrigger,
+  Row,
+  Tooltip,
+} from "react-bootstrap";
 import { Link } from "react-router-dom";
 import Avatar from "../../components/Avatar";
 import { axiosRes } from "../../api/axiosDefaults";
@@ -77,67 +85,79 @@ function Painting(props) {
   };
 
   return (
-    <Card className={styles.Painting}>
-      <Card.Body>
-        <Media className="align-items-center justify-content-between">
-          <Link to={`/profiles/${profile_id}`}>
-            <Avatar src={profile_image} hight={55} />
-            {owner}
-          </Link>
-          <div className="d-flex align-items-center">
-            {is_owner && paintingPage && "..."}
-          </div>
-        </Media>
-      </Card.Body>
-      <Link to={`/paintings/${id}`}>
-        {/* <div className={styles.PaintingImageContaine}> */}
-        <Card.Img src={image} alt={title} />
-        {/* </div> */}
-      </Link>
-      <Card.Body>
-        <span>published: {created_at}</span>
-        {owner && <Card.Text>{owner}</Card.Text>}
-        {title && <Card.Title className="text-center">{title}</Card.Title>}
-        {theme}
-        <br />
-        {technique}
-        <br />
-        {orientation} ({width}cm x {height}cm)
-        <br />£{price}
-        <div className={styles.PaintingBar}>
-          {is_owner ? (
-            <OverlayTrigger
-              placement="top"
-              overlay={
-                <Tooltip>You can't follow up your own painting!</Tooltip>
-              }
-            >
-              <i className="fas fa-eye" />
-            </OverlayTrigger>
-          ) : observation_id ? (
-            <span onClick={handleDoNotObserve}>
-              <i className={`fas fa-eye ${styles.Observation}`} />
-            </span>
-          ) : currentUser ? (
-            <span onClick={handleObserve}>
-              <i className={`fas fa-eye ${styles.ObservationOutline}`} />
-            </span>
-          ) : (
-            <OverlayTrigger
-              placement="top"
-              overlay={<Tooltip>Log in to follow up paintings!</Tooltip>}
-            >
-              <i className="fas fa-eye" />
-            </OverlayTrigger>
-          )}
-          {observations_count}
-          <Link to={`/paintings/${id}`}>
-            <i className="far fa-comments"></i>
-          </Link>
-          {comments_count}
-        </div>
-      </Card.Body>
-    </Card>
+    <Container>
+      <Row>
+        {/* Left column for the image */}
+        <Col md={8}>
+          <Card className={styles.Painting}>
+            <Card.Body>
+              <Media className="align-items-center justify-content-between">
+                <Link to={`/profiles/${profile_id}`}>
+                  <Avatar src={profile_image} hight={55} />
+                  {owner}
+                </Link>
+                <div className="d-flex align-items-center">
+                  {is_owner && paintingPage && "..."}
+                </div>
+              </Media>
+            </Card.Body>
+
+            {/* <div className={styles.PaintingImageContainer}> */}
+            <Card.Img src={image} alt={title} />
+            {/* </div> */}
+            <div className={styles.PaintingBar}>
+              {is_owner ? (
+                <OverlayTrigger
+                  placement="top"
+                  overlay={
+                    <Tooltip>You can't follow up your own painting!</Tooltip>
+                  }
+                >
+                  <i className="fas fa-eye" />
+                </OverlayTrigger>
+              ) : observation_id ? (
+                <span onClick={handleDoNotObserve}>
+                  <i className={`fas fa-eye ${styles.Observation}`} />
+                </span>
+              ) : currentUser ? (
+                <span onClick={handleObserve}>
+                  <i className={`fas fa-eye ${styles.ObservationOutline}`} />
+                </span>
+              ) : (
+                <OverlayTrigger
+                  placement="top"
+                  overlay={<Tooltip>Log in to follow up paintings!</Tooltip>}
+                >
+                  <i className="fas fa-eye" />
+                </OverlayTrigger>
+              )}
+              {observations_count}
+              <Link to={`/paintings/${id}`}>
+                <i className="far fa-comments"></i>
+              </Link>
+              {comments_count}
+            </div>
+          </Card>
+        </Col>
+
+        {/* Right column for the painting details */}
+        <Col md={4}>
+          <Card>
+            <Card.Body>
+              <span>published: {created_at}</span>
+              {owner && <Card.Text>{owner}</Card.Text>}
+              {title && <Card.Title>{title}</Card.Title>}
+              {theme}
+              <br />
+              {technique}
+              <br />
+              {orientation} ({width}cm x {height}cm)
+              <br />£{price}
+            </Card.Body>
+          </Card>
+        </Col>
+      </Row>
+    </Container>
   );
 }
 

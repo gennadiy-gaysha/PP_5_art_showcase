@@ -1,0 +1,53 @@
+.Painting {
+  background-color: #ffffff;
+  border: 1px solid #dadadf;
+  border-radius: 2px;
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+.Painting figure,
+h5 {
+  margin: 0 0;
+}
+
+.PaintingBar {
+  padding: 25px;
+}
+
+.Observation {
+  color: #007bff;
+}
+
+.Observation:hover {
+  color: #2142b2;
+}
+
+.ObservationOutline:hover {
+  color: #007bff;
+}
+
+.PaintingImageContainer {
+  /* Set a fixed square size */
+  width: 100%;
+  height: 0;
+  padding-top: 100%; /* same as width to maintain square */
+  position: relative;
+  background-color: #fffefe;
+}
+
+/* Comment out these styles in Painting.js*/
+.PaintingImageContainer img {
+  /* Absolute position the image in the center */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  /* Set max dimensions */
+  max-width: 100%;
+  max-height: 100%;
+
+  /* Preserve aspect ratio */
+  object-fit: contain; /* This will add the coloured fields as needed */
+}

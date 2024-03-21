@@ -33,8 +33,8 @@ function PaintingPage() {
   }, [id]);
 
   return (
-    <Row className="h-100">
-      <Col className="py-2 p-0 p-lg-2" lg={8}>
+    <>
+      <Row className="h-100">
         <p>Description for mobile</p>
         {/* {...painting.results[0]} "unpacks" the properties of the first painting object in the array and passes them as individual props to the Painting component */}
         <PaintingDetail
@@ -42,12 +42,15 @@ function PaintingPage() {
           setPaintings={setPainting}
           paintingPage
         />
-        <Container className={appStyles.Content}>Comments</Container>
-      </Col>
-      <Col lg={4} className="d-none d-lg-block p-0 p-lg-2">
-        Description for desktop
-      </Col>
-    </Row>
+        <Col className="py-2 p-0 p-lg-2" lg={8}>
+          <Container className={appStyles.Content}>Comments</Container>
+        </Col>
+
+        <Col lg={4} className="d-none d-lg-block p-0 p-lg-2">
+          Description for desktop
+        </Col>
+      </Row>
+    </>
   );
 }
 
