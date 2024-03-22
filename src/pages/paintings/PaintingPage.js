@@ -11,6 +11,7 @@ import PaintingDetail from "./PaintingDetail";
 
 import CommentCreateForm from "../comments/CommentCreateForm";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
+import Comment from "../comments/Comment";
 
 function PaintingPage() {
   const { id } = useParams();
@@ -64,9 +65,7 @@ function PaintingPage() {
             ) : null}
             {comments.results.length ? (
               comments.results.map((comment) => (
-                <p key={comment.id}>
-                  {comment.owner}:{comment.content}
-                </p>
+                <Comment key={comment.id} {...comment} />
               ))
             ) : currentUser ? (
               <span>No comments yet. Be the first to comment</span>
