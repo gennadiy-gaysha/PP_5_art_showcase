@@ -90,9 +90,9 @@ function Painting(props) {
         </Media>
       </Card.Body>
       <Link to={`/paintings/${id}`}>
-        {/* <div className={styles.PaintingImageContaine}> */}
-        <Card.Img src={image} alt={title} />
-        {/* </div> */}
+        <div className={styles.PaintingImageContainer}>
+          <Card.Img src={image} alt={title} />
+        </div>
       </Link>
       <Card.Body>
         <span>published: {created_at}</span>

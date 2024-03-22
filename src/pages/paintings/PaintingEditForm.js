@@ -188,12 +188,19 @@ function PaintingEditForm() {
 
       <Form.Group controlId="theme">
         <Form.Label className="d-none">Theme</Form.Label>
-        <Form.Control as="select" name="theme" onChange={handleChange}>
-          <option value="Select theme">Select theme</option>
+        <Form.Control
+          as="select"
+          name="theme"
+          value={theme}
+          onChange={handleChange}
+        >
+          <option disabled value="Select theme">
+            Select theme
+          </option>
 
-          {THEME_CHOICES.map((theme, i) => (
-            <option key={i} value={theme}>
-              {theme}
+          {THEME_CHOICES.map((themeOption, i) => (
+            <option key={i} value={themeOption}>
+              {themeOption}
             </option>
           ))}
         </Form.Control>
@@ -208,11 +215,18 @@ function PaintingEditForm() {
 
       <Form.Group controlId="technique">
         <Form.Label className="d-none">Technique</Form.Label>
-        <Form.Control as="select" name="technique" onChange={handleChange}>
-          <option value="Select technique">Select technique</option>
-          {TECHNIQUE_CHOICES.map((tech, i) => (
-            <option key={i} value={tech}>
-              {tech}
+        <Form.Control
+          as="select"
+          name="technique"
+          value={technique}
+          onChange={handleChange}
+        >
+          <option disabled value="Select technique">
+            Select technique
+          </option>
+          {TECHNIQUE_CHOICES.map((techOption, i) => (
+            <option key={i} value={techOption}>
+              {techOption}
             </option>
           ))}
         </Form.Control>
