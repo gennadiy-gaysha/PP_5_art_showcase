@@ -18,6 +18,10 @@ import {
   useSetProfileData,
 } from "../../contexts/ProfileDataContext";
 import { Button, Image } from "react-bootstrap";
+import InfiniteScroll from "react-infinite-scroll-component";
+import Painting from "../paintings/PaintingList";
+import { fetchMoreData } from "../../utils/utils";
+import NoResults from "../../assets/no_results.png";
 
 function ProfilePage() {
   const [hasLoaded, setHasLoaded] = useState(false);
@@ -26,18 +30,22 @@ function ProfilePage() {
   const setProfileData = useSetProfileData();
   const { pageProfile } = useProfileData();
   const [profile] = pageProfile.results;
+  const [profilePaintings, setProfilePaintings] = useState({ results: [] });
   const is_owner = currentUser?.username === profile?.owner;
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const [{ data: pageProfile }] = await Promise.all([
-          axiosReq.get(`/profiles/${id}/`),
-        ]);
+        const [{ data: pageProfile }, { data: profilePaintings }] =
+          await Promise.all([
+            axiosReq.get(`/profiles/${id}/`),
+            axiosReq.get(`/paintings/?owner__profile=${id}`),
+          ]);
         setProfileData((prevState) => ({
           ...prevState,
           pageProfile: { results: [pageProfile] },
         }));
+        setProfilePaintings(profilePaintings);
         setHasLoaded(true);
       } catch (err) {
         console.log(err);
@@ -50,7 +58,7 @@ function ProfilePage() {
     <>
       <Row noGutters className="px-3 text-left">
         <Col lg={2} className="text-lg-center">
-          <Col md={12} className="text-center">
+          <Col md={12} className="text-center mb-1">
             <Image
               className={styles.ProfileImage}
               roundedCircle
@@ -113,6 +121,33 @@ function ProfilePage() {
   const mainProfilePaintings = (
     <>
       <h4 className="text-left p-4 ml-4">AVAILABLE ARTWORKS:</h4>
+      {profilePaintings.results.length ? (
+        <InfiniteScroll
+          style={{ overflow: "hidden" }}
+          children={
+            <Row>
+              {profilePaintings.results.map((painting) => (
+                <Col sm={12} md={6} lg={4} className="mb-3" key={painting.id}>
+                  <Painting
+                    key={painting.id}
+                    {...painting}
+                    setPosts={setProfilePaintings}
+                  />
+                </Col>
+              ))}
+            </Row>
+          }
+          dataLength={profilePaintings.results.length}
+          loader={<Asset spinner />}
+          hasMore={!!profilePaintings.next}
+          next={() => fetchMoreData(profilePaintings, setProfilePaintings)}
+        />
+      ) : (
+        <Asset
+          src={NoResults}
+          message={`No results found, ${profile?.owner} hasn't displayed paintings yet.`}
+        />
+      )}
     </>
   );
 
