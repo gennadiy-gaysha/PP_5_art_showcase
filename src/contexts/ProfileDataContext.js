@@ -1,4 +1,6 @@
 import { createContext, useContext, useState } from "react";
+import { axiosRes } from "../api/axiosDefaults";
+import { useCurrentUser } from "./CurrentUserContext";
 
 // Create 2 context objects. Allow components within application to
 // either consume the profile data or update it, depending on their needs.
@@ -21,9 +23,21 @@ export const ProfileDataProvider = ({ children }) => {
     pageProfile: { results: [] },
   });
 
+  const handleFollow = async (clickedProfile) => {
+    try {
+      console.log(clickedProfile);
+      const { data } = await axiosRes.post("/followers/", {
+        followed: clickedProfile.id,
+      });
+      console.log(data);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   return (
     <ProfileDataContext.Provider value={profileData}>
-      <SetProfileDataContext.Provider value={setProfileData}>
+      <SetProfileDataContext.Provider value={{ setProfileData, handleFollow }}>
         {children}
       </SetProfileDataContext.Provider>
     </ProfileDataContext.Provider>

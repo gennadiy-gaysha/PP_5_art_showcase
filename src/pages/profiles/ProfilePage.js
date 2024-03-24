@@ -27,7 +27,7 @@ function ProfilePage() {
   const [hasLoaded, setHasLoaded] = useState(false);
   const currentUser = useCurrentUser();
   const { id } = useParams();
-  const setProfileData = useSetProfileData();
+  const { setProfileData, handleFollow } = useSetProfileData();
   const { pageProfile } = useProfileData();
   const [profile] = pageProfile.results;
   const [profilePaintings, setProfilePaintings] = useState({ results: [] });
@@ -77,14 +77,17 @@ function ProfilePage() {
                   Unfollow
                 </Button>
               ) : (
-                <Button className={styles.Button} onClick={() => {}}>
+                <Button
+                  className={styles.Button}
+                  onClick={() => handleFollow(profile)}
+                >
                   to Faves
                 </Button>
               ))}
           </Col>
         </Col>
         <Col lg={10}>
-          <h3 className="ml-3">{profile?.name}</h3>
+          <h3 className="ml-3">{profile?.owner}</h3>
           {profile?.bio && <Col className="p-3">{profile.bio}</Col>}
           <Row className="justify-content-center no-gutters text-center">
             <Col lg={5} className="text-left p-3">
