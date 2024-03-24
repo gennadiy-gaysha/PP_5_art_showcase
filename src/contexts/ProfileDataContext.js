@@ -1,6 +1,5 @@
 import { createContext, useContext, useState } from "react";
 import { axiosRes } from "../api/axiosDefaults";
-import { useCurrentUser } from "./CurrentUserContext";
 
 // Create 2 context objects. Allow components within application to
 // either consume the profile data or update it, depending on their needs.
@@ -19,17 +18,44 @@ export const useSetProfileData = () => useContext(SetProfileDataContext);
 // Export and define a ProfileDataProvider function component with children as props:
 export const ProfileDataProvider = ({ children }) => {
   const [profileData, setProfileData] = useState({
-    // we will use the pageProfile later
     pageProfile: { results: [] },
   });
 
   const handleFollow = async (clickedProfile) => {
     try {
-      console.log(clickedProfile);
       const { data } = await axiosRes.post("/followers/", {
         followed: clickedProfile.id,
       });
-      console.log(data);
+
+      setProfileData((prevState) => {
+        // Map over the profiles to find the one that was followed
+        const updatedResults = prevState.pageProfile.results.map((profile) => {
+          if (profile.id === clickedProfile.id) {
+            // Update the followed profile's followers count and set its following_id
+            return {
+              ...profile,
+              followers_count: profile.followers_count + 1,
+              following_id: data.id,
+            };
+          } else if (profile.is_owner) {
+            // Update the current user's following count
+            return {
+              ...profile,
+              following_count: profile.following_count + 1,
+            };
+          }
+          // Return all other profiles unchanged
+          return profile;
+        });
+
+        return {
+          ...prevState,
+          pageProfile: {
+            ...prevState.pageProfile,
+            results: updatedResults,
+          },
+        };
+      });
     } catch (err) {
       console.log(err);
     }
