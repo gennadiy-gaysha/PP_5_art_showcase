@@ -88,3 +88,9 @@ figure {
 *::-webkit-scrollbar-thumb:hover {
   background: #555;
 }
+
+:global(.react-datepicker-wrapper),
+:global(.react-datepicker__input-container),
+:global(.react-datepicker__input-container input) {
+  width: 100%;
+}

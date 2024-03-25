@@ -44,7 +44,6 @@ const ProfileEditForm = () => {
     bio,
     home_country,
     gender = "Select gender",
-    birthdate,
     image,
   } = profileData;
   gender = GENDER_CHOICES.includes(gender) ? gender : "Select gender";

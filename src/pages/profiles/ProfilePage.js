@@ -99,7 +99,11 @@ function ProfilePage() {
                 <p>
                   DATE OF BIRTH:{" "}
                   {profile?.birthdate
-                    ? new Date(profile?.birthdate).toLocaleDateString()
+                    ? new Intl.DateTimeFormat("en-GB", {
+                        day: "2-digit",
+                        month: "short",
+                        year: "numeric",
+                      }).format(new Date(profile.birthdate))
                     : "N/A"}
                 </p>
               </div>
