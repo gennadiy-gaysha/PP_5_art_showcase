@@ -164,10 +164,16 @@ function ProfilePage() {
   return (
     <Row>
       <Col className="py-2 p-0 p-lg-2" lg={12}>
-        <Container className={appStyles.Content}>
-          {hasLoaded ? <>{mainProfile}</> : <Asset spinner />}
+        <Container>
+          {hasLoaded ? (
+            <>
+              <div className={appStyles.Content}>{mainProfile}</div>
+              {mainProfilePaintings}
+            </>
+          ) : (
+            <Asset spinner />
+          )}
         </Container>
-        {mainProfilePaintings}
       </Col>
     </Row>
   );
