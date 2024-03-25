@@ -89,18 +89,19 @@ function ProfilePage() {
           </Col>
         </Col>
         <Col lg={10}>
-          <h3 className="ml-3">{profile?.owner}</h3>
+          <h3 className="ml-3">{profile?.name || profile?.owner}</h3>
           {profile?.bio && <Col className="p-3">{profile.bio}</Col>}
           <Row className="justify-content-center no-gutters text-center">
             <Col lg={5} className="text-left p-3">
               <div className={styles.profileBody}>
-                <p>HOME COUNTRY: {profile?.home_country}</p>
-                <p>GENDER: {profile?.gender}</p>
+                <p>HOME COUNTRY: {profile?.home_country || "N/A"}</p>
+                <p>GENDER: {profile?.gender || "N/A"}</p>
                 <p>
                   DATE OF BIRTH:{" "}
-                  {new Date(profile?.birthdate).toLocaleDateString()}
+                  {profile?.birthdate
+                    ? new Date(profile?.birthdate).toLocaleDateString()
+                    : "N/A"}
                 </p>
-                <p>E-MAIL: {profile?.email}</p>
               </div>
             </Col>
             <Col lg={2} md={4} xs={4} className="my-2">

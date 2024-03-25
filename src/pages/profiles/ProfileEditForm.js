@@ -25,12 +25,24 @@ const ProfileEditForm = () => {
   const history = useHistory();
   const imageFile = useRef();
 
+  const GENDER_CHOICES = ["Male", "Female", "Other"];
+
   const [profileData, setProfileData] = useState({
     name: "",
-    content: "",
+    bio: "",
+    home_country: "",
+    gender: "Select gender",
     image: "",
   });
-  const { name, content, image } = profileData;
+
+  let {
+    name,
+    bio,
+    home_country,
+    gender = "Select gender",
+    image,
+  } = profileData;
+  gender = GENDER_CHOICES.includes(gender) ? gender : "Select gender";
 
   const [errors, setErrors] = useState({});
 
@@ -39,8 +51,8 @@ const ProfileEditForm = () => {
       if (currentUser?.profile_id?.toString() === id) {
         try {
           const { data } = await axiosReq.get(`/profiles/${id}/`);
-          const { name, content, image } = data;
-          setProfileData({ name, content, image });
+          const { name, bio, home_country, gender, image } = data;
+          setProfileData({ name, bio, home_country, gender, image });
         } catch (err) {
           console.log(err);
           history.push("/");
@@ -64,7 +76,9 @@ const ProfileEditForm = () => {
     event.preventDefault();
     const formData = new FormData();
     formData.append("name", name);
-    formData.append("content", content);
+    formData.append("bio", bio);
+    formData.append("home_country", home_country);
+    formData.append("gender", gender);
 
     if (imageFile?.current?.files[0]) {
       formData.append("image", imageFile?.current?.files[0]);
@@ -86,21 +100,81 @@ const ProfileEditForm = () => {
   const textFields = (
     <>
       <Form.Group>
-        <Form.Label>Bio</Form.Label>
+        <Form.Label className="d-none">Bio</Form.Label>
         <Form.Control
           as="textarea"
-          value={content}
+          value={bio}
           onChange={handleChange}
-          name="content"
+          name="bio"
+          placeholder="Bio"
           rows={7}
         />
       </Form.Group>
-
-      {errors?.content?.map((message, idx) => (
-        <Alert variant="warning" key={idx}>
+      {errors?.bio?.map((message, i) => (
+        <Alert variant="warning" key={i}>
           {message}
         </Alert>
       ))}
+
+      <Form.Group>
+        <Form.Label className="d-none">Name</Form.Label>
+        <Form.Control
+          type="text"
+          value={name}
+          onChange={handleChange}
+          name="name"
+          placeholder="Full name"
+        />
+      </Form.Group>
+      {errors?.name?.map((message, i) => (
+        <Alert variant="warning" key={i}>
+          {message}
+        </Alert>
+      ))}
+
+      <Form.Group>
+        <Form.Label className="d-none">Home Country</Form.Label>
+        <Form.Control
+          type="text"
+          value={home_country}
+          onChange={handleChange}
+          name="home_country"
+          placeholder="Home country"
+        />
+      </Form.Group>
+      {errors?.home_country?.map((message, i) => (
+        <Alert variant="warning" key={i}>
+          {message}
+        </Alert>
+      ))}
+
+      <Form.Group controlId="gender">
+        <Form.Label className="d-none">Gender</Form.Label>
+        <Form.Control
+          as="select"
+          name="gender"
+          value={gender}
+          onChange={handleChange}
+        >
+          <option disabled value="Select gender">
+            Select gender
+          </option>
+
+          {GENDER_CHOICES.map((genderOption, i) => (
+            <option key={i} value={genderOption}>
+              {genderOption}
+            </option>
+          ))}
+        </Form.Control>
+      </Form.Group>
+      {errors?.gender?.map((message, i) => {
+        return (
+          <Alert variant="warning" key={i}>
+            {message}
+          </Alert>
+        );
+      })}
+
       <Button
         className={`${btnStyles.Button} ${btnStyles.Blue}`}
         onClick={() => history.goBack()}
