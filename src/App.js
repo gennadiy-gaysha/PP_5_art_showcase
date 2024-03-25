@@ -12,6 +12,8 @@ import PaintingsPage from "./pages/paintings/PaintingsPage";
 import { useCurrentUser } from "./contexts/CurrentUserContext";
 import PaintingEditForm from "./pages/paintings/PaintingEditForm";
 import ProfilePage from "./pages/profiles/ProfilePage";
+import UserPasswordForm from "./pages/profiles/UserPasswordForm";
+import ProfileEditForm from "./pages/profiles/ProfileEditForm";
 
 function App() {
   const currentUser = useCurrentUser();
@@ -68,6 +70,16 @@ function App() {
           />
           <Route exact path="/paintings/:id" render={() => <PaintingPage />} />
           <Route exact path="/profiles/:id" render={() => <ProfilePage />} />
+          <Route
+            exact
+            path="/profiles/:id/edit/password"
+            render={() => <UserPasswordForm />}
+          />
+          <Route
+            exact
+            path="/profiles/:id/edit"
+            render={() => <ProfileEditForm />}
+          />
           <Route render={() => <p>Page not found!</p>} />
         </Switch>
       </Container>
