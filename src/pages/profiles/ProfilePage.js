@@ -27,7 +27,7 @@ function ProfilePage() {
   const [hasLoaded, setHasLoaded] = useState(false);
   const currentUser = useCurrentUser();
   const { id } = useParams();
-  const { setProfileData, handleFollow } = useSetProfileData();
+  const { setProfileData, handleFollow, handleUnfollow } = useSetProfileData();
   const { pageProfile } = useProfileData();
   const [profile] = pageProfile.results;
   const [profilePaintings, setProfilePaintings] = useState({ results: [] });
@@ -70,12 +70,15 @@ function ProfilePage() {
             {currentUser &&
               !is_owner &&
               (profile?.following_id ? (
-                <Button className={styles.Button} onClick={() => {}}>
+                <Button
+                  className={styles.ButtonUnfollow}
+                  onClick={() => handleUnfollow(profile)}
+                >
                   Unfollow
                 </Button>
               ) : (
                 <Button
-                  className={styles.Button}
+                  className={styles.ButtonFollow}
                   onClick={() => handleFollow(profile)}
                 >
                   to Faves

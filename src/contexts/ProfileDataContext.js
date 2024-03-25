@@ -61,9 +61,52 @@ export const ProfileDataProvider = ({ children }) => {
     }
   };
 
+  const handleUnfollow = async (clickedProfile) => {
+    try {
+      const { data } = await axiosRes.delete(
+        `/followers/${clickedProfile.following_id}`
+      );
+
+      setProfileData((prevState) => {
+        // Map over the profiles to update the one that was unfollowed
+        const updatedResults = prevState.pageProfile.results.map((profile) => {
+          if (profile.id === clickedProfile.id) {
+            // Decrease the followed profile's followers count and reset its following_id
+            return {
+              ...profile,
+              followers_count: profile.followers_count - 1,
+              // Remove the following_id since the user has unfollowed
+              following_id: null,
+            };
+          } else if (profile.is_owner) {
+            // Decrease the current user's following count
+            return {
+              ...profile,
+              following_count: profile.following_count - 1,
+            };
+          }
+          // Return all other profiles unchanged
+          return profile;
+        });
+
+        return {
+          ...prevState,
+          pageProfile: {
+            ...prevState.pageProfile,
+            results: updatedResults,
+          },
+        };
+      });
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   return (
     <ProfileDataContext.Provider value={profileData}>
-      <SetProfileDataContext.Provider value={{ setProfileData, handleFollow }}>
+      <SetProfileDataContext.Provider
+        value={{ setProfileData, handleFollow, handleUnfollow }}
+      >
         {children}
       </SetProfileDataContext.Provider>
     </ProfileDataContext.Provider>
