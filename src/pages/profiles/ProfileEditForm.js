@@ -18,6 +18,9 @@ import {
 import btnStyles from "../../styles/Button.module.css";
 import appStyles from "../../App.module.css";
 
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+
 const ProfileEditForm = () => {
   const currentUser = useCurrentUser();
   const setCurrentUser = useSetCurrentUser();
@@ -32,6 +35,7 @@ const ProfileEditForm = () => {
     bio: "",
     home_country: "",
     gender: "Select gender",
+    birthdate: null,
     image: "",
   });
 
@@ -40,6 +44,7 @@ const ProfileEditForm = () => {
     bio,
     home_country,
     gender = "Select gender",
+    birthdate,
     image,
   } = profileData;
   gender = GENDER_CHOICES.includes(gender) ? gender : "Select gender";
@@ -51,8 +56,8 @@ const ProfileEditForm = () => {
       if (currentUser?.profile_id?.toString() === id) {
         try {
           const { data } = await axiosReq.get(`/profiles/${id}/`);
-          const { name, bio, home_country, gender, image } = data;
-          setProfileData({ name, bio, home_country, gender, image });
+          const { name, bio, home_country, gender, birthdate, image } = data;
+          setProfileData({ name, bio, home_country, gender, birthdate, image });
         } catch (err) {
           console.log(err);
           history.push("/");
@@ -79,6 +84,10 @@ const ProfileEditForm = () => {
     formData.append("bio", bio);
     formData.append("home_country", home_country);
     formData.append("gender", gender);
+    formData.append(
+      "birthdate",
+      profileData.birthdate.toISOString().slice(0, 10)
+    );
 
     if (imageFile?.current?.files[0]) {
       formData.append("image", imageFile?.current?.files[0]);
@@ -174,6 +183,19 @@ const ProfileEditForm = () => {
           </Alert>
         );
       })}
+
+      <Form.Group>
+        <Form.Label className="d-none">Birthdate</Form.Label>
+        <DatePicker
+          selected={profileData.birthdate}
+          onChange={(date) =>
+            setProfileData({ ...profileData, birthdate: date })
+          }
+          dateFormat="dd MMM yyyy"
+          className="form-control"
+          placeholderText="Date of birth"
+        />
+      </Form.Group>
 
       <Button
         className={`${btnStyles.Button} ${btnStyles.Blue}`}
