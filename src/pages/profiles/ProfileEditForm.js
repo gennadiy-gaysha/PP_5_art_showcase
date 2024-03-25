@@ -56,7 +56,14 @@ const ProfileEditForm = () => {
         try {
           const { data } = await axiosReq.get(`/profiles/${id}/`);
           const { name, bio, home_country, gender, birthdate, image } = data;
-          setProfileData({ name, bio, home_country, gender, birthdate, image });
+          setProfileData({
+            name,
+            bio,
+            home_country,
+            gender,
+            birthdate: birthdate ? new Date(birthdate) : null,
+            image,
+          });
         } catch (err) {
           console.log(err);
           history.push("/");
