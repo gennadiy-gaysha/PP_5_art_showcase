@@ -89,7 +89,7 @@ function ProfilePage() {
           </Col>
         </Col>
         <Col lg={10}>
-          <h3 className="ml-3">{profile?.name || profile?.owner}</h3>
+          <h3 className="ml-3 ">{profile?.name || profile?.owner}</h3>
           {profile?.bio && <Col className="p-3">{profile.bio}</Col>}
           <Row className="justify-content-center no-gutters text-center">
             <Col lg={5} className="text-left p-3">

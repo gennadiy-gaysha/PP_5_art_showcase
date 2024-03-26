@@ -177,7 +177,7 @@ function Painting(props) {
         <Col md={4}>
           <Card>
             <Card.Body>
-              <h3 className="mb-5">
+              <h3 className="mb-5 mt-2">
                 {owner && <Card.Text>{artistName || owner}</Card.Text>}
               </h3>
               {title && (

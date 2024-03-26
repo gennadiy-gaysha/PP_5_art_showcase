@@ -112,8 +112,24 @@ const ProfileEditForm = () => {
       }
     }
 
-    // Set errors (if any) and prevent form submission
+    // trim() removes any leading and trailing whitespace end prevents the User from entering a series of spaces
+    // Validation for bio:
+    if (!bio.trim()) {
+      newErrors.bio = ["Bio is required."];
+    }
+
+    // Validation for name
+    if (!name.trim()) {
+      newErrors.name = ["Full name is required."];
+    }
+
+    // Validation for home_country
+    if (!home_country.trim()) {
+      newErrors.home_country = ["Home country is required."];
+    }
+
     if (Object.keys(newErrors).length > 0) {
+      // Set errors (if any) and prevent form submission
       setErrors(newErrors);
       return;
     }
