@@ -24,7 +24,7 @@ function Painting(props) {
     profile_image,
     created_at,
     updated_at,
-    artist_name,
+    artistName,
     title,
     creation_year,
     technique,
@@ -177,14 +177,26 @@ function Painting(props) {
         <Col md={4}>
           <Card>
             <Card.Body>
-              {owner && <Card.Text>{owner}</Card.Text>}
-              {title && <Card.Title>{title}</Card.Title>}
-              {theme}
-              <br />
-              {technique}
-              <br />
-              {orientation} ({width}cm x {height}cm)
-              <br />£{price}
+              <h3 className="mb-5">
+                {owner && <Card.Text>{artistName || owner}</Card.Text>}
+              </h3>
+              {title && (
+                <Card.Title className="mb-2">
+                  <em>
+                    {title} ({creation_year})
+                  </em>
+                </Card.Title>
+              )}
+              <p className="mb-5">{technique}</p>
+              {/* <p>{theme}</p> */}
+              {/* {orientation}{" "} */}
+              <p className="mb-1">Painting</p>
+              <p className="mb-5">
+                {width} x {height} cm
+              </p>
+              <p>
+                Suggested price: <strong>£{price}</strong>
+              </p>
             </Card.Body>
           </Card>
         </Col>
