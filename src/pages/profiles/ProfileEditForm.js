@@ -85,6 +85,39 @@ const ProfileEditForm = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    event.preventDefault();
+
+    // Initialize an errors object
+    let newErrors = {};
+
+    // Check if birthdate is null (empty)
+    if (!profileData.birthdate) {
+      newErrors = { ...newErrors, birthdate: ["Birthdate is required."] };
+    } else {
+      const selectedDate = new Date(profileData.birthdate);
+      const isDateValid = selectedDate instanceof Date && !isNaN(selectedDate);
+
+      // Ensure the birthdate is a valid date
+      if (!isDateValid) {
+        newErrors = { ...newErrors, birthdate: ["Birthdate is not valid."] };
+      } else {
+        // Ensure the birthdate is not in the future
+        const today = new Date();
+        if (selectedDate > today) {
+          newErrors = {
+            ...newErrors,
+            birthdate: ["Birthdate cannot be in the future."],
+          };
+        }
+      }
+    }
+
+    // Set errors (if any) and prevent form submission
+    if (Object.keys(newErrors).length > 0) {
+      setErrors(newErrors);
+      return;
+    }
+
     const formData = new FormData();
     formData.append("name", name);
     formData.append("bio", bio);
@@ -202,6 +235,11 @@ const ProfileEditForm = () => {
           placeholderText="Date of birth"
         />
       </Form.Group>
+      {errors?.birthdate?.map((message, i) => (
+        <Alert variant="warning" key={i}>
+          {message}
+        </Alert>
+      ))}
 
       <Button
         className={`${btnStyles.Button} ${btnStyles.Blue}`}
