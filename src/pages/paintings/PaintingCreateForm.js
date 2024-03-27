@@ -16,7 +16,11 @@ import { Alert, Image } from "react-bootstrap";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import { axiosReq } from "../../api/axiosDefaults";
 
+import { useCurrentUserProfile } from "../../hooks/useCurrentUserProfile";
+
 function PaintingCreateForm() {
+  const { profile, profileCompleted } = useCurrentUserProfile();
+
   const [paintingData, setPaintingData] = useState({
     title: "",
     creation_year: "",
@@ -259,58 +263,70 @@ function PaintingCreateForm() {
   );
 
   return (
-    <Form onSubmit={handleSubmit}>
-      <Row>
-        <Col className="py-2 p-0 p-md-2" md={7} lg={8}>
-          <Container
-            className={`${appStyles.Content} ${styles.Container} d-flex flex-column justify-content-center`}
-          >
-            <Form.Group className="text-center">
-              {image ? (
-                <>
-                  <figure>
-                    <Image className={appStyles.Image} src={image} rounded />
-                  </figure>
-                  <div>
+    <>
+      {!profile ? (
+        <Asset spinner />
+      ) : profileCompleted ? (
+        <Form onSubmit={handleSubmit}>
+          <Row>
+            <Col className="py-2 p-0 p-md-2" md={7} lg={8}>
+              <Container
+                className={`${appStyles.Content} ${styles.Container} d-flex flex-column justify-content-center`}
+              >
+                <Form.Group className="text-center">
+                  {image ? (
+                    <>
+                      <figure>
+                        <Image
+                          className={appStyles.Image}
+                          src={image}
+                          rounded
+                        />
+                      </figure>
+                      <div>
+                        <Form.Label
+                          className={`${btnStyles.Blue} btn`}
+                          htmlFor="image-upload"
+                        >
+                          Change the image
+                        </Form.Label>
+                      </div>
+                    </>
+                  ) : (
                     <Form.Label
-                      className={`${btnStyles.Blue} btn`}
+                      className="d-flex justify-content-center"
                       htmlFor="image-upload"
                     >
-                      Change the image
+                      <Asset src={Upload} message="Upload your painting here" />
                     </Form.Label>
-                  </div>
-                </>
-              ) : (
-                <Form.Label
-                  className="d-flex justify-content-center"
-                  htmlFor="image-upload"
-                >
-                  <Asset src={Upload} message="Upload your painting here" />
-                </Form.Label>
-              )}
+                  )}
 
-              <Form.File
-                id="image-upload"
-                accept="image/*"
-                onChange={handleChangeImage}
-                ref={imageInput}
-              />
-            </Form.Group>
-            {errors?.image?.map((message, i) => {
-              return (
-                <Alert variant="warning" key={i}>
-                  {message}
-                </Alert>
-              );
-            })}
-            <div className="d-md-none">{textFields}</div>
-          </Container>
-        </Col>
-        <Col md={5} lg={4} className="d-none d-md-block p-0 p-md-2">
-          <Container className={appStyles.Content}>{textFields}</Container>
-        </Col>
-      </Row>
-    </Form>
+                  <Form.File
+                    id="image-upload"
+                    accept="image/*"
+                    onChange={handleChangeImage}
+                    ref={imageInput}
+                  />
+                </Form.Group>
+                {errors?.image?.map((message, i) => {
+                  return (
+                    <Alert variant="warning" key={i}>
+                      {message}
+                    </Alert>
+                  );
+                })}
+                <div className="d-md-none">{textFields}</div>
+              </Container>
+            </Col>
+            <Col md={5} lg={4} className="d-none d-md-block p-0 p-md-2">
+              <Container className={appStyles.Content}>{textFields}</Container>
+            </Col>
+          </Row>
+        </Form>
+      ) : (
+        <h1>Please complete your profile first!</h1>
+      )}
+    </>
   );
 }
 
