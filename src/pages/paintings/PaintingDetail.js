@@ -189,9 +189,16 @@ function Painting(props) {
                 </OverlayTrigger>
               )}
               {observations_count}
-              <Link to={`/paintings/${id}`}>
-                <i className={`far fa-comments ${styles.IconSize}`}></i>
-              </Link>
+              {!profileCompleted ? (
+                <Link to="#" onClick={() => setModalShow(true)}>
+                  <i className={`far fa-comments ${styles.IconSize}`}></i>
+                </Link>
+              ) : (
+                <Link to={`/paintings/${id}`}>
+                  <i className={`far fa-comments ${styles.IconSize}`}></i>
+                </Link>
+              )}
+
               {comments_count}
             </div>
           </Card>
