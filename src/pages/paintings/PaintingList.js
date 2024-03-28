@@ -6,7 +6,14 @@ import { Link } from "react-router-dom";
 import Avatar from "../../components/Avatar";
 import { axiosRes } from "../../api/axiosDefaults";
 
+import { useCurrentUserProfile } from "../../hooks/useCurrentUserProfile";
+import ModalAlert from "../../components/ModalAlert";
+import { useState } from "react";
+
 function Painting(props) {
+  const { profileCompleted } = useCurrentUserProfile();
+  const [modalShow, setModalShow] = useState(false);
+
   const {
     id,
     owner,
@@ -114,6 +121,23 @@ function Painting(props) {
             >
               <i className="fas fa-eye" />
             </OverlayTrigger>
+          ) : !profileCompleted ? (
+            <>
+              <span onClick={() => setModalShow(true)}>
+                <i
+                  className={`fas fa-eye ${styles.Observation}`}
+                  style={{ color: "#b5b5b5" }}
+                />
+              </span>
+
+              <ModalAlert
+                show={modalShow}
+                onHide={() => setModalShow(false)}
+                title="Modal Heading"
+                heading="Centered Modal"
+                content="Here goes the content."
+              />
+            </>
           ) : observation_id ? (
             <span onClick={handleDoNotObserve}>
               <i className={`fas fa-eye ${styles.Observation}`} />
