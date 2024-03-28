@@ -16,7 +16,11 @@ import InfiniteScroll from "react-infinite-scroll-component";
 import Asset from "../../components/Asset";
 import { fetchMoreData } from "../../utils/utils";
 
+import { useCurrentUserProfile } from "../../hooks/useCurrentUserProfile";
+
 function PaintingPage() {
+  const { profileCompleted } = useCurrentUserProfile();
+
   const { id } = useParams();
   const [painting, setPainting] = useState({
     results: [],
@@ -54,9 +58,9 @@ function PaintingPage() {
           artistName={painting.results[0]?.artist_name}
           paintingPage
         />
-        <Col className="py-2 p-0 p-lg-2" lg={8}>
+        <Col className="py-2 p-0 p-lg-2 mb-3" lg={8}>
           <Container className={appStyles.Content}>
-            {currentUser ? (
+            {currentUser && profileCompleted ? (
               <CommentCreateForm
                 profile_id={currentUser.profile_id}
                 profileImage={profile_image}
@@ -82,8 +86,10 @@ function PaintingPage() {
                 hasMore={!!comments.next}
                 next={() => fetchMoreData(comments, setComments)}
               />
-            ) : currentUser ? (
+            ) : currentUser && profileCompleted ? (
               <span>No comments yet. Be the first to comment</span>
+            ) : currentUser && !profileCompleted ? (
+              <span>No comments yet.</span>
             ) : (
               <span>No comments yet</span>
             )}
