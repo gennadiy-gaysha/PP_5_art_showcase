@@ -29,6 +29,7 @@
   justify-content: center;
   gap: 2px;
   color: #555;
+  font-weight: bold;
 }
 
 .NavLinkWithDivider::after {

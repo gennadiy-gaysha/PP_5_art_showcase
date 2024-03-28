@@ -14,14 +14,24 @@ import PaintingEditForm from "./pages/paintings/PaintingEditForm";
 import ProfilePage from "./pages/profiles/ProfilePage";
 import UserPasswordForm from "./pages/profiles/UserPasswordForm";
 import ProfileEditForm from "./pages/profiles/ProfileEditForm";
+import ModalAlert from "./components/ModalAlert";
+import { useState } from "react";
 
 function App() {
+  const [modalShow, setModalShow] = useState(false);
   const currentUser = useCurrentUser();
   const profile_id = currentUser?.profile_id || "";
 
   return (
     <div className={styles.App}>
-      <NavBar />
+      <NavBar onModalShow={() => setModalShow(true)} />
+      <ModalAlert
+        show={modalShow}
+        onHide={() => setModalShow(false)}
+        title="Modal Heading"
+        heading="Centered Modal"
+        content="Here goes the content."
+      />
 
       <Container className={styles.Main}>
         <Switch>

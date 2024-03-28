@@ -1,4 +1,4 @@
-import { Nav, Navbar, Container, Button } from "react-bootstrap";
+import { Nav, Navbar, Container } from "react-bootstrap";
 import logo from "../assets/logo.png";
 import styles from "../styles/NavBar.module.css";
 import { NavLink, useHistory } from "react-router-dom";
@@ -11,12 +11,10 @@ import Avatar from "./Avatar";
 import axios from "axios";
 import useClickOutsideToggle from "../hooks/useClickOutsideToggle";
 import { useCurrentUserProfile } from "../hooks/useCurrentUserProfile";
-import ModalAlert from "./ModalAlert";
-import { useState } from "react";
 
-const NavBar = () => {
+const NavBar = ({ onModalShow }) => {
   const { profileCompleted } = useCurrentUserProfile();
-  const [modalShow, setModalShow] = useState(false);
+  // const [modalShow, setModalShow] = useState(false);
 
   const history = useHistory();
   // Function to trigger filter reset.
@@ -45,27 +43,15 @@ const NavBar = () => {
     <>
       {!profileCompleted ? (
         <>
-          <NavLink
+          <div
             style={{ textTransform: "none" }}
-            to="#"
             className={`${styles.NavLink} ${styles.NavLinkSpacing}`}
             activeClassName={styles.Active}
           >
-            <span
-              className={styles.IconTextContainer}
-              onClick={() => setModalShow(true)}
-            >
+            <span className={styles.IconTextContainer} onClick={onModalShow}>
               <i className="fas fa-plus-square"></i>Add painting
             </span>
-          </NavLink>
-
-          <ModalAlert
-            show={modalShow}
-            onHide={() => setModalShow(false)}
-            title="Modal heading"
-            heading="Centered Modal"
-            content="Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros."
-          />
+          </div>
         </>
       ) : (
         <NavLink
@@ -84,29 +70,50 @@ const NavBar = () => {
 
   const loggedInIcons = (
     <>
-      <NavLink
-        to="/favourites"
-        className={`${styles.NavLink} ${styles.NavLinkWithDivider}`}
-        activeClassName={styles.Active}
-        onClick={(event) => {
-          event.preventDefault(); // Prevents the browser from automatically navigating to the link's href attribute thst is to="/"
-          resetFiltersAndNavigate("/favourites"); // Navigate with resetFilters query parameter
-        }}
-      >
-        faves
-      </NavLink>
+      {!profileCompleted ? (
+        <>
+          <div
+            className={`${styles.NavLink} ${styles.NavLinkWithDivider} ${styles.IconTextContainer}`}
+            activeClassName={styles.Active}
+            onClick={onModalShow}
+          >
+            faves
+          </div>
+          <div
+            className={`${styles.NavLink} ${styles.NavLinkWithDivider} ${styles.IconTextContainer}`}
+            activeClassName={styles.Active}
+            onClick={onModalShow}
+          >
+            watchlist
+          </div>
+        </>
+      ) : (
+        <>
+          <NavLink
+            to="/favourites"
+            className={`${styles.NavLink} ${styles.NavLinkWithDivider}`}
+            activeClassName={styles.Active}
+            onClick={(event) => {
+              event.preventDefault(); // Prevents the browser from automatically navigating to the link's href attribute thst is to="/"
+              resetFiltersAndNavigate("/favourites"); // Navigate with resetFilters query parameter
+            }}
+          >
+            faves
+          </NavLink>
 
-      <NavLink
-        to="/watchlist"
-        className={`${styles.NavLink} ${styles.NavLinkWithDivider}`}
-        activeClassName={styles.Active}
-        onClick={(event) => {
-          event.preventDefault(); // Prevents the browser from automatically navigating to the link's href attribute thst is to="/"
-          resetFiltersAndNavigate("/watchlist"); // Navigate with resetFilters query parameter
-        }}
-      >
-        watchlist
-      </NavLink>
+          <NavLink
+            to="/watchlist"
+            className={`${styles.NavLink} ${styles.NavLinkWithDivider}`}
+            activeClassName={styles.Active}
+            onClick={(event) => {
+              event.preventDefault(); // Prevents the browser from automatically navigating to the link's href attribute thst is to="/"
+              resetFiltersAndNavigate("/watchlist"); // Navigate with resetFilters query parameter
+            }}
+          >
+            watchlist
+          </NavLink>
+        </>
+      )}
 
       <NavLink
         to="/"
@@ -123,20 +130,35 @@ const NavBar = () => {
       >
         about
       </NavLink>
-
-      <NavLink
-        style={{ textTransform: "none", fontWeight: "bold" }}
-        to={`/profiles/${currentUser?.profile_id}`}
-        className={styles.NavLink}
-        activeClassName={styles.Active}
-      >
-        <Avatar
-          src={currentUser?.profile_image}
-          text={currentUser?.username}
-          // text="Profile" // only for testing!!!
-          height={40}
-        />
-      </NavLink>
+      {!profileCompleted ? (
+        <div
+          style={{ textTransform: "none", fontWeight: "bold" }}
+          className={`${styles.NavLink} ${styles.NavLinkWithDivider} ${styles.IconTextContainer}`}
+          activeClassName={styles.Active}
+          onClick={onModalShow}
+        >
+          <Avatar
+            src={currentUser?.profile_image}
+            text={currentUser?.username}
+            // text="Profile" // only for testing!!!
+            height={40}
+          />
+        </div>
+      ) : (
+        <NavLink
+          style={{ textTransform: "none", fontWeight: "bold" }}
+          to={`/profiles/${currentUser?.profile_id}`}
+          className={styles.NavLink}
+          activeClassName={styles.Active}
+        >
+          <Avatar
+            src={currentUser?.profile_image}
+            text={currentUser?.username}
+            // text="Profile" // only for testing!!!
+            height={40}
+          />
+        </NavLink>
+      )}
     </>
   );
   const loggedOutIcons = (
