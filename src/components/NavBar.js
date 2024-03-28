@@ -1,4 +1,4 @@
-import { Nav, Navbar, Container } from "react-bootstrap";
+import { Nav, Navbar, Container, Button } from "react-bootstrap";
 import logo from "../assets/logo.png";
 import styles from "../styles/NavBar.module.css";
 import { NavLink, useHistory } from "react-router-dom";
@@ -10,8 +10,14 @@ import {
 import Avatar from "./Avatar";
 import axios from "axios";
 import useClickOutsideToggle from "../hooks/useClickOutsideToggle";
+import { useCurrentUserProfile } from "../hooks/useCurrentUserProfile";
+import ModalAlert from "./ModalAlert";
+import { useState } from "react";
 
 const NavBar = () => {
+  const { profileCompleted } = useCurrentUserProfile();
+  const [modalShow, setModalShow] = useState(false);
+
   const history = useHistory();
   // Function to trigger filter reset.
   // Programmatically (useHistory hook) navigates to the desired path while appending a query parameter ?resetFilters=true to the URL to reset filters. See onClick event handler attribute in NavLinks below.
@@ -36,16 +42,44 @@ const NavBar = () => {
   };
 
   const addPaintingIcon = (
-    <NavLink
-      style={{ textTransform: "none" }}
-      to="/paintings/create"
-      className={`${styles.NavLink} ${styles.NavLinkSpacing}`}
-      activeClassName={styles.Active}
-    >
-      <span className={styles.IconTextContainer}>
-        <i className="fas fa-plus-square"></i>Add painting
-      </span>
-    </NavLink>
+    <>
+      {!profileCompleted ? (
+        <>
+          <NavLink
+            style={{ textTransform: "none" }}
+            to="#"
+            className={`${styles.NavLink} ${styles.NavLinkSpacing}`}
+            activeClassName={styles.Active}
+          >
+            <span
+              className={styles.IconTextContainer}
+              onClick={() => setModalShow(true)}
+            >
+              <i className="fas fa-plus-square"></i>Add painting
+            </span>
+          </NavLink>
+
+          <ModalAlert
+            show={modalShow}
+            onHide={() => setModalShow(false)}
+            title="Modal heading"
+            heading="Centered Modal"
+            content="Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros."
+          />
+        </>
+      ) : (
+        <NavLink
+          style={{ textTransform: "none" }}
+          to="/paintings/create"
+          className={`${styles.NavLink} ${styles.NavLinkSpacing}`}
+          activeClassName={styles.Active}
+        >
+          <span className={styles.IconTextContainer}>
+            <i className="fas fa-plus-square"></i>Add painting
+          </span>
+        </NavLink>
+      )}
+    </>
   );
 
   const loggedInIcons = (
