@@ -16,7 +16,14 @@ import { axiosRes } from "../../api/axiosDefaults";
 import { MoreDropdown } from "../../components/MoreDropdown";
 import { useHistory } from "react-router-dom";
 
+import { useCurrentUserProfile } from "../../hooks/useCurrentUserProfile";
+import ModalAlert from "../../components/ModalAlert";
+import { useState } from "react";
+
 function Painting(props) {
+  const { profileCompleted } = useCurrentUserProfile();
+  const [modalShow, setModalShow] = useState(false);
+
   const {
     id,
     owner,
@@ -144,6 +151,23 @@ function Painting(props) {
                 >
                   <i className={`fas fa-eye ${styles.IconSize}`} />
                 </OverlayTrigger>
+              ) : !profileCompleted ? (
+                <>
+                  <span onClick={() => setModalShow(true)}>
+                    <i
+                      className={`fas fa-eye ${styles.Observation}`}
+                      style={{ color: "#b5b5b5" }}
+                    />
+                  </span>
+
+                  <ModalAlert
+                    show={modalShow}
+                    onHide={() => setModalShow(false)}
+                    title="Modal Heading"
+                    heading="Centered Modal"
+                    content="Here goes the content."
+                  />
+                </>
               ) : observation_id ? (
                 <span onClick={handleDoNotObserve}>
                   <i
