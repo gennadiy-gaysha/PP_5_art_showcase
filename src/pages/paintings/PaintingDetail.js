@@ -210,8 +210,6 @@ function Painting(props) {
               )}
 
               {observations_count}
-
-              {/* hello */}
               {!currentUser ? (
                 <OverlayTrigger
                   placement="top"

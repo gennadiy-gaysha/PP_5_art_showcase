@@ -29,7 +29,7 @@ function ModalAlert(props) {
             history.push(`/profiles/${currentUser?.profile_id}/edit`);
           }}
         >
-          Complete profile
+          Complete your profile
         </Button>
       </Modal.Footer>
     </Modal>

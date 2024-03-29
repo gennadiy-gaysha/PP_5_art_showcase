@@ -112,7 +112,6 @@ function Painting(props) {
         {orientation} ({width}cm x {height}cm)
         <br />£{price}
         <div className={styles.PaintingBar}>
-          {/* hello!!! */}
           {!currentUser ? (
             <OverlayTrigger
               placement="top"

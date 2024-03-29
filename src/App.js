@@ -16,6 +16,7 @@ import UserPasswordForm from "./pages/profiles/UserPasswordForm";
 import ProfileEditForm from "./pages/profiles/ProfileEditForm";
 import ModalAlert from "./components/ModalAlert";
 import { useState } from "react";
+import CompleteProfile from "./pages/profiles/CompleteProfile";
 
 function App() {
   const [modalShow, setModalShow] = useState(false);
@@ -28,9 +29,44 @@ function App() {
       <ModalAlert
         show={modalShow}
         onHide={() => setModalShow(false)}
-        title="Modal Heading"
-        heading="Centered Modal"
-        content="Here goes the content."
+        title={
+          <h5 style={{ lineHeight: "2rem" }}>
+            To fully engage with our community and unlock all the features our
+            platform has to offer, please complete your profile first. Here's
+            what you'll be able to do:
+          </h5>
+        }
+        content={
+          <div>
+            <ul>
+              <li>
+                <strong>Add Your Paintings:</strong> Showcase your artwork by
+                uploading it to our gallery.
+              </li>
+              <li>
+                <strong>Curate Your Watchlist:</strong> Keep an eye on your
+                favorite pieces by adding them to your personal watchlist.
+              </li>
+              <li>
+                <strong>Connect with Artists:</strong> Add other artists to your
+                Faves list to follow their new work and updates.
+              </li>
+              <li>
+                <strong>Participate in Discussions:</strong> Leave comments on
+                paintings and join the conversation with artists and art lovers
+                alike.
+              </li>
+              <li>
+                <strong>Manage Your Account:</strong> Change your password and
+                update your account settings with ease.
+              </li>
+            </ul>
+            <p>
+              Just click the button below to finalize your profile and start
+              enjoying these benefits.
+            </p>
+          </div>
+        }
       />
 
       <Container className={styles.Main}>
@@ -89,6 +125,11 @@ function App() {
             exact
             path="/profiles/:id/edit"
             render={() => <ProfileEditForm />}
+          />
+          <Route
+            exact
+            path="/complete-profile/"
+            render={() => <CompleteProfile />}
           />
           <Route render={() => <p>Page not found!</p>} />
         </Switch>
