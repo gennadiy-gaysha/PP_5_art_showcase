@@ -12,7 +12,15 @@ h5 {
 }
 
 .Observation {
+  color: #007bff;
+}
+
+.ObservationUncomplete {
   color: #b5b5b5;
+}
+
+.ObservationUncomplete:hover {
+  color: #007bff;
 }
 
 .Observation:hover {

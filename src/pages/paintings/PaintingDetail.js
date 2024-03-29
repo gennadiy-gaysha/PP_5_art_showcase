@@ -142,20 +142,38 @@ function Painting(props) {
             <Card.Img src={image} alt={title} />
             {/* </div> */}
             <div className={styles.PaintingBar}>
-              {is_owner ? (
+              {!currentUser ? (
+                <OverlayTrigger
+                  placement="top"
+                  overlay={<Tooltip>Log in to follow up the painting</Tooltip>}
+                >
+                  <i className={`fas fa-eye ${styles.IconSize}`} />
+                </OverlayTrigger>
+              ) : is_owner ? (
                 <OverlayTrigger
                   placement="top"
                   overlay={
-                    <Tooltip>You can't follow up your own painting!</Tooltip>
+                    <Tooltip>You can't follow up your own painting</Tooltip>
                   }
                 >
                   <i className={`fas fa-eye ${styles.IconSize}`} />
                 </OverlayTrigger>
               ) : !profileCompleted ? (
                 <>
-                  <span onClick={() => setModalShow(true)}>
-                    <i className={`fas fa-eye ${styles.Observation}`} />
-                  </span>
+                  <OverlayTrigger
+                    placement="top"
+                    overlay={
+                      <Tooltip>
+                        Complete your profile to add painting to your Watchlist
+                      </Tooltip>
+                    }
+                  >
+                    <span onClick={() => setModalShow(true)}>
+                      <i
+                        className={`fas fa-eye ${styles.ObservationUncomplete}`}
+                      />
+                    </span>
+                  </OverlayTrigger>
 
                   <ModalAlert
                     show={modalShow}
@@ -166,34 +184,63 @@ function Painting(props) {
                   />
                 </>
               ) : observation_id ? (
-                <span onClick={handleDoNotObserve}>
-                  <i
-                    className={`fas fa-eye ${styles.Observation} ${styles.IconSize}`}
-                  />
-                </span>
-              ) : currentUser ? (
-                <span onClick={handleObserve}>
-                  <i
-                    className={`fas fa-eye ${styles.ObservationOutline} ${styles.IconSize}`}
-                  />
-                </span>
+                <OverlayTrigger
+                  placement="top"
+                  overlay={
+                    <Tooltip>Remove the painting from your Watchlist</Tooltip>
+                  }
+                >
+                  <span onClick={handleDoNotObserve}>
+                    <i
+                      className={`fas fa-eye ${styles.Observation} ${styles.IconSize}`}
+                    />
+                  </span>
+                </OverlayTrigger>
               ) : (
                 <OverlayTrigger
                   placement="top"
-                  overlay={<Tooltip>Log in to follow up paintings!</Tooltip>}
+                  overlay={<Tooltip>Add painting to your watchlistt</Tooltip>}
                 >
-                  <i className={`fas fa-eye ${styles.IconSize}`} />
+                  <span onClick={handleObserve}>
+                    <i
+                      className={`fas fa-eye ${styles.ObservationOutline} ${styles.IconSize}`}
+                    />
+                  </span>
                 </OverlayTrigger>
               )}
+
               {observations_count}
-              {!profileCompleted ? (
-                <Link to="#" onClick={() => setModalShow(true)}>
-                  <i className={`far fa-comments ${styles.IconSize}`}></i>
-                </Link>
+
+              {/* hello */}
+              {!currentUser ? (
+                <OverlayTrigger
+                  placement="top"
+                  overlay={<Tooltip>Log in to leave a comment</Tooltip>}
+                >
+                  <span>
+                    <i className={`far fa-comments ${styles.IconSize}`}></i>
+                  </span>
+                </OverlayTrigger>
+              ) : profileCompleted ? (
+                <OverlayTrigger
+                  placement="top"
+                  overlay={<Tooltip>Total number of comments</Tooltip>}
+                >
+                  <Link to={`/paintings/${id}`}>
+                    <i className={`far fa-comments ${styles.IconSize}`}></i>
+                  </Link>
+                </OverlayTrigger>
               ) : (
-                <Link to={`/paintings/${id}`}>
-                  <i className={`far fa-comments ${styles.IconSize}`}></i>
-                </Link>
+                <OverlayTrigger
+                  placement="top"
+                  overlay={
+                    <Tooltip>Complete your profile to leave a comment</Tooltip>
+                  }
+                >
+                  <Link to="#" onClick={() => setModalShow(true)}>
+                    <i className={`far fa-comments ${styles.IconSize}`}></i>
+                  </Link>
+                </OverlayTrigger>
               )}
 
               {comments_count}

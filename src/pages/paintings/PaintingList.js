@@ -112,20 +112,35 @@ function Painting(props) {
         {orientation} ({width}cm x {height}cm)
         <br />£{price}
         <div className={styles.PaintingBar}>
-          {is_owner ? (
+          {/* hello!!! */}
+          {!currentUser ? (
             <OverlayTrigger
               placement="top"
-              overlay={
-                <Tooltip>You can't follow up your own painting!</Tooltip>
-              }
+              overlay={<Tooltip>Log in to follow up the painting</Tooltip>}
+            >
+              <i className="fas fa-eye" />
+            </OverlayTrigger>
+          ) : is_owner ? (
+            <OverlayTrigger
+              placement="top"
+              overlay={<Tooltip>You can't follow up your own painting</Tooltip>}
             >
               <i className="fas fa-eye" />
             </OverlayTrigger>
           ) : !profileCompleted ? (
             <>
-              <span onClick={() => setModalShow(true)}>
-                <i className={`fas fa-eye ${styles.Observation}`} />
-              </span>
+              <OverlayTrigger
+                placement="top"
+                overlay={
+                  <Tooltip>
+                    Complete your profile to add painting to your Watchlist
+                  </Tooltip>
+                }
+              >
+                <span onClick={() => setModalShow(true)}>
+                  <i className={`fas fa-eye ${styles.ObservationUncomplete}`} />
+                </span>
+              </OverlayTrigger>
 
               <ModalAlert
                 show={modalShow}
@@ -136,25 +151,37 @@ function Painting(props) {
               />
             </>
           ) : observation_id ? (
-            <span onClick={handleDoNotObserve}>
-              <i className={`fas fa-eye ${styles.Observation}`} />
-            </span>
-          ) : currentUser ? (
-            <span onClick={handleObserve}>
-              <i className={`fas fa-eye ${styles.ObservationOutline}`} />
-            </span>
+            <OverlayTrigger
+              placement="top"
+              overlay={
+                <Tooltip>Remove the painting from your Watchlist</Tooltip>
+              }
+            >
+              <span onClick={handleDoNotObserve}>
+                <i className={`fas fa-eye ${styles.Observation}`} />
+              </span>
+            </OverlayTrigger>
           ) : (
             <OverlayTrigger
               placement="top"
-              overlay={<Tooltip>Log in to follow up paintings!</Tooltip>}
+              overlay={<Tooltip>Add painting to your watchlist</Tooltip>}
             >
-              <i className="fas fa-eye" />
+              <span onClick={handleObserve}>
+                <i className={`fas fa-eye ${styles.ObservationOutline}`} />
+              </span>
             </OverlayTrigger>
           )}
+
+          {/* ================================= */}
           {observations_count}
-          <Link to={`/paintings/${id}`}>
-            <i className="far fa-comments"></i>
-          </Link>
+          <OverlayTrigger
+            placement="top"
+            overlay={<Tooltip>Read comments</Tooltip>}
+          >
+            <Link to={`/paintings/${id}`}>
+              <i className="far fa-comments"></i>
+            </Link>
+          </OverlayTrigger>
           {comments_count}
         </div>
       </Card.Body>
