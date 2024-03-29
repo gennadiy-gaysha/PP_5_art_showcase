@@ -154,10 +154,7 @@ function Painting(props) {
               ) : !profileCompleted ? (
                 <>
                   <span onClick={() => setModalShow(true)}>
-                    <i
-                      className={`fas fa-eye ${styles.Observation}`}
-                      style={{ color: "#b5b5b5" }}
-                    />
+                    <i className={`fas fa-eye ${styles.Observation}`} />
                   </span>
 
                   <ModalAlert

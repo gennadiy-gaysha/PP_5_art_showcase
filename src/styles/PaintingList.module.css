@@ -12,11 +12,11 @@ h5 {
 }
 
 .Observation {
-  color: #007bff;
+  color: #b5b5b5;
 }
 
 .Observation:hover {
-  color: #2142b2;
+  color: #007bff;
 }
 
 .ObservationOutline:hover {

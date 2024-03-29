@@ -70,50 +70,29 @@ const NavBar = ({ onModalShow }) => {
 
   const loggedInIcons = (
     <>
-      {!profileCompleted ? (
-        <>
-          <div
-            className={`${styles.NavLink} ${styles.NavLinkWithDivider} ${styles.IconTextContainer}`}
-            activeClassName={styles.Active}
-            onClick={onModalShow}
-          >
-            faves
-          </div>
-          <div
-            className={`${styles.NavLink} ${styles.NavLinkWithDivider} ${styles.IconTextContainer}`}
-            activeClassName={styles.Active}
-            onClick={onModalShow}
-          >
-            watchlist
-          </div>
-        </>
-      ) : (
-        <>
-          <NavLink
-            to="/favourites"
-            className={`${styles.NavLink} ${styles.NavLinkWithDivider}`}
-            activeClassName={styles.Active}
-            onClick={(event) => {
-              event.preventDefault(); // Prevents the browser from automatically navigating to the link's href attribute thst is to="/"
-              resetFiltersAndNavigate("/favourites"); // Navigate with resetFilters query parameter
-            }}
-          >
-            faves
-          </NavLink>
+      <NavLink
+        to="/favourites"
+        className={`${styles.NavLink} ${styles.NavLinkWithDivider}`}
+        activeClassName={styles.Active}
+        onClick={(event) => {
+          event.preventDefault(); // Prevents the browser from automatically navigating to the link's href attribute thst is to="/"
+          resetFiltersAndNavigate("/favourites"); // Navigate with resetFilters query parameter
+        }}
+      >
+        faves
+      </NavLink>
 
-          <NavLink
-            to="/watchlist"
-            className={`${styles.NavLink} ${styles.NavLinkWithDivider}`}
-            activeClassName={styles.Active}
-            onClick={(event) => {
-              event.preventDefault(); // Prevents the browser from automatically navigating to the link's href attribute thst is to="/"
-              resetFiltersAndNavigate("/watchlist"); // Navigate with resetFilters query parameter
-            }}
-          >
-            watchlist
-          </NavLink>
-        </>
-      )}
+      <NavLink
+        to="/watchlist"
+        className={`${styles.NavLink} ${styles.NavLinkWithDivider}`}
+        activeClassName={styles.Active}
+        onClick={(event) => {
+          event.preventDefault(); // Prevents the browser from automatically navigating to the link's href attribute thst is to="/"
+          resetFiltersAndNavigate("/watchlist"); // Navigate with resetFilters query parameter
+        }}
+      >
+        watchlist
+      </NavLink>
 
       <NavLink
         to="/"
