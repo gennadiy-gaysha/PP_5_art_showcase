@@ -83,6 +83,103 @@ function Painting(props) {
     }
   };
 
+  // Variables for pop-up observation icon hints:
+  const notLoggedInObservation = (
+    <>
+      <OverlayTrigger
+        placement="top"
+        overlay={<Tooltip>Log in to follow up the painting</Tooltip>}
+      >
+        <i className={`fas fa-eye ${styles.IconSize}`} />
+      </OverlayTrigger>
+      {observations_count}
+    </>
+  );
+
+  const isOwnerObservation = (
+    <>
+      <OverlayTrigger
+        placement="top"
+        overlay={<Tooltip>You can't follow up your own painting</Tooltip>}
+      >
+        <i className={`fas fa-eye ${styles.IconSize}`} />
+      </OverlayTrigger>
+      {observations_count}
+    </>
+  );
+
+  const notCompletedObservation = (
+    <>
+      <OverlayTrigger
+        placement="top"
+        overlay={
+          <Tooltip>
+            Complete your profile to add painting to your Watchlist
+          </Tooltip>
+        }
+      >
+        <span onClick={() => setModalShow(true)}>
+          <i className={`fas fa-eye ${styles.ObservationUncomplete}`} />
+        </span>
+      </OverlayTrigger>
+      {observations_count}
+      <ModalAlert
+        show={modalShow}
+        onHide={() => setModalShow(false)}
+        title="Modal Heading"
+        heading="Centered Modal"
+        content="Here goes the content."
+      />
+    </>
+  );
+
+  const yetObserved = (
+    <>
+      <OverlayTrigger
+        placement="top"
+        overlay={<Tooltip>Remove the painting from your Watchlist</Tooltip>}
+      >
+        <span onClick={handleDoNotObserve}>
+          <i
+            className={`fas fa-eye ${styles.Observation} ${styles.IconSize}`}
+          />
+        </span>
+      </OverlayTrigger>
+      {observations_count}
+    </>
+  );
+
+  const notObserved = (
+    <>
+      <OverlayTrigger
+        placement="top"
+        overlay={<Tooltip>Add painting to your watchlistt</Tooltip>}
+      >
+        <span onClick={handleObserve}>
+          <i
+            className={`fas fa-eye ${styles.ObservationOutline} ${styles.IconSize}`}
+          />
+        </span>
+      </OverlayTrigger>
+      {observations_count}
+    </>
+  );
+
+  // Variable for pop-up comment icon hints:
+  const readComment = (
+    <>
+      <OverlayTrigger
+        placement="top"
+        overlay={<Tooltip>Read comments</Tooltip>}
+      >
+        <Link to={`/paintings/${id}`}>
+          <i className="far fa-comments"></i>
+        </Link>
+      </OverlayTrigger>
+      {comments_count}
+    </>
+  );
+
   return (
     <Card className={styles.Painting}>
       <Card.Body>
@@ -112,76 +209,30 @@ function Painting(props) {
         {orientation} ({width}cm x {height}cm)
         <br />£{price}
         <div className={styles.PaintingBar}>
-          {!currentUser ? (
-            <OverlayTrigger
-              placement="top"
-              overlay={<Tooltip>Log in to follow up the painting</Tooltip>}
-            >
-              <i className="fas fa-eye" />
-            </OverlayTrigger>
-          ) : is_owner ? (
-            <OverlayTrigger
-              placement="top"
-              overlay={<Tooltip>You can't follow up your own painting</Tooltip>}
-            >
-              <i className="fas fa-eye" />
-            </OverlayTrigger>
-          ) : !profileCompleted ? (
+          {!currentUser && (
             <>
-              <OverlayTrigger
-                placement="top"
-                overlay={
-                  <Tooltip>
-                    Complete your profile to add painting to your Watchlist
-                  </Tooltip>
-                }
-              >
-                <span onClick={() => setModalShow(true)}>
-                  <i className={`fas fa-eye ${styles.ObservationUncomplete}`} />
-                </span>
-              </OverlayTrigger>
-
-              <ModalAlert
-                show={modalShow}
-                onHide={() => setModalShow(false)}
-                title="Modal Heading"
-                heading="Centered Modal"
-                content="Here goes the content."
-              />
+              {notLoggedInObservation}
+              {readComment}
             </>
-          ) : observation_id ? (
-            <OverlayTrigger
-              placement="top"
-              overlay={
-                <Tooltip>Remove the painting from your Watchlist</Tooltip>
-              }
-            >
-              <span onClick={handleDoNotObserve}>
-                <i className={`fas fa-eye ${styles.Observation}`} />
-              </span>
-            </OverlayTrigger>
-          ) : (
-            <OverlayTrigger
-              placement="top"
-              overlay={<Tooltip>Add painting to your watchlist</Tooltip>}
-            >
-              <span onClick={handleObserve}>
-                <i className={`fas fa-eye ${styles.ObservationOutline}`} />
-              </span>
-            </OverlayTrigger>
           )}
-
-          {/* ================================= */}
-          {observations_count}
-          <OverlayTrigger
-            placement="top"
-            overlay={<Tooltip>Read comments</Tooltip>}
-          >
-            <Link to={`/paintings/${id}`}>
-              <i className="far fa-comments"></i>
-            </Link>
-          </OverlayTrigger>
-          {comments_count}
+          {currentUser && !profileCompleted && (
+            <>
+              {notCompletedObservation}
+              {readComment}
+            </>
+          )}
+          {currentUser && profileCompleted && is_owner && (
+            <>
+              {isOwnerObservation}
+              {readComment}
+            </>
+          )}
+          {currentUser && profileCompleted && !is_owner && (
+            <>
+              {observation_id ? yetObserved : notObserved}
+              {readComment}
+            </>
+          )}
         </div>
       </Card.Body>
     </Card>

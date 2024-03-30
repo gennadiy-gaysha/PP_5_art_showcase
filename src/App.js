@@ -30,11 +30,12 @@ function App() {
         show={modalShow}
         onHide={() => setModalShow(false)}
         title={
-          <h5 style={{ lineHeight: "2rem" }}>
-            To fully engage with our community and unlock all the features our
-            platform has to offer, please complete your profile first. Here's
-            what you'll be able to do:
-          </h5>
+          <h4 className="mb-2 mt-2" style={{ color: "#802222" }}>
+            To fully engage with our community, please complete your profile
+          </h4>
+        }
+        heading={
+          <h5 className="mb-4 mt-2">Here's what you'll be able to do:</h5>
         }
         content={
           <div>
@@ -61,9 +62,9 @@ function App() {
                 update your account settings with ease.
               </li>
             </ul>
-            <p>
+            <p className="pt-2">
               Just click the button below to finalize your profile and start
-              enjoying these benefits.
+              enjoying these benefits!
             </p>
           </div>
         }
