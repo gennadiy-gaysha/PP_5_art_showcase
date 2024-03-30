@@ -147,13 +147,6 @@ function Painting(props) {
         </span>
       </OverlayTrigger>
       {observations_count}
-      <ModalAlert
-        show={modalShow}
-        onHide={() => setModalShow(false)}
-        title="Modal Heading"
-        heading="Centered Modal"
-        content="Here goes the content."
-      />
     </>
   );
 
@@ -196,9 +189,7 @@ function Painting(props) {
         placement="top"
         overlay={<Tooltip>Log in to leave a comment</Tooltip>}
       >
-        <span>
-          <i className={`far fa-comments ${styles.IconSize}`}></i>
-        </span>
+        <i className={`far fa-comments ${styles.IconSize}`}></i>
       </OverlayTrigger>
       {comments_count}
     </>
@@ -210,9 +201,7 @@ function Painting(props) {
         placement="top"
         overlay={<Tooltip>Total number of comments</Tooltip>}
       >
-        <Link to={`/paintings/${id}`}>
-          <i className={`far fa-comments ${styles.IconSize}`}></i>
-        </Link>
+        <i className={`far fa-comments ${styles.IconSize}`}></i>
       </OverlayTrigger>
       {comments_count}
     </>
@@ -224,9 +213,9 @@ function Painting(props) {
         placement="top"
         overlay={<Tooltip>Complete your profile to leave a comment</Tooltip>}
       >
-        <Link to="#" onClick={() => setModalShow(true)}>
-          <i className={`far fa-comments ${styles.IconSize}`}></i>
-        </Link>
+        <span onClick={() => setModalShow(true)}>
+          <i className={`far fa-comments ${styles.ObservationUncomplete}`}></i>
+        </span>
       </OverlayTrigger>
       {comments_count}
     </>
@@ -277,6 +266,10 @@ function Painting(props) {
                 <>
                   {notCompletedObservation}
                   {notCompletedComment}
+                  <ModalAlert
+                    show={modalShow}
+                    onHide={() => setModalShow(false)}
+                  />
                 </>
               )}
               {currentUser && profileCompleted && is_owner && (

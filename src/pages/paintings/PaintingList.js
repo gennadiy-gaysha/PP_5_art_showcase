@@ -123,13 +123,7 @@ function Painting(props) {
         </span>
       </OverlayTrigger>
       {observations_count}
-      <ModalAlert
-        show={modalShow}
-        onHide={() => setModalShow(false)}
-        title="Modal Heading"
-        heading="Centered Modal"
-        content="Here goes the content."
-      />
+      <ModalAlert show={modalShow} onHide={() => setModalShow(false)} />
     </>
   );
 
