@@ -13,7 +13,11 @@
   margin-top: 20px;
   min-width: 120px;
   background-color: #2142b2 !important;
-  color: #802222;
+  color: #ffffff;
+}
+
+.ButtonUnfollow:hover {
+  background-color: #0069d9 !important;
 }
 
 @media screen and (max-width: 991px) {

@@ -22,8 +22,10 @@ import Painting from "../paintings/PaintingList";
 import { fetchMoreData } from "../../utils/utils";
 import NoResults from "../../assets/no_results.png";
 import { ProfileEditDropdown } from "../../components/MoreDropdown";
+import { useCurrentUserProfile } from "../../hooks/useCurrentUserProfile";
 
 function ProfilePage() {
+  const { profileCompleted } = useCurrentUserProfile();
   const [hasLoaded, setHasLoaded] = useState(false);
   const currentUser = useCurrentUser();
   const { id } = useParams();
@@ -70,6 +72,7 @@ function ProfilePage() {
           <Col md={12} className="text-center mb-5">
             {currentUser &&
               !is_owner &&
+              profileCompleted &&
               (profile?.following_id ? (
                 <Button
                   className={styles.ButtonUnfollow}
