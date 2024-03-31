@@ -19,8 +19,9 @@ import { useState } from "react";
 import CompleteProfile from "./pages/profiles/CompleteProfile";
 import { NotificationContainer } from "react-notifications";
 import "react-notifications/lib/notifications.css";
-import { NotFoundPage } from "./components/NotFoundPage";
+
 import { Redirect } from "react-router-dom";
+import NotFoundPage from "./components/NotFoundPage";
 
 function App() {
   const [modalShow, setModalShow] = useState(false);

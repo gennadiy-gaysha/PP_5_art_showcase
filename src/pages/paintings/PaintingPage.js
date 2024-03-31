@@ -18,6 +18,7 @@ import { fetchMoreData } from "../../utils/utils";
 
 import { useCurrentUserProfile } from "../../hooks/useCurrentUserProfile";
 import { useHistory } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 
 function PaintingPage() {
   const { profileCompleted } = useCurrentUserProfile();
@@ -45,7 +46,7 @@ function PaintingPage() {
         setPainting({ results: [painting] });
         setComments(comments);
       } catch (err) {
-        if (err.response.status === 404 || err.response.status === 400) {
+        if (err.response.status === 400 || err.response.status === 404) {
           setNotFound(true);
         } else {
           console.error(err);
@@ -55,13 +56,9 @@ function PaintingPage() {
     handleMount(); // Execute the async function immediately
   }, [id]);
 
-  useEffect(() => {
-    if (notFound) {
-      history.push("/404");
-    }
-  }, [notFound, history]);
-
-  return (
+  return notFound ? (
+    <Redirect to="/404" />
+  ) : (
     <>
       <Row className="h-100">
         {/* {...painting.results[0]} "unpacks" the properties of the first painting object in the array and passes them as individual props to the Painting component */}
