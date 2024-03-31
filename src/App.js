@@ -19,6 +19,8 @@ import { useState } from "react";
 import CompleteProfile from "./pages/profiles/CompleteProfile";
 import { NotificationContainer } from "react-notifications";
 import "react-notifications/lib/notifications.css";
+import { NotFoundPage } from "./components/NotFoundPage";
+import { Redirect } from "react-router-dom";
 
 function App() {
   const [modalShow, setModalShow] = useState(false);
@@ -97,7 +99,9 @@ function App() {
               path="/complete-profile/"
               render={() => <CompleteProfile />}
             />
-            <Route render={() => <p>Page not found!</p>} />
+            <Route exact path="/404" component={NotFoundPage} />
+
+            <Route render={() => <Redirect to="/404" />} />
           </Switch>
         </Container>
         <Footer />

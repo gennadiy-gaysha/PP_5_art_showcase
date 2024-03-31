@@ -17,6 +17,7 @@ import Asset from "../../components/Asset";
 import { fetchMoreData } from "../../utils/utils";
 
 import { useCurrentUserProfile } from "../../hooks/useCurrentUserProfile";
+import { useHistory } from "react-router-dom";
 
 function PaintingPage() {
   const { profileCompleted } = useCurrentUserProfile();
@@ -25,10 +26,12 @@ function PaintingPage() {
   const [painting, setPainting] = useState({
     results: [],
   });
+  const [notFound, setNotFound] = useState(false);
 
   const currentUser = useCurrentUser();
   const profile_image = currentUser?.profile_image;
   const [comments, setComments] = useState({ results: [] });
+  const history = useHistory();
 
   useEffect(() => {
     const handleMount = async () => {
@@ -42,11 +45,21 @@ function PaintingPage() {
         setPainting({ results: [painting] });
         setComments(comments);
       } catch (err) {
-        console.log(err);
+        if (err.response.status === 404 || err.response.status === 400) {
+          setNotFound(true);
+        } else {
+          console.error(err);
+        }
       }
     };
     handleMount(); // Execute the async function immediately
   }, [id]);
+
+  useEffect(() => {
+    if (notFound) {
+      history.push("/404");
+    }
+  }, [notFound, history]);
 
   return (
     <>
