@@ -16,6 +16,9 @@ import {
 } from "react-router-dom/cjs/react-router-dom.min";
 import { axiosReq } from "../../api/axiosDefaults";
 
+import { NotificationManager } from "react-notifications";
+import "react-notifications/lib/notifications.css";
+
 function PaintingEditForm() {
   const [paintingData, setPaintingData] = useState({
     title: "",
@@ -113,9 +116,18 @@ function PaintingEditForm() {
 
     try {
       await axiosReq.put(`/paintings/${id}/`, formData);
+      NotificationManager.success(
+        "The painting has been successfully updated.",
+        "Success!"
+      );
       history.push(`/paintings/${id}`);
     } catch (err) {
       console.log(err);
+      NotificationManager.error(
+        "Failed to update the painting. Please check your input and try again.",
+        "Error!",
+        5000
+      );
       if (err.response.status !== 401) {
         setErrors(err.response?.data);
       }

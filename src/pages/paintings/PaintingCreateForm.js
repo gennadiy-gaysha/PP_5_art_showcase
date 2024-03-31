@@ -18,6 +18,9 @@ import { axiosReq } from "../../api/axiosDefaults";
 
 import { useCurrentUserProfile } from "../../hooks/useCurrentUserProfile";
 
+import { NotificationManager } from "react-notifications";
+import "react-notifications/lib/notifications.css";
+
 function PaintingCreateForm() {
   const { profile, profileCompleted } = useCurrentUserProfile();
 
@@ -78,9 +81,18 @@ function PaintingCreateForm() {
 
     try {
       const { data } = await axiosReq.post("/paintings/", formData);
+      NotificationManager.success(
+        "Your painting has been successfully created.",
+        "Success!"
+      );
       history.push(`/paintings/${data.id}`);
     } catch (err) {
       console.log(err);
+      NotificationManager.error(
+        "Failed to create the painting. Please check your input and try again.",
+        "Error!",
+        5000
+      );
       if (err.response.status !== 401) {
         setErrors(err.response?.data);
       }

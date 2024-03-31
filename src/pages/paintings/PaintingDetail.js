@@ -20,6 +20,9 @@ import { useCurrentUserProfile } from "../../hooks/useCurrentUserProfile";
 import ModalAlert from "../../components/ModalAlert";
 import { useState } from "react";
 
+import { NotificationManager } from "react-notifications";
+import "react-notifications/lib/notifications.css";
+
 function Painting(props) {
   const { profileCompleted } = useCurrentUserProfile();
   const [modalShow, setModalShow] = useState(false);
@@ -60,10 +63,19 @@ function Painting(props) {
 
   const handleDelete = async () => {
     try {
-      await axiosRes.delete(`/paintings/${id}`);
+      await axiosRes.delete(`/paintings/${id}/`);
+      NotificationManager.success(
+        "The painting has been successfully deleted.",
+        "Deleted"
+      );
       history.goBack();
     } catch (err) {
       console.log(err);
+      NotificationManager.error(
+        "Failed to delete the painting. Please try again.",
+        "Deletion Failed",
+        5000
+      );
     }
   };
 
