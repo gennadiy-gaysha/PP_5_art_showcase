@@ -8,6 +8,9 @@ import appStyles from "../../App.module.css";
 import { Form, Button, Col, Row, Container, Alert } from "react-bootstrap";
 import axios from "axios";
 
+import { NotificationManager } from "react-notifications";
+import "react-notifications/lib/notifications.css";
+
 const RegistrationForm = () => {
   const [showPassword1, setShowPassword1] = useState(false);
   const [showPassword2, setShowPassword2] = useState(false);
@@ -43,10 +46,19 @@ const RegistrationForm = () => {
     event.preventDefault();
     try {
       await axios.post("/dj-rest-auth/registration/", registrationData);
+      // Display success notification
+      NotificationManager.success(
+        "Registration successful! You can now log in.",
+        "Successful Registration!"
+      );
       history.push("/login");
     } catch (err) {
-      // console.log(err);
-      // console.log(err.response);
+      // Display error notification
+      NotificationManager.error(
+        "Registration failed. Please check your input and try again.",
+        "Registration Error",
+        5000
+      );
       setErrors(err.response?.data);
     }
   };

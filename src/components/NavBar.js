@@ -12,6 +12,9 @@ import axios from "axios";
 import useClickOutsideToggle from "../hooks/useClickOutsideToggle";
 import { useCurrentUserProfile } from "../hooks/useCurrentUserProfile";
 
+import { NotificationManager } from "react-notifications";
+import "react-notifications/lib/notifications.css";
+
 const NavBar = ({ onModalShow }) => {
   const { profileCompleted } = useCurrentUserProfile();
   // const [modalShow, setModalShow] = useState(false);
@@ -34,8 +37,19 @@ const NavBar = ({ onModalShow }) => {
       await axios.post("dj-rest-auth/logout/");
       setCurrentUser(null);
       resetFiltersAndNavigate("/");
+      // Display a success notification
+      NotificationManager.success(
+        "You have been successfully logged out.",
+        "Logged Out!"
+      );
     } catch (err) {
       console.log(err);
+      // Display an error notification
+      NotificationManager.error(
+        "There was a problem logging you out. Please try again.",
+        "Logout Failed",
+        5000
+      );
     }
   };
 

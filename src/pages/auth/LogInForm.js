@@ -15,6 +15,9 @@ import appStyles from "../../App.module.css";
 import axios from "axios";
 import { useSetCurrentUser } from "../../contexts/CurrentUserContext";
 
+import { NotificationManager } from "react-notifications";
+import "react-notifications/lib/notifications.css";
+
 function LogInForm() {
   const setCurrentUser = useSetCurrentUser();
 
@@ -47,11 +50,19 @@ function LogInForm() {
     try {
       const { data } = await axios.post("/dj-rest-auth/login/", logInData);
       setCurrentUser(data.user);
-
+      // Display success notification
+      NotificationManager.success(
+        "You are successfully logged in!",
+        "Successful Login!"
+      );
       history.push("/?resetFilters=true");
     } catch (err) {
-      // console.log(err);
-      // console.log(err.response);
+      // Display error notification
+      NotificationManager.error(
+        "Failed to log in. Check your credentials and try again.",
+        "Login Error",
+        5000
+      );
       setErrors(err.response?.data);
     }
   };
