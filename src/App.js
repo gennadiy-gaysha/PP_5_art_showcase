@@ -16,7 +16,6 @@ import UserPasswordForm from "./pages/profiles/UserPasswordForm";
 import ProfileEditForm from "./pages/profiles/ProfileEditForm";
 import ModalAlert from "./components/ModalAlert";
 import { useState } from "react";
-import CompleteProfile from "./pages/profiles/CompleteProfile";
 import { NotificationContainer } from "react-notifications";
 import "react-notifications/lib/notifications.css";
 
@@ -95,11 +94,7 @@ function App() {
               path="/profiles/:id/edit"
               render={() => <ProfileEditForm />}
             />
-            <Route
-              exact
-              path="/complete-profile/"
-              render={() => <CompleteProfile />}
-            />
+
             <Route exact path="/404" component={NotFoundPage} />
 
             <Route render={() => <Redirect to="/404" />} />

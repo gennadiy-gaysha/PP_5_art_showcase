@@ -21,6 +21,9 @@ import appStyles from "../../App.module.css";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
+import { NotificationManager } from "react-notifications";
+import "react-notifications/lib/notifications.css";
+
 const ProfileEditForm = () => {
   const currentUser = useCurrentUser();
   const setCurrentUser = useSetCurrentUser();
@@ -154,10 +157,21 @@ const ProfileEditForm = () => {
         ...currentUser,
         profile_image: data.image,
       }));
+      NotificationManager.success(
+        "Your Profile has been completed (updated) successfully!",
+        "Success"
+      );
       history.goBack();
     } catch (err) {
       console.log(err);
-      setErrors(err.response?.data);
+      if (err.response && err.response.data) {
+        setErrors(err.response.data);
+      }
+      NotificationManager.error(
+        "Failed to complete (update) your profile. Please try again.",
+        "Error",
+        5000
+      );
     }
   };
 

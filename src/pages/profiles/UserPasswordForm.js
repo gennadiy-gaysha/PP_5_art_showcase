@@ -15,6 +15,9 @@ import btnStyles from "../../styles/Button.module.css";
 import appStyles from "../../App.module.css";
 import passwordStyles from "../../styles/RegistrationForm.module.css";
 
+import { NotificationManager } from "react-notifications";
+import "react-notifications/lib/notifications.css";
+
 const UserPasswordForm = () => {
   const history = useHistory();
   const { id } = useParams();
@@ -51,9 +54,18 @@ const UserPasswordForm = () => {
     event.preventDefault();
     try {
       await axiosRes.post("/dj-rest-auth/password/change/", userData);
+      NotificationManager.success(
+        "Your password has been successfully changed.",
+        "Success"
+      );
       history.goBack();
     } catch (err) {
       console.log(err);
+      NotificationManager.error(
+        "Failed to change the password. Please check your input and try again.",
+        "Error",
+        5000
+      );
       setErrors(err.response?.data);
     }
   };
@@ -62,9 +74,10 @@ const UserPasswordForm = () => {
     <Row>
       <Col className="py-2 mx-auto text-center" md={6}>
         <Container className={appStyles.Content}>
+          <h1 className={passwordStyles.Header}>change password</h1>
           <Form onSubmit={handleSubmit}>
             <Form.Group>
-              <Form.Label>New password</Form.Label>
+              <Form.Label className="d-none">New password</Form.Label>
               <div className={passwordStyles.passwordWrapper}>
                 <Form.Control
                   placeholder="new password"
@@ -87,7 +100,7 @@ const UserPasswordForm = () => {
               </Alert>
             ))}
             <Form.Group>
-              <Form.Label>Confirm password</Form.Label>
+              <Form.Label className="d-none">Confirm password</Form.Label>
               <div className={passwordStyles.passwordWrapper}>
                 <Form.Control
                   placeholder="confirm new password"
@@ -113,13 +126,13 @@ const UserPasswordForm = () => {
               className={`${btnStyles.Button} ${btnStyles.Blue}`}
               onClick={() => history.goBack()}
             >
-              cancel
+              Cancel
             </Button>
             <Button
               type="submit"
               className={`${btnStyles.Button} ${btnStyles.Blue}`}
             >
-              save
+              Save
             </Button>
           </Form>
         </Container>
