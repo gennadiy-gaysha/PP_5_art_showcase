@@ -12,12 +12,12 @@ function About() {
             <Image
               src={about}
               alt="About ART SHOWCASE"
-              className={styles.Image}
+              className={styles.AboutImage}
             />
           </div>
         </Col>
         <Col xs={12} lg={9}>
-          <h1 className="mt-lg-4 ">
+          <h1 className={`mt-lg-4 ${styles.AboutHeader}`}>
             <strong>Welcome to ART SHOWCASE!</strong>
           </h1>
         </Col>
@@ -35,7 +35,9 @@ function About() {
             exploring the realms of contemporary art.
           </p>
           <hr className={styles.Divider} />
-          <h3 className="mt-4">Discover Modern Art Like Never Before</h3>
+          <h3 className={`mt-4 ${styles.AboutSubheader}`}>
+            Discover Modern Art Like Never Before
+          </h3>
           <p className="mb-3">
             ART SHOWCASE is more than just a gallery; it's a dynamic ecosystem
             where artists can freely share their masterpieces, discuss probable
@@ -51,7 +53,9 @@ function About() {
       <hr className={styles.Divider} />
       <Row className="mb-4">
         <Col>
-          <h3 className="mt-4">Features Tailored for Artists and Art Lovers</h3>
+          <h3 className={`mt-4 ${styles.AboutSubheader}`}>
+            Features Tailored for Artists and Art Lovers
+          </h3>
           <p>
             Our platform is equipped with a range of functionalities designed to
             enhance the user experience for both artists and art enthusiasts:
@@ -83,7 +87,9 @@ function About() {
       <hr className={styles.Divider} />
       <Row className="mb-4">
         <Col>
-          <h3 className="mt-4">Advanced Search and Categorization</h3>
+          <h3 className={`mt-4 ${styles.AboutSubheader}`}>
+            Advanced Search and Categorization
+          </h3>
           <p>
             Understanding the diverse interests of our community, ART SHOWCASE
             offers advanced search capabilities and categorization to tailor the
@@ -116,7 +122,9 @@ function About() {
       <hr className={styles.Divider} />
       <Row className="mb-4">
         <Col>
-          <h3 className="mt-4">Join Our Community</h3>
+          <h3 className={`mt-4 ${styles.AboutSubheader}`}>
+            Join Our Community
+          </h3>
           <p>
             At ART SHOWCASE, we believe that art is a journey best shared. Upon
             registration, users are advised to complete their profiles,
@@ -147,7 +155,9 @@ function About() {
       <hr className={styles.Divider} />
       <Row className="mb-4">
         <Col>
-          <h3 className="mt-4">Your Art, Your Showcase</h3>
+          <h3 className={`mt-4 ${styles.AboutSubheader}`}>
+            Your Art, Your Showcase
+          </h3>
           <p>
             Whether you're an artist eager to share your vision with the world
             or an art enthusiast in search of inspiration and beauty, ART
