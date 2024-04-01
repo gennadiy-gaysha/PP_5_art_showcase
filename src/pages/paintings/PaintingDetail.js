@@ -18,6 +18,7 @@ import { useHistory } from "react-router-dom";
 
 import { useCurrentUserProfile } from "../../hooks/useCurrentUserProfile";
 import ModalAlert from "../../components/ModalAlert";
+import ModalAlertDeletePainting from "../../components/ModalAlertDeletePainting";
 import { useState } from "react";
 
 import { NotificationManager } from "react-notifications";
@@ -68,6 +69,8 @@ function Painting(props) {
         "The painting has been successfully deleted.",
         "Deleted"
       );
+      // Hide modal after confirmation
+      setModalShow(false);
       history.goBack();
     } catch (err) {
       console.log(err);
@@ -255,10 +258,18 @@ function Painting(props) {
                     <span style={{ paddingRight: "10px" }}>{created_at}</span>
                   </OverlayTrigger>
                   {is_owner && paintingPage && (
-                    <MoreDropdown
-                      handleEdit={handleEdit}
-                      handleDelete={handleDelete}
-                    />
+                    <>
+                      <MoreDropdown
+                        handleEdit={handleEdit}
+                        // Show the modal:
+                        modalShow={() => setModalShow(true)}
+                      />
+                      <ModalAlertDeletePainting
+                        show={modalShow}
+                        onHide={() => setModalShow(false)}
+                        onConfirm={handleDelete}
+                      />
+                    </>
                   )}
                 </div>
               </Media>

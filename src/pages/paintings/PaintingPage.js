@@ -17,7 +17,6 @@ import Asset from "../../components/Asset";
 import { fetchMoreData } from "../../utils/utils";
 
 import { useCurrentUserProfile } from "../../hooks/useCurrentUserProfile";
-import { useHistory } from "react-router-dom";
 import { Redirect } from "react-router-dom";
 
 function PaintingPage() {
@@ -32,7 +31,6 @@ function PaintingPage() {
   const currentUser = useCurrentUser();
   const profile_image = currentUser?.profile_image;
   const [comments, setComments] = useState({ results: [] });
-  const history = useHistory();
 
   useEffect(() => {
     const handleMount = async () => {
