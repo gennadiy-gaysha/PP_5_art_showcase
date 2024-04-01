@@ -52,7 +52,7 @@ function LogInForm() {
       setCurrentUser(data.user);
       // Display success notification
       NotificationManager.success(
-        "You are successfully logged in!",
+        `Hello ${logInData.username.toUpperCase()}! You are successfully logged in`,
         "Successful Login!"
       );
       history.push("/?resetFilters=true");
