@@ -1,0 +1,26 @@
+.Image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.Divider {
+  border: 0;
+  height: 1px;
+  background: #333;
+  background-image: linear-gradient(to right, #ccc, #333, #ccc);
+}
+h3 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  background-image: linear-gradient(to right, #007bff, #00336a);
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+  padding-bottom: 5px;
+}
+
+h1 {
+  color: #555;
+  margin-top: 30px;
+}

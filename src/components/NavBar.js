@@ -188,10 +188,17 @@ const NavBar = ({ onModalShow }) => {
       <NavLink
         exact
         to="/login"
-        className={`${styles.NavLink} ${styles.NavLinkSpacing}`}
+        className={`${styles.NavLink} ${styles.NavLinkWithDivider}`}
         activeClassName={styles.Active}
       >
         login
+      </NavLink>
+      <NavLink
+        to="/about"
+        className={`${styles.NavLink} ${styles.NavLinkSpacing} `}
+        activeClassName={styles.Active}
+      >
+        about
       </NavLink>
       <span className={styles.GuestUser}>hello, guest-user</span>
     </>

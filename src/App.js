@@ -21,6 +21,7 @@ import "react-notifications/lib/notifications.css";
 
 import { Redirect } from "react-router-dom";
 import NotFoundPage from "./components/NotFoundPage";
+import About from "./components/About";
 
 function App() {
   const [modalShow, setModalShow] = useState(false);
@@ -68,7 +69,7 @@ function App() {
               render={() => <RegistrationForm />}
             />
             <Route exact path="/login" render={() => <LogInForm />} />
-            <Route exact path="/about" render={() => <h1>About</h1>} />
+            <Route exact path="/about" render={() => <About />} />
             <Route
               exact
               path="/paintings/create"
