@@ -21,6 +21,7 @@ import InfiniteScroll from "react-infinite-scroll-component";
 import { fetchMoreData } from "../../utils/utils";
 
 function PaintingsPage({ message, filter = "" }) {
+  const [totalPaintings, setTotalPaintings] = useState(0);
   // useHistory and useLocation Hooks:
   //These hooks from react-router-dom are used to programmatically navigate and access the current URL's details, respectively.
   const history = useHistory();
@@ -101,6 +102,7 @@ function PaintingsPage({ message, filter = "" }) {
 
         const { data } = await axiosReq.get(apiUrl);
         setPaintings(data);
+        setTotalPaintings(data.count);
         setHasLoaded(true);
       } catch (err) {
         console.log(err);
@@ -185,6 +187,9 @@ function PaintingsPage({ message, filter = "" }) {
           </Form>
         </Col>
         {paintings_filters}
+        <Col xs={12}>
+          <p className="text-muted ml-2">Showing {totalPaintings} paintings</p>
+        </Col>
       </Row>
       {hasLoaded ? (
         <>
