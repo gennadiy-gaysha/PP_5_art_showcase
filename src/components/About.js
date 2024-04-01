@@ -34,7 +34,7 @@ function About() {
             their creations and engage with an enthusiastic audience keen on
             exploring the realms of contemporary art.
           </p>
-          <hr className={styles.Divider} />
+          <hr className={styles.AboutDivider} />
           <h3 className={`mt-4 ${styles.AboutSubheader}`}>
             Discover Modern Art Like Never Before
           </h3>
@@ -50,7 +50,7 @@ function About() {
           </p>
         </Col>
       </Row>
-      <hr className={styles.Divider} />
+      <hr className={styles.AboutDivider} />
       <Row className="mb-4">
         <Col>
           <h3 className={`mt-4 ${styles.AboutSubheader}`}>
@@ -84,7 +84,7 @@ function About() {
           </ul>
         </Col>
       </Row>
-      <hr className={styles.Divider} />
+      <hr className={styles.AboutDivider} />
       <Row className="mb-4">
         <Col>
           <h3 className={`mt-4 ${styles.AboutSubheader}`}>
@@ -119,7 +119,7 @@ function About() {
           </ul>
         </Col>
       </Row>
-      <hr className={styles.Divider} />
+      <hr className={styles.AboutDivider} />
       <Row className="mb-4">
         <Col>
           <h3 className={`mt-4 ${styles.AboutSubheader}`}>
@@ -152,7 +152,7 @@ function About() {
           </ul>
         </Col>
       </Row>
-      <hr className={styles.Divider} />
+      <hr className={styles.AboutDivider} />
       <Row className="mb-4">
         <Col>
           <h3 className={`mt-4 ${styles.AboutSubheader}`}>
