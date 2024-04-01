@@ -12,15 +12,10 @@ import { NotificationManager } from "react-notifications";
 import "react-notifications/lib/notifications.css";
 
 const RegistrationForm = () => {
-  const [showPassword1, setShowPassword1] = useState(false);
-  const [showPassword2, setShowPassword2] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
 
-  const togglePasswordVisibility1 = () => {
-    setShowPassword1(!showPassword1);
-  };
-
-  const togglePasswordVisibility2 = () => {
-    setShowPassword2(!showPassword2);
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
   };
 
   const [registrationData, setRegistrationData] = useState({
@@ -95,17 +90,17 @@ const RegistrationForm = () => {
               <div className={styles.passwordWrapper}>
                 <Form.Control
                   className={styles.Input}
-                  type={showPassword1 ? "text" : "password"}
+                  type={showPassword ? "text" : "password"}
                   placeholder="password"
                   name="password1"
                   value={password1}
                   onChange={handleChange}
                 />
                 <i
-                  onClick={togglePasswordVisibility1}
-                  className={`fas ${
-                    showPassword1 ? "fa-eye-slash" : "fa-eye"
-                  } ${styles.passwordEyeIcon}`}
+                  onClick={togglePasswordVisibility}
+                  className={`fas ${showPassword ? "fa-eye-slash" : "fa-eye"} ${
+                    styles.passwordEyeIcon
+                  }`}
                 ></i>
               </div>
             </Form.Group>
@@ -120,17 +115,17 @@ const RegistrationForm = () => {
               <div className={styles.passwordWrapper}>
                 <Form.Control
                   className={styles.Input}
-                  type={showPassword2 ? "text" : "password"}
+                  type={showPassword ? "text" : "password"}
                   placeholder="confirm password"
                   name="password2"
                   value={password2}
                   onChange={handleChange}
                 />
                 <i
-                  onClick={togglePasswordVisibility2}
-                  className={`fas ${
-                    showPassword2 ? "fa-eye-slash" : "fa-eye"
-                  } ${styles.passwordEyeIcon}`}
+                  onClick={togglePasswordVisibility}
+                  className={`fas ${showPassword ? "fa-eye-slash" : "fa-eye"} ${
+                    styles.passwordEyeIcon
+                  }`}
                 ></i>
               </div>
             </Form.Group>
