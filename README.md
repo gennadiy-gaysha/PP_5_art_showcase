@@ -1,4 +1,6 @@
-# **ART SHOWCASE** - Advanced Front End (React + Django REST framework)
+# **ART SHOWCASE** - Advanced Front End
+
+# ▶️ React + Django REST framework
 
 ![ART SHOWCASE responsive design](/src/assets/readme_images/responsive.png)
 
@@ -20,20 +22,29 @@ You can view the back-end README.md here - <a href="https://github.com/gennadiy-
 
 1. [User Experience UX](#user-experience-ux)
 
-   1.1 [Project Goals](#project-goals)
+- [Project Goals](#project-goals)
 
-   - [Epic: Admin Management](#epic-admin-management)
-   - [Epic: Navigation](#epic-navigation)
-   - [Epic: "Painting Management"](#epic-painting-management)
-   - [Epic: Search and Filtering](#epic-search-and-filtering)
-   - [Epic: User and User Profile Management](#epic-user-and-user-profile-management)
-   - [Epic: Favourite Profiles and Watchlist Management](#epic-favourite-profiles-and-watchlist-management)
-   - [Epic: Comments Management](#epic-comments-management)
-   - [Epic: Error Handling and Notification Management](#epic-error-handling-and-notificationg-management)
+  - [Epic: Admin Management](#epic-admin-management)
 
-     1.2 [User Stories](#user-stories)
+  - [Epic: Navigation](#epic-navigation)
 
-     1.3 [General structure](#general-structure)
+  - [Epic: "Painting Management"](#epic-painting-management)
+
+  - [Epic: Search and Filtering](#epic-search-and-filtering)
+
+  - [Epic: User and User Profile Management](#epic-user-and-user-profile-management)
+
+  - [Epic: Favourite Profiles and Watchlist Management](#epic-favourite-profiles-and-watchlist-management)
+
+  - [Epic: Comments Management](#epic-comments-management)
+
+  - [Epic: Error Handling and Notification Management](#epic-error-handling-and-notificationg-management)
+
+- [User Stories](#user-stories)
+
+- [General structure](#general-structure)
+
+- [React Components Tree](#react-components-tree)
 
 ## User Experience (UX)
 
@@ -169,3 +180,19 @@ During the development of the site, minor amendments were made to some initial p
 | Add painting page      | ![Desktop add painting wireframe image](/src/assets/readme_images/wireframes/add_painting_desktop.png)         |
 | Profile page           | ![Desktop profile page wireframe image](/src/assets/readme_images/wireframes/profile_page_desktop.png)         |
 | Complete profile page  | ![Desktop complete profile wireframe image](/src/assets/readme_images/wireframes/complete_profile_desktop.png) |
+
+<br>[Back to top ⇧](#table-of-contents)
+
+### React Component Tree.
+
+This project was developed with React, facilitating the reuse of components across the application. React components are versatile, capable of rendering page elements, displaying data, managing events and user interactions, and communicating with other components through props, among other functionalities.
+
+However, as the project grows in size, navigating the file structure and accurately mapping out the relationships between components and containers can become increasingly complex. The expansion of the project can lead to a rapid rise in complexity.
+
+Having a method to visualize the entire project structure by choosing a root component is cost-effective, as it aids in the swift planning and addition of new features, thanks to the insights provided by props.
+
+For the ART SHOWCASE project, a React Component Tree diagram was generated using the [ReacTreeDev](https://reactree.dev/) VS Code plugin and [xMind](https://xmind.app/) tool. This diagram enables a clear visualization of the hierarchical organization of components, highlighting parent/child relationships.
+
+![Component Tree image](/src/assets/readme_images/ComponentTree.png)
+
+<br>[Back to top ⇧](#table-of-contents)
