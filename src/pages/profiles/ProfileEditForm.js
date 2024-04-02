@@ -72,7 +72,7 @@ const ProfileEditForm = () => {
           history.push("/");
         }
       } else {
-        history.push("/");
+        history.push(`/profiles/${id}/`);
       }
     };
 
@@ -87,7 +87,6 @@ const ProfileEditForm = () => {
   };
 
   const handleSubmit = async (event) => {
-    event.preventDefault();
     event.preventDefault();
 
     // Initialize an errors object
@@ -161,7 +160,7 @@ const ProfileEditForm = () => {
         "Your Profile has been completed (updated) successfully!",
         "Success"
       );
-      history.goBack();
+      history.push(`/profiles/${id}/`);
     } catch (err) {
       console.log(err);
       if (err.response && err.response.data) {
