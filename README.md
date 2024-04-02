@@ -18,21 +18,26 @@ You can view the back-end README.md here - <a href="https://github.com/gennadiy-
 
 ## Table of Contents
 
-- [**User Experience UX**](#user-experience-ux)
-  [Project Goals](#project-goals)
-  1. [Epic: Admin Management](#epic-admin-management)
-  2. [Epic: Navigation](#epic-navigation)
-  3. [Epic: "Painting Management"](#epic-painting-management)
-  4. [Epic: Search and Filtering](#epic-search-and-filtering)
-  5. [Epic: User and User Profile Management](#epic-user-and-user-profile-management)
-  6. [Epic: Favourite Profiles and Watchlist Management](#epic-favourite-profiles-and-watchlist-management)
-  7. [Epic: Comments Management](#epic-comments-management)
-  8. [Epic: Error Handling and Notification Management](#epic-error-handling-and-notificationg-management)
-  - [User Stories](#user-stories)
+1. [User Experience UX](#user-experience-ux)
+
+   1.1 [Project Goals](#project-goals)
+
+   - [Epic: Admin Management](#epic-admin-management)
+   - [Epic: Navigation](#epic-navigation)
+   - [Epic: "Painting Management"](#epic-painting-management)
+   - [Epic: Search and Filtering](#epic-search-and-filtering)
+   - [Epic: User and User Profile Management](#epic-user-and-user-profile-management)
+   - [Epic: Favourite Profiles and Watchlist Management](#epic-favourite-profiles-and-watchlist-management)
+   - [Epic: Comments Management](#epic-comments-management)
+   - [Epic: Error Handling and Notification Management](#epic-error-handling-and-notificationg-management)
+
+     1.2 [User Stories](#user-stories)
+
+     1.3 [General structure](#general-structure)
 
 ## User Experience (UX)
 
-### Project Goals
+### Project Goals.
 
 The objective of the project is to meet a series of specific targets, which are categorized into eight main epics. These epics are Admin Management, Painting Management, Search and Filtering, User and User Profile Management, Favourite Profiles and Watchlist Management, Comments Management, and Error Handling. They each cover different facets of the ART SHOWCASE application. The project's goals are organized in a way to tackle particular needs associated with each epic, facilitating a systematic and effective development of the application.
 
@@ -143,3 +148,24 @@ Before initiating the React-based frontend portion of the project, I developed a
 | 45  | Form Error Feedback                | As a user I can receive immediate and informative feedback when I encounter errors while filling out forms on the site so that I can understand exactly what needs to be corrected without feeling frustrated or lost.                                                                                                       | Error Handling and Notificationg Management |
 | 46  | Success Notifications              | As a user I can receive a success notification when I successfully complete the form so that I am assured my changes have been saved and can confidently navigate away from the form.                                                                                                                                        | Error Handling and Notificationg Management |
 | 47  | Consistent Alert Handling          | As a user I can see that error alerts and success messages are handled uniformly across the platform so that I have a consistent experience and can easily understand feedback from the system.                                                                                                                              | Error Handling and Notificationg Management |
+
+<br>[Back to top ⇧](#table-of-contents)
+
+### General structure.
+
+In this project, the React Bootstrap library was implemented. It utilizes a grid system and responsive utility classes, facilitating the creation of a site that looks appealing on both mobile and larger screens without necessarily initiating the design process with a mobile-first approach in mind. Therefore, it was decided not to adhere to the 'mobile-first' approach.
+
+[Balsamiq](https://balsamiq.com/) was used to showcase the appearance of the site on desktop devices and to display the placement of the different elements within the pages.
+
+During the development of the site, minor amendments were made to some initial page designs to enhance user experience (UX)
+
+| Page                   | Desktop version                                                                                                |
+| ---------------------- | -------------------------------------------------------------------------------------------------------------- |
+| Home page (logged out) | ![Desktop log out index wireframe image](/src/assets/readme_images/wireframes/index_desktop_logged_out.png)    |
+| Home page (logged in)  | ![Desktop log in index wireframe image](/src/assets/readme_images/wireframes/index_desktop_logged_in.png)      |
+| Log in page            | ![Desktop log in page wireframe image](/src/assets/readme_images/wireframes/login_desktop.png)                 |
+| Registration page      | ![Desktop sign up page wireframe image](/src/assets/readme_images/wireframes/signup_desktop.png)               |
+| Painting page          | ![Desktop painting page wireframe image](/src/assets/readme_images/wireframes/painting_page_desktop.png)       |
+| Add painting page      | ![Desktop add painting wireframe image](/src/assets/readme_images/wireframes/add_painting_desktop.png)         |
+| Profile page           | ![Desktop profile page wireframe image](/src/assets/readme_images/wireframes/profile_page_desktop.png)         |
+| Complete profile page  | ![Desktop complete profile wireframe image](/src/assets/readme_images/wireframes/complete_profile_desktop.png) |

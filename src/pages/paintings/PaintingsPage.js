@@ -188,7 +188,11 @@ function PaintingsPage({ message, filter = "" }) {
         </Col>
         {paintings_filters}
         <Col xs={12}>
-          <p className="text-muted ml-2">Showing {totalPaintings} paintings</p>
+          <p className="text-muted ml-2">
+            Showing{" "}
+            <span style={{ fontSize: "1.1rem" }}>{totalPaintings} </span>
+            paintings
+          </p>
         </Col>
       </Row>
       {hasLoaded ? (
