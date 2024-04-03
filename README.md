@@ -21,32 +21,20 @@ You can view the back-end README.md here - <a href="https://github.com/gennadiy-
 1. [User Experience UX](#user-experience-ux)
 
 - [Project Goals](#project-goals)
-
   - [Epic: Admin Management](#epic-admin-management)
-
   - [Epic: Navigation](#epic-navigation)
-
   - [Epic: "Painting Management"](#epic-painting-management)
-
   - [Epic: Search and Filtering](#epic-search-and-filtering)
-
   - [Epic: User and User Profile Management](#epic-user-and-user-profile-management)
-
   - [Epic: Favourite Profiles and Watchlist Management](#epic-favourite-profiles-and-watchlist-management)
-
   - [Epic: Comments Management](#epic-comments-management)
-
   - [Epic: Error Handling and Notification Management](#epic-error-handling-and-notificationg-management)
-
 - [User Stories](#user-stories)
-
 - [General structure](#general-structure)
-
 - [React Component Tree](#react-component-tree)
-
 - [Color Scheme](#color-scheme)
-
 - [Topography](#topography)
+- [User Permissions](#user-permissions)
 
 ## User Experience (UX)
 
@@ -197,12 +185,11 @@ For the ART SHOWCASE project, a React Component Tree diagram was generated using
 
 ![Component Tree image](/src/assets/readme_images/ComponentTree.png)
 
-You can also download the original file of the project's React Component Tree diagram from
-`/src/assets/App.js.xmind` in this project.
+You can also download the original file of the project's React Component Tree diagram from [here](https://github.com/gennadiy-gaysha/PP_5_art_showcase/blob/main/src/assets/App.js.xmind).
 
 <br>[Back to top ⇧](#table-of-contents)
 
-### Color Scheme
+### Color Scheme.
 
 The color palette of this site was intentionally chosen to be simple (primarily black and white tones, as well as shades of gray) to keep the user's focus on the images of the paintings.
 The color hue table for the project was created using the [Colors](https://coolors.co/).
@@ -228,8 +215,47 @@ chosen as the background for the entire project.
 
 <br>[Back to top ⇧](#table-of-contents)
 
-### Topography
+### Topography.
 
 The main Google Font chosen for the project is "DM Sans". To complement it, a variety of FontAwesome icons were deployed to enhance the user experience. Both were imported into the index.html file for use throughout the project. The font link specifies two font weights for DM Sans: 500 (Medium) and 700 (Bold).
+
+<br>[Back to top ⇧](#table-of-contents)
+
+### User Permissions.
+
+Given the specific characteristics of this website, I have determined that implementing various levels of permissions/access would significantly enhance both the site's management and the user experience. Below are the different levels of user permissions and authorization rights.
+
+1. Logged Out User.
+
+- Access to the Home page, Registration page, Log in Page, and About page
+- Use of Footer links to social media accounts
+- Use of Painting search and filtering functionality
+- Viewing of the Painting detail page
+- Ability to read comments in the painting detail page
+- Viewing of profile pages of registered users with completed profiles
+
+2. Logged In User without completed profile.
+
+- Access to the Home page, Log out page and About page
+- Use of Footer links to social media accounts
+- Use of Painting search and filtering functionality
+- Viewing of the Painting detail page
+- Ability to read comments in the painting detail page
+- Viewing of profile pages of registered users with completed profiles
+- Links to "Add Painting", "Faves", "Watchlist", and "Avatar+Username" are visible; however, clicking on them activates a modal panel that alerts the user to complete their profile by clicking a button located at the bottom of the panel.
+
+3. Logged In User with completed profile:
+
+- Access to the Home page, Log out page and About page
+- Use of Footer links to social media accounts
+- Use of Painting search and filtering functionality
+- Ability to add/edit/delete their own paintings
+- Ability to edit their own profile and change their password
+- Ability to add/remove artworks of other painters to/from the Watchlist
+- Viewing of the Painting detail page
+- Ability to read and create comments on the painting detail page (both for their own and other users' paintings)
+- Ability to edit/delete their own comments
+- Viewing of profile pages of registered users with completed profiles
+- Ability to add/remove other painters to/from their "Faves"
 
 <br>[Back to top ⇧](#table-of-contents)
