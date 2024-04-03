@@ -1,6 +1,4 @@
-# **ART SHOWCASE** - Advanced Front End
-
-# ▶️ React + Django REST framework
+# **ART SHOWCASE** - Advanced Front End <br>React + Django REST framework
 
 ![ART SHOWCASE responsive design](/src/assets/readme_images/responsive.png)
 
@@ -44,7 +42,11 @@ You can view the back-end README.md here - <a href="https://github.com/gennadiy-
 
 - [General structure](#general-structure)
 
-- [React Components Tree](#react-components-tree)
+- [React Component Tree](#react-component-tree)
+
+- [Color Scheme](#color-scheme)
+
+- [Topography](#topography)
 
 ## User Experience (UX)
 
@@ -195,4 +197,35 @@ For the ART SHOWCASE project, a React Component Tree diagram was generated using
 
 ![Component Tree image](/src/assets/readme_images/ComponentTree.png)
 
+You can also download the original file of the project's React Component Tree diagram from
+`/src/assets/App.js.xmind` in this project.
+
 <br>[Back to top ⇧](#table-of-contents)
+
+### Color Scheme
+
+The color palette of this site was intentionally chosen to be simple (primarily black and white tones, as well as shades of gray) to keep the user's focus on the images of the paintings.
+The color hue table for the project was created using the [Colors](https://coolors.co/).
+
+To provide a complete representation, the first color in the Primary Hue Table (Seasalt) corresponds to the main color of the pattern, which has been
+chosen as the background for the entire project.
+
+**Primary color hue table**
+![Primary color hue table](/src/assets/readme_images/color_hue_table.png)
+
+**The colors used in the website are as follows:**
+
+- background image for all
+  pages: [@lifeforstock](https://www.freepik.com/free-photo/abstract-surface-textures-white-concrete-stone-wall_4326138.htm)
+- background color for the nav bar and the footer: #ffffff
+- logo colors: #ffffff and #000000
+- active links and button color: #007bff
+- buttons hover color: #2142b2
+- main text color: #555
+- auxiliary text colors: #c1c1c5,#802222,#ff9254
+- icon color: #b5b5b5
+- icon hover color: #cfced3
+
+<br>[Back to top ⇧](#table-of-contents)
+
+### Topography
