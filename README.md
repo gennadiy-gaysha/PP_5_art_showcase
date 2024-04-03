@@ -30,12 +30,13 @@ You can view the back-end README.md here - <a href="https://github.com/gennadiy-
   - [Epic: Comments Management](#epic-comments-management)
   - [Epic: Error Handling and Notification Management](#epic-error-handling-and-notificationg-management)
 - [User Stories](#user-stories)
-- [General structure](#general-structure)
+- [Mockup](#mockup)
 - [React Component Tree](#react-component-tree)
 - [Color Scheme](#color-scheme)
 - [Topography](#topography)
 
 2. [User Permissions](#user-permissions)
+
 3. [Features](#features)
 
 - [Navigation Bar (NavBar)](#navigation-bar-navbar)
@@ -157,7 +158,7 @@ Before initiating the React-based frontend portion of the project, I developed a
 
 <br>[Back to top ⇧](#table-of-contents)
 
-### General structure.
+### Mockup.
 
 In this project, the React Bootstrap library was implemented. It utilizes a grid system and responsive utility classes, facilitating the creation of a site that looks appealing on both mobile and larger screens without necessarily initiating the design process with a mobile-first approach in mind. Therefore, it was decided not to adhere to the 'mobile-first' approach.
 
@@ -277,9 +278,14 @@ Given the specific characteristics of this website, I have determined that imple
 **Depending on the user status, the NavBar has two different states:**
 
 - For a logged-out (unauthenticated) user:
-  ![ArtShowcase Navbar image Authorized](/src/assets/readme_images/features/nav_unauthorized.png)
+  ![ArtShowcase Navbar image Authenticated](/src/assets/readme_images/features/nav_unauthenticated.png)
 - For a logged-in user:
-  ![ArtShowcase Navbar image Unauthorized](/src/assets/readme_images/features/nav_authorized.png)
+  ![ArtShowcase Navbar image Unauthenticated](/src/assets/readme_images/features/nav_authenticated.png)
+
+- Responsiveness. NavBar burger menu:
+  | | |
+  |------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------|
+  | ![ArtShowcase Navbar Mobile Unauthenticated](/src/assets/readme_images/features/nav_mobile_unauthenticated.png) | ![ArtShowcase Navbar Mobile Authenticated](/src/assets/readme_images/features/nav_mobile_authenticated.png) |
 
 **Clicking on the avatar/username link may result in two different scenarios, depending on the authenticated user's credentials:**
 
@@ -292,6 +298,7 @@ Given the specific characteristics of this website, I have determined that imple
 ### Footer
 
 - The footer includes the ArtShowcase trademark, and links to various social media channels.
+  ![ArtShowcase Footer image](/src/assets/readme_images/features/footer.png)
 
 <br>[Back to top ⇧](#table-of-contents)
 

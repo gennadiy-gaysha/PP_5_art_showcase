@@ -47,15 +47,17 @@
 
 .GuestUser {
   margin-left: auto;
-  padding: 7px;
+
   font-weight: bold;
   color: #555555;
   font-size: 1.1rem;
+  margin-bottom: 2px;
 }
 
 @media (max-width: 768px) {
   .GuestUser {
     margin-left: 0;
+    margin-top: 4px;
   }
 
   .NavLinkWithDivider::after {

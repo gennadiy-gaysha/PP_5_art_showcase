@@ -87,14 +87,14 @@ const NavBar = ({ onModalShow }) => {
       {!profileCompleted ? (
         <>
           <div
-            className={`${styles.NavLink} ${styles.NavLinkWithDivider} ${styles.IconTextContainer}`}
+            className={`${styles.NavLink} ${styles.NavLinkWithDivider} ${styles.IconTextContainer} mr-auto text-left`}
             activeClassName={styles.Active}
             onClick={onModalShow}
           >
             faves
           </div>
           <div
-            className={`${styles.NavLink} ${styles.NavLinkWithDivider} ${styles.IconTextContainer}`}
+            className={`${styles.NavLink} ${styles.NavLinkWithDivider} ${styles.IconTextContainer} mr-auto text-left`}
             activeClassName={styles.Active}
             onClick={onModalShow}
           >
@@ -147,7 +147,7 @@ const NavBar = ({ onModalShow }) => {
       {!profileCompleted ? (
         <div
           style={{ textTransform: "none", fontWeight: "bold" }}
-          className={`${styles.NavLink} ${styles.NavLinkWithDivider} ${styles.IconTextContainer}`}
+          className={`${styles.NavLink} ${styles.NavLinkWithDivider} ${styles.IconTextContainer} mr-auto text-left`}
           activeClassName={styles.Active}
           onClick={onModalShow}
         >
