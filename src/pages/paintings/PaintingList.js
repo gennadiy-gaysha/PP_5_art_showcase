@@ -174,6 +174,20 @@ function Painting(props) {
     </>
   );
 
+  const readAddComment = (
+    <>
+      <OverlayTrigger
+        placement="top"
+        overlay={<Tooltip>Read/add comments</Tooltip>}
+      >
+        <Link to={`/paintings/${id}`}>
+          <i className="far fa-comments"></i>
+        </Link>
+      </OverlayTrigger>
+      {comments_count}
+    </>
+  );
+
   return (
     <Card className={styles.Painting}>
       <Card.Body>
@@ -192,16 +206,16 @@ function Painting(props) {
           <Card.Img src={image} alt={title} />
         </div>
       </Link>
-      <Card.Body>
-        <span>published: {created_at}</span>
-        {owner && <Card.Text>{owner}</Card.Text>}
-        {title && <Card.Title className="text-center">{title}</Card.Title>}
-        {theme}
+      <Card.Body className="text-left">
+        {/* <span>published: {created_at}</span> */}
+        {title && <Card.Title className="text-left">{title}</Card.Title>}
+        {owner && <Card.Text>{artist_name}</Card.Text>}
+        {/* {theme} */}
+        {/* <br /> */}
+        Technique: {technique}
         <br />
-        {technique}
-        <br />
-        {orientation} ({width}cm x {height}cm)
-        <br />£{price}
+        {/* <br /> */}
+        {/* {orientation} ({width}cm x {height}cm) */}£{price}
         <div className={styles.PaintingBar}>
           {!currentUser && (
             <>
@@ -218,13 +232,13 @@ function Painting(props) {
           {currentUser && profileCompleted && is_owner && (
             <>
               {isOwnerObservation}
-              {readComment}
+              {readAddComment}
             </>
           )}
           {currentUser && profileCompleted && !is_owner && (
             <>
               {observation_id ? yetObserved : notObserved}
-              {readComment}
+              {readAddComment}
             </>
           )}
         </div>

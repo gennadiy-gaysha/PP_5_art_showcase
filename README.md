@@ -41,6 +41,11 @@ You can view the back-end README.md here - <a href="https://github.com/gennadiy-
 
 - [Navigation Bar (NavBar)](#navigation-bar-navbar)
 - [Footer](#footer)
+- [Home page](#home-page)
+  - [Filters area](#1-filters-area)
+  - [Resetting filter choices](#2-resetting-filter-choices)
+  - [Preserving user's filter choices](#3-preserving-users-filter-choices)
+  - [Painting Card (PaintingList component)](#4-painting-card-paintinglist-component)
 
 ## User Experience (UX)
 
@@ -300,5 +305,113 @@ Given the specific characteristics of this website, I have determined that imple
   ![ArtShowcase Footer image](/src/assets/readme_images/features/footer.png)
 
 <br>[Back to top ⇧](#table-of-contents)
+
+### Home page.
+
+The Home page features an infinite scroll display of paintings, arranged in rows of three, and includes a set of filters for selecting a desired group of paintings.
+
+![ArtShowcase Home Page image](/src/assets/readme_images/features/home_page.png)
+
+##### **1. Filters area:**
+
+![ArtShowcase Filters Area image](/src/assets/readme_images/features/filters_area.png)
+
+**Search Painting Field**
+
+- Allows users to search for paintings by title or painter's name by entering the relevant information into the field.
+
+**Theme Filter**
+
+- Enables users to find paintings by a desired theme through a dropdown menu. Available options include:
+  - Portrait
+  - Still Life
+  - Landscape
+  - Seascape
+  - Abstract
+  - Figurative
+  - Genre
+  - Animal
+
+**Technique Filters**
+
+- Users can select paintings by a specific technique using a dropdown menu. Available options are:
+  - Oil Paint
+  - Acrylic Paint
+  - Watercolor
+  - Gouache
+  - Pastel
+  - Charcoal
+  - Graphite
+  - Ink
+  - Mixed Media
+
+**Orientation Filter**
+
+- A computed value filter that helps users to select paintings based on the desired orientation, depending on the painting's width-height ratio. This value can also be chosen from a dropdown menu:
+  - Vertical
+  - Horizontal
+  - Square
+
+**Price Filter**
+
+- A dropdown menu that allows users to sort paintings in _ascending_ or _descending_ order by price.
+
+**Cumulative Filtering Display**
+
+- When filters are applied one after the other, their criteria are cumulative, with the final display showing the collective result of all selected filters.
+
+**Painting Counter**
+
+- The number of paintings displayed is shown beneath the row of filter settings, and it updates according to the results of the applied filters.
+
+##### **2. Resetting filter choices.**
+
+- To enhance the user experience, a 'Reset Filters' feature has been implemented. This allows users to quickly and efficiently clear all applied filters by clicking on any of the intuitively obvious links in the NavBar that lead to pages where filters are presented:
+  - Logo link
+  - Artworks link
+  - Faves link
+  - Watchlist link
+
+##### **3. Preserving user's filter choices.**
+
+- To improve user convenience, functionality was added to save filter settings in browser's sessionStorage. This keeps filter states preserved across page navigations, ensuring the application remembers users' choices even after navigating away and returning to the PaintingsPage, via links or browser navigation buttons.
+
+- This feature is beneficial for users who wish to view a painting's detail page and then return to the filtered paintings page, among other navigational actions.
+
+##### **4. Painting Card (PaintingList component).**
+
+- This component can be divided into four distinct parts, each offering its own functionality.
+
+**Link to the Painting Deatil Page**
+
+- Clicking on any painting on the Paintings Page redirects the user to the [Painting Detail page](#painting-detail-page).
+
+**Avatar/Username**
+
+- Essentially, this acts as a link to the [Profile page](#profile-page) of the user (painting owner).
+
+**Painting Details**
+
+- Provides a summary of information about the painting, as described by the artist upon adding the painting to the gallery.
+
+**Painting Layout**
+
+- Allows the uploading of paintings with any aspect ratio dimensions. Regardless of the aspect ratio, the image will be fitted into a square frame without cropping. Horizontal or vertical images will have padding added on the top and bottom or sides, respectively.
+
+**Pop Up Hovered Icon Hints**
+
+- These hints appear when the user hovers over the Observe (Watch) or Comment icon beneath the painting's data. The type of hint pop-up message displayed varies depending on the user's credentials, as detailed in the table below:
+
+| Status                               | Icon            | Message                                                                | Icon    | Message           |
+| ------------------------------------ | --------------- | ---------------------------------------------------------------------- | ------- | ----------------- |
+| Logged out user                      | Observe (Watch) | Log in to follow up the painting                                       | Comment | Read comments     |
+| Logged in user (painting owner)      | Observe (Watch) | You can't follow up your own painting                                  | Comment | Read/add comments |
+| Logged in user w/completed Profile   | Observe (Watch) | Add painting to your watchlist/Remove the painting from your Watchlist | Comment | Read/add comments |
+| Logged in user w/uncompleted Profile | Observe (Watch) | Complete your profile to add painting to your Watchlist                | Comment | Read comments     |
+
+| ![ArtShowcase Painting Card-1 image](/src/assets/readme_images/features/painting_card_1.png) | ![ArtShowcase Painting Card-2 image](/src/assets/readme_images/features/painting_card_2.png) | ![ArtShowcase Painting Card-3 image](/src/assets/readme_images/features/painting_card_3.png) |
+| -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
+
+### Painting Detail page.
 
 ### Profile page.
