@@ -312,7 +312,7 @@ The Home page features an infinite scroll display of paintings, arranged in rows
 
 ![ArtShowcase Home Page image](/src/assets/readme_images/features/home_page.png)
 
-##### **1. Filters area:**
+#### **1. Filters area:**
 
 ![ArtShowcase Filters Area image](/src/assets/readme_images/features/filters_area.png)
 
@@ -364,7 +364,9 @@ The Home page features an infinite scroll display of paintings, arranged in rows
 
 - The number of paintings displayed is shown beneath the row of filter settings, and it updates according to the results of the applied filters.
 
-##### **2. Resetting filter choices.**
+<br>[Back to top ⇧](#table-of-contents)
+
+#### **2. Resetting filter choices.**
 
 - To enhance the user experience, a 'Reset Filters' feature has been implemented. This allows users to quickly and efficiently clear all applied filters by clicking on any of the intuitively obvious links in the NavBar that lead to pages where filters are presented:
   - Logo link
@@ -372,13 +374,13 @@ The Home page features an infinite scroll display of paintings, arranged in rows
   - Faves link
   - Watchlist link
 
-##### **3. Preserving user's filter choices.**
+#### **3. Preserving user's filter choices.**
 
 - To improve user convenience, functionality was added to save filter settings in browser's sessionStorage. This keeps filter states preserved across page navigations, ensuring the application remembers users' choices even after navigating away and returning to the PaintingsPage, via links or browser navigation buttons.
 
 - This feature is beneficial for users who wish to view a painting's detail page and then return to the filtered paintings page, among other navigational actions.
 
-##### **4. Painting Card (PaintingList component).**
+#### **4. Painting Card (PaintingList component).**
 
 - This component can be divided into four distinct parts, each offering its own functionality.
 
@@ -398,9 +400,11 @@ The Home page features an infinite scroll display of paintings, arranged in rows
 
 - Allows the uploading of paintings with any aspect ratio dimensions. Regardless of the aspect ratio, the image will be fitted into a square frame without cropping. Horizontal or vertical images will have padding added on the top and bottom or sides, respectively.
 
-**Pop Up Hovered Icon Hints**
+**Observe/Comment Icons and Pop Up Hovered Icon Hints**
 
-- These hints appear when the user hovers over the Observe (Watch) or Comment icon beneath the painting's data. The type of hint pop-up message displayed varies depending on the user's credentials, as detailed in the table below:
+- These two icons display the number of times the painting was added to the Watchlist and the number of comments the painting has received, respectively.
+- Depending on whether the painting has been added to their watchlist, the color of the Observe icon changes from blue to grey for the user.
+- Icon hints appear when the user hovers over the Observe (Watch) or Comment icon beneath the painting's data. The type of hint pop-up message displayed varies depending on the user's credentials, as detailed in the table below:
 
 | Status                               | Icon            | Message                                                                | Icon    | Message           |
 | ------------------------------------ | --------------- | ---------------------------------------------------------------------- | ------- | ----------------- |
@@ -412,6 +416,33 @@ The Home page features an infinite scroll display of paintings, arranged in rows
 | ![ArtShowcase Painting Card-1 image](/src/assets/readme_images/features/painting_card_1.png) | ![ArtShowcase Painting Card-2 image](/src/assets/readme_images/features/painting_card_2.png) | ![ArtShowcase Painting Card-3 image](/src/assets/readme_images/features/painting_card_3.png) |
 | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
 
+<br>[Back to top ⇧](#table-of-contents)
+
 ### Painting Detail page.
+
+![ArtShowcase Painting Detail Page image](/src/assets/readme_images/features/painting_detail_page.png)
+
+This page comprises three independent section, that may slightly differ depending on the user status (see full discription below).
+
+#### **1. Painting section**
+
+**The Painting Itself**
+
+- Positioned on the left side of the screen, it occupies two-thirds of the site's main container size.
+
+**Painting's Upper and Lower Paddings**
+
+- In the top-left corner of the painting section, the Avatar/Username is displayed, serving as a link to the [Profile page](#profile-page) of the user (painting owner).
+- In the top-right corner of the painting section, the date when the painting was added to the gallery is shown.
+- At the bottom of the painting section, the Observe and Comment icons are displayed along with the number of times the painting has been added to the Watchlist and the total number of comments it has received.
+- Depending on whether the painting has been added to their watchlist, the color of the Observe icon changes from blue to grey for the user.
+- Icon hints appear when the user hovers over the Observe (Watch) or Comment icon beneath the painting's data. The type of hint pop-up message displayed varies depending on the user's credentials, as detailed in the table below:
+
+| Status                               | Icon                 | Message                                                                | Icon         | Message                                  |
+| ------------------------------------ | -------------------- | ---------------------------------------------------------------------- | ------------ | ---------------------------------------- |
+| Logged out user                      | Observe (Watch) icon | Log in to follow up the painting                                       | Comment icon | Log in to leave a comment                |
+| Logged in user (painting owner)      | Observe (Watch) icon | You can't follow up your own painting                                  | Comment icon | Total number of comments                 |
+| Logged in user w/completed Profile   | Observe (Watch) icon | Add painting to your watchlist/Remove the painting from your Watchlist | Comment icon | Total number of comments                 |
+| Logged in user w/uncompleted Profile | Observe (Watch) icon | Complete your profile to add painting to your Watchlist                | Comment icon | Complete your profile to leave a comment |
 
 ### Profile page.

@@ -147,7 +147,7 @@ function Painting(props) {
     <>
       <OverlayTrigger
         placement="top"
-        overlay={<Tooltip>Add painting to your watchlistt</Tooltip>}
+        overlay={<Tooltip>Add painting to your watchlist</Tooltip>}
       >
         <span onClick={handleObserve}>
           <i
