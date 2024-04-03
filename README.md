@@ -222,10 +222,14 @@ chosen as the background for the entire project.
 - active links and button color: #007bff
 - buttons hover color: #2142b2
 - main text color: #555
-- auxiliary text colors: #c1c1c5,#802222,#ff9254
+- auxiliary text colors: #c1c1c5, #802222, #ff9254
 - icon color: #b5b5b5
 - icon hover color: #cfced3
 
 <br>[Back to top ⇧](#table-of-contents)
 
 ### Topography
+
+The main Google Font chosen for the project is "DM Sans". To complement it, a variety of FontAwesome icons were deployed to enhance the user experience. Both were imported into the index.html file for use throughout the project. The font link specifies two font weights for DM Sans: 500 (Medium) and 700 (Bold).
+
+<br>[Back to top ⇧](#table-of-contents)
