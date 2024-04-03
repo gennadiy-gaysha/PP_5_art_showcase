@@ -34,7 +34,12 @@ You can view the back-end README.md here - <a href="https://github.com/gennadiy-
 - [React Component Tree](#react-component-tree)
 - [Color Scheme](#color-scheme)
 - [Topography](#topography)
-- [User Permissions](#user-permissions)
+
+2. [User Permissions](#user-permissions)
+3. [Features](#features)
+
+- [Navigation Bar (NavBar)](#navigation-bar-navbar)
+- [Footer](#footer)
 
 ## User Experience (UX)
 
@@ -221,7 +226,7 @@ The main Google Font chosen for the project is "DM Sans". To complement it, a va
 
 <br>[Back to top ⇧](#table-of-contents)
 
-### User Permissions.
+## User Permissions.
 
 Given the specific characteristics of this website, I have determined that implementing various levels of permissions/access would significantly enhance both the site's management and the user experience. Below are the different levels of user permissions and authorization rights.
 
@@ -259,3 +264,35 @@ Given the specific characteristics of this website, I have determined that imple
 - Ability to add/remove other painters to/from their "Faves"
 
 <br>[Back to top ⇧](#table-of-contents)
+
+3. ## Features
+
+### Navigation Bar (NavBar).
+
+- Includes the main logo, user greeting/username and links to various pages of the site, enhancing the ease of navigation throughout the site.
+- The logo image is linked to the home page.
+- The NavBar links incorporate a hover effect that changes color, providing users with visual feedback for an improved browsing experience.
+- The active (clicked) link on the navigation bar is highlighted in blue.
+
+**Depending on the user status, the NavBar has two different states:**
+
+- For a logged-out (unauthenticated) user:
+  ![ArtShowcase Navbar image Authorized](/src/assets/readme_images/features/nav_unauthorized.png)
+- For a logged-in user:
+  ![ArtShowcase Navbar image Unauthorized](/src/assets/readme_images/features/nav_authorized.png)
+
+**Clicking on the avatar/username link may result in two different scenarios, depending on the authenticated user's credentials:**
+
+- For newly registered users who have not completed their profile yet, it activates a modal panel that alerts the user to complete their profile by clicking a button located at the bottom of the panel.
+- This Modal Alert panel is also triggered when they click on the "Add Painting", "Faves", and "Watchlist" links on the NavBar.
+  ![ArtShowcase ModalAlert image](/src/assets/readme_images/features/modal_alert.png)
+
+- Registered users who have completed their profile are redirected to their [Profile page](#profile-page)
+
+### Footer
+
+- The footer includes the ArtShowcase trademark, and links to various social media channels.
+
+<br>[Back to top ⇧](#table-of-contents)
+
+### Profile page.
