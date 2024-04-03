@@ -283,9 +283,8 @@ Given the specific characteristics of this website, I have determined that imple
   ![ArtShowcase Navbar image Unauthenticated](/src/assets/readme_images/features/nav_authenticated.png)
 
 - Responsiveness. NavBar burger menu:
-  | | |
-  |------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------|
   | ![ArtShowcase Navbar Mobile Unauthenticated](/src/assets/readme_images/features/nav_mobile_unauthenticated.png) | ![ArtShowcase Navbar Mobile Authenticated](/src/assets/readme_images/features/nav_mobile_authenticated.png) |
+  |------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------|
 
 **Clicking on the avatar/username link may result in two different scenarios, depending on the authenticated user's credentials:**
 
