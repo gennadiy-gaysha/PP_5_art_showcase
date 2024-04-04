@@ -74,9 +74,7 @@ const NavBar = ({ onModalShow }) => {
           className={`${styles.NavLink} ${styles.NavLinkSpacing}`}
           activeClassName={styles.Active}
         >
-          <span className={styles.IconTextContainer}>
-            <i className="fas fa-plus-square"></i>Add painting
-          </span>
+          <i className="fas fa-plus-square"></i>Add painting
         </NavLink>
       )}
     </>

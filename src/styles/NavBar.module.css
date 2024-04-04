@@ -18,6 +18,9 @@
   font-weight: bold;
   color: #007bff;
 }
+.Active i {
+  color: #007bff;
+}
 
 .NavLinkSpacing {
   margin-right: 30px;

@@ -316,7 +316,7 @@ The Home page features an infinite scroll display of paintings, arranged in rows
 
 ![ArtShowcase Home Page image](/src/assets/readme_images/features/home_page.png)
 
-#### **1. Filters area:**
+#### **1. Filter area:**
 
 ![ArtShowcase Filters Area image](/src/assets/readme_images/features/filters_area.png)
 
@@ -358,7 +358,7 @@ The Home page features an infinite scroll display of paintings, arranged in rows
 
 - Price Filter
 
-  - A dropdown menu that allows users to sort paintings in _ascending_ or _descending_ order by price.
+  - A dropdown menu that allows users to sort paintings in **_ascending_** or **_descending_** order by price.
 
 - Cumulative Filtering Display
 
@@ -494,5 +494,9 @@ Comment Deletion. After clicking the icon to delete a comment, a modal alert win
 Any user is redirected to comment's owner Profile page when they click on owner's Avatar/Username that located near the comment.
 
 <br>[Back to top ⇧](#table-of-contents)
+
+### Add Painting page
+
+Logged in user who has completed their profile can add their paintings to the Gallery by clicking on "Add painting" icon on the NavBar.
 
 ### Profile page.

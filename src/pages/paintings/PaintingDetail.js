@@ -71,7 +71,7 @@ function Painting(props) {
       );
       // Hide modal after confirmation
       setModalShow(false);
-      history.goBack();
+      history.push("/");
     } catch (err) {
       console.log(err);
       NotificationManager.error(
