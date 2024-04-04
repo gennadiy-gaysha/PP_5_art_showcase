@@ -8,6 +8,9 @@ import styles from "../../styles/CommentCreateEditForm.module.css";
 import Avatar from "../../components/Avatar";
 import { axiosRes } from "../../api/axiosDefaults";
 
+import { NotificationManager } from "react-notifications";
+import "react-notifications/lib/notifications.css";
+
 function CommentCreateForm(props) {
   const { painting, setPainting, setComments, profileImage, profile_id } =
     props;
@@ -24,6 +27,10 @@ function CommentCreateForm(props) {
         content,
         painting,
       });
+      NotificationManager.success(
+        "The comment has been successfully created.",
+        "Success!"
+      );
       setComments((prevComments) => ({
         ...prevComments,
         results: [data, ...prevComments.results],
@@ -39,6 +46,11 @@ function CommentCreateForm(props) {
       setContent("");
     } catch (err) {
       console.log(err);
+      NotificationManager.error(
+        "Failed to create the comment. Please check your input and try again.",
+        "Error!",
+        5000
+      );
     }
   };
 

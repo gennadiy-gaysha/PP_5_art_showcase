@@ -9,6 +9,9 @@ import React, { useState } from "react";
 import CommentEditForm from "./CommentEditForm";
 import ModalAlertDeleteComment from "../../components/ModalAlertDeleteComment";
 
+import { NotificationManager } from "react-notifications";
+import "react-notifications/lib/notifications.css";
+
 const Comment = (props) => {
   const [modalShow, setModalShow] = useState(false);
 
@@ -33,7 +36,10 @@ const Comment = (props) => {
   const handleDelete = async () => {
     try {
       await axiosRes.delete(`/comments/${id}`);
-
+      NotificationManager.success(
+        "The comment has been successfully deleted.",
+        "Deleted"
+      );
       setPainting((prevPainting) => ({
         results: [
           {
@@ -51,6 +57,11 @@ const Comment = (props) => {
       setModalShow(false);
     } catch (err) {
       console.log(err);
+      NotificationManager.error(
+        "Failed to delete the comment. Please try again.",
+        "Deletion Failed",
+        5000
+      );
     }
   };
 
