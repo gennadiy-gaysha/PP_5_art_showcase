@@ -7,8 +7,11 @@ import { MoreDropdown } from "../../components/MoreDropdown";
 import { axiosRes } from "../../api/axiosDefaults";
 import React, { useState } from "react";
 import CommentEditForm from "./CommentEditForm";
+import ModalAlertDeleteComment from "../../components/ModalAlertDeleteComment";
 
 const Comment = (props) => {
+  const [modalShow, setModalShow] = useState(false);
+
   const {
     profile_id,
     profile_image,
@@ -29,7 +32,8 @@ const Comment = (props) => {
 
   const handleDelete = async () => {
     try {
-      await axiosRes.delete(`/comments/${id}/`);
+      await axiosRes.delete(`/comments/${id}`);
+
       setPainting((prevPainting) => ({
         results: [
           {
@@ -43,7 +47,11 @@ const Comment = (props) => {
         ...prevComments,
         results: prevComments.results.filter((comment) => comment.id !== id),
       }));
-    } catch (err) {}
+      // Hide modal after confirmation
+      setModalShow(false);
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   return (
@@ -70,10 +78,18 @@ const Comment = (props) => {
           )}
         </Media.Body>
         {is_owner && !showEditForm && (
-          <MoreDropdown
-            handleEdit={() => setShowEditForm(true)}
-            handleDelete={handleDelete}
-          />
+          <>
+            <MoreDropdown
+              handleEdit={() => setShowEditForm(true)}
+              // Show the modal:
+              modalShow={() => setModalShow(true)}
+            />
+            <ModalAlertDeleteComment
+              show={modalShow}
+              onHide={() => setModalShow(false)}
+              onConfirm={handleDelete}
+            />
+          </>
         )}
       </Media>
     </>

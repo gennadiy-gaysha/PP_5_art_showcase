@@ -46,6 +46,10 @@ You can view the back-end README.md here - <a href="https://github.com/gennadiy-
   - [Resetting filter choices](#2-resetting-filter-choices)
   - [Preserving user's filter choices](#3-preserving-users-filter-choices)
   - [Painting Card](#4-painting-card-paintinglist-component)
+- [Painting Detail page](#painting-detail-page)
+  - [Painting section](#1-painting-section)
+  - [Painting detail section](#2-painting-detail-section)
+  - [Comment section](#3-comment-section)
 
 ## User Experience (UX)
 
