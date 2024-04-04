@@ -42,10 +42,10 @@ You can view the back-end README.md here - <a href="https://github.com/gennadiy-
 - [Navigation Bar (NavBar)](#navigation-bar-navbar)
 - [Footer](#footer)
 - [Home page](#home-page)
-  - [Filters area](#1-filters-area)
+  - [Filter area](#1-filters-area)
   - [Resetting filter choices](#2-resetting-filter-choices)
   - [Preserving user's filter choices](#3-preserving-users-filter-choices)
-  - [Painting Card (PaintingList component)](#4-painting-card-paintinglist-component)
+  - [Painting Card](#4-painting-card-paintinglist-component)
 
 ## User Experience (UX)
 
@@ -236,7 +236,7 @@ The main Google Font chosen for the project is "DM Sans". To complement it, a va
 
 Given the specific characteristics of this website, I have determined that implementing various levels of permissions/access would significantly enhance both the site's management and the user experience. Below are the different levels of user permissions and authorization rights.
 
-1. Logged Out User.
+**1. Logged Out User.**
 
 - Access to the Home page, Registration page, Log in Page, and About page
 - Use of Footer links to social media accounts
@@ -245,7 +245,7 @@ Given the specific characteristics of this website, I have determined that imple
 - Ability to read comments in the painting detail page
 - Viewing of profile pages of registered users with completed profiles
 
-2. Logged In User without completed profile.
+**2. Logged In User without completed profile.**
 
 - Access to the Home page, Log out page and About page
 - Use of Footer links to social media accounts
@@ -255,7 +255,7 @@ Given the specific characteristics of this website, I have determined that imple
 - Viewing of profile pages of registered users with completed profiles
 - Links to "Add Painting", "Faves", "Watchlist", and "Avatar+Username" are visible; however, clicking on them activates a modal panel that alerts the user to complete their profile by clicking a button located at the bottom of the panel.
 
-3. Logged In User with completed profile:
+**3. Logged In User with completed profile:**
 
 - Access to the Home page, Log out page and About page
 - Use of Footer links to social media accounts
@@ -316,53 +316,53 @@ The Home page features an infinite scroll display of paintings, arranged in rows
 
 ![ArtShowcase Filters Area image](/src/assets/readme_images/features/filters_area.png)
 
-**Search Painting Field**
+- Search Painting Field
 
-- Allows users to search for paintings by title or painter's name by entering the relevant information into the field.
+  - Allows users to search for paintings by title or painter's name by entering the relevant information into the field.
 
-**Theme Filter**
+- Theme Filter
 
-- Enables users to find paintings by a desired theme through a dropdown menu. Available options include:
-  - Portrait
-  - Still Life
-  - Landscape
-  - Seascape
-  - Abstract
-  - Figurative
-  - Genre
-  - Animal
+  - Enables users to find paintings by a desired theme through a dropdown menu. Available options include:
+    - Portrait
+    - Still Life
+    - Landscape
+    - Seascape
+    - Abstract
+    - Figurative
+    - Genre
+    - Animal
 
-**Technique Filters**
+- Technique Filters
 
-- Users can select paintings by a specific technique using a dropdown menu. Available options are:
-  - Oil Paint
-  - Acrylic Paint
-  - Watercolor
-  - Gouache
-  - Pastel
-  - Charcoal
-  - Graphite
-  - Ink
-  - Mixed Media
+  - Users can select paintings by a specific technique using a dropdown menu. Available options are:
+    - Oil Paint
+    - Acrylic Paint
+    - Watercolor
+    - Gouache
+    - Pastel
+    - Charcoal
+    - Graphite
+    - Ink
+    - Mixed Media
 
-**Orientation Filter**
+- Orientation Filter
 
-- A computed value filter that helps users to select paintings based on the desired orientation, depending on the painting's width-height ratio. This value can also be chosen from a dropdown menu:
-  - Vertical
-  - Horizontal
-  - Square
+  - A computed value filter that helps users to select paintings based on the desired orientation, depending on the painting's width-height ratio. This value can also be chosen from a dropdown menu:
+    - Vertical
+    - Horizontal
+    - Square
 
-**Price Filter**
+- Price Filter
 
-- A dropdown menu that allows users to sort paintings in _ascending_ or _descending_ order by price.
+  - A dropdown menu that allows users to sort paintings in _ascending_ or _descending_ order by price.
 
-**Cumulative Filtering Display**
+- Cumulative Filtering Display
 
-- When filters are applied one after the other, their criteria are cumulative, with the final display showing the collective result of all selected filters.
+  - When filters are applied one after the other, their criteria are cumulative, with the final display showing the collective result of all selected filters.
 
-**Painting Counter**
+- Painting Counter
 
-- The number of paintings displayed is shown beneath the row of filter settings, and it updates according to the results of the applied filters.
+  - The number of paintings displayed is shown beneath the row of filter settings, and it updates according to the results of the applied filters.
 
 <br>[Back to top ⇧](#table-of-contents)
 
@@ -382,29 +382,29 @@ The Home page features an infinite scroll display of paintings, arranged in rows
 
 #### **4. Painting Card (PaintingList component).**
 
-- This component can be divided into four distinct parts, each offering its own functionality.
+This component can be divided into four distinct parts, each offering its own functionality.
 
-**Link to the Painting Deatil Page**
+- Link to the Painting Deatil Page
 
-- Clicking on any painting on the Paintings Page redirects the user to the [Painting Detail page](#painting-detail-page).
+  - Clicking on any painting on the Paintings Page redirects the user to the [Painting Detail page](#painting-detail-page).
 
-**Avatar/Username**
+- Avatar/Username
 
-- Essentially, this acts as a link to the [Profile page](#profile-page) of the user (painting owner).
+  - Essentially, this acts as a link to the [Profile page](#profile-page) of the user (painting owner).
 
-**Painting Details**
+- Painting Details
 
-- Provides a summary of information about the painting, as described by the artist upon adding the painting to the gallery.
+  - Provides a summary of information about the painting, as described by the artist upon adding the painting to the gallery.
 
-**Painting Layout**
+- Painting Layout
 
-- Allows the uploading of paintings with any aspect ratio dimensions. Regardless of the aspect ratio, the image will be fitted into a square frame without cropping. Horizontal or vertical images will have padding added on the top and bottom or sides, respectively.
+  - Allows the uploading of paintings with any aspect ratio dimensions. Regardless of the aspect ratio, the image will be fitted into a square frame without cropping. Horizontal or vertical images will have padding added on the top and bottom or sides, respectively.
 
-**Observe/Comment Icons and Pop Up Hovered Icon Hints**
+- Observe/Comment Icons and Pop Up Hovered Icon Hints
 
-- These two icons display the number of times the painting was added to the Watchlist and the number of comments the painting has received, respectively.
-- Depending on whether the painting has been added to their watchlist, the color of the Observe icon changes from blue to grey for the user.
-- Icon hints appear when the user hovers over the Observe (Watch) or Comment icon beneath the painting's data. The type of hint pop-up message displayed varies depending on the user's credentials, as detailed in the table below:
+  - These two icons display the number of times the painting was added to the Watchlist and the number of comments the painting has received, respectively.
+  - Depending on whether the painting has been added to their watchlist, the color of the Observe icon changes from blue to grey for the user.
+  - Icon hints appear when the user hovers over the Observe (Watch) or Comment icon beneath the painting's data. The type of hint pop-up message displayed varies depending on the user's credentials, as detailed in the table below:
 
 | Status                               | Icon            | Message                                                                | Icon    | Message           |
 | ------------------------------------ | --------------- | ---------------------------------------------------------------------- | ------- | ----------------- |
@@ -413,6 +413,8 @@ The Home page features an infinite scroll display of paintings, arranged in rows
 | Logged in user w/completed Profile   | Observe (Watch) | Add painting to your watchlist/Remove the painting from your Watchlist | Comment | Read/add comments |
 | Logged in user w/uncompleted Profile | Observe (Watch) | Complete your profile to add painting to your Watchlist                | Comment | Read comments     |
 
+**Below are some examples of pop-up icon hints:**
+
 | ![ArtShowcase Painting Card-1 image](/src/assets/readme_images/features/painting_card_1.png) | ![ArtShowcase Painting Card-2 image](/src/assets/readme_images/features/painting_card_2.png) | ![ArtShowcase Painting Card-3 image](/src/assets/readme_images/features/painting_card_3.png) |
 | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
 
@@ -420,23 +422,23 @@ The Home page features an infinite scroll display of paintings, arranged in rows
 
 ### Painting Detail page.
 
-![ArtShowcase Painting Detail Page image](/src/assets/readme_images/features/painting_detail_page.png)
+This page consists of three independent sections, which may vary slightly depending on the user's status (see the full description below).
 
-This page comprises three independent section, that may slightly differ depending on the user status (see full discription below).
+![ArtShowcase Painting Detail Page image](/src/assets/readme_images/features/painting_detail_page.png)
 
 #### **1. Painting section**
 
-**The Painting Itself**
+- The Painting Itself
 
-- Positioned on the left side of the screen, it occupies two-thirds of the site's main container size.
+  - Positioned on the left side of the screen, it occupies two-thirds of the site's main container size.
 
-**Painting's Upper and Lower Paddings**
+- Painting's Upper and Lower Paddings
 
-- In the top-left corner of the painting section, the Avatar/Username is displayed, serving as a link to the [Profile page](#profile-page) of the user (painting owner).
-- In the top-right corner of the painting section, the date when the painting was added to the gallery is shown.
-- At the bottom of the painting section, the Observe and Comment icons are displayed along with the number of times the painting has been added to the Watchlist and the total number of comments it has received.
-- Depending on whether the painting has been added to their watchlist, the color of the Observe icon changes from blue to grey for the user.
-- Icon hints appear when the user hovers over the Observe (Watch) or Comment icon beneath the painting's data. The type of hint pop-up message displayed varies depending on the user's credentials, as detailed in the table below:
+  - In the top-left corner of the painting section, the Avatar/Username is displayed, serving as a link to the [Profile page](#profile-page) of the user (painting owner).
+  - In the top-right corner of the painting section, the date when the painting was added to the gallery is shown.
+  - At the bottom of the painting section, the Observe and Comment icons are displayed along with the number of times the painting has been added to the Watchlist and the total number of comments it has received.
+  - Depending on whether the painting has been added to their watchlist, the color of the Observe icon changes from blue to grey for the user.
+  - Icon hints appear when the user hovers over the Observe (Watch) or Comment icon beneath the painting's data. The type of hint pop-up message displayed varies depending on the user's credentials, as detailed in the table below:
 
 | Status                               | Icon                 | Message                                                                | Icon         | Message                                  |
 | ------------------------------------ | -------------------- | ---------------------------------------------------------------------- | ------------ | ---------------------------------------- |
@@ -444,5 +446,37 @@ This page comprises three independent section, that may slightly differ dependin
 | Logged in user (painting owner)      | Observe (Watch) icon | You can't follow up your own painting                                  | Comment icon | Total number of comments                 |
 | Logged in user w/completed Profile   | Observe (Watch) icon | Add painting to your watchlist/Remove the painting from your Watchlist | Comment icon | Total number of comments                 |
 | Logged in user w/uncompleted Profile | Observe (Watch) icon | Complete your profile to add painting to your Watchlist                | Comment icon | Complete your profile to leave a comment |
+
+#### **2. Painting detail section**
+
+- This section provides the general details of the painting, as provided by the owner when they add their artwork to the Gallery.
+
+#### **3. Comment section**
+
+Each comment includes information about the user who left the comment, how long ago the comment was made, and the comment itself.
+
+Depending on the user's status, there are two possible views of this section:
+
+- For unauthenticated users and authorized users who have not yet completed their profile:
+
+  - They can only read the comments:
+
+![ArtShowcase Comment Unauthorized image](/src/assets/readme_images/features/comment_unauthorized.png)
+
+- Authorised users that have completed their profile.
+  - Those can read other users comments and leave their own comments:
+
+![ArtShowcase Comment Authorized image](/src/assets/readme_images/features/comment_authorized.png)
+
+- Logged in comments' owner can also edit and delete their own comment.
+
+Comment CRUD:
+![ArtShowcase Comment CRUD image](/src/assets/readme_images/features/comment_crud.png)
+Comment Update:
+![ArtShowcase Comment Update image](/src/assets/readme_images/features/comment_update.png)
+Comment Delete:
+![ArtShowcase Comment Delete image](/src/assets/readme_images/features/comment_delete.png)
+
+Any user is redirected to comment's owner Profile page when they click on owner's Avatar/Username that located near the comment.
 
 ### Profile page.
