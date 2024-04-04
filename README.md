@@ -51,6 +51,7 @@ You can view the back-end README.md here - <a href="https://github.com/gennadiy-
   - [Painting detail section](#2-painting-detail-section)
   - [Comment section](#3-comment-section)
 - [Create Painting page](#create-painting-page)
+- [Profile page](#profile-page)
 
 ## User Experience (UX)
 
@@ -277,6 +278,10 @@ Given the specific characteristics of this website, I have determined that imple
 <br>[Back to top ⇧](#table-of-contents)
 
 ## Features
+
+### General.
+
+Every feature outlined for the site is meticulously designed to align with a corresponding [User Story](#user-stories), ensuring a seamless integration that adheres to the highest standards of UI and UX design. This approach guarantees that each element of the site not only meets the specific needs and expectations of the users but also provides an intuitive and engaging experience. By prioritizing user-centric design principles, the site facilitates effortless navigation and interaction, making every user's journey through the site both enjoyable and efficient. This commitment to aligning features with user stories and best practices in design underscores our dedication to creating a user-friendly platform that resonates with and serves the needs of our diverse user base.
 
 ### Navigation Bar (NavBar).
 
@@ -518,3 +523,17 @@ Users who are logged in and have completed their profiles can add their painting
 <br>[Back to top ⇧](#table-of-contents)
 
 ### Profile page.
+
+To navigate to any user's profile page, simply click on the Avatar/Username pairing found throughout the site. The user profile page is organized into two main sections:
+
+- **User Profile Main Info Panel**: This section displays both computed data and user-provided information. The computed data includes the number of paintings the user has, the number of favorite painters, and the user's follower count. Additionally, it features information provided by the user upon completing their profile, such as:
+
+  - Profile photo
+  - Short bio
+  - Home country
+  - Gender
+  - Date of birth
+
+![ArtShowcase Profile Page image](/src/assets/readme_images/features/profile_page.png)
+
+- **User's Available Artworks**: This area showcases an infinite scroll of the user's paintings added to the gallery. Each painting card is presented in the same format as those on the [Home page](#4-painting-card-paintinglist-component)
