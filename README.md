@@ -436,12 +436,21 @@ This page consists of three independent sections, which may vary slightly depend
 
   - Positioned on the left side of the screen, it occupies two-thirds of the site's main container size.
 
+- Logged in painting' owner can also edit and delete their own paintings.
+
+Painting CRUD:
+![ArtShowcase Comment CRUD image](/src/assets/readme_images/features/painting_crud.png)
+Painting Updating:
+![ArtShowcase Comment Update image](/src/assets/readme_images/features/painting_update.png)
+Painting Deletion. After clicking the icon to delete a painting, a modal alert window appears, asking the user to confirm the deletion action.
+![ArtShowcase Comment Delete image](/src/assets/readme_images/features/painting_delete.png)
+
 - Painting's Upper and Lower Paddings
 
   - In the top-left corner of the painting section, the Avatar/Username is displayed, serving as a link to the [Profile page](#profile-page) of the user (painting owner).
   - In the top-right corner of the painting section, the date when the painting was added to the gallery is shown.
   - At the bottom of the painting section, the Observe and Comment icons are displayed along with the number of times the painting has been added to the Watchlist and the total number of comments it has received.
-  - Depending on whether the painting has been added to their watchlist, the color of the Observe icon changes from blue to grey for the user.
+  - Depending on whether the painting has been added to their watchlist, the color of the Observe icon changes from blue to grey for the currently logged in user.
   - Icon hints appear when the user hovers over the Observe (Watch) or Comment icon beneath the painting's data. The type of hint pop-up message displayed varies depending on the user's credentials, as detailed in the table below:
 
 | Status                               | Icon                 | Message                                                                | Icon         | Message                                  |
@@ -450,6 +459,8 @@ This page consists of three independent sections, which may vary slightly depend
 | Logged in user (painting owner)      | Observe (Watch) icon | You can't follow up your own painting                                  | Comment icon | Total number of comments                 |
 | Logged in user w/completed Profile   | Observe (Watch) icon | Add painting to your watchlist/Remove the painting from your Watchlist | Comment icon | Total number of comments                 |
 | Logged in user w/uncompleted Profile | Observe (Watch) icon | Complete your profile to add painting to your Watchlist                | Comment icon | Complete your profile to leave a comment |
+
+<br>[Back to top ⇧](#table-of-contents)
 
 #### **2. Painting detail section**
 
@@ -468,11 +479,10 @@ Depending on the user's status, there are two possible views of this section:
 ![ArtShowcase Comment Unauthorized image](/src/assets/readme_images/features/comment_unauthorized.png)
 
 - Authorised users that have completed their profile.
-  - Those can read other users comments and leave their own comments:
+  - Those can read other users comments and leave their own comments.
+  - Logged in comments' owner can also edit and delete their own comment.
 
 ![ArtShowcase Comment Authorized image](/src/assets/readme_images/features/comment_authorized.png)
-
-- Logged in comments' owner can also edit and delete their own comment.
 
 Comment CRUD:
 ![ArtShowcase Comment CRUD image](/src/assets/readme_images/features/comment_crud.png)
@@ -482,5 +492,7 @@ Comment Deletion. After clicking the icon to delete a comment, a modal alert win
 ![ArtShowcase Comment Delete image](/src/assets/readme_images/features/comment_delete.png)
 
 Any user is redirected to comment's owner Profile page when they click on owner's Avatar/Username that located near the comment.
+
+<br>[Back to top ⇧](#table-of-contents)
 
 ### Profile page.
