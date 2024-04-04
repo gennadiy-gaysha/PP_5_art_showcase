@@ -50,6 +50,7 @@ You can view the back-end README.md here - <a href="https://github.com/gennadiy-
   - [Painting section](#1-painting-section)
   - [Painting detail section](#2-painting-detail-section)
   - [Comment section](#3-comment-section)
+- [Create Painting page](#create-painting-page)
 
 ## User Experience (UX)
 
@@ -275,7 +276,7 @@ Given the specific characteristics of this website, I have determined that imple
 
 <br>[Back to top ⇧](#table-of-contents)
 
-3. ## Features
+## Features
 
 ### Navigation Bar (NavBar).
 
@@ -436,7 +437,7 @@ This page consists of three independent sections, which may vary slightly depend
 
   - Positioned on the left side of the screen, it occupies two-thirds of the site's main container size.
 
-- Logged in painting' owner can also edit and delete their own paintings.
+- Logged in painting' owner can also edit and delete their own paintings. Upon successful editing/deletion of a painting, a "Success" message will be displayed to confirm the action.
 
 Painting CRUD:
 ![ArtShowcase Comment CRUD image](/src/assets/readme_images/features/painting_crud.png)
@@ -481,6 +482,7 @@ Depending on the user's status, there are two possible views of this section:
 - Authorised users that have completed their profile.
   - Those can read other users comments and leave their own comments.
   - Logged in comments' owner can also edit and delete their own comment.
+  - Upon successful editing/deletion of a comment, a "Success" message will be displayed to confirm the action.
 
 ![ArtShowcase Comment Authorized image](/src/assets/readme_images/features/comment_authorized.png)
 
@@ -495,8 +497,24 @@ Any user is redirected to comment's owner Profile page when they click on owner'
 
 <br>[Back to top ⇧](#table-of-contents)
 
-### Add Painting page
+### Create Painting page
 
-Logged in user who has completed their profile can add their paintings to the Gallery by clicking on "Add painting" icon on the NavBar.
+Users who are logged in and have completed their profiles can add their paintings to the Gallery by clicking on the "Add Painting" icon in the NavBar, which redirects them to the Create Painting page:
+
+![ArtShowcase Add painting image](/src/assets/readme_images/features/add_painting.png)
+
+- All fields in the "Add Painting" form are mandatory, including the requirement to upload an image. Should there be any errors, a detailed and informative message will be displayed:
+
+![ArtShowcase Add painting image](/src/assets/readme_images/features/add_painting_error.png)
+
+- If users wish to change the image they initially selected, they can do so by clicking on the "Change the image" button beneath the uploaded image.
+- Image size restrictions are enforced programmatically in the backend (paintings/serializers.py), limiting the Width/Height to no more than 4096px, and the file size to no more than 2MB.
+- The "Year Created" field is also restricted in the backend (paintings/serializers.py), with allowable years ranging from 1000 to 9999.
+- "Select Theme" and "Select Technique" fields are dropdown menus with predefined options, as described in the [filter area section](#1-filter-area).
+- Upon successful submission of a painting, a "Success" message will be displayed to confirm the addition. The user is then redirected to the "Painting Page" of the newly created artwork.
+
+![ArtShowcase Add painting success image](/src/assets/readme_images/features/add_painting_success.png)
+
+<br>[Back to top ⇧](#table-of-contents)
 
 ### Profile page.
