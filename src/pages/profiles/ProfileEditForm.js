@@ -130,6 +130,11 @@ const ProfileEditForm = () => {
       newErrors.home_country = ["Home country is required."];
     }
 
+    // Validation for gender
+    if (gender === "Select gender") {
+      newErrors.gender = ["Gender selection is required."];
+    }
+
     if (Object.keys(newErrors).length > 0) {
       // Set errors (if any) and prevent form submission
       setErrors(newErrors);
