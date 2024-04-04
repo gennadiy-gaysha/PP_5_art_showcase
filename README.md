@@ -476,9 +476,9 @@ Depending on the user's status, there are two possible views of this section:
 
 Comment CRUD:
 ![ArtShowcase Comment CRUD image](/src/assets/readme_images/features/comment_crud.png)
-Comment Update:
+Comment Updating:
 ![ArtShowcase Comment Update image](/src/assets/readme_images/features/comment_update.png)
-Comment Delete:
+Comment Deletion. After clicking the icon to delete a comment, a modal alert window appears, asking the user to confirm the deletion action.
 ![ArtShowcase Comment Delete image](/src/assets/readme_images/features/comment_delete.png)
 
 Any user is redirected to comment's owner Profile page when they click on owner's Avatar/Username that located near the comment.

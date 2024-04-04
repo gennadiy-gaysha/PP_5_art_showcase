@@ -1,5 +1,6 @@
 import styles from "../styles/MoreDropdown.module.css";
 import React from "react";
+import { OverlayTrigger, Tooltip } from "react-bootstrap";
 import Dropdown from "react-bootstrap/Dropdown";
 import { useHistory } from "react-router";
 
@@ -30,14 +31,24 @@ export const MoreDropdown = ({ handleEdit, modalShow }) => {
           onClick={handleEdit}
           aria-label="edit"
         >
-          <i className={`fas fa-edit ${styles.IconSize}`} />
+          <OverlayTrigger
+            placement="top"
+            overlay={<Tooltip>Edit this item</Tooltip>}
+          >
+            <i className={`fas fa-edit ${styles.IconSize}`} />
+          </OverlayTrigger>
         </Dropdown.Item>
         <Dropdown.Item
           className={styles.DropdownItem}
           onClick={modalShow}
           aria-label="delete"
         >
-          <i className={`fas fa-trash-alt ${styles.IconSize}`} />
+          <OverlayTrigger
+            placement="top"
+            overlay={<Tooltip>Delete this item</Tooltip>}
+          >
+            <i className={`fas fa-trash-alt ${styles.IconSize}`} />
+          </OverlayTrigger>
         </Dropdown.Item>
       </Dropdown.Menu>
     </Dropdown>
