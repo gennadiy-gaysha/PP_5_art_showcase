@@ -39,6 +39,7 @@ You can view the back-end README.md here - <a href="https://github.com/gennadiy-
 
 3. [Features](#features)
 
+- [General](#general)
 - [Navigation Bar (NavBar)](#navigation-bar-navbar)
 - [Footer](#footer)
 - [Home page](#home-page)
@@ -474,11 +475,19 @@ This page consists of three independent sections, which may vary slightly depend
 
 - All fields in the "Add Painting" form are mandatory, including the requirement to upload an image. Should there be any errors, a detailed and informative message will be displayed:
 
-![ArtShowcase Add painting image](/src/assets/readme_images/features/add_painting_error.png)
+![ArtShowcase Add painting error image](/src/assets/readme_images/features/add_painting_error.png)
 
 - If users wish to change the image they initially selected, they can do so by clicking on the "Change the image" button beneath the uploaded image.
 - Image size restrictions are enforced programmatically in the backend (paintings/serializers.py), limiting the Width/Height to no more than 4096px, and the file size to no more than 2MB.
+
+  ![ArtShowcase Image Width Error image](/src/assets/readme_images/features/image_width_error.png)
+  ![ArtShowcase Image Weight Error image](/src/assets/readme_images/features/image_weight_error.png)
+
 - The "Year Created" field is also restricted in the backend (paintings/serializers.py), with allowable years ranging from 1000 to 9999.
+
+| ![ArtShowcase Year Created Greater image](/src/assets/readme_images/features/year_created_greater.png) | ![ArtShowcase Year Created Less image](/src/assets/readme_images/features/year_created_less.png) |
+| ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ |
+
 - "Select Theme" and "Select Technique" fields are dropdown menus with predefined options, as described in the [filter area section](#1-filter-area).
 - Upon successful submission of a painting, a "Success" message will be displayed to confirm the addition. The user is then redirected to the "Painting Page" of the newly created artwork.
 
@@ -498,8 +507,8 @@ This page consists of three independent sections, which may vary slightly depend
 
 - Upon successful editing/deletion of a painting, a "Success" message will be displayed to confirm the action.
 
-![ArtShowcase Comment Delete image](/src/assets/readme_images/features/painting_success_update.png)
-![ArtShowcase Comment Delete image](/src/assets/readme_images/features/painting_success_delete.png)
+![ArtShowcase Painting Success Update image](/src/assets/readme_images/features/painting_success_update.png)
+![ArtShowcase Painting Success Delete image](/src/assets/readme_images/features/painting_success_delete.png)
 
 #### **3. Comment section**
 
