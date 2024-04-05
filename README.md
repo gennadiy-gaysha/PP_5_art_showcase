@@ -48,7 +48,8 @@ You can view the back-end README.md here - <a href="https://github.com/gennadiy-
   - [Filter area](#1-filters-area)
   - [Resetting filter choices](#2-resetting-filter-choices)
   - [Preserving user's filter choices](#3-preserving-users-filter-choices)
-  - [Painting Card](#4-painting-card-paintinglist-component) -[Observation CRUD](#observation-crud)
+  - [Painting Card](#4-painting-card-paintinglist-component)
+    - [Observation CRUD](#observation-crud)
 - [Painting Detail page](#painting-detail-page)
   - [Painting section](#1-painting-section)
   - [Painting detail section](#2-painting-detail-section)
@@ -60,6 +61,7 @@ You can view the back-end README.md here - <a href="https://github.com/gennadiy-
     - [Follower CRUD](#follower-crud)
   - [User's Available Artworks](#users-available-artworks)
   - [Profile CRUD](#profile-crud)
+- [About page](#about-page)
 
 ## User Experience (UX)
 
@@ -657,5 +659,16 @@ To navigate to any user's profile page, simply click on the Avatar/Username pair
 ![ArtShowcase Profile Edit Form image](/src/assets/readme_images/features/profile_edit_form.png)
 
 - Note that the deletion of users and their profiles is reserved as an administrative function in the backend and is not a part of the Profile CRUD operations.
+
+<br>[Back to top ⇧](#table-of-contents)
+
+### About page
+
+![ArtShowcase About page image](/src/assets/readme_images/features/about.png)
+
+- The "About" page of the project serves as the cornerstone of ART SHOWCASE, introducing users to the mission and the essence of this online platform. Designed for both emerging artists and art enthusiasts, this page outlines the core functionalities and the unique ecosystem that ART SHOWCASE provides. It emphasizes dedication to fostering connections within the modern art community through the sharing, discussion, and appreciation of contemporary paintings.
+- Visitors to the "About" page will gain insight into the various features the platform offers, from creating artist profiles and showcasing artwork to exploring vast collections and engaging in community discussions. The page highlights the seamless blend of UI and UX design principles that enhance the user experience, enabling easy navigation and interaction.
+- Moreover, the "About" page delves into the tailored discovery experience ART SHOWCASE offers, including advanced search capabilities and personalized user interactions like watchlists and artist connections. It underscores the commitment to making art accessible and enjoyable for everyone, facilitating a space where art not only is viewed but lived and breathed.
+- In essence, the "About" page invites users to join a community that celebrates modern paintings' power to inspire, connect, and enchant, marking the beginning of an artistic voyage with ART SHOWCASE.
 
 <br>[Back to top ⇧](#table-of-contents)
