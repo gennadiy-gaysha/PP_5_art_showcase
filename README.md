@@ -518,7 +518,7 @@ This page consists of three independent sections, which may vary slightly depend
 
 - This section provides the general details of the painting, as provided by the owner when they add their artwork to the Gallery.
 
-##### Painting CRUD
+##### **Painting CRUD**
 
 - Users who are logged in and have completed their profiles can add their paintings to the Gallery by clicking on the "Add Painting" icon in the NavBar, which redirects them to the Create Painting page:
 
@@ -561,7 +561,7 @@ This page consists of three independent sections, which may vary slightly depend
 ![ArtShowcase Painting Success Update image](/src/assets/readme_images/features/painting_success_update.png)
 ![ArtShowcase Painting Success Delete image](/src/assets/readme_images/features/painting_success_delete.png)
 
-#### **3. Comment section**
+#### 3. Comment section
 
 Each comment includes information about the user who left the comment, how long ago the comment was made, and the comment itself.
 
@@ -569,9 +569,9 @@ Each comment includes information about the user who left the comment, how long 
 
 ![ArtShowcase Comment Unauthorized image](/src/assets/readme_images/features/comment_unauthorized.png)
 
-##### Comment CRUD
+##### **Comment CRUD**
 
-- Authorised users that have completed their profile.
+- Authorised users that have completed their profile:
   - Those can read other users comments and leave their own comments.
   - Logged in comments' owner can also edit and delete their own comment.
   - Upon successful editing/deletion of a comment, a "Success" message will be displayed to confirm the action.
@@ -589,13 +589,13 @@ Any user is redirected to comment's owner Profile page when they click on owner'
 
 <br>[Back to top ⇧](#table-of-contents)
 
-<br>[Back to top ⇧](#table-of-contents)
-
 ### Profile page
 
 To navigate to any user's profile page, simply click on the Avatar/Username pairing found throughout the site. The user profile page is organized into two main sections:
 
-- **User Profile Main Info Panel**: This section displays both computed data and user-provided information. The computed data includes the number of paintings the user has, the number of favorite painters, and the user's follower count. Additionally, it features information provided by the user upon completing their profile, such as:
+#### User Profile Main Info Panel:
+
+- This section displays both computed data and user-provided information. The computed data includes the number of paintings the user has, the number of favorite painters, and the user's follower count. Additionally, it features information provided by the user upon completing their profile, such as:
 
   - Profile photo
   - Short bio
@@ -603,8 +603,39 @@ To navigate to any user's profile page, simply click on the Avatar/Username pair
   - Gender
   - Date of birth
 
-![ArtShowcase Profile Page image](/src/assets/readme_images/features/profile_page.png)
+![ArtShowcase Profile Page Owner image](/src/assets/readme_images/features/profile_page_owner.png)
 
-- **User's Available Artworks**: This area showcases an infinite scroll of the user's paintings added to the gallery. Each painting card is presented in the same format as those on the [Home page](#4-painting-card-paintinglist-component)
+- The "To Faves"/"Unfollow" button is visible to logged-in users beneath the profile image, except to the profile owner themselves. Clicking on the button adds or removes the profile to or from the Favorites of the logged-in user. It also increments or decrements the follower count of the profile in question and the number of favorites in the logged-in user's profile accordingly.
+- After adding a profile to Faves, the logged-in user can view all the paintings by the selected artist in their Faves section.
+
+![ArtShowcase Profile Page Not Owner image](/src/assets/readme_images/features/profile_page_not_owner.png)
+
+#### User's Available Artworks:
+
+- This area showcases an infinite scroll of the user's paintings added to the gallery. Each painting card is presented in the same format as those on the [Home page](#4-painting-card-paintinglist-component)
+
+<br>[Back to top ⇧](#table-of-contents)
+
+##### **Profile CRUD**
+
+- Upon new user registration, a profile is automatically created in the backend. Thus, CRUD operations for users are limited to profile updates, such as completion or editing.
+- Selecting the "Complete your profile" button from a Modal Alert navigates the user to the Profile Completion page:
+
+![ArtShowcase Complete Profile image](/src/assets/readme_images/features/complete_profile.png)
+
+- All form fields, except for the image which has a default option, are required. Any errors encountered will prompt a detailed message similar to the one used in the ["Add painting" form](#painting-crud)
+- To facilitate user-friendly input of birth dates, a date-picker library is utilized in the "Date of Birth" field:
+
+![ArtShowcase Complete Profile Birthdate image](/src/assets/readme_images/features/complete_profile_birthdate.png)
+
+- Users who have completed their profiles may edit them by clicking the three vertical dots located in the top right corner of their [User Profile Main Info Panel](#user-profile-main-info-panel):
+
+![ArtShowcase Profile Edit image](/src/assets/readme_images/features/profile_edit.png)
+
+- Clicking the "Edit Profile" icon will display a form pre-filled with the user's existing profile data. All fields (except for the the profile image) are required to be filled out. This measure ensures the integrity and completeness of user information:
+
+![ArtShowcase Profile Edit Form image](/src/assets/readme_images/features/profile_edit_form.png)
+
+- Note that the deletion of users and their profiles is reserved as an administrative function in the backend and is not a part of the Profile CRUD operations.
 
 <br>[Back to top ⇧](#table-of-contents)
