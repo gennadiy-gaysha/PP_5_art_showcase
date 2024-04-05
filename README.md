@@ -28,7 +28,7 @@ You can view the back-end README.md here - <a href="https://github.com/gennadiy-
   - [Epic: User and User Profile Management](#epic-user-and-user-profile-management)
   - [Epic: Favourite Profiles and Watchlist Management](#epic-favourite-profiles-and-watchlist-management)
   - [Epic: Comments Management](#epic-comments-management)
-  - [Epic: Error Handling and Notification Management](#epic-error-handling-and-notificationg-management)
+  - [Epic: Error Handling and Notification Management](#epic-error-handling-and-notification-management)
 - [User Stories](#user-stories)
 - [Mockup](#mockup)
 - [React Component Tree](#react-component-tree)
@@ -62,6 +62,11 @@ You can view the back-end README.md here - <a href="https://github.com/gennadiy-
   - [User's Available Artworks](#users-available-artworks)
   - [Profile CRUD](#profile-crud)
 - [About page](#about-page)
+- [Authentication Forms](#authentication-forms)
+  - [Registration Form](#registration-form)
+  - [Log In Form](#log-in-form)
+  - [Change Password Form](#change-password-form)
+- [Error Handling and Notifications](#error-handling-and-notifications)
 
 ## User Experience (UX)
 
@@ -115,7 +120,7 @@ The objective of the project is to meet a series of specific targets, which are 
 - Provide users with the capability to edit and delete their own comments, ensuring they have control over their contributions.
 - Allow users to view comments from others, enabling them to participate in discussions and share insights.
 
-#### Epic: Error Handling and Notificationg Management
+#### Epic: Error Handling and Notification Management
 
 - Develop a strong and intuitive error management system aimed at improving the user experience across the platform.
 - Create customized error page for "404 Not Found" page, ensuring it offers clear, helpful instructions or reassurance to guide users effectively through any unexpected issues.
@@ -672,3 +677,34 @@ To navigate to any user's profile page, simply click on the Avatar/Username pair
 - In essence, the "About" page invites users to join a community that celebrates modern paintings' power to inspire, connect, and enchant, marking the beginning of an artistic voyage with ART SHOWCASE.
 
 <br>[Back to top ⇧](#table-of-contents)
+
+### Authentication Forms
+
+Security on this platform is anchored by a set of intuitive authentication forms: Registration, Login, and Change Password. These forms are designed to protect user data, facilitating secure sign-up, sign-in, and account updates with an easy verification process.
+
+#### Registration Form
+
+![ArtShowcase Registration image](/src/assets/readme_images/features/registration.png)
+
+- To register on the Art Showcase site, users should click the "Register" link in the NavBar to bring up the registration form.
+- New users begin by entering a chosen username and password. It's important to select a username carefully, as it cannot be changed after creation (Disclaimer: Once created, your username cannot be changed). For password verification, a second entry is required for confirmation.
+- An "eye" icon is provided in the password field to toggle visibility and confirm the correct entry before finalizing the registration.
+- Upon successful registration, a "Success" message will be displayed, and the user will be automatically redirected to the Log In page.
+
+#### Log In Form
+
+![ArtShowcase Log in image](/src/assets/readme_images/features/login.png)
+
+- For account access, users are prompted to input their username and password.
+- The form design ensures a quick and efficient login process, with the inclusion of an "eye" icon for password visibility, enabling users to check their credentials as they type.
+
+#### Change Password Form
+
+![ArtShowcase Change Password image](/src/assets/readme_images/features/change_password.png)
+
+- Users looking to update their passwords have the option to do so securely via their Profile page. This can be achieved by clicking the three vertical dots located in the top right corner of their [User Profile Main Info Panel](#user-profile-main-info-panel).
+- The new password must be entered and then re-entered for confirmation. Consistent with the other forms, the "eye" icon allows users to reveal the password for accuracy before saving changes.
+
+<br>[Back to top ⇧](#table-of-contents)
+
+### Error Handling and Notifications
