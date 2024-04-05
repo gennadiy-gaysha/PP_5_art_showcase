@@ -42,6 +42,7 @@ You can view the back-end README.md here - <a href="https://github.com/gennadiy-
 - [General](#general)
 - [Project's CRUD tables and endpoints](#projects-crud-tables-and-endpoints)
 - [Navigation Bar](#navigation-bar-navbar)
+  - [ModalAlert](#modal-alert)
 - [Footer](#footer)
 - [Home page](#home-page)
   - [Filter area](#1-filters-area)
@@ -55,6 +56,7 @@ You can view the back-end README.md here - <a href="https://github.com/gennadiy-
   - [Comment section](#3-comment-section)
     - [Comment CRUD](#comment-crud)
 - [Profile page](#profile-page)
+  - [Profile CRUD](#profile-crud)
 
 ## User Experience (UX)
 
@@ -326,7 +328,7 @@ It's important to note that the acronym CRUD, as used in this README file, does 
 | Create | POST | axiosRes.post("/followers/", {followed: clickedProfile.id,}) | Adds a new Follower to the database |
 | Destroy | DELETE | axiosRes.delete(`/followers/${clickedProfile.following_id}`) | Removes an existing Follower from the database by its ID |
 
-**Auth object**
+**Auth objects**
 | Action | HTTP Method | Request to the Endpoint | Description |
 |-----------------|-------------|--------------------------------------------------------------|----------------------|
 | Register | POST | axios.post("/dj-rest-auth/registration/", registrationData) | Registers new user |
@@ -356,7 +358,9 @@ It's important to note that the acronym CRUD, as used in this README file, does 
   | ![ArtShowcase Navbar Mobile Unauthenticated](/src/assets/readme_images/features/nav_mobile_unauthenticated.png) | ![ArtShowcase Navbar Mobile Authenticated](/src/assets/readme_images/features/nav_mobile_authenticated.png) |
   |------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------|
 
-**Clicking on the avatar/username link may result in two different scenarios, depending on the authenticated user's credentials:**
+#### Modal Alert
+
+Clicking on the avatar/username link may result in two different scenarios, depending on the authenticated user's credentials:
 
 - For newly registered users who have not completed their profile yet, it activates a modal panel that alerts the user to complete their profile by clicking a button located at the bottom of the panel.
 - This Modal Alert panel is also triggered when they click on the "Add Painting", "Faves", and "Watchlist" links on the NavBar.
@@ -565,13 +569,15 @@ This page consists of three independent sections, which may vary slightly depend
 
 Each comment includes information about the user who left the comment, how long ago the comment was made, and the comment itself.
 
-- Unauthenticated users and authorized users who have not yet completed their profile can only read the comments:
+- Unauthenticated users and authenticated users who have not yet completed their profile can only read the comments:
 
-![ArtShowcase Comment Unauthorized image](/src/assets/readme_images/features/comment_unauthorized.png)
+![ArtShowcase Comment Unauthenticated image](/src/assets/readme_images/features/comment_unauthenticated.png)
+
+![ArtShowcase Comment Authenticated NotCompleted image](/src/assets/readme_images/features/comment_authenticated_notcompleted.png)
 
 ##### **Comment CRUD**
 
-- Authorised users that have completed their profile:
+- Authenticated users that have completed their profile:
   - Those can read other users comments and leave their own comments.
   - Logged in comments' owner can also edit and delete their own comment.
   - Upon successful editing/deletion of a comment, a "Success" message will be displayed to confirm the action.
@@ -619,7 +625,7 @@ To navigate to any user's profile page, simply click on the Avatar/Username pair
 ##### **Profile CRUD**
 
 - Upon new user registration, a profile is automatically created in the backend. Thus, CRUD operations for users are limited to profile updates, such as completion or editing.
-- Selecting the "Complete your profile" button from a Modal Alert navigates the user to the Profile Completion page:
+- Selecting the "Complete your profile" button from a [ModalAlert](#modal-alert) navigates the user to the Profile Completion page:
 
 ![ArtShowcase Complete Profile image](/src/assets/readme_images/features/complete_profile.png)
 
