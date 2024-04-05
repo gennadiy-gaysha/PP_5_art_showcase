@@ -49,8 +49,9 @@ You can view the back-end README.md here - <a href="https://github.com/gennadiy-
 - [Painting Detail page](#painting-detail-page)
   - [Painting section](#1-painting-section)
   - [Painting detail section](#2-painting-detail-section)
+    - [Painting CRUD](#painting-crud)
   - [Comment section](#3-comment-section)
-- [Create Painting page](#create-painting-page)
+    - [Comment CRUD](#comment-crud)
 - [Profile page](#profile-page)
 
 ## User Experience (UX)
@@ -281,7 +282,9 @@ Given the specific characteristics of this website, I have determined that imple
 
 ### General.
 
-Every feature outlined for the site is meticulously designed to align with a corresponding [User Story](#user-stories), ensuring a seamless integration that adheres to the highest standards of UI and UX design. This approach guarantees that each element of the site not only meets the specific needs and expectations of the users but also provides an intuitive and engaging experience. By prioritizing user-centric design principles, the site facilitates effortless navigation and interaction, making every user's journey through the site both enjoyable and efficient. This commitment to aligning features with user stories and best practices in design underscores our dedication to creating a user-friendly platform that resonates with and serves the needs of our diverse user base.
+Every feature outlined for the site is meticulously designed to align with a corresponding [User Story](#user-stories), ensuring a seamless integration that adheres to the highest standards of UI and UX design. This approach guarantees that each element of the site not only meets the specific needs and expectations of the users but also provides an intuitive and engaging experience.
+
+It's also important to note that the acronym CRUD, as used in this README file, does not strictly refer to all four functionalities — Create, Read, Update, Delete — in their entirety. Instead, it should be understood as a subset of these operations, applicable specifically to the context of the object being described (such as Painting, Profile, Observation, Comment).
 
 ### Navigation Bar (NavBar).
 
@@ -430,26 +433,17 @@ This component can be divided into four distinct parts, each offering its own fu
 
 <br>[Back to top ⇧](#table-of-contents)
 
-### Painting Detail page.
+### Painting Detail page
 
 This page consists of three independent sections, which may vary slightly depending on the user's status (see the full description below).
 
-![ArtShowcase Painting Detail Page image](/src/assets/readme_images/features/painting_detail_page.png)
-
-#### **1. Painting section**
+#### 1. Painting section
 
 - The Painting Itself
 
   - Positioned on the left side of the screen, it occupies two-thirds of the site's main container size.
 
-- Logged in painting' owner can also edit and delete their own paintings. Upon successful editing/deletion of a painting, a "Success" message will be displayed to confirm the action.
-
-Painting CRUD:
-![ArtShowcase Comment CRUD image](/src/assets/readme_images/features/painting_crud.png)
-Painting Updating:
-![ArtShowcase Comment Update image](/src/assets/readme_images/features/painting_update.png)
-Painting Deletion. After clicking the icon to delete a painting, a modal alert window appears, asking the user to confirm the deletion action.
-![ArtShowcase Comment Delete image](/src/assets/readme_images/features/painting_delete.png)
+![ArtShowcase Painting Detail Page image](/src/assets/readme_images/features/painting_detail_page.png)
 
 - Painting's Upper and Lower Paddings
 
@@ -468,21 +462,54 @@ Painting Deletion. After clicking the icon to delete a painting, a modal alert w
 
 <br>[Back to top ⇧](#table-of-contents)
 
-#### **2. Painting detail section**
+#### 2. Painting detail section
 
 - This section provides the general details of the painting, as provided by the owner when they add their artwork to the Gallery.
+
+##### Painting CRUD
+
+- Users who are logged in and have completed their profiles can add their paintings to the Gallery by clicking on the "Add Painting" icon in the NavBar, which redirects them to the Create Painting page:
+
+![ArtShowcase Add painting image](/src/assets/readme_images/features/add_painting.png)
+
+- All fields in the "Add Painting" form are mandatory, including the requirement to upload an image. Should there be any errors, a detailed and informative message will be displayed:
+
+![ArtShowcase Add painting image](/src/assets/readme_images/features/add_painting_error.png)
+
+- If users wish to change the image they initially selected, they can do so by clicking on the "Change the image" button beneath the uploaded image.
+- Image size restrictions are enforced programmatically in the backend (paintings/serializers.py), limiting the Width/Height to no more than 4096px, and the file size to no more than 2MB.
+- The "Year Created" field is also restricted in the backend (paintings/serializers.py), with allowable years ranging from 1000 to 9999.
+- "Select Theme" and "Select Technique" fields are dropdown menus with predefined options, as described in the [filter area section](#1-filter-area).
+- Upon successful submission of a painting, a "Success" message will be displayed to confirm the addition. The user is then redirected to the "Painting Page" of the newly created artwork.
+
+![ArtShowcase Add painting success image](/src/assets/readme_images/features/add_painting_success.png)
+
+- The owner of a painting, when logged in, has the ability to edit and delete their own paintings. This can be done by clicking on the three vertical dots located in the top right corner of the Painting section. This feature provides painting owners with direct control over their artwork's representation on the platform, ensuring they can easily make adjustments or remove their paintings as needed.
+
+![ArtShowcase Comment CRUD image](/src/assets/readme_images/features/painting_crud.png)
+
+- When a user clicks on the "Edit Painting" icon, a prepopulated form containing all the painting's data is displayed. Here, they can update any field, including the image. It is important to note that all fields in the "Edit Painting" form are mandatory and must not be left empty. This ensures that all necessary information about the painting is maintained and updated accurately, allowing for a comprehensive and detailed presentation of each piece within the gallery.
+
+![ArtShowcase Comment Update image](/src/assets/readme_images/features/painting_update.png)
+
+- Painting Deletion. After clicking the icon to delete a painting, a modal alert window appears, asking the user to confirm the deletion action.
+
+![ArtShowcase Comment Delete image](/src/assets/readme_images/features/painting_delete.png)
+
+- Upon successful editing/deletion of a painting, a "Success" message will be displayed to confirm the action.
+
+![ArtShowcase Comment Delete image](/src/assets/readme_images/features/painting_success_update.png)
+![ArtShowcase Comment Delete image](/src/assets/readme_images/features/painting_success_delete.png)
 
 #### **3. Comment section**
 
 Each comment includes information about the user who left the comment, how long ago the comment was made, and the comment itself.
 
-Depending on the user's status, there are two possible views of this section:
-
-- For unauthenticated users and authorized users who have not yet completed their profile:
-
-  - They can only read the comments:
+- Unauthenticated users and authorized users who have not yet completed their profile can only read the comments:
 
 ![ArtShowcase Comment Unauthorized image](/src/assets/readme_images/features/comment_unauthorized.png)
+
+##### Comment CRUD.
 
 - Authorised users that have completed their profile.
   - Those can read other users comments and leave their own comments.
@@ -502,24 +529,6 @@ Any user is redirected to comment's owner Profile page when they click on owner'
 
 <br>[Back to top ⇧](#table-of-contents)
 
-### Create Painting page
-
-Users who are logged in and have completed their profiles can add their paintings to the Gallery by clicking on the "Add Painting" icon in the NavBar, which redirects them to the Create Painting page:
-
-![ArtShowcase Add painting image](/src/assets/readme_images/features/add_painting.png)
-
-- All fields in the "Add Painting" form are mandatory, including the requirement to upload an image. Should there be any errors, a detailed and informative message will be displayed:
-
-![ArtShowcase Add painting image](/src/assets/readme_images/features/add_painting_error.png)
-
-- If users wish to change the image they initially selected, they can do so by clicking on the "Change the image" button beneath the uploaded image.
-- Image size restrictions are enforced programmatically in the backend (paintings/serializers.py), limiting the Width/Height to no more than 4096px, and the file size to no more than 2MB.
-- The "Year Created" field is also restricted in the backend (paintings/serializers.py), with allowable years ranging from 1000 to 9999.
-- "Select Theme" and "Select Technique" fields are dropdown menus with predefined options, as described in the [filter area section](#1-filter-area).
-- Upon successful submission of a painting, a "Success" message will be displayed to confirm the addition. The user is then redirected to the "Painting Page" of the newly created artwork.
-
-![ArtShowcase Add painting success image](/src/assets/readme_images/features/add_painting_success.png)
-
 <br>[Back to top ⇧](#table-of-contents)
 
 ### Profile page.
@@ -537,3 +546,5 @@ To navigate to any user's profile page, simply click on the Avatar/Username pair
 ![ArtShowcase Profile Page image](/src/assets/readme_images/features/profile_page.png)
 
 - **User's Available Artworks**: This area showcases an infinite scroll of the user's paintings added to the gallery. Each painting card is presented in the same format as those on the [Home page](#4-painting-card-paintinglist-component)
+
+<br>[Back to top ⇧](#table-of-contents)
