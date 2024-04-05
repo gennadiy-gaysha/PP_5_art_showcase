@@ -40,7 +40,8 @@ You can view the back-end README.md here - <a href="https://github.com/gennadiy-
 3. [Features](#features)
 
 - [General](#general)
-- [Navigation Bar (NavBar)](#navigation-bar-navbar)
+- [Project's CRUD tables and endpoints](#projects-crud-tables-and-endpoints)
+- [Navigation Bar](#navigation-bar-navbar)
 - [Footer](#footer)
 - [Home page](#home-page)
   - [Filter area](#1-filters-area)
@@ -57,24 +58,24 @@ You can view the back-end README.md here - <a href="https://github.com/gennadiy-
 
 ## User Experience (UX)
 
-### Project Goals.
+### Project Goals
 
 The objective of the project is to meet a series of specific targets, which are categorized into eight main epics. These epics are Admin Management, Painting Management, Search and Filtering, User and User Profile Management, Favourite Profiles and Watchlist Management, Comments Management, and Error Handling. They each cover different facets of the ART SHOWCASE application. The project's goals are organized in a way to tackle particular needs associated with each epic, facilitating a systematic and effective development of the application.
 
-#### Epic: "Admin Management".
+#### Epic: "Admin Management"
 
 - Develop a comprehensive system for user management that includes signing up, building and maintaining user profiles, ensuring secure sign-in and sign-out processes, and facilitating password modifications. This system aims to encompass all necessary aspects to provide a secure and user-friendly experience.
 - Develop a capable system for admin to manage painting content, which includes capabilities for adding, updating, and removing paintings, along with overseeing the moderation of content.
 - Introduce a feature for users to curate lists of their preferred artists and artworks, enabling easy access and organization of their favorites.
 - Implement a system within the admin dashboard for the efficient oversight and arrangement of user comments, improving overall management and control.
 
-#### Epic: Navigation.
+#### Epic: Navigation
 
 - Design a clear and intuitive navigation menu that allows users to effortlessly find and access different sections of the site, such as the Home page (gallery), Faves and Watchlist, user profiles, etc.
 - Implement a responsive search bar and filters, enabling quick searches for paintings, artists, or specific content to enhance usability.
 - Ensure the website's navigation framework is adaptive, varying based on the authentication status and permission levels of the user.
 
-#### Epic: "Painting Management".
+#### Epic: "Painting Management"
 
 - Introduce an infinite scrolling feature for paintings to enhance the browsing experience, allowing users to continuously explore artwork without interruption.
 - Facilitate a seamless user interface that allows users to effortlessly access and read details about each painting, prioritizing a smooth user experience.
@@ -82,13 +83,13 @@ The objective of the project is to meet a series of specific targets, which are 
 - Implement a user-friendly feature for the addition of new paintings, streamlining the process for quick and efficient updates.
 - Provide capabilities for authorized users to edit and remove paintings, ensuring effective content management and quality control.
 
-#### Epic: Search and Filtering.
+#### Epic: Search and Filtering
 
 - Introduce a search function that allows users to locate paintings by title or the artist's name, facilitating quick access to relevant information.
 - Organize paintings into categories such as Theme, Technique, and Orientation, and allow sorting by price to help users easily find what they're looking for.
 - Show the count of paintings found or filtered, providing users with a clear understanding of the search or filter results.
 
-#### Epic: User and User Profile Management.
+#### Epic: User and User Profile Management
 
 - Facilitate an efficient and straightforward process for new users to sign up, ensuring the account registration system is user-friendly.
 - Deploy a secure system for logging in and logging out, safeguarding user accounts and their data.
@@ -96,18 +97,18 @@ The objective of the project is to meet a series of specific targets, which are 
 - Require that newly registered users complete their profile details, helping to foster a community where members can learn about one another.
 - Allow users to access and modify their own profiles, giving them control over their personal information and preferences.
 
-#### Epic: Favourite Profiles and Watchlist Management.
+#### Epic: Favourite Profiles and Watchlist Management
 
 - Implement personalization options that let users add artworks to a watchlist and compile a collection of favorite artists' paintings, fostering greater user involvement and interaction within the community.
 - Provide functionality for users to easily remove paintings from their watchlist and "unsubscribe" from their selected favorite artists, ensuring flexibility and control over their preferences.
 
-#### Epic: Comments Management.
+#### Epic: Comments Management
 
 - Introduce features that enable users to leave comments on artworks, boosting user engagement and fostering interactions within the community.
 - Provide users with the capability to edit and delete their own comments, ensuring they have control over their contributions.
 - Allow users to view comments from others, enabling them to participate in discussions and share insights.
 
-#### Epic: Error Handling and Notificationg Management.
+#### Epic: Error Handling and Notificationg Management
 
 - Develop a strong and intuitive error management system aimed at improving the user experience across the platform.
 - Create customized error page for "404 Not Found" page, ensuring it offers clear, helpful instructions or reassurance to guide users effectively through any unexpected issues.
@@ -115,7 +116,7 @@ The objective of the project is to meet a series of specific targets, which are 
 
 <br>[Back to top ⇧](#table-of-contents)
 
-### User Stories.
+### User Stories
 
 Before initiating the React-based frontend portion of the project, I developed a comprehensive set of 44 user stories to meet the user requirements. Additionally, for the backend, 3 user stories for Admin were created and implemented to allow greater flexibility in database manipulation and for frontend testing purposes. These user stories were subsequently transferred to the Issues and Projects section (Kanban board) of the GitHub repository. Below is a table where all the mentioned user stories are categorized under their respective epics:
 
@@ -171,7 +172,7 @@ Before initiating the React-based frontend portion of the project, I developed a
 
 <br>[Back to top ⇧](#table-of-contents)
 
-### Mockup.
+### Mockup
 
 In this project, the React Bootstrap library was implemented. It utilizes a grid system and responsive utility classes, facilitating the creation of a site that looks appealing on both mobile and larger screens without necessarily initiating the design process with a mobile-first approach in mind. Therefore, it was decided not to adhere to the 'mobile-first' approach.
 
@@ -192,7 +193,7 @@ During the development of the site, minor amendments were made to some initial p
 
 <br>[Back to top ⇧](#table-of-contents)
 
-### React Component Tree.
+### React Component Tree
 
 This project was developed with React, facilitating the reuse of components across the application. React components are versatile, capable of rendering page elements, displaying data, managing events and user interactions, and communicating with other components through props, among other functionalities.
 
@@ -208,7 +209,7 @@ You can also download the original file of the project's React Component Tree di
 
 <br>[Back to top ⇧](#table-of-contents)
 
-### Color Scheme.
+### Color Scheme
 
 The color palette of this site was intentionally chosen to be simple (primarily black and white tones, as well as shades of gray) to keep the user's focus on the images of the paintings.
 The color hue table for the project was created using the [Colors](https://coolors.co/).
@@ -234,17 +235,17 @@ chosen as the background for the entire project.
 
 <br>[Back to top ⇧](#table-of-contents)
 
-### Topography.
+### Topography
 
 The main Google Font chosen for the project is "DM Sans". To complement it, a variety of FontAwesome icons were deployed to enhance the user experience. Both were imported into the index.html file for use throughout the project. The font link specifies two font weights for DM Sans: 500 (Medium) and 700 (Bold).
 
 <br>[Back to top ⇧](#table-of-contents)
 
-## User Permissions.
+## User Permissions
 
 Given the specific characteristics of this website, I have determined that implementing various levels of permissions/access would significantly enhance both the site's management and the user experience. Below are the different levels of user permissions and authorization rights.
 
-**1. Logged Out User.**
+**1. Logged Out User**
 
 - Access to the Home page, Registration page, Log in Page, and About page
 - Use of Footer links to social media accounts
@@ -253,7 +254,7 @@ Given the specific characteristics of this website, I have determined that imple
 - Ability to read comments in the painting detail page
 - Viewing of profile pages of registered users with completed profiles
 
-**2. Logged In User without completed profile.**
+**2. Logged In User without completed profile**
 
 - Access to the Home page, Log out page and About page
 - Use of Footer links to social media accounts
@@ -263,7 +264,7 @@ Given the specific characteristics of this website, I have determined that imple
 - Viewing of profile pages of registered users with completed profiles
 - Links to "Add Painting", "Faves", "Watchlist", and "Avatar+Username" are visible; however, clicking on them activates a modal panel that alerts the user to complete their profile by clicking a button located at the bottom of the panel.
 
-**3. Logged In User with completed profile:**
+**3. Logged In User with completed profile**
 
 - Access to the Home page, Log out page and About page
 - Use of Footer links to social media accounts
@@ -281,13 +282,63 @@ Given the specific characteristics of this website, I have determined that imple
 
 ## Features
 
-### General.
+### General
 
 Every feature outlined for the site is meticulously designed to align with a corresponding [User Story](#user-stories), ensuring a seamless integration that adheres to the highest standards of UI and UX design. This approach guarantees that each element of the site not only meets the specific needs and expectations of the users but also provides an intuitive and engaging experience.
 
-It's also important to note that the acronym CRUD, as used in this README file, does not strictly refer to all four functionalities — Create, Read, Update, Delete — in their entirety. Instead, it should be understood as a subset of these operations, applicable specifically to the context of the object being described (such as Painting, Profile, Observation, Comment).
+### Project's CRUD tables and endpoints
 
-### Navigation Bar (NavBar).
+It's important to note that the acronym CRUD, as used in this README file, does not strictly refer to all four functionalities — Create, Read, Update, Delete — in their entirety. Instead, it should be understood as a subset of these operations, applicable specifically to the context of the object being described (such as Painting, Profile, Observation, Comment). Below is a CRUD table that outlines the entire project, accompanied by the corresponding backend endpoints:
+
+**Painting object**
+| Action | HTTP Method | Request to the Endpoint | Description |
+|----------|-------------|--------------------------------------------------------|-----------------------------------------------------------|
+| Create | POST | axiosReq.post("/paintings/", formData) | Adds a new Painting to the database |
+| Retrieve | GET | axiosReq.get(`/paintings/${id}`) | Retrieves detailed information about a Painting by its ID |
+| Update | PUT | axiosReq.put(`/paintings/${id}/`, formData) | Updates the information of an existing Painting by its ID |
+| Destroy | DELETE | axiosRes.delete(`/paintings/${id}`) | Removes an existing Painting from the database by its ID |
+| List | GET | axiosReq.get( “/paintings/”) | Retrieves a list of all Paintings |
+| Search | GET | axiosReq.get( `/paintings/?${filter}search=${query}`) | Filters a list of all Paintings based on the query |
+
+**Profile object**
+| Action | HTTP Method | Request to the Endpoint | Description |
+|----------|-------------|---------------------------------------------|----------------------------------------------------------|
+| Retrieve | GET | axiosReq.get(`/profiles/${id}/`) | Retrieves detailed information about a Profile by its ID |
+| Update | PUT | axiosReq.put(`/profiles/${id}/`, formData) | Updates the information of an existing Profile by its ID |
+
+**Comment object**
+| Action | HTTP Method | Request to the Endpoint | Description |
+|---------|-------------|------------------------------------------------------------------|----------------------------------------------------------|
+| Create | POST | axiosRes.post("/comments/", {content, painting,}) | Adds a new Comment to the database |
+| Update | PUT | axiosRes.put(`/comments/${id}/`, {content:formContent.trim(),}) | Updates the information of an existing Comment by its ID |
+| Destroy | DELETE | axiosRes.delete(`/comments/${id}/`) | Removes an existing Comment from the database by its ID |
+| List | GET | axiosReq.get(`/comments/?painting=${id}`) | Retrieves a list of all Comments |
+
+**Observation object**
+| Action | HTTP Method | Request to the Endpoint | Description |
+|---------|-------------|-----------------------------------------------------|-------------------------------------------------------------|
+| Create | POST | axiosRes.post("/observations/", { painting: id }) | Adds a new Observation to the database |
+| Destroy | DELETE | axiosRes.delete(`/observations/${observation_id}`) | Removes an existing Observation from the database by its ID |
+
+**Follower object**
+| Action | HTTP Method | Request to the Endpoint | Description |
+|---------|-------------|---------------------------------------------------------------|----------------------------------------------------------|
+| Create | POST | axiosRes.post("/followers/", {followed: clickedProfile.id,}) | Adds a new Follower to the database |
+| Destroy | DELETE | axiosRes.delete(`/followers/${clickedProfile.following_id}`) | Removes an existing Follower from the database by its ID |
+
+**Auth object**
+| Action | HTTP Method | Request to the Endpoint | Description |
+|-----------------|-------------|--------------------------------------------------------------|----------------------|
+| Register | POST | axios.post("/dj-rest-auth/registration/", registrationData) | Registers new user |
+| Log in | POST | axios.post("/dj-rest-auth/login/", logInData) | User log in |
+| Log out | POST | axios.post("dj-rest-auth/logout/") | User log out |
+| Get currentUser | GET | axiosRes.get("dj-rest-auth/user/") | Retrieves user id |
+| Refresh token | POST | axios.post("/dj-rest-auth/token/refresh/") | Refreshes auth token |
+| Change password | POST | axiosRes.post("/dj-rest-auth/password/change/", userData) | Changes password |
+
+<br>[Back to top ⇧](#table-of-contents)
+
+### Navigation Bar (NavBar)
 
 - Includes the main logo, user greeting/username and links to various pages of the site, enhancing the ease of navigation throughout the site.
 - The logo image is linked to the home page.
@@ -320,7 +371,7 @@ It's also important to note that the acronym CRUD, as used in this README file, 
 
 <br>[Back to top ⇧](#table-of-contents)
 
-### Home page.
+### Home page
 
 The Home page features an infinite scroll display of paintings, arranged in rows of three, and includes a set of filters for selecting a desired group of paintings.
 
@@ -380,7 +431,7 @@ The Home page features an infinite scroll display of paintings, arranged in rows
 
 <br>[Back to top ⇧](#table-of-contents)
 
-#### **2. Resetting filter choices.**
+#### **2. Resetting filter choices**
 
 - To enhance the user experience, a 'Reset Filters' feature has been implemented. This allows users to quickly and efficiently clear all applied filters by clicking on any of the intuitively obvious links in the NavBar that lead to pages where filters are presented:
   - Logo link
@@ -388,13 +439,13 @@ The Home page features an infinite scroll display of paintings, arranged in rows
   - Faves link
   - Watchlist link
 
-#### **3. Preserving user's filter choices.**
+#### **3. Preserving user's filter choices**
 
 - To improve user convenience, functionality was added to save filter settings in browser's sessionStorage. This keeps filter states preserved across page navigations, ensuring the application remembers users' choices even after navigating away and returning to the PaintingsPage, via links or browser navigation buttons.
 
 - This feature is beneficial for users who wish to view a painting's detail page and then return to the filtered paintings page, among other navigational actions.
 
-#### **4. Painting Card (PaintingList component).**
+#### **4. Painting Card (PaintingList component)**
 
 This component can be divided into four distinct parts, each offering its own functionality.
 
@@ -518,7 +569,7 @@ Each comment includes information about the user who left the comment, how long 
 
 ![ArtShowcase Comment Unauthorized image](/src/assets/readme_images/features/comment_unauthorized.png)
 
-##### Comment CRUD.
+##### Comment CRUD
 
 - Authorised users that have completed their profile.
   - Those can read other users comments and leave their own comments.
@@ -540,7 +591,7 @@ Any user is redirected to comment's owner Profile page when they click on owner'
 
 <br>[Back to top ⇧](#table-of-contents)
 
-### Profile page.
+### Profile page
 
 To navigate to any user's profile page, simply click on the Avatar/Username pairing found throughout the site. The user profile page is organized into two main sections:
 
