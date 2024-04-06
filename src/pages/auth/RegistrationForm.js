@@ -10,9 +10,11 @@ import axios from "axios";
 
 import { NotificationManager } from "react-notifications";
 import "react-notifications/lib/notifications.css";
+import { useRedirect } from "../../hooks/useRedirect";
 
 const RegistrationForm = () => {
   const [showPassword, setShowPassword] = useState(false);
+  useRedirect("loggedIn");
 
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);

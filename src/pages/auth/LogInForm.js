@@ -17,9 +17,11 @@ import { useSetCurrentUser } from "../../contexts/CurrentUserContext";
 
 import { NotificationManager } from "react-notifications";
 import "react-notifications/lib/notifications.css";
+import { useRedirect } from "../../hooks/useRedirect";
 
 function LogInForm() {
   const setCurrentUser = useSetCurrentUser();
+  useRedirect("loggedIn");
 
   const [showPassword, setShowPassword] = useState(false);
 
@@ -55,7 +57,8 @@ function LogInForm() {
         `Hello ${logInData.username.toUpperCase()}! You are successfully logged in`,
         "Successful Login!"
       );
-      history.push("/?resetFilters=true");
+      // history.push("/?resetFilters=true");
+      history.goBack();
     } catch (err) {
       // Display error notification
       NotificationManager.error(
