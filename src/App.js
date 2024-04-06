@@ -23,10 +23,13 @@ import { Redirect } from "react-router-dom";
 import NotFoundPage from "./components/NotFoundPage";
 import About from "./components/About";
 
+import { useCurrentUserProfile } from "./hooks/useCurrentUserProfile";
+
 function App() {
   const [modalShow, setModalShow] = useState(false);
   const currentUser = useCurrentUser();
   const profile_id = currentUser?.profile_id || "";
+  const { profileCompleted } = useCurrentUserProfile();
 
   return (
     <div>
@@ -46,22 +49,30 @@ function App() {
             <Route
               exact
               path="/favourites"
-              render={() => (
-                <PaintingsPage
-                  message="No results found. Adjust the search keyword or add an artist to Faves."
-                  filter={`owner__followed__owner__profile=${profile_id}&`}
-                />
-              )}
+              render={() =>
+                profileCompleted ? (
+                  <PaintingsPage
+                    message="No results found. Adjust the search keyword or add an artist to Faves."
+                    filter={`owner__followed__owner__profile=${profile_id}&`}
+                  />
+                ) : (
+                  <Redirect to="/" />
+                )
+              }
             />
             <Route
               exact
               path="/watchlist"
-              render={() => (
-                <PaintingsPage
-                  message="No results found. Adjust the search keyword or click on the eye under the painting to follow it up."
-                  filter={`observations__owner__profile=${profile_id}&ordering=-observations__created_at&`}
-                />
-              )}
+              render={() =>
+                profileCompleted ? (
+                  <PaintingsPage
+                    message="No results found. Adjust the search keyword or click on the eye under the painting to follow it up."
+                    filter={`observations__owner__profile=${profile_id}&ordering=-observations__created_at&`}
+                  />
+                ) : (
+                  <Redirect to="/" />
+                )
+              }
             />
             <Route
               exact
