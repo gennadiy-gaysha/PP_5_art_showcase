@@ -101,20 +101,64 @@ function PaintingEditForm() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    const formData = new FormData();
-    formData.append("title", title);
-    formData.append("creation_year", creation_year);
-    formData.append("theme", theme);
-    formData.append("technique", technique);
-    formData.append("price", price);
-    formData.append("width", width);
-    formData.append("height", height);
+    // Initialize an errors object
+    let newErrors = {};
 
-    if (imageInput?.current?.files[0]) {
-      formData.append("image", imageInput.current.files[0]);
+    // Validation logic
+    if (!title.trim()) {
+      newErrors.title = ["Title is required."];
+    }
+
+    // Convert creation_year to a string, then trim
+    if (!String(creation_year).trim()) {
+      newErrors.creation_year = ["Creation year is required."];
+    }
+
+    if (theme === "Select theme") {
+      newErrors.theme = ["Theme selection is required."];
+    }
+
+    if (technique === "Select technique") {
+      newErrors.technique = ["Technique selection is required."];
+    }
+
+    if (!price.trim()) {
+      newErrors.price = ["Price is required."];
+    }
+
+    if (!width.trim()) {
+      newErrors.width = ["Width is required."];
+    }
+
+    if (!height.trim()) {
+      newErrors.height = ["Height is required."];
+    }
+
+    if (!image.trim()) {
+      newErrors.image = ["Image is required."];
+    }
+
+    if (Object.keys(newErrors).length > 0) {
+      // Updates the component's state if there are errors
+      setErrors(newErrors);
+      // Stops the form submission process if there are validation errors
+      return;
     }
 
     try {
+      const formData = new FormData();
+      formData.append("title", title);
+      formData.append("creation_year", creation_year);
+      formData.append("theme", theme);
+      formData.append("technique", technique);
+      formData.append("price", price);
+      formData.append("width", width);
+      formData.append("height", height);
+
+      if (imageInput?.current?.files[0]) {
+        formData.append("image", imageInput.current.files[0]);
+      }
+
       await axiosReq.put(`/paintings/${id}/`, formData);
       NotificationManager.success(
         "The painting has been successfully updated.",
