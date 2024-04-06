@@ -115,7 +115,7 @@ const ProfileEditForm = () => {
     }
 
     // trim() removes any leading and trailing whitespace end prevents the User from entering a series of spaces
-    // Validation for bio:
+    // Validation for bio
     if (!bio.trim()) {
       newErrors.bio = ["Bio is required."];
     }
@@ -136,26 +136,26 @@ const ProfileEditForm = () => {
     }
 
     if (Object.keys(newErrors).length > 0) {
-      // Set errors (if any) and prevent form submission
+      // Sets errors (if any) and prevents form submission
       setErrors(newErrors);
       return;
     }
 
-    const formData = new FormData();
-    formData.append("name", name);
-    formData.append("bio", bio);
-    formData.append("home_country", home_country);
-    formData.append("gender", gender);
-    formData.append(
-      "birthdate",
-      profileData.birthdate.toISOString().slice(0, 10)
-    );
-
-    if (imageFile?.current?.files[0]) {
-      formData.append("image", imageFile?.current?.files[0]);
-    }
-
     try {
+      const formData = new FormData();
+      formData.append("name", name);
+      formData.append("bio", bio);
+      formData.append("home_country", home_country);
+      formData.append("gender", gender);
+      formData.append(
+        "birthdate",
+        profileData.birthdate.toISOString().slice(0, 10)
+      );
+
+      if (imageFile?.current?.files[0]) {
+        formData.append("image", imageFile?.current?.files[0]);
+      }
+
       const { data } = await axiosReq.put(`/profiles/${id}/`, formData);
       setCurrentUser((currentUser) => ({
         ...currentUser,

@@ -69,17 +69,62 @@ function PaintingCreateForm() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    const formData = new FormData();
-    formData.append("title", title);
-    formData.append("creation_year", creation_year);
-    formData.append("theme", theme);
-    formData.append("technique", technique);
-    formData.append("price", price);
-    formData.append("width", width);
-    formData.append("height", height);
-    formData.append("image", imageInput.current.files[0]);
+
+    // Initialize an errors object
+    let newErrors = {};
+
+    // Validation logic
+    if (!title.trim()) {
+      newErrors.title = ["Title is required."];
+    }
+
+    if (!creation_year.trim()) {
+      newErrors.creation_year = ["Creation year is required."];
+    }
+
+    if (theme === "Select theme") {
+      newErrors.theme = ["Theme selection is required."];
+    }
+
+    if (technique === "Select technique") {
+      newErrors.technique = ["Technique selection is required."];
+    }
+
+    if (!price.trim()) {
+      newErrors.price = ["Price is required."];
+    }
+
+    if (!width.trim()) {
+      newErrors.width = ["Width is required."];
+    }
+
+    if (!height.trim()) {
+      newErrors.height = ["Height is required."];
+    }
+
+    if (!image.trim()) {
+      newErrors.image = ["Image is required."];
+    }
+
+    if (Object.keys(newErrors).length > 0) {
+      // Updates the component's state if there are errors
+      setErrors(newErrors);
+      // Stops the form submission process if there are validation errors
+      return;
+    }
 
     try {
+      const formData = new FormData();
+      // Append form data fields
+      formData.append("title", title);
+      formData.append("creation_year", creation_year);
+      formData.append("theme", theme);
+      formData.append("technique", technique);
+      formData.append("price", price);
+      formData.append("width", width);
+      formData.append("height", height);
+      formData.append("image", imageInput.current.files[0]);
+
       const { data } = await axiosReq.post("/paintings/", formData);
       NotificationManager.success(
         "Your painting has been successfully created.",
@@ -249,14 +294,14 @@ function PaintingCreateForm() {
       {errors?.width?.map((message, i) => {
         return (
           <Alert variant="warning" key={i}>
-            {`Width: ${message}`}
+            {`${message}`}
           </Alert>
         );
       })}
       {errors?.height?.map((message, i) => {
         return (
           <Alert variant="warning" key={i}>
-            {`Height: ${message}`}
+            {`${message}`}
           </Alert>
         );
       })}
@@ -322,7 +367,7 @@ function PaintingCreateForm() {
                 </Form.Group>
                 {errors?.image?.map((message, i) => {
                   return (
-                    <Alert variant="warning" key={i}>
+                    <Alert variant="warning" className="text-center" key={i}>
                       {message}
                     </Alert>
                   );

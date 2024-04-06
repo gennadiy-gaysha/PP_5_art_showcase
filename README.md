@@ -498,7 +498,7 @@ This component can be divided into four distinct parts, each offering its own fu
 
 ##### **Observation CRUD**
 
-- Every click on the observation icon within a Painting Card toggles the addition or removal of the painting to the user’s Watchlist, creating or deleting an instance of the Observation object accordingly.
+- Every click on the observation icon within a Painting Card toggles the addition or removal of the painting to the user’s Watchlist, creating or deleting an instance of the Observation model accordingly.
 - Depending on whether the painting has been added to their Watchlist, the color of the Observe icon changes from blue to grey for the user.
 - Additionally, hovering over the observation icon activates a tooltip. The message displayed in this tooltip changes based on the painting’s Watchlist status, either prompting to "Add painting to your watchlist" if it is not already added, or suggesting to "Remove the painting from your Watchlist" if it is.
 
@@ -525,7 +525,7 @@ This page consists of three independent sections, which may vary slightly depend
   - In the top-right corner of the painting section, the date when the painting was added to the gallery is shown.
   - At the bottom of the painting section, the Observe and Comment icons are displayed along with the number of times the painting has been added to the Watchlist and the total number of comments it has received.
   - Depending on whether the painting has been added to their watchlist, the color of the Observe icon changes from blue to grey for the currently logged in user.
-  - Each time the currently logged-in, authorized user clicks on the Observation icon, a new instance of the Observation object is either created or deleted. This functionality mirrors the process described for the [Painting Card](#observation-crud).
+  - Each time the currently logged-in, authorized user clicks on the Observation icon, a new instance of the Observation model is either created or deleted. This functionality mirrors the process described for the [Painting Card](#observation-crud).
   - Icon tooltips appear when the user hovers over the Observe (Watch) or Comment icon beneath the painting's data. The type of tooltip message displayed varies depending on the user's credentials, as detailed in the table below:
 
 | Status                               | Icon                 | Message                                                                | Icon         | Message                                  |
@@ -708,3 +708,25 @@ Security on this platform is anchored by a set of intuitive authentication forms
 <br>[Back to top ⇧](#table-of-contents)
 
 ### Error Handling and Notifications
+
+#### React Bootstrap Alert component
+
+- This messaging approach is employed across all form fields in the project to notify users of incorrectly entered data:
+
+![ArtShowcase React Bootstrap Alert image](/src/assets/readme_images/features/bootstrap_alert_1.png)
+
+- Below is a code snippet showcasing the use of the React Bootstrap Alert component for displaying error messages. It cycles through any error messages tied to a field. For each error encountered, it generates an Alert component marked with a "warning" variant, presenting each message as a cautionary alert in your React application:
+
+```jsx
+// some code for form field
+</Form.Group>
+{
+  errors?.field_name?.map((message, i) => {
+    return (
+      <Alert variant="warning" key={i}>
+        {message}
+      </Alert>
+    );
+  });
+}
+```
