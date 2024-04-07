@@ -67,6 +67,10 @@ You can view the back-end README.md here - <a href="https://github.com/gennadiy-
   - [Log In Form](#log-in-form)
   - [Change Password Form](#change-password-form)
 - [Error Handling and Notifications](#error-handling-and-notifications)
+  - [React Bootstrap Alert component](#react-bootstrap-alert-component)
+  - [React Notification Package](#react-notification-package)
+- [Redirecting the user](#redirecting-the-user)
+- [404 Error page](#404-error-page)
 
 ## User Experience (UX)
 
@@ -711,14 +715,16 @@ Security on this platform is anchored by a set of intuitive authentication forms
 
 #### React Bootstrap Alert component
 
-- This messaging approach is employed across all form fields in the project to notify users of incorrectly entered data:
+- This messaging approach is employed across all form fields in the project to notify users of incorrectly entered data. It allows the creation of detailed messages for each field separately, ensuring that the user can clearly understand what the input error is:
 
-![ArtShowcase React Bootstrap Alert image](/src/assets/readme_images/features/bootstrap_alert_1.png)
+| ![ArtShowcase React Bootstrap Alert-1 image](/src/assets/readme_images/features/bootstrap_alert_1.png) | ![ArtShowcase React Bootstrap Alert-2 image](/src/assets/readme_images/features/bootstrap_alert_2.png) |
+| ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ |
+| ![ArtShowcase React Bootstrap Alert-3 image](/src/assets/readme_images/features/bootstrap_alert_3.png) | ![ArtShowcase React Bootstrap Alert-4 image](/src/assets/readme_images/features/bootstrap_alert_4.png) |
 
 - Below is a code snippet showcasing the use of the React Bootstrap Alert component for displaying error messages. It cycles through any error messages tied to a field. For each error encountered, it generates an Alert component marked with a "warning" variant, presenting each message as a cautionary alert in your React application:
 
 ```jsx
-// some code for form field
+// some form field code
 </Form.Group>
 {
   errors?.field_name?.map((message, i) => {
@@ -730,3 +736,37 @@ Security on this platform is anchored by a set of intuitive authentication forms
   });
 }
 ```
+
+#### React Notification Package
+
+- For more general user notifications, [React Notification Package](https://www.npmjs.com/package/react-notifications) was utilized.
+- It generates success and error messages to clearly inform users whether their actions were completed successfully:
+
+User successfully logged in
+![ArtShowcase Success Log In image](/src/assets/readme_images/features/success_login.png)
+
+Invalid credentials
+![ArtShowcase Error Log In image](/src/assets/readme_images/features/error_login.png)
+
+The Comment has been successfully created
+![ArtShowcase Success Comment Created image](/src/assets/readme_images/features/success_comment.png)
+
+The image has been successfully deleted
+![ArtShowcase Success Painting Deleted image](/src/assets/readme_images/features/painting_success_delete.png)
+
+### Redirecting the user
+
+To enhance the user experience by steering them away from pages that may be irrelevant, two redirecting methods have been implemented:
+
+- Utilizing a reusable custom hook as an intermediary (`useRedirect`).
+- Applying conditional rendering within the Root component of `App.js`.
+
+In both approaches, the user is seamlessly redirected to the Home page of the site. For more detailed information, please refer to the [Redirection] section in the Testing module.
+
+### 404 Error page
+
+When users attempt to visit a page or resource that is unavailable on the website, the custom 404 error page provides a constructive response. It conveys a courteous message that notifies the user of the nonexistent page and offers directions to return to the homepage, ensuring a smooth browsing experience:
+
+![ArtShowcase 404 Error Page image](/src/assets/readme_images/features/404.png)
+
+<br>[Back to top ⇧](#table-of-contents)
