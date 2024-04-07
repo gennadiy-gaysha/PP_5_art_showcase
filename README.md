@@ -75,6 +75,19 @@ You can view the back-end README.md here - <a href="https://github.com/gennadiy-
 - 3.11. [Redirecting the user](#redirecting-the-user)
 - 3.12. [404 Error page](#404-error-page)
 
+4. [**Testing**](#testing)
+
+- 4.1. [Testing User Stories](#testing-user-stories)
+- 4.2. [Code validation](#code-validation)
+  - 4.2.1. [HTML](#html)
+  - 4.2.2. [CSS](#css)
+  - 4.2.3. [JavaScript (JS) and JSX (JavaScript XML)](#javascript-js-and-jsx-javascript-xml)
+- 4.3. [Accessibility](#accessibility)
+- 4.4. [Tools testing](#tools-testing)
+- 4.5. [Manual testing](#manual-testing)
+  - 4.5.1. [Browser Compatibility](#browser-compatibility)
+  - 4.5.2. [Testing Style And Functionality](#testing-style-and-functionality)
+
 ## User Experience (UX)
 
 ### Project Goals
@@ -771,5 +784,133 @@ In both approaches, the user is seamlessly redirected to the Home page of the si
 When users attempt to visit a page or resource that is unavailable on the website, the custom 404 error page provides a constructive response. It conveys a courteous message that notifies the user of the nonexistent page and offers directions to return to the homepage, ensuring a smooth browsing experience:
 
 ![ArtShowcase 404 Error Page image](/src/assets/readme_images/features/404.png)
+
+<br>[Back to top ⇧](#table-of-contents)
+
+## Testing
+
+### Testing User Stories
+
+### Code validation
+
+#### HTML
+
+The HTML code of the project's home page was checked for syntax accuracy using the [W3C Markup Validator](https://validator.w3.org/) service, guaranteeing no syntax errors were present.
+
+![ArtShowcase HTML Validation Home image](/src/assets/readme_images/testing/HTML_validation_home.png)
+
+When trying to check another project's pages, 404 error occured:
+
+![ArtShowcase HTML Validation 404 Error image](/src/assets/readme_images/testing/HTML_validation_404.png)
+
+The inability of the W3C Validator to access specific routes in this React application is attributed to the nature of Single Page Application (SPA) Routing. Like many modern web applications built with frameworks such as React, this app employs client-side routing. While users perceive that they are navigating between different pages, the transitions are actually managed by JavaScript, which dynamically handles navigation and content rendering without real page reloads. However, for an external service like the W3C Validator to directly access a particular route, the server's configuration plays a crucial role. The server must be set up to always serve the main index.html file of the SPA for any route, which then lets the React application take over routing on the client side. The current server configuration, not adjusted to accommodate this requirement, and results in a 404 error when attempting to directly access URLs, as observed.
+
+#### CSS
+
+The project's CSS code was checked for syntax errors using the [W3C CSS Validator](https://jigsaw.w3.org/css-validator/) service, confirming it met the standards without any errors or warnings.
+
+![ArtShowcase CSS Validation image](/src/assets/readme_images/testing/CSS_validation.png)
+
+#### JavaScript (JS) and JSX (JavaScript XML)
+
+This project was developed using [IDE VS Code], a highly versatile and lightweight code editor. Throughout the development process, built-in features such as **Syntax Highlighting and Basic Validation** and **IntelliSense** were employed to continuously validate the code.
+
+For more advanced validation, including style checks, code quality issues, and adherence to best practices, the following extensions were also utilized:
+
+- **ESLint**: This extension integrates the ESLint tool into VS Code, offering comprehensive linting capabilities for JavaScript and JSX. It can detect both syntax errors and stylistic issues, enforce coding standards, and even automatically fix some problems.
+- **Prettier**: This extension integrates the Prettier code formatter into VS Code, which formats JavaScript and JSX code according to a specified style. Although primarily a formatter, Prettier can also assist in identifying syntax errors by failing to format invalid code.
+
+These tools ensure that the code is clean and error-free.
+
+### Accessibility
+
+The Lighthouse Chrome DevTools extension was utilized to evaluate web pages in terms of their performance, accessibility, features of progressive web apps, and search engine optimization. The outcomes of these audits across different pages are detailed below.
+
+| Page                  | Lighthouse report                                                                           |
+| --------------------- | ------------------------------------------------------------------------------------------- |
+| Home page             | ![ArtShowcase LH Home image](/src/assets/readme_images/testing/LH_home.png)                 |
+| Painting Details page | ![ArtShowcase LH Detail Page image](/src/assets/readme_images/testing/LH_detail_page.png)   |
+| Profile page          | ![ArtShowcase LH Profile Page image](/src/assets/readme_images/testing/LH_profile_page.png) |
+| About page            | ![ArtShowcase LH About page image](/src/assets/readme_images/testing/LH_about_page.png)     |
+| Registration page     | ![ArtShowcase LH Registration image](/src/assets/readme_images/testing/LH_register.png)     |
+| Log in page           | ![ArtShowcase LH Login image](/src/assets/readme_images/testing/LH_login.png)               |
+
+<br>[Back to top ⇧](#table-of-contents)
+
+### Tools Testing.
+
+#### Chrome DevTools.
+
+- [Chrome DevTools](https://developer.chrome.com/docs/devtools/) were used
+  during the development process to test, explore, and modify HTML elements and
+  CSS styles, while also looking for errors in the JS code.
+
+#### Responsiveness.
+
+- [responsivedesignchecker.com](https://www.responsivedesignchecker.com/)
+  was used to check responsiveness of the site pages across different devices.
+
+### Manual Testing.
+
+#### Browser Compatibility.
+
+- All site functions work correctly and the same in browsers that have
+  different engines, i.e. Chrome, Firefox and Safari:
+
+| Browser         | Outcome                                                                               | Pass/Fail |
+| --------------- | ------------------------------------------------------------------------------------- | --------- |
+| Google Chrome   | No problems related to the appearance, responsiveness or functionality of the website | Pass      |
+| Safari          | No problems related to the appearance, responsiveness or functionality of the website | Pass      |
+| Mozilla Firefox | No problems related to the appearance, responsiveness or functionality of the website | Pass      |
+| Microsoft Edge  | No problems related to the appearance, responsiveness or functionality of the website | Pass      |
+
+<br>[Back to top ⇧](#table-of-contents)
+
+#### Testing Style And Functionality
+
+<br>[Back to top ⇧](#table-of-contents)
+
+### Downgrading react and react-dom to avoid compatibility issues.
+
+To avoid compatibily issues with React Router Library a previous versions of react and react-dom, i. e. `"^17.0.2"` were installed instead of `react@18 react-dom@18`. The steps were as follows:
+
+- Create a New React App:
+  `npx create-react-app .`
+  This command creates a new React application in a root folder of a project with the latest version of React.
+
+- Uninstall the current versions of react and react-dom:
+  `npm uninstall react react-dom`
+
+- To avoid dependency conflict between the downgradeded version of React project and the version required by `@testing-library/react@13.4.0`, uninstall it using the command:
+  `npm uninstall @testing-library/react`
+
+- Install the specific version of react and react-dom:
+  `npm install react@17.0.2 react-dom@17.0.2`
+
+- Install downgraded version `@testing-library/react` compatible with React 17:
+  `npm install @testing-library/react@^12.0.0`
+
+- Ensure React 17 is installed. Verify your React version in package.json:
+
+  ```
+  "dependencies": {
+  "react": "^17.0.2",
+  "react-dom": "^17.0.2",
+  ...
+  }
+  ```
+
+- Manually adjust index.js to use ReactDOM.render instead of ReactDOM.createRoot as shown below:
+
+  ```
+  ReactDOM.render(
+  <React.StrictMode>
+  <App />
+  </React.StrictMode>,
+  document.getElementById('root')
+  );
+  ```
+
+This will be fully compatible with `react-router-dom@5.3.0`
 
 <br>[Back to top ⇧](#table-of-contents)
