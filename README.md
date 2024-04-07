@@ -68,15 +68,13 @@ You can view the back-end README.md here - <a href="https://github.com/gennadiy-
 
 - 4.1. [Testing User Stories](#testing-user-stories)
 
-  - 4.1.1. [Epic: Admin Management](#epic-admin-management)
-  - 4.1.2. [Epic: Navigation](#epic-navigation)
-
-  - 4.1.3 [Epic: "Painting Management"](#epic-painting-management)
-  - 4.1.4 [Epic: Search and Filtering](#epic-search-and-filtering)
-  - 4.1.5 [Epic: User and User Profile Management](#epic-user-and-user-profile-management)
-  - 4.1.6 [Epic: Favourite Profiles and Watchlist Management](#epic-favourite-profiles-and-watchlist-management)
-  - 4.1.7 [Epic: Comments Management](#epic-comments-management)
-  - 4.1.8 [Epic: Error Handling and Notification Management](#epic-error-handling-and-notification-management)
+  - 4.1.1. [Epic: Navigation](#epic-navigation)
+  - 4.1.2 [Epic: "Painting Management"](#epic-painting-management)
+  - 4.1.3 [Epic: Search and Filtering](#epic-search-and-filtering)
+  - 4.1.4 [Epic: User and User Profile Management](#epic-user-and-user-profile-management)
+  - 4.1.5 [Epic: Favourite Profiles and Watchlist Management](#epic-favourite-profiles-and-watchlist-management)
+  - 4.1.6 [Epic: Comments Management](#epic-comments-management)
+  - 4.1.7 [Epic: Error Handling and Notification Management](#epic-error-handling-and-notification-management)
 
 - 4.2. [Code validation](#code-validation)
   - 4.2.1. [HTML](#html)
@@ -783,82 +781,82 @@ When users attempt to visit a page or resource that is unavailable on the websit
 
 #### Epic: Navigation
 
-| No  | User story                                                                                                                                                                                                                                                                                                                   | Test result |
-| --- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| 1   | As a user I can view a navbar from every page so that I can navigate easily between pages.                                                                                                                                                                                                                                   | Pass        |
-| 2   | As a user I can navigate through pages quickly so that I can view content seamlessly without page refresh.                                                                                                                                                                                                                   | Pass        |
-| 3   | As a user, I can easily navigate to other users' profile pages by clicking on their avatar so that I can view their public information, artworks, and interests, fostering community engagement and connection among users.                                                                                                  | Pass        |
-| 4   | As a logged out user I can see sign in and sign up options so that I can sign in/sign up.                                                                                                                                                                                                                                    | Pass        |
-| 5   | As a logged in user, I can see a logout link so that I can securely exit my session, ensuring my account remains protected and my session is properly closed.                                                                                                                                                                | Pass        |
-| 6   | As a user, I can view a footer on every page so that I can access the site owner's social media pages.                                                                                                                                                                                                                       | Pass        |
-| 7   | As a user, I want to see pop-up hints for any active icons that depend on my user and profile status before clicking on them, so I can make informed decisions about interacting with features based on my current capabilities and restrictions, thereby enhancing my navigational experience and engagement with the site. | Pass        |
+| No  | User story                                                                                                                                                                                                                                                                                                                   | Result |
+| --- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------ |
+| 1   | As a user I can view a navbar from every page so that I can navigate easily between pages.                                                                                                                                                                                                                                   | Pass   |
+| 2   | As a user I can navigate through pages quickly so that I can view content seamlessly without page refresh.                                                                                                                                                                                                                   | Pass   |
+| 3   | As a user, I can easily navigate to other users' profile pages by clicking on their avatar so that I can view their public information, artworks, and interests, fostering community engagement and connection among users.                                                                                                  | Pass   |
+| 4   | As a logged out user I can see sign in and sign up options so that I can sign in/sign up.                                                                                                                                                                                                                                    | Pass   |
+| 5   | As a logged in user, I can see a logout link so that I can securely exit my session, ensuring my account remains protected and my session is properly closed.                                                                                                                                                                | Pass   |
+| 6   | As a user, I can view a footer on every page so that I can access the site owner's social media pages.                                                                                                                                                                                                                       | Pass   |
+| 7   | As a user, I want to see pop-up hints for any active icons that depend on my user and profile status before clicking on them, so I can make informed decisions about interacting with features based on my current capabilities and restrictions, thereby enhancing my navigational experience and engagement with the site. | Pass   |
 
 #### Epic: "Painting Management"
 
-| No  | User story                                                                                                                                                                                                                        | Test result |
-| --- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| 1   | As a user, I can see a paintings page where all the paintings or filtered paintings are displayed, so that I can browse through a comprehensive collection of artworks easily, enhancing my exploration and discovery of new art. | Pass        |
-| 2   | As a user I can keep scrolling through the paintings on the site, that are loaded for me automatically so that I don't have to click on "next page.                                                                               | Pass        |
-| 3   | As a user I can view the details of a single painting so that I can learn more about it.                                                                                                                                          | Pass        |
-| 4   | As a user I can view the painting page so that I can read the comments about the painting, and get familiar with such details as 'Artist name', 'Painting title', 'Year created', 'Technique', 'Dimensions' and suggested price.  | Pass        |
-| 5   | As a logged in user I can create painting so that I can share my artwork with the world.                                                                                                                                          | Pass        |
-| 6   | As a painting owner I can edit my painting parameters so that I can make corrections or update my painting details after they were created.                                                                                       | Pass        |
-| 7   | As a user I can view the About page so that I can stay informed about the mission, and understand the platform's purpose and offerings.                                                                                           | Pass        |
+| No  | User story                                                                                                                                                                                                                        | Result |
+| --- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------ |
+| 1   | As a user, I can see a paintings page where all the paintings or filtered paintings are displayed, so that I can browse through a comprehensive collection of artworks easily, enhancing my exploration and discovery of new art. | Pass   |
+| 2   | As a user I can keep scrolling through the paintings on the site, that are loaded for me automatically so that I don't have to click on "next page.                                                                               | Pass   |
+| 3   | As a user I can view the details of a single painting so that I can learn more about it.                                                                                                                                          | Pass   |
+| 4   | As a user I can view the painting page so that I can read the comments about the painting, and get familiar with such details as 'Artist name', 'Painting title', 'Year created', 'Technique', 'Dimensions' and suggested price.  | Pass   |
+| 5   | As a logged in user I can create painting so that I can share my artwork with the world.                                                                                                                                          | Pass   |
+| 6   | As a painting owner I can edit my painting parameters so that I can make corrections or update my painting details after they were created.                                                                                       | Pass   |
+| 7   | As a user I can view the About page so that I can stay informed about the mission, and understand the platform's purpose and offerings.                                                                                           | Pass   |
 
 #### Epic: Search and Filtering
 
-| No  | User story                                                                                                                                                                                                                                            | Test result |
-| --- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| 1   | As a user, I can search for paintings by Title or Artist Name, so that I can find the paintings and user profiles I am most interested in.                                                                                                            | Pass        |
-| 2   | As a user, I can apply a set of filters, such as 'Painting Orientation', 'Technique', 'Theme' and 'Price' based on my preferences so that I can narrow down the displayed artworks.                                                                   | Pass        |
-| 3   | As a user, I can see not only the filtered paintings but also the number of paintings in the search result, so that I have a clear understanding of the breadth of options available within my search criteria, enhancing my decision-making process. | Pass        |
-| 4   | As a user, I can easily reset filters with a single click so that I can quickly start a new search or explore different categories without manually removing each filter, enhancing my browsing experience and efficiency on the platform.            | Pass        |
-| 5   | As a user, I can my filter selections on the Paintings Page saved when navigating away and returning, so that it ensures a seamless browsing experience without redoing my choices.                                                                   | Pass        |
+| No  | User story                                                                                                                                                                                                                                            | Result |
+| --- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------ |
+| 1   | As a user, I can search for paintings by Title or Artist Name, so that I can find the paintings and user profiles I am most interested in.                                                                                                            | Pass   |
+| 2   | As a user, I can apply a set of filters, such as 'Painting Orientation', 'Technique', 'Theme' and 'Price' based on my preferences so that I can narrow down the displayed artworks.                                                                   | Pass   |
+| 3   | As a user, I can see not only the filtered paintings but also the number of paintings in the search result, so that I have a clear understanding of the breadth of options available within my search criteria, enhancing my decision-making process. | Pass   |
+| 4   | As a user, I can easily reset filters with a single click so that I can quickly start a new search or explore different categories without manually removing each filter, enhancing my browsing experience and efficiency on the platform.            | Pass   |
+| 5   | As a user, I can my filter selections on the Paintings Page saved when navigating away and returning, so that it ensures a seamless browsing experience without redoing my choices.                                                                   | Pass   |
 
 #### Epic: User and User Profile Management
 
-| No  | User story                                                                                                                                                                                                                  | Test result |
-| --- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| 1   | As a user I can create a new account so that I can access all the features for registered users.                                                                                                                            | Pass        |
-| 2   | As a user I can log in to the app so that I can access functionality for logged in users.                                                                                                                                   | Pass        |
-| 3   | As a user I can tell if I am logged in or not so that I can log in if I need to.                                                                                                                                            | Pass        |
-| 4   | As a user I can maintain my logged-in status until I choose to log out so that my user experience is not compromised.                                                                                                       | Pass        |
-| 5   | As a user I can view user's avatars so that I can easily identify users of the application.                                                                                                                                 | Pass        |
-| 6   | As a user I can view other artists' profiles so that I can see their paintings and learn more about them.                                                                                                                   | Pass        |
-| 7   | As a user I can view data and statistics about a specific artist such as: bio, home country, gender, date of birth, as well as number of of paintings, followers and favourite artists so that I can learn more about them. | Pass        |
-| 8   | As a user I can view all the paintings by a specific artist so that I can catch up on their latest artworks, or decide I want to follow them.                                                                               | Pass        |
-| 9   | As a logged in user I can complete/edit my profile so that I can change my profile image, bio and other details.                                                                                                            | Pass        |
-| 10  | As a logged in user with completed profile I can update my password so that I can keep my profile secure.                                                                                                                   | Pass        |
-| 11  | As a user I can see completed profiles of active users who display their paintings or leave comments so that I can access more context about their contributions and foster deeper community engagement.                    | Pass        |
-| 12  | As a user I can have an option to reveal or hide my password on any appropriate form so that I can ensure accuracy when entering my password, enhancing both security and usability.                                        | Pass        |
+| No  | User story                                                                                                                                                                                                                  | Result |
+| --- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------ |
+| 1   | As a user I can create a new account so that I can access all the features for registered users.                                                                                                                            | Pass   |
+| 2   | As a user I can log in to the app so that I can access functionality for logged in users.                                                                                                                                   | Pass   |
+| 3   | As a user I can tell if I am logged in or not so that I can log in if I need to.                                                                                                                                            | Pass   |
+| 4   | As a user I can maintain my logged-in status until I choose to log out so that my user experience is not compromised.                                                                                                       | Pass   |
+| 5   | As a user I can view user's avatars so that I can easily identify users of the application.                                                                                                                                 | Pass   |
+| 6   | As a user I can view other artists' profiles so that I can see their paintings and learn more about them.                                                                                                                   | Pass   |
+| 7   | As a user I can view data and statistics about a specific artist such as: bio, home country, gender, date of birth, as well as number of of paintings, followers and favourite artists so that I can learn more about them. | Pass   |
+| 8   | As a user I can view all the paintings by a specific artist so that I can catch up on their latest artworks, or decide I want to follow them.                                                                               | Pass   |
+| 9   | As a logged in user I can complete/edit my profile so that I can change my profile image, bio and other details.                                                                                                            | Pass   |
+| 10  | As a logged in user with completed profile I can update my password so that I can keep my profile secure.                                                                                                                   | Pass   |
+| 11  | As a user I can see completed profiles of active users who display their paintings or leave comments so that I can access more context about their contributions and foster deeper community engagement.                    | Pass   |
+| 12  | As a user I can have an option to reveal or hide my password on any appropriate form so that I can ensure accuracy when entering my password, enhancing both security and usability.                                        | Pass   |
 
 #### Epic: Favourite Profiles and Watchlist Management
 
-| No  | User story                                                                                                                                                                                                                                | Test result |
-| --- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| 1   | As a logged in user with completed profile I can add a painting to my watchlist so that I can observe it later, and show that I am not indifferent to this painting.                                                                      | Pass        |
-| 2   | As a logged in user with completed profile I can follow and unfollow other artists so that I can see and remove paintings by specific artist in my Faves feed.                                                                            | Pass        |
-| 3   | As a logged in user with completed profile, I can remove a painting from my watchlist so that I can keep my list updated with only the artworks that currently interest me, ensuring a personalized and clutter-free browsing experience. | Pass        |
+| No  | User story                                                                                                                                                                                                                                | Result |
+| --- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------ |
+| 1   | As a logged in user with completed profile I can add a painting to my watchlist so that I can observe it later, and show that I am not indifferent to this painting.                                                                      | Pass   |
+| 2   | As a logged in user with completed profile I can follow and unfollow other artists so that I can see and remove paintings by specific artist in my Faves feed.                                                                            | Pass   |
+| 3   | As a logged in user with completed profile, I can remove a painting from my watchlist so that I can keep my list updated with only the artworks that currently interest me, ensuring a personalized and clutter-free browsing experience. | Pass   |
 
 #### Epic: Comments Management
 
-| No  | User story                                                                                                                                                   | Test result |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------- |
-| 1   | As a user I can read comments on painting so that I get informed what other artists think about the painting.                                                | Pass        |
-| 2   | As a user I can see how long ago a comment was made so that I know how old a comment is.                                                                     | Pass        |
-| 3   | As a user I can keep scrolling through the comments on the painting page, that are loaded for me automatically so that I don't have to click on "next page". | Pass        |
-| 4   | As a logged in user with completed profile I can add comments to a painting so that I can share my thoughts about the artwork.                               | Pass        |
-| 5   | As an owner of a comment I can edit my comment so that I can fix or update my existing comment.                                                              | Pass        |
-| 6   | As an owner of a comment I can delete my comment so that I can control removal of my comment from the application.                                           | Pass        |
+| No  | User story                                                                                                                                                   | Result |
+| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------ |
+| 1   | As a user I can read comments on painting so that I get informed what other artists think about the painting.                                                | Pass   |
+| 2   | As a user I can see how long ago a comment was made so that I know how old a comment is.                                                                     | Pass   |
+| 3   | As a user I can keep scrolling through the comments on the painting page, that are loaded for me automatically so that I don't have to click on "next page". | Pass   |
+| 4   | As a logged in user with completed profile I can add comments to a painting so that I can share my thoughts about the artwork.                               | Pass   |
+| 5   | As an owner of a comment I can edit my comment so that I can fix or update my existing comment.                                                              | Pass   |
+| 6   | As an owner of a comment I can delete my comment so that I can control removal of my comment from the application.                                           | Pass   |
 
 #### Epic: Error Handling and Notification Management
 
-| No  | User story                                                                                                                                                                                                             | Test result |
-| --- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| 1   | As a user I can receive clear error messages when a page I'm looking for is not found so that I understand what went wrong and feel guided on what to do next.                                                         | Pass        |
-| 2   | As a user I can receive immediate and informative feedback when I encounter errors while filling out forms on the site so that I can understand exactly what needs to be corrected without feeling frustrated or lost. | Pass        |
-| 3   | As a user I can receive a success notification when I successfully complete the form so that I am assured my changes have been saved and can confidently navigate away from the form.                                  | Pass        |
-| 4   | As a user I can see that error alerts and success messages are handled uniformly across the platform so that I have a consistent experience and can easily understand feedback from the system.                        | Pass        |
+| No  | User story                                                                                                                                                                                                             | Result |
+| --- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------ |
+| 1   | As a user I can receive clear error messages when a page I'm looking for is not found so that I understand what went wrong and feel guided on what to do next.                                                         | Pass   |
+| 2   | As a user I can receive immediate and informative feedback when I encounter errors while filling out forms on the site so that I can understand exactly what needs to be corrected without feeling frustrated or lost. | Pass   |
+| 3   | As a user I can receive a success notification when I successfully complete the form so that I am assured my changes have been saved and can confidently navigate away from the form.                                  | Pass   |
+| 4   | As a user I can see that error alerts and success messages are handled uniformly across the platform so that I have a consistent experience and can easily understand feedback from the system.                        | Pass   |
 
 ### Code validation
 
@@ -936,6 +934,60 @@ The Lighthouse Chrome DevTools extension was utilized to evaluate web pages in t
 <br>[Back to top ⇧](#table-of-contents)
 
 #### Testing Style And Functionality
+
+- Navigation bar
+
+| Element           | Users                                    | Test          | Outcome                                                                                | Pass/Fail |
+| ----------------- | ---------------------------------------- | ------------- | -------------------------------------------------------------------------------------- | --------- |
+| Main logo link    | All                                      | Functionality | Clicking the link redirects to the Home page                                           | Pass      |
+|                   |                                          | Style         | n/a                                                                                    | n/a       |
+| Register link     | Unauthenticated                          | Functionality | Clicking the link redirects to the Register page                                       | Pass      |
+|                   |                                          | Style         | Hover/active link effect is working as expected                                        | Pass      |
+| Login link        | Unauthenticated                          | Functionality | Clicking the link redirects to the Login page                                          | Pass      |
+|                   |                                          | Style         | Hover/active link effect is working as expected                                        | Pass      |
+| About link        | All                                      | Functionality | Clicking the link redirects to the About page                                          | Pass      |
+|                   |                                          | Style         | Hover/active link effect is working as expected                                        | Pass      |
+| Welcoming message | Unauthenticated                          | Functionality | Impersonal greeting.                                                                   | Pass      |
+|                   | Authenticated                            |               | Avatar+username                                                                        | Pass      |
+| Add painting      | Authenticated, completed profile already | Functionality | Clicking the link redirects to the Add Painting page                                   | Pass      |
+|                   |                                          | Style         | Hover/active link effect is working as expected                                        | Pass      |
+| Add painting      | Authenticated, not completed profile yet | Functionality | Clicking the link triggers Modal Alert (advice to complete the Profile)                | Pass      |
+|                   |                                          | Style         | Hover effect is working as expected                                                    | Pass      |
+| Artworks link     | All                                      | Functionality | Clicking the link redirects to the Home page                                           | Pass      |
+|                   |                                          | Style         | Hover/active link effect is working as expected                                        | Pass      |
+| Faves link        | Authenticated, completed profile already | Functionality | Clicking the link redirects you to a page with a list of paintings by favorite artists | Pass      |
+|                   |                                          | Style         | Hover/active link effect is working as expected                                        | Pass      |
+| Faves link        | Authenticated, not completed profile yet | Functionality | Clicking the link triggers Modal Alert (advice to complete the Profile)                | Pass      |
+|                   |                                          | Style         | Hover effect is working as expected                                                    | Pass      |
+| Watchlist link    | Authenticated, completed profile already | Functionality | Clicking the link redirects to a page with a list of paintings you wish to observe     | Pass      |
+|                   |                                          | Style         | Hover/active link effect is working as expected                                        | Pass      |
+| Watchlist link    | Authenticated, not completed profile yet | Functionality | Clicking the link triggers Modal Alert (advice to complete the Profile)                | Pass      |
+|                   |                                          | Style         | Hover effect is working as expected                                                    | Pass      |
+| Avatar+username   | Authenticated, completed profile already | Functionality | Clicking the link redirects you to your Profile page                                   | Pass      |
+|                   |                                          | Style         | Hover/active link effect is working as expected                                        | Pass      |
+| Avatar+username   | Authenticated, not completed profile yet | Functionality | Clicking the link redirects to the Create Profile page.                                | Pass      |
+|                   |                                          | Style         | Hover effect is working as expected                                                    | Pass      |
+| Logout link       | Authenticated                            | Functionality | Clicking the link loggs out and redirects to the Home page.                            | Pass      |
+|                   |                                          | Style         | Hover effect working as expected.                                                      | Pass      |
+
+- Search and Filtering fields
+- Footer
+- Home page
+- Painting Details page
+- User Profile page
+- Add painting page
+- Update Painting page
+- Register page
+- Compete Profile page
+- Update Profile page
+- Change Password page
+- Login page
+- About page
+- Deletion Warning Modal
+- Error And Warning alerts
+- Infinite scroll
+- Modal alerts
+- 404 Error page
 
 <br>[Back to top ⇧](#table-of-contents)
 
