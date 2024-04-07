@@ -84,7 +84,9 @@ function App() {
             <Route
               exact
               path="/paintings/create"
-              render={() => <PaintingCreateForm />}
+              render={() =>
+                profileCompleted ? <PaintingCreateForm /> : <Redirect to="/" />
+              }
             />
             <Route
               path="/paintings/:id/edit"

@@ -323,7 +323,7 @@ function PaintingCreateForm() {
     <>
       {!profile ? (
         <Asset spinner />
-      ) : profileCompleted ? (
+      ) : (
         <Form onSubmit={handleSubmit}>
           <Row>
             <Col className="py-2 p-0 p-md-2" md={7} lg={8}>
@@ -380,8 +380,6 @@ function PaintingCreateForm() {
             </Col>
           </Row>
         </Form>
-      ) : (
-        <h1>Please complete your profile first!</h1>
       )}
     </>
   );
