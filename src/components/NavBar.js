@@ -60,7 +60,6 @@ const NavBar = ({ onModalShow }) => {
           <div
             style={{ textTransform: "none" }}
             className={`${styles.NavLink} ${styles.NavLinkSpacing}`}
-            activeClassName={styles.Active}
           >
             <span className={styles.IconTextContainer} onClick={onModalShow}>
               <i className="fas fa-plus-square"></i>Add painting
@@ -86,14 +85,12 @@ const NavBar = ({ onModalShow }) => {
         <>
           <div
             className={`${styles.NavLink} ${styles.NavLinkWithDivider} ${styles.IconTextContainer} mr-auto text-left`}
-            activeClassName={styles.Active}
             onClick={onModalShow}
           >
             faves
           </div>
           <div
             className={`${styles.NavLink} ${styles.NavLinkWithDivider} ${styles.IconTextContainer} mr-auto text-left`}
-            activeClassName={styles.Active}
             onClick={onModalShow}
           >
             watchlist
@@ -146,7 +143,6 @@ const NavBar = ({ onModalShow }) => {
         <div
           style={{ textTransform: "none", fontWeight: "bold" }}
           className={`${styles.NavLink} ${styles.NavLinkWithDivider} ${styles.IconTextContainer} mr-auto text-left`}
-          activeClassName={styles.Active}
           onClick={onModalShow}
         >
           <Avatar
