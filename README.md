@@ -93,9 +93,9 @@ You can view the back-end README.md here - <a href="https://github.com/gennadiy-
     - [User Profile page testing](#user-profile-page-testing)
     - [Add painting page testing](#add-painting-page-testing)
     - [Update Painting page testing](#update-painting-page-testing)
-    - [Register page testing](#register-page-testing)
     - [Compete Profile page testing](#compete-profile-page-testing)
     - [Update Profile page testing](#update-profile-page-testing)
+    - [Register page testing](#register-page-testing)
     - [Change Password page testing](#change-password-page-testing)
     - [Login page testing](#login-page-testing)
     - [About page testing](#about-page-testing)
@@ -1093,37 +1093,40 @@ The Lighthouse Chrome DevTools extension was utilized to evaluate web pages in t
 
 ##### Add painting page testing
 
-| Element                             | Users                              | Test          | Outcome                                                                                                            | Pass/Fail |
-| ----------------------------------- | ---------------------------------- | ------------- | ------------------------------------------------------------------------------------------------------------------ | --------- |
-| Upload image                        | Logged in user w/completed Profile | Functionality | Clicking on the icon allows the user to upload their own painting image.                                           | Pass      |
-| “Change the image” button           | Logged in user w/completed Profile | Functionality | The option appears if the image has already been uploaded. Clicking the button enables the upload of another image | Pass      |
-|                                     |                                    | Functionality | Validation occurs (alert message), if it is left empty.                                                            | Pass      |
-| Title input                         | Logged in user w/completed Profile | Functionality | Text can be entered into the field.                                                                                | Pass      |
-|                                     |                                    | Functionality | Validation occurs (alert message), if it is left empty.                                                            | Pass      |
-|                                     |                                    | Style         | Focus effect working as expected.                                                                                  | Pass      |
-| Year crated input                   | Logged in user w/completed Profile | Functionality | Only number can be entered into the field.                                                                         | Pass      |
-|                                     |                                    | Functionality | Validation occurs (alert message), if it is left empty or number is out of range from 1000 to 9999                 | Pass      |
-|                                     |                                    | Style         | Focus effect working as expected.                                                                                  | Pass      |
-| Select Theme dropdown list          | Logged in user w/completed Profile | Functionality | Clicking the dropdown button displays a list of themes to choose from                                              | Pass      |
-|                                     |                                    | Functionality | Validation occurs (alert message), when no theme was chosen                                                        | Pass      |
-|                                     |                                    | Style         | Focus effect working as expected.                                                                                  | Pass      |
-| Select Technique dropdown list      | Logged in user w/completed Profile | Functionality | Clicking the dropdown button displays a list of techniques to choose from                                          | Pass      |
-|                                     |                                    | Functionality | Validation occurs (alert message), when no technique was chosen                                                    | Pass      |
-|                                     |                                    | Style         | Focus effect working as expected.                                                                                  | Pass      |
-| Suggested price input               | Logged in user w/completed Profile | Functionality | Any symbols can be entered into the field.                                                                         | Pass      |
-|                                     |                                    | Functionality | Validation occurs (alert message), if it is left empty or user’s input is not a number.                            | Pass      |
-|                                     |                                    | Style         | Focus effect working as expected.                                                                                  | Pass      |
-| Dimensions input (width and height) | Logged in user w/completed Profile | Functionality | Any symbols can be entered into the field.                                                                         | Pass      |
-|                                     |                                    | Functionality | Validation occurs (alert message), if it is left empty or user’s input is not a number.                            | Pass      |
-|                                     |                                    | Style         | Focus effect working as expected.                                                                                  | Pass      |
+| Element                             | Users                              | Test          | Outcome                                                                                                                     | Pass/Fail |
+| ----------------------------------- | ---------------------------------- | ------------- | --------------------------------------------------------------------------------------------------------------------------- | --------- |
+| Upload image                        | Logged in user w/completed Profile | Functionality | Clicking on the icon allows the user to upload their own painting image.                                                    | Pass      |
+| Upload image                        | Logged in user w/completed Profile | Functionality | Validation occurs (alert message), when image size (width or height) is larger than 4096px or image weight is more than 2MB | Pass      |
+| “Change the image” button           | Logged in user w/completed Profile | Functionality | The option appears if the image has already been uploaded. Clicking the button enables the upload of another image          | Pass      |
+|                                     |                                    | Functionality | Validation occurs (alert message), if it is left empty.                                                                     | Pass      |
+| Title input                         | Logged in user w/completed Profile | Functionality | Text can be entered into the field.                                                                                         | Pass      |
+|                                     |                                    | Functionality | Validation occurs (alert message), if it is left empty.                                                                     | Pass      |
+|                                     |                                    | Style         | Focus effect working as expected.                                                                                           | Pass      |
+| Year crated input                   | Logged in user w/completed Profile | Functionality | Only number can be entered into the field.                                                                                  | Pass      |
+|                                     |                                    | Functionality | Validation occurs (alert message), if it is left empty or number is out of range from 1000 to 9999                          | Pass      |
+|                                     |                                    | Style         | Focus effect working as expected.                                                                                           | Pass      |
+| Select Theme dropdown list          | Logged in user w/completed Profile | Functionality | Clicking the dropdown button displays a list of themes to choose from                                                       | Pass      |
+|                                     |                                    | Functionality | Validation occurs (alert message), when no theme was chosen                                                                 | Pass      |
+|                                     |                                    | Style         | Focus effect working as expected.                                                                                           | Pass      |
+| Select Technique dropdown list      | Logged in user w/completed Profile | Functionality | Clicking the dropdown button displays a list of techniques to choose from                                                   | Pass      |
+|                                     |                                    | Functionality | Validation occurs (alert message), when no technique was chosen                                                             | Pass      |
+|                                     |                                    | Style         | Focus effect working as expected.                                                                                           | Pass      |
+| Suggested price input               | Logged in user w/completed Profile | Functionality | Any symbols can be entered into the field.                                                                                  | Pass      |
+|                                     |                                    | Functionality | Validation occurs (alert message), if it is left empty or user’s input is not a number.                                     | Pass      |
+|                                     |                                    | Style         | Focus effect working as expected.                                                                                           | Pass      |
+| Dimensions input (width and height) | Logged in user w/completed Profile | Functionality | Any symbols can be entered into the field.                                                                                  | Pass      |
+|                                     |                                    | Functionality | Validation occurs (alert message), if it is left empty or user’s input is not a number.                                     | Pass      |
+|                                     |                                    | Style         | Focus effect working as expected.                                                                                           | Pass      |
 
 <br>[Back to top ⇧](#table-of-contents)
 
 ##### Update Painting page testing
 
-<br>[Back to top ⇧](#table-of-contents)
-
-##### Register page testing
+| Element              | Users                              | Test          | Outcome                                                                 | Pass/Fail |
+| -------------------- | ---------------------------------- | ------------- | ----------------------------------------------------------------------- | --------- |
+| Update painting page | Logged in user w/completed Profile | Functionality | Prepopulated form containing all the painting's data is displayed       | Pass      |
+| All other elements   | Logged in user w/completed Profile | Functionality | The same as for [Add painting page testing](#add-painting-page-testing) | Pass      |
+|                      |                                    | Sytle         | The same as for [Add painting page testing](#add-painting-page-testing) | Pass      |
 
 <br>[Back to top ⇧](#table-of-contents)
 
@@ -1132,6 +1135,10 @@ The Lighthouse Chrome DevTools extension was utilized to evaluate web pages in t
 <br>[Back to top ⇧](#table-of-contents)
 
 ##### Update Profile page testing
+
+<br>[Back to top ⇧](#table-of-contents)
+
+##### Register page testing
 
 <br>[Back to top ⇧](#table-of-contents)
 
