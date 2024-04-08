@@ -1132,9 +1132,36 @@ The Lighthouse Chrome DevTools extension was utilized to evaluate web pages in t
 
 ##### Compete Profile page testing
 
+| Element                     | Users                                    | Test          | Outcome                                                                                      | Pass/Fail |
+| --------------------------- | ---------------------------------------- | ------------- | -------------------------------------------------------------------------------------------- | --------- |
+| “Change the image” button   | Authenticated, not completed profile yet | Functionality | Clicking on the button allows the user to upload their own profile image.                    | Pass      |
+| “Change the image” button   | Authenticated, not completed profile yet | Functionality | Image upload is optional, given the availability of a default image                          | Pass      |
+| Bio input                   | Authenticated, not completed profile yet | Functionality | Text can be entered into the field.                                                          | Pass      |
+|                             |                                          | Functionality | Validation occurs (alert message), if it is left empty.                                      | Pass      |
+|                             |                                          | Style         | Focus effect working as expected.                                                            | Pass      |
+| Full name input             | Authenticated, not completed profile yet | Functionality | Text can be entered into the field.                                                          | Pass      |
+|                             |                                          | Functionality | Validation occurs (alert message), if it is left empty.                                      | Pass      |
+|                             |                                          | Style         | Focus effect working as expected.                                                            | Pass      |
+| Home country input          | Authenticated, not completed profile yet | Functionality | Text can be entered into the field.                                                          | Pass      |
+|                             |                                          | Functionality | Validation occurs (alert message), if it is left empty.                                      | Pass      |
+|                             |                                          | Style         | Focus effect working as expected.                                                            | Pass      |
+| Select Gender dropdown list | Authenticated, not completed profile yet | Functionality | Clicking the dropdown button displays a list of genders to choose from                       | Pass      |
+|                             |                                          | Functionality | Validation occurs (alert message), when no gender was chosen                                 | Pass      |
+|                             |                                          | Style         | Focus effect working as expected.                                                            | Pass      |
+| Date of birth input         | Authenticated, not completed profile yet | Functionality | Clicking on the field opens a date picker calendar, allowing the selection of a desired date | Pass      |
+| Date of birth input         | Authenticated, not completed profile yet | Functionality | Validation occurs (alert message), when no date was chosen or input is invalid               | Pass      |
+| “Cancel” button             | Authenticated, not completed profile yet | Functionality | Redirects to the home page                                                                   | Pass      |
+| “Save” button               | Authenticated, not completed profile yet | Functionality | Submits the data and redirects the profile page                                              | Pass      |
+
 <br>[Back to top ⇧](#table-of-contents)
 
 ##### Update Profile page testing
+
+| Element             | Users                              | Test          | Outcome                                                                       | Pass/Fail |
+| ------------------- | ---------------------------------- | ------------- | ----------------------------------------------------------------------------- | --------- |
+| Update profile page | Logged in user w/completed Profile | Functionality | Prepopulated form containing all the profile's data is displayed              | Pass      |
+| All other elements  | Logged in user w/completed Profile | Functionality | The same as for [Compete Profile page testing](#compete-profile-page-testing) | Pass      |
+|                     |                                    | Sytle         | The same as for [Compete Profile page testing](#compete-profile-page-testing) | Pass      |
 
 <br>[Back to top ⇧](#table-of-contents)
 
