@@ -989,6 +989,8 @@ The Lighthouse Chrome DevTools extension was utilized to evaluate web pages in t
 | Logout link       | Authenticated                            | Functionality | Clicking the link loggs out and redirects to the Home page.                            | Pass      |
 |                   |                                          | Style         | Hover effect working as expected.                                                      | Pass      |
 
+<br>[Back to top ⇧](#table-of-contents)
+
 ##### Search and Filtering fields testing
 
 | Element                          | Users                       | Test          | Outcome                                                                                                                      | Pass/Fail |
@@ -1003,6 +1005,8 @@ The Lighthouse Chrome DevTools extension was utilized to evaluate web pages in t
 | Preserving user's filter choices | All                         |               | Clicking on any links other than Logo, Artworks, Faves, or Watchlist does not reset the applied filters                      | Pass      |
 | Painting counter                 | All                         |               | The number of paintings displayed by the painting counter corresponds to the number of paintings shown on the paintings page | Pass      |
 
+<br>[Back to top ⇧](#table-of-contents)
+
 ##### Footer testing
 
 | Element        | Users | Test          | Outcome                                                       | Pass/Fail |
@@ -1015,6 +1019,8 @@ The Lighthouse Chrome DevTools extension was utilized to evaluate web pages in t
 |                |       | Style         | Hover effect working as expected.                             | Pass      |
 | LinkedIn icon  | All   | Functionality | Clicking the link open LinkedIn page on a separate tab.       | Pass      |
 |                |       | Style         | Hover effect working as expected.                             | Pass      |
+
+<br>[Back to top ⇧](#table-of-contents)
 
 ##### Home page testing
 
@@ -1034,6 +1040,8 @@ The Lighthouse Chrome DevTools extension was utilized to evaluate web pages in t
 | Comment icon                   | All                                                     | Functionality       | Clicking the icon redirects to the Painting Detail page.                                 | Pass      |
 |                                |                                                         | Style               | Hover effect working as expected.                                                        | Pass      |
 
+<br>[Back to top ⇧](#table-of-contents)
+
 ##### Painting Details page testing
 
 | Element                                             | Users                                                   | Test                | Outcome                                                                                      | Pass/Fail |
@@ -1041,53 +1049,119 @@ The Lighthouse Chrome DevTools extension was utilized to evaluate web pages in t
 | Painting section/Avatar+Username                    | All                                                     | Functionality       | Clicking the link redirects you to painter Profile page                                      | Pass      |
 |                                                     |                                                         | Style               | Hover/active link effect is working as expected                                              | Pass      |
 | Painting section/date                               | All                                                     | Functionality       | The date matches the date when the painting was added to the gallery                         | Pass      |
-| Painting section, three vertical dots near the date | Painting owner                                          | Functionality       | Clicking the icon triggers dropdown bootstrap component for edit and delete painting options |           |
+| Painting section, three vertical dots near the date | Painting owner                                          | Functionality       | Clicking the icon triggers dropdown bootstrap component for edit and delete painting options | Pass      |
 |                                                     |                                                         | Style               | Hover effect working as expected.                                                            | Pass      |
 | Edit option of dropdown component                   | Painting owner                                          | Functionality       | Clicking the option redirects the user to Edit painting page                                 | Pass      |
 | Delete option of dropdown component                 | Painting owner                                          | Functionality       | Clicking the option triggers a modal alert that asks for confirmation of the deletion        | Pass      |
 | Painting section, icons area                        | All                                                     | Functionality       | Hover over icons triggers [appropriate tooltip](#1-painting-section)                         | Pass      |
 |                                                     |                                                         | Style               | Hover effect working as expected.                                                            | Pass      |
-| Observe Icon                                        | Logged in user w/completed Profile (not painting owner) | Functionality       | Adds painting to the Watchlist                                                               | Pass      |
+| Observe Icon                                        | Logged in user w/completed Profile (not painting owner) | Functionality       | Adds/removes painting to/from the Watchlist                                                  | Pass      |
 |                                                     |                                                         | Style               | Hover effect working as expected.                                                            | Pass      |
-| Observe Icon                                        | Logged in user w/incompleted Profile                    | Functionality       | Clicking the link triggers Modal Alert (advice to complete the Profile)                      | Pass      |
+| Observe Icon                                        | Logged in user w/uncompleted Profile                    | Functionality       | Clicking the link triggers Modal Alert (advice to complete the Profile)                      | Pass      |
 |                                                     |                                                         | Style               | Hover effect working as expected.                                                            | Pass      |
-| Comment icon                                        | Logged in user w/incompleted Profile                    | Functionality       | Clicking the link triggers Modal Alert (advice to complete the Profile)                      | Pass      |
+| Comment icon                                        | Logged in user w/uncompleted Profile                    | Functionality       | Clicking the link triggers Modal Alert (advice to complete the Profile)                      | Pass      |
 |                                                     |                                                         | Style               | Hover effect working as expected.                                                            | Pass      |
 | Painting detail section                             | All                                                     | Functionality/style | The content is displayed as expected                                                         | Pass      |
-| Comment section, published comment/ Avatar+Username | All                                                     | Functionality       | Clicking the link redirects you to the commenter's profile page                              |           |
-| Comment section, published comment/ date            | All                                                     | Functionality       | The date indicates how long ago the comment was posted                                       |           |
-| Comment section, three vertical dots at the right   | Comment’s owner                                         | Functionality       | Clicking the icon triggers dropdown bootstrap component for edit and delete comment options  |           |
+| Comment section, published comment/ Avatar+Username | All                                                     | Functionality       | Clicking the link redirects you to the commenter's profile page                              | Pass      |
+| Comment section, published comment/ date            | All                                                     | Functionality       | The date indicates how long ago the comment was posted                                       | Pass      |
+| Comment section, three vertical dots at the right   | Comment’s owner                                         | Functionality       | Clicking the icon triggers dropdown bootstrap component for edit and delete comment options  | Pass      |
 |                                                     |                                                         | Style               | Hover effect working as expected.                                                            | Pass      |
 | Edit option of dropdown component                   | Comment owner                                           | Functionality       | Clicking the option redirects the user to Edit comment section                               | Pass      |
 | Delete option of dropdown component                 | Comment owner                                           | Functionality       | Clicking the option triggers a modal alert that asks for confirmation of the deletion        | Pass      |
 | Add comment section                                 | Logged in user w/completed Profile                      | Functionality       | Clicking the submit button after entering the comment publishes it                           | Pass      |
 | Add comment section                                 | Logged in user w/completed Profile                      | Functionality       | Clicking the submit button after not entering the comment triggers error alert               | Pass      |
+| Comment section/Infinite scroll                     | All                                                     | Functionality       | Comment section features an infinite scroll display of comments                              | Pass      |
+
+<br>[Back to top ⇧](#table-of-contents)
 
 ##### User Profile page testing
 
+| Element                                                       | Users                              | Test                | Outcome                                                                                                                          | Pass/Fail |
+| ------------------------------------------------------------- | ---------------------------------- | ------------------- | -------------------------------------------------------------------------------------------------------------------------------- | --------- |
+| User Profile Main Info Panel                                  | All                                | Functionality/style | The content is displayed as expected                                                                                             | Pass      |
+| User Profile Main Info Panel/computed data                    | Logged in user w/completed Profile | Functionality       | Clicking the “to Faves” or “Unfollow” button adjusts the number of followers or favorites on the respective profiles accordingly | Pass      |
+| User Profile Main Info Panel/computed data                    | Logged in user w/completed Profile | Functionality       | The number of paintings matches the number of paintings the user has added to the gallery                                        | Pass      |
+| User Profile Main Info Panel/three vertical dots at the right | Profile’s owner                    | Functionality       | Clicking the icon triggers dropdown bootstrap component for edit profile and change password options                             | Pass      |
+|                                                               |                                    | Style               | Hover effect working as expected.                                                                                                | Pass      |
+| Edit profile option of dropdown component                     | Profile’s owner                    | Functionality       | Clicking the option redirects the user to Edit profile page                                                                      | Pass      |
+| Change password option of dropdown component                  | Profile’s owner                    | Functionality       | Clicking the option redirects the user to Change password page                                                                   | Pass      |
+| Available artworks section                                    | All                                | Functionality       | The number of paintings displayed matches the calculated total                                                                   | Pass      |
+| Available artworks section/Infinite scroll                    | All                                | Functionality       | Available artworks section features an infinite scroll display of profile’s owner paintings                                      | Pass      |
+| Painting card                                                 | All                                | Functionality       | The same as on [Home Page](#home-page-testing)                                                                                   | Pass      |
+
+<br>[Back to top ⇧](#table-of-contents)
+
 ##### Add painting page testing
+
+| Element                             | Users                              | Test          | Outcome                                                                                                            | Pass/Fail |
+| ----------------------------------- | ---------------------------------- | ------------- | ------------------------------------------------------------------------------------------------------------------ | --------- |
+| Upload image                        | Logged in user w/completed Profile | Functionality | Clicking on the icon allows the user to upload their own painting image.                                           | Pass      |
+| “Change the image” button           | Logged in user w/completed Profile | Functionality | The option appears if the image has already been uploaded. Clicking the button enables the upload of another image | Pass      |
+|                                     |                                    | Functionality | Validation occurs (alert message), if it is left empty.                                                            | Pass      |
+| Title input                         | Logged in user w/completed Profile | Functionality | Text can be entered into the field.                                                                                | Pass      |
+|                                     |                                    | Functionality | Validation occurs (alert message), if it is left empty.                                                            | Pass      |
+|                                     |                                    | Style         | Focus effect working as expected.                                                                                  | Pass      |
+| Year crated input                   | Logged in user w/completed Profile | Functionality | Only number can be entered into the field.                                                                         | Pass      |
+|                                     |                                    | Functionality | Validation occurs (alert message), if it is left empty or number is out of range from 1000 to 9999                 | Pass      |
+|                                     |                                    | Style         | Focus effect working as expected.                                                                                  | Pass      |
+| Select Theme dropdown list          | Logged in user w/completed Profile | Functionality | Clicking the dropdown button displays a list of themes to choose from                                              | Pass      |
+|                                     |                                    | Functionality | Validation occurs (alert message), when no theme was chosen                                                        | Pass      |
+|                                     |                                    | Style         | Focus effect working as expected.                                                                                  | Pass      |
+| Select Technique dropdown list      | Logged in user w/completed Profile | Functionality | Clicking the dropdown button displays a list of techniques to choose from                                          | Pass      |
+|                                     |                                    | Functionality | Validation occurs (alert message), when no technique was chosen                                                    | Pass      |
+|                                     |                                    | Style         | Focus effect working as expected.                                                                                  | Pass      |
+| Suggested price input               | Logged in user w/completed Profile | Functionality | Any symbols can be entered into the field.                                                                         | Pass      |
+|                                     |                                    | Functionality | Validation occurs (alert message), if it is left empty or user’s input is not a number.                            | Pass      |
+|                                     |                                    | Style         | Focus effect working as expected.                                                                                  | Pass      |
+| Dimensions input (width and height) | Logged in user w/completed Profile | Functionality | Any symbols can be entered into the field.                                                                         | Pass      |
+|                                     |                                    | Functionality | Validation occurs (alert message), if it is left empty or user’s input is not a number.                            | Pass      |
+|                                     |                                    | Style         | Focus effect working as expected.                                                                                  | Pass      |
+
+<br>[Back to top ⇧](#table-of-contents)
 
 ##### Update Painting page testing
 
+<br>[Back to top ⇧](#table-of-contents)
+
 ##### Register page testing
+
+<br>[Back to top ⇧](#table-of-contents)
 
 ##### Compete Profile page testing
 
+<br>[Back to top ⇧](#table-of-contents)
+
 ##### Update Profile page testing
+
+<br>[Back to top ⇧](#table-of-contents)
 
 ##### Change Password page testing
 
+<br>[Back to top ⇧](#table-of-contents)
+
 ##### Login page testing
+
+<br>[Back to top ⇧](#table-of-contents)
 
 ##### About page testing
 
+<br>[Back to top ⇧](#table-of-contents)
+
 ##### Deletion Warning Modal testing
+
+<br>[Back to top ⇧](#table-of-contents)
 
 ##### Error And Warning alerts testing
 
+<br>[Back to top ⇧](#table-of-contents)
+
 ##### Infinite scroll testing
 
+<br>[Back to top ⇧](#table-of-contents)
+
 ##### Modal alerts testing
+
+<br>[Back to top ⇧](#table-of-contents)
 
 ##### 404 Error page testing
 
