@@ -37,7 +37,7 @@ You can view the back-end README.md here - <a href="https://github.com/gennadiy-
   - 3.3.1 [ModalAlert](#modal-alert)
 - 3.4. [Footer](#footer)
 - 3.5. [Home page](#home-page)
-  - 3.5.1. [Filter area](#1-filters-area)
+  - 3.5.1. [Filters area](#1-filters-area)
   - 3.5.2. [Resetting filter choices](#2-resetting-filter-choices)
   - 3.5.3. [Preserving user's filter choices](#3-preserving-users-filter-choices)
   - 3.5.4. [Painting Card](#4-painting-card-paintinglist-component)
@@ -85,6 +85,25 @@ You can view the back-end README.md here - <a href="https://github.com/gennadiy-
 - 4.5. [Manual testing](#manual-testing)
   - 4.5.1. [Browser Compatibility](#browser-compatibility)
   - 4.5.2. [Testing Style And Functionality](#testing-style-and-functionality)
+    - [Navigation bar testing](#navigation-bar-testing)
+    - [Search and Filtering fields testing](#search-and-filtering-fields-testing)
+    - [Footer testing](#footer-testing)
+    - [Home page testing](#home-page-testing)
+    - [Painting Details page testing](#painting-details-page-testing)
+    - [User Profile page testing](#user-profile-page-testing)
+    - [Add painting page testing](#add-painting-page-testing)
+    - [Update Painting page testing](#update-painting-page-testing)
+    - [Register page testing](#register-page-testing)
+    - [Compete Profile page testing](#compete-profile-page-testing)
+    - [Update Profile page testing](#update-profile-page-testing)
+    - [Change Password page testing](#change-password-page-testing)
+    - [Login page testing](#login-page-testing)
+    - [About page testing](#about-page-testing)
+    - [Deletion Warning Modal testing](#deletion-warning-modal-testing)
+    - [Error And Warning alerts testing](#error-and-warning-alerts-testing)
+    - [Modal alerts testing](#modal-alerts-testing)
+    - [404 Error page testing](#404-error-page-testing)
+      testing
 
 ## User Experience (UX)
 
@@ -399,7 +418,7 @@ The Home page features an infinite scroll display of paintings, arranged in rows
 
 ![ArtShowcase Home Page image](/src/assets/readme_images/features/home_page.png)
 
-#### **1. Filter area:**
+#### **1. Filters area:**
 
 ![ArtShowcase Filters Area image](/src/assets/readme_images/features/filters_area.png)
 
@@ -935,7 +954,7 @@ The Lighthouse Chrome DevTools extension was utilized to evaluate web pages in t
 
 #### Testing Style And Functionality
 
-- Navigation bar
+##### Navigation bar testing
 
 | Element           | Users                                    | Test          | Outcome                                                                                | Pass/Fail |
 | ----------------- | ---------------------------------------- | ------------- | -------------------------------------------------------------------------------------- | --------- |
@@ -970,24 +989,80 @@ The Lighthouse Chrome DevTools extension was utilized to evaluate web pages in t
 | Logout link       | Authenticated                            | Functionality | Clicking the link loggs out and redirects to the Home page.                            | Pass      |
 |                   |                                          | Style         | Hover effect working as expected.                                                      | Pass      |
 
-- Search and Filtering fields
-- Footer
-- Home page
-- Painting Details page
-- User Profile page
-- Add painting page
-- Update Painting page
-- Register page
-- Compete Profile page
-- Update Profile page
-- Change Password page
-- Login page
-- About page
-- Deletion Warning Modal
-- Error And Warning alerts
-- Infinite scroll
-- Modal alerts
-- 404 Error page
+##### Search and Filtering fields testing
+
+| Element                          | Users                       | Test          | Outcome                                                                                                                      | Pass/Fail |
+| -------------------------------- | --------------------------- | ------------- | ---------------------------------------------------------------------------------------------------------------------------- | --------- |
+| Search Painting Field            | All                         | Functionality | Entering the painter's name or title filters the paintings accordingly                                                       | Pass      |
+| Theme filter                     | All                         |               | Selecting an element from the dropdown menu filters the paintings accordingly                                                | Pass      |
+| Technique filter                 | All                         |               | Selecting an element from the dropdown menu filters the paintings accordingly                                                | Pass      |
+| Orientation filter               | All                         |               | Selecting an element from the dropdown menu filters the paintings accordingly                                                | Pass      |
+| Price filter                     | All                         |               | Selecting an element from the dropdown menu orders the paintings by price accordingly                                        | Pass      |
+| Cumulative Filtering Display     | All (for appropriate links) |               | Applying multiple filters simultaneously displays the collective results                                                     | Pass      |
+| Resetting filters                | All (for appropriate links) |               | Clicking on any of the links (Logo, Artworks, Faves, Watchlist) resets the applied filters                                   | Pass      |
+| Preserving user's filter choices | All                         |               | Clicking on any links other than Logo, Artworks, Faves, or Watchlist does not reset the applied filters                      | Pass      |
+| Painting counter                 | All                         |               | The number of paintings displayed by the painting counter corresponds to the number of paintings shown on the paintings page | Pass      |
+
+##### Footer testing
+
+| Element        | Users | Test          | Outcome                                                       | Pass/Fail |
+| -------------- | ----- | ------------- | ------------------------------------------------------------- | --------- |
+| Facebook icon  | All   | Functionality | Clicking the link will open Facebook page on a separate tab.  | Pass      |
+|                |       | Style         | Hover effect working as expected.                             | Pass      |
+| Twitter icon   | All   | Functionality | Clicking the link will open Twitter page on a separate tab.   | Pass      |
+|                |       | Style         | Hover effect working as expected.                             | Pass      |
+| Instagram icon | All   | Functionality | Clicking the link will open Instagram page on a separate tab. | Pass      |
+|                |       | Style         | Hover effect working as expected.                             | Pass      |
+| LinkedIn icon  | All   | Functionality | Clicking the link open LinkedIn page on a separate tab.       | Pass      |
+|                |       | Style         | Hover effect working as expected.                             | Pass      |
+
+##### Home page testing
+
+| Element                        | Users                                                   | Test                | Outcome                                                                                  | Pass/Fail |
+| ------------------------------ | ------------------------------------------------------- | ------------------- | ---------------------------------------------------------------------------------------- | --------- |
+| Infinite scroll                | All                                                     | Functionality       | Home page features an infinite scroll display of paintings                               | Pass      |
+| Painting card, image           | All                                                     | Functionality       | Clicking on the item redirects the user to the Painting page                             | Pass      |
+| Painting card, Avatar/Username | All                                                     | Functionality       | Clicking on the item redirects the user to the painter’s Profile page                    | Pass      |
+|                                |                                                         | Style               | Hover effect working as expected.                                                        | Pass      |
+| Painting card, detail area     | All                                                     | Functionality/style | The content is displayed as expected                                                     | Pass      |
+| Painting card, icons area      | All                                                     | Functionality       | Hover over icons triggers [appropriate tooltip](#4-painting-card-paintinglist-component) | Pass      |
+|                                |                                                         | Style               | Hover effect working as expected.                                                        | Pass      |
+| Observe Icon                   | Logged in user w/completed Profile (not painting owner) | Functionality       | Adds painting to the Watchlist                                                           | Pass      |
+|                                |                                                         | Style               | Hover effect working as expected.                                                        | Pass      |
+| Observe Icon                   | Logged in user w/uncompleted Profile                    | Functionality       | Clicking the link triggers Modal Alert (advice to complete the Profile)                  | Pass      |
+|                                |                                                         | Style               | Hover effect working as expected.                                                        | Pass      |
+| Comment icon                   | All                                                     | Functionality       | Clicking the icon redirects to the Painting Detail page.                                 | Pass      |
+|                                |                                                         | Style               | Hover effect working as expected.                                                        | Pass      |
+
+##### Painting Details page testing
+
+##### User Profile page testing
+
+##### Add painting page testing
+
+##### Update Painting page testing
+
+##### Register page testing
+
+##### Compete Profile page testing
+
+##### Update Profile page testing
+
+##### Change Password page testing
+
+##### Login page testing
+
+##### About page testing
+
+##### Deletion Warning Modal testing
+
+##### Error And Warning alerts testing
+
+##### Infinite scroll testing
+
+##### Modal alerts testing
+
+##### 404 Error page testing
 
 <br>[Back to top ⇧](#table-of-contents)
 
