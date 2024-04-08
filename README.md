@@ -1167,13 +1167,51 @@ The Lighthouse Chrome DevTools extension was utilized to evaluate web pages in t
 
 ##### Register page testing
 
+| Element                                | Users           | Test          | Outcome                                                                                                                                                                                                             | Pass/Fail |
+| -------------------------------------- | --------------- | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- |
+| Username input                         | Unauthenticated | Functionality | Text can be entered into the field. A sign beneath the field indicates that, once created, the username is uneditable.                                                                                              | Pass      |
+| Password fields                        | Unauthenticated | Functionality | Text can be entered into the field.                                                                                                                                                                                 | Pass      |
+|                                        |                 | Functionality | Validation occurs (highlighted field & pop-up message) if the field is left empty. Validate input is a valid password. Displays message if password is not valid. Displays message if both passwords are not equal. | Pass      |
+| Password field/“eye” icon              | Unauthenticated | Functionality | Clicking on the icon toggles password visibility in both password fields simultaneously                                                                                                                             | Pass      |
+|                                        |                 | Style         | Hover effect working as expected.                                                                                                                                                                                   | Pass      |
+| Register button                        | Unauthenticated | Functionality | Clicking the button redirects to the Login page, a "Success" flash message is displayed                                                                                                                             | Pass      |
+|                                        |                 | Style         | Hover effect working as expected.                                                                                                                                                                                   | Pass      |
+| “Already have an account? Log in” link | Unauthenticated | Functionality | Clicking the link redirects to the Registration page.                                                                                                                                                               | Pass      |
+|                                        |                 | Style         | Hover effect working as expected.                                                                                                                                                                                   | Pass      |
+
 <br>[Back to top ⇧](#table-of-contents)
 
 ##### Change Password page testing
 
+| Element                   | Users         | Test          | Outcome                                                                                                                                                                                                             | Pass/Fail |
+| ------------------------- | ------------- | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- |
+| Password fields           | Authenticated | Functionality | Text can be entered into the field.                                                                                                                                                                                 | Pass      |
+|                           |               | Functionality | Validation occurs (highlighted field & pop-up message) if the field is left empty. Validate input is a valid password. Displays message if password is not valid. Displays message if both passwords are not equal. | Pass      |
+| Password field/“eye” icon | Authenticated | Functionality | Clicking on the icon toggles password visibility in both password fields simultaneously                                                                                                                             | Pass      |
+|                           |               | Style         | Hover effect working as expected.                                                                                                                                                                                   | Pass      |
+| “Save” button             | Authenticated | Functionality | Clicking the button redirects to the Login page, a "Success" flash message is displayed                                                                                                                             | Pass      |
+|                           |               | Style         | Hover effect working as expected.                                                                                                                                                                                   | Pass      |
+| “Cancel” button           | Authenticated | Functionality | Clicking the button redirects to the Profile page.                                                                                                                                                                  | Pass      |
+|                           |               | Style         | Hover effect working as expected.                                                                                                                                                                                   | Pass      |
+
 <br>[Back to top ⇧](#table-of-contents)
 
 ##### Login page testing
+
+| Element                                     | Users           | Test          | Outcome                                                                                                  | Pass/Fail |
+| ------------------------------------------- | --------------- | ------------- | -------------------------------------------------------------------------------------------------------- | --------- |
+| Username input                              | Unauthenticated | Functionality | Username can be entered into the field                                                                   | Pass      |
+|                                             |                 | Functionality | Validation occurs (warning message) if the username, password, or both are incorrect.                    | Pass      |
+|                                             |                 | Style         | Focus effect working as expected.                                                                        | Pass      |
+| Password input                              | Unauthenticated | Functionality | Password can be entered into the field.                                                                  | Pass      |
+|                                             |                 | Functionality | Validation occurs (warning message) if the username, password, or both are incorrect.                    | Pass      |
+|                                             |                 | Style         | Focus effect working as expected.                                                                        | Pass      |
+| Password field/“eye” icon                   | Unauthenticated | Functionality | Clicking on the icon toggles password visibility                                                         | Pass      |
+|                                             |                 | Style         | Hover effect working as expected.                                                                        | Pass      |
+| Login button                                | Unauthenticated | Functionality | Clicking the button redirects to the Home page. A flash message about the successful login is displayed. | Pass      |
+|                                             |                 | Style         | Hover effect working as expected.                                                                        | Pass      |
+| “Don't have an account? Register now!” link | Unauthenticated | Functionality | Clicking the link redirects to the Registration page.                                                    | Pass      |
+|                                             |                 | Style         | Hover effect working as expected.                                                                        | Pass      |
 
 <br>[Back to top ⇧](#table-of-contents)
 
