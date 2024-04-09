@@ -77,6 +77,11 @@ function PaintingEditForm() {
           : history.push("/");
       } catch (err) {
         console.log(err);
+        if (err.response && err.response.status === 404) {
+          history.push("/404");
+        } else {
+          console.log(err.message);
+        }
       }
     };
     handleMount();
