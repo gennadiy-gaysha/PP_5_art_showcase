@@ -23,6 +23,7 @@ import { fetchMoreData } from "../../utils/utils";
 import NoResults from "../../assets/no_results.png";
 import { ProfileEditDropdown } from "../../components/MoreDropdown";
 import { useCurrentUserProfile } from "../../hooks/useCurrentUserProfile";
+import { useHistory } from "react-router-dom";
 
 function ProfilePage() {
   const { profileCompleted } = useCurrentUserProfile();
@@ -34,6 +35,7 @@ function ProfilePage() {
   const [profile] = pageProfile.results;
   const [profilePaintings, setProfilePaintings] = useState({ results: [] });
   const is_owner = currentUser?.username === profile?.owner;
+  const history = useHistory();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -50,7 +52,14 @@ function ProfilePage() {
         setProfilePaintings(profilePaintings);
         setHasLoaded(true);
       } catch (err) {
-        console.log(err);
+        if (
+          err.response &&
+          (err.response.status === 404 || err.response.status === 400)
+        ) {
+          history.push("/404");
+        } else {
+          console.log(err);
+        }
       }
     };
     fetchData();

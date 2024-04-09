@@ -1273,8 +1273,6 @@ The Lighthouse Chrome DevTools extension was utilized to evaluate web pages in t
 |                                                                                |                  | Style         | The flash message is displayed within a rectangle with the background color #51a351, known as Pigment green                                                                               | Pass      |
 | Painting Details page, Delete Painting button in Modal Alert                   | Painting’s owner | Functionality | Clicking the Delete Painting button triggers a 'Deleted! The Painting was successfully deleted…' flash message                                                                            | Pass      |
 |                                                                                |                  | Style         | The flash message is displayed within a rectangle with the background color #51a351, known as Pigment green                                                                               | Pass      |
-|                                                                                |                  |               |                                                                                                                                                                                           | Pass      |
-|                                                                                |                  |               |                                                                                                                                                                                           | Pass      |
 | “Complete profile”, “Edit profile” pages                                       |                  | Functionality | For any field left empty or filled in incorrectly (including the image section), clicking the save button triggers a corresponding warning alert                                          | Pass      |
 |                                                                                |                  | Style         | All alert messages are displayed within a rectangle with the background color #fff3cd, known as Cornsilk                                                                                  | Pass      |
 |                                                                                |                  | Functionality | If all fields of the form are completed correctly, clicking the save button triggers the display of a “Success” flash message                                                             | Pass      |
@@ -1283,6 +1281,8 @@ The Lighthouse Chrome DevTools extension was utilized to evaluate web pages in t
 <br>[Back to top ⇧](#table-of-contents)
 
 ##### 404 Error page testing
+
+To test the triggering of custom Error 404 page, a link to the homepage was used as the base for constructing triggering links. The link consists of the domain (herokuapp.com) and the subdomain name, which is the project's name (i.e., `pp-5-art-showcase-1029cf70a456.herokuapp.com`):
 
 <br>[Back to top ⇧](#table-of-contents)
 
