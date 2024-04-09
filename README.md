@@ -103,6 +103,7 @@ You can view the back-end README.md here - <a href="https://github.com/gennadiy-
     - [Modal alerts testing](#modal-alerts-testing)
     - [Error And Warning alerts testing](#error-and-warning-alerts-testing)
     - [404 Error page testing](#404-error-page-testing)
+    - [Infinite scroll testing](#infinite-scroll-testing)
 
 ## User Experience (UX)
 
@@ -1293,6 +1294,18 @@ To test the triggering of custom Error 404 page, a link to the homepage was used
 |                                                            | /paintings/1000/edit | All   | Page not found    | 404                    |
 
 <br>[Back to top ⇧](#table-of-contents)
+
+##### Infinite scroll testing
+
+| Element                                   | Users | Test | Outcome                                           | Pass/Fail |
+| ----------------------------------------- | ----- | ---- | ------------------------------------------------- | --------- |
+| Home page                                 | All   |      | The list of paintings features infinite scrolling | Pass      |
+| Faves page                                | All   |      | The list of paintings features infinite scrolling | Pass      |
+| Watchlist                                 | All   |      | The list of paintings features infinite scrolling | Pass      |
+| Profile page (AVAILABLE ARTWORKS section) | All   |      | The list of paintings features infinite scrolling | Pass      |
+| Painting details page (Comment section)   | All   |      | The list of comments features infinite scrolling  | Pass      |
+
+Back to top ⇧
 
 ### Downgrading react and react-dom to avoid compatibility issues.
 
