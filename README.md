@@ -100,10 +100,9 @@ You can view the back-end README.md here - <a href="https://github.com/gennadiy-
     - [Login page testing](#login-page-testing)
     - [About page testing](#about-page-testing)
     - [Deletion Warning Modal testing](#deletion-warning-modal-testing)
-    - [Error And Warning alerts testing](#error-and-warning-alerts-testing)
     - [Modal alerts testing](#modal-alerts-testing)
+    - [Error And Warning alerts testing](#error-and-warning-alerts-testing)
     - [404 Error page testing](#404-error-page-testing)
-      testing
 
 ## User Experience (UX)
 
@@ -1217,9 +1216,29 @@ The Lighthouse Chrome DevTools extension was utilized to evaluate web pages in t
 
 ##### About page testing
 
+| Element     | Users | Test          | Outcome                           | Pass/Fail |
+| ----------- | ----- | ------------- | --------------------------------- | --------- |
+| Page layout | All   | Functionality | The About page renders correctly. | Pass      |
+|             |       | Style         | Style applied as expected.        | Pass      |
+
 <br>[Back to top ⇧](#table-of-contents)
 
 ##### Deletion Warning Modal testing
+
+| Element                  | Users                                                 | Test          | Outcome                                                                                                                                                                                       | Pass/Fail |
+| ------------------------ | ----------------------------------------------------- | ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- |
+| "Delete Painting" button | Logged in user w/completed Profile (painting’s owner) | Functionality | After clicking the “Delete painting” button in the confirmation modal alert, the painting is deleted. A flash message confirms the deletion, and then the user is redirected to the home page | Pass      |
+|                          |                                                       | Functionality | After clicking on “Cancel" button it stays at the same painting detail page                                                                                                                   | Pass      |
+| "Delete Comment" button  | Logged in user w/completed Profile (painting’s owner) | Functionality | After clicking the “Delete comment” button in the confirmation modal alert, the comment is deleted. A flash message then appears to confirm the deletion, with no redirection occurring.      | Pass      |
+|                          |                                                       | Functionality | After clicking on “Cancel button it stays at the same painting detail page”                                                                                                                   | Pass      |
+
+<br>[Back to top ⇧](#table-of-contents)
+
+##### Modal alerts testing
+
+| Element                        | Users                                     | Test          | Outcome                                                                                                                       | Pass/Fail |
+| ------------------------------ | ----------------------------------------- | ------------- | ----------------------------------------------------------------------------------------------------------------------------- | --------- |
+| "Complete your profile" button | Logged in user, not completed profile yet | Functionality | Clicking the "Complete your profile" button in a [ModalAlert](#modal-alert) navigates the user to the Profile Completion page | Pass      |
 
 <br>[Back to top ⇧](#table-of-contents)
 
@@ -1228,10 +1247,6 @@ The Lighthouse Chrome DevTools extension was utilized to evaluate web pages in t
 <br>[Back to top ⇧](#table-of-contents)
 
 ##### Infinite scroll testing
-
-<br>[Back to top ⇧](#table-of-contents)
-
-##### Modal alerts testing
 
 <br>[Back to top ⇧](#table-of-contents)
 
