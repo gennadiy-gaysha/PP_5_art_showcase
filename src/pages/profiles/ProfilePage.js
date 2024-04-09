@@ -63,11 +63,13 @@ function ProfilePage() {
       }
     };
     fetchData();
-  }, [id, setProfileData]);
+  }, [id, setProfileData, history]);
 
   const mainProfile = (
     <>
-      {profile?.is_owner && <ProfileEditDropdown id={profile?.id} />}
+      {profile?.is_owner && profileCompleted && (
+        <ProfileEditDropdown id={profile?.id} />
+      )}
       <Row noGutters className="px-3 text-left">
         <Col lg={2} className="text-lg-center">
           <Col md={12} className="text-center mb-1">

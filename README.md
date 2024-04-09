@@ -1284,6 +1284,14 @@ The Lighthouse Chrome DevTools extension was utilized to evaluate web pages in t
 
 To test the triggering of custom Error 404 page, a link to the homepage was used as the base for constructing triggering links. The link consists of the domain (herokuapp.com) and the subdomain name, which is the project's name (i.e., `pp-5-art-showcase-1029cf70a456.herokuapp.com`):
 
+| Endpoint description                                       | URL pattern          | Users | Triggering result | Error status / message |
+| ---------------------------------------------------------- | -------------------- | ----- | ----------------- | ---------------------- |
+| Random set of symbols                                      | /nkjw6q3’#as/dF      | All   | Page not found    | 404                    |
+| Endpoint with a valid URL, but with an invalid profile ID  | /profiles/1000       | All   | Page not found    | 404                    |
+|                                                            | /profiles/1000/edit  | All   | Page not found    | 404                    |
+| Endpoint with a valid URL, but with an invalid painting ID | /paintings/1000      | All   | Page not found    | 404                    |
+|                                                            | /paintings/1000/edit | All   | Page not found    | 404                    |
+
 <br>[Back to top ⇧](#table-of-contents)
 
 ### Downgrading react and react-dom to avoid compatibility issues.
