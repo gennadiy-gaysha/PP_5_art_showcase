@@ -892,6 +892,12 @@ When trying to check another project's pages, 404 error occured:
 
 The inability of the W3C Validator to access specific routes in this React application is attributed to the nature of Single Page Application (SPA) Routing. Like many modern web applications built with frameworks such as React, this app employs client-side routing. While users perceive that they are navigating between different pages, the transitions are actually managed by JavaScript, which dynamically handles navigation and content rendering without real page reloads. However, for an external service like the W3C Validator to directly access a particular route, the server's configuration plays a crucial role. The server must be set up to always serve the main index.html file of the SPA for any route, which then lets the React application take over routing on the client side. The current server configuration, not adjusted to accommodate this requirement, and results in a 404 error when attempting to directly access URLs, as observed.
 
+Therefore to validate other project's pages html code, Direct Input was applied. For this purpose HTML code for these pages was copied from "View source page" and pasted into [W3C Markup Validator](https://validator.w3.org/) - Direct Input tab. Here are the results:
+
+To validate the HTML code of the project's other pages, the "Direct Input" was employed. For this purpose, the HTML code was copied from the 'View Source page' source and pasted into the [W3C Markup Validator](https://validator.w3.org/) under the 'Direct Input' tab. Here are the results:
+
+- Product details page:
+
 #### CSS
 
 The project's CSS code was checked for syntax errors using the [W3C CSS Validator](https://jigsaw.w3.org/css-validator/) service, confirming it met the standards without any errors or warnings.
@@ -926,15 +932,15 @@ The Lighthouse Chrome DevTools extension was utilized to evaluate web pages in t
 
 #### Accessibility improvement and form design
 
-To enhance the accessibility of form elements, particularly for screen reader users, some Form.Label components have been properly linked to their corresponding Form.Control components using the htmlFor property, which matches the id of the Form.Control. This method was preferred over the aria-label attribute to ensure wider accessibility support:
+To enhance the accessibility of form elements, particularly for screen reader users, some `Form.Label` components have been properly linked to their corresponding `Form.Control` components using the `htmlFor` property, which matches the `id` of the `Form.Control`. This method was preferred over the `aria-label` attribute to ensure wider accessibility support:
 
 - Labels assist not only screen reader users but also those who may struggle with smaller interactive areas. Clicking on the label text will focus the associated input, improving usability.
 - Label elements aid users with cognitive disabilities by clearly denoting what each input field is for.
 - Unlike placeholders, which vanish as the user types, labels remain visible, preventing confusion about what information is being requested.
 
-Moreover, utilizing React Bootstrap in this project allows for cleaner code and helps avoid potential mismatches between the id and htmlFor values. For this purpose, the controlId prop on the Form.Group component was used. It automatically generates and sets the id for the Form.Control and the htmlFor attribute for the Form.Label within that group.
+Moreover, utilizing React Bootstrap in this project allows for cleaner code and helps avoid potential mismatches between the `id` and `htmlFor` values. For this purpose, the `controlId` prop on the `Form.Group` component was used. It automatically generates and sets the `id` for the `Form.Control` and the `htmlFor` attribute for the `Form.Label` within that group.
 
-To ensure accessibility while maintaining the functionality of hiding the label, a visually hidden class className="sr-only" was implemented. This class makes the label accessible to screen readers without making it visible on the screen.
+To ensure accessibility while maintaining the functionality of hiding the label, a visually hidden class `className="sr-only"` was implemented. This class makes the label accessible to screen readers without making it visible on the screen.
 
 <br>[Back to top ⇧](#table-of-contents)
 
