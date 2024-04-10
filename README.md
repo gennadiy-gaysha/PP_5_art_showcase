@@ -926,6 +926,16 @@ The Lighthouse Chrome DevTools extension was utilized to evaluate web pages in t
 
 #### Accessibility improvement and form design
 
+To enhance the accessibility of form elements, particularly for screen reader users, some Form.Label components have been properly linked to their corresponding Form.Control components using the htmlFor property, which matches the id of the Form.Control. This method was preferred over the aria-label attribute to ensure wider accessibility support:
+
+- Labels assist not only screen reader users but also those who may struggle with smaller interactive areas. Clicking on the label text will focus the associated input, improving usability.
+- Label elements aid users with cognitive disabilities by clearly denoting what each input field is for.
+- Unlike placeholders, which vanish as the user types, labels remain visible, preventing confusion about what information is being requested.
+
+Moreover, utilizing React Bootstrap in this project allows for cleaner code and helps avoid potential mismatches between the id and htmlFor values. For this purpose, the controlId prop on the Form.Group component was used. It automatically generates and sets the id for the Form.Control and the htmlFor attribute for the Form.Label within that group.
+
+To ensure accessibility while maintaining the functionality of hiding the label, a visually hidden class className="sr-only" was implemented. This class makes the label accessible to screen readers without making it visible on the screen.
+
 <br>[Back to top ⇧](#table-of-contents)
 
 ### Tools Testing.
