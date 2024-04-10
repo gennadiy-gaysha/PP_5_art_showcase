@@ -182,7 +182,7 @@ const ProfileEditForm = () => {
   const textFields = (
     <>
       <Form.Group>
-        <Form.Label className="d-none">Bio</Form.Label>
+        <Form.Label className="sr-only">Bio</Form.Label>
         <Form.Control
           as="textarea"
           value={bio}
@@ -199,7 +199,7 @@ const ProfileEditForm = () => {
       ))}
 
       <Form.Group>
-        <Form.Label className="d-none">Name</Form.Label>
+        <Form.Label className="sr-only">Name</Form.Label>
         <Form.Control
           type="text"
           value={name}
@@ -215,7 +215,7 @@ const ProfileEditForm = () => {
       ))}
 
       <Form.Group>
-        <Form.Label className="d-none">Home Country</Form.Label>
+        <Form.Label className="sr-only">Home Country</Form.Label>
         <Form.Control
           type="text"
           value={home_country}
@@ -231,7 +231,7 @@ const ProfileEditForm = () => {
       ))}
 
       <Form.Group controlId="gender">
-        <Form.Label className="d-none">Gender</Form.Label>
+        <Form.Label className="sr-only">Gender</Form.Label>
         <Form.Control
           as="select"
           name="gender"
@@ -258,7 +258,7 @@ const ProfileEditForm = () => {
       })}
 
       <Form.Group>
-        <Form.Label className="d-none">Birthdate</Form.Label>
+        <Form.Label className="sr-only">Birthdate</Form.Label>
         <DatePicker
           selected={profileData.birthdate}
           onChange={(date) =>
@@ -328,7 +328,7 @@ const ProfileEditForm = () => {
             <div className="d-md-none">{textFields}</div>
           </Container>
         </Col>
-        <Col md={5} lg={6} className="d-none d-md-block p-0 p-md-2 text-center">
+        <Col md={5} lg={6} className="sr-only d-md-block p-0 p-md-2 text-center">
           <Container className={appStyles.Content}>{textFields}</Container>
         </Col>
       </Row>

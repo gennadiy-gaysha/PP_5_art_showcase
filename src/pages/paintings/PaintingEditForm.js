@@ -210,7 +210,7 @@ function PaintingEditForm() {
   const textFields = (
     <div className="text-left">
       <Form.Group controlId="title">
-        <Form.Label className="d-none">Title</Form.Label>
+        <Form.Label className="sr-only">Title</Form.Label>
         <Form.Control
           name="title"
           value={title}
@@ -228,7 +228,7 @@ function PaintingEditForm() {
       })}
 
       <Form.Group controlId="creation_year">
-        <Form.Label className="d-none">Year created</Form.Label>
+        <Form.Label className="sr-only">Year created</Form.Label>
         <Form.Control
           name="creation_year"
           value={creation_year}
@@ -248,7 +248,7 @@ function PaintingEditForm() {
       })}
 
       <Form.Group controlId="theme">
-        <Form.Label className="d-none">Theme</Form.Label>
+        <Form.Label className="sr-only">Theme</Form.Label>
         <Form.Control
           as="select"
           name="theme"
@@ -275,7 +275,7 @@ function PaintingEditForm() {
       })}
 
       <Form.Group controlId="technique">
-        <Form.Label className="d-none">Technique</Form.Label>
+        <Form.Label className="sr-only">Technique</Form.Label>
         <Form.Control
           as="select"
           name="technique"
@@ -301,7 +301,7 @@ function PaintingEditForm() {
       })}
 
       <Form.Group controlId="price">
-        <Form.Label className="d-none">Suggested price</Form.Label>
+        <Form.Label className="sr-only">Suggested price</Form.Label>
         <Form.Control
           name="price"
           value={price}
@@ -321,7 +321,7 @@ function PaintingEditForm() {
       <div className={styles.dimensionsContainer}>
         <span className={styles.dimensionsLabel}>Dimensions (cm):</span>
         <Form.Group controlId="width" className="mb-0">
-          <Form.Label className="d-none">Width</Form.Label>
+          <Form.Label className="sr-only">Width</Form.Label>
           <Form.Control
             className={styles.dimensionInput}
             name="width"
@@ -333,7 +333,7 @@ function PaintingEditForm() {
         </Form.Group>
 
         <Form.Group controlId="width" className="mb-0">
-          <Form.Label className="d-none">Width</Form.Label>
+          <Form.Label className="sr-only">Width</Form.Label>
           <Form.Control
             className={styles.dimensionInput}
             name="height"
@@ -409,7 +409,7 @@ function PaintingEditForm() {
             <div className="d-md-none">{textFields}</div>
           </Container>
         </Col>
-        <Col md={5} lg={4} className="d-none d-md-block p-0 p-md-2">
+        <Col md={5} lg={4} className="sr-only d-md-block p-0 p-md-2">
           <Container className={appStyles.Content}>{textFields}</Container>
         </Col>
       </Row>

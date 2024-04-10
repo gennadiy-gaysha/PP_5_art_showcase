@@ -78,7 +78,7 @@ function LogInForm() {
 
           <Form onSubmit={handleSubmit}>
             <Form.Group controlId="username">
-              <Form.Label className="d-none">username</Form.Label>
+              <Form.Label className="sr-only">username</Form.Label>
               <Form.Control
                 name="username"
                 value={username}
@@ -95,7 +95,7 @@ function LogInForm() {
             ))}
 
             <Form.Group controlId="password">
-              <Form.Label className="d-none">Password</Form.Label>
+              <Form.Label className="sr-only">Password</Form.Label>
               <div className={styles.passwordWrapper}>
                 <Form.Control
                   name="password"

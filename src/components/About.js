@@ -7,7 +7,7 @@ function About() {
   return (
     <Container className="mt-2">
       <Row className="align-items-center mb-5 gx-4">
-        <Col xs={12} lg={2} className="mb-3 ml-4 mb-md-0 d-none d-lg-block">
+        <Col xs={12} lg={2} className="mb-3 ml-4 mb-md-0 sr-only d-lg-block">
           <div className={styles.imageSquareWrapper}>
             <Image
               src={about}

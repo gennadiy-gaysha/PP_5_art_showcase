@@ -77,7 +77,7 @@ const UserPasswordForm = () => {
           <h1 className={passwordStyles.Header}>change password</h1>
           <Form onSubmit={handleSubmit}>
             <Form.Group>
-              <Form.Label className="d-none">New password</Form.Label>
+              <Form.Label className="sr-only">New password</Form.Label>
               <div className={passwordStyles.passwordWrapper}>
                 <Form.Control
                   placeholder="new password"
@@ -100,7 +100,7 @@ const UserPasswordForm = () => {
               </Alert>
             ))}
             <Form.Group>
-              <Form.Label className="d-none">Confirm password</Form.Label>
+              <Form.Label className="sr-only">Confirm password</Form.Label>
               <div className={passwordStyles.passwordWrapper}>
                 <Form.Control
                   placeholder="confirm new password"

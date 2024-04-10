@@ -68,7 +68,7 @@ const RegistrationForm = () => {
 
           <Form onSubmit={handleSubmit}>
             <Form.Group controlId="username">
-              <Form.Label className="d-none">username</Form.Label>
+              <Form.Label className="sr-only">username</Form.Label>
               <Form.Control
                 className={styles.Input}
                 type="text"
@@ -88,7 +88,7 @@ const RegistrationForm = () => {
             ))}
 
             <Form.Group controlId="password1">
-              <Form.Label className="d-none">password</Form.Label>
+              <Form.Label className="sr-only">password</Form.Label>
               <div className={styles.passwordWrapper}>
                 <Form.Control
                   className={styles.Input}
@@ -113,7 +113,7 @@ const RegistrationForm = () => {
             ))}
 
             <Form.Group controlId="password2">
-              <Form.Label className="d-none">confirm password</Form.Label>
+              <Form.Label className="sr-only">confirm password</Form.Label>
               <div className={styles.passwordWrapper}>
                 <Form.Control
                   className={styles.Input}

@@ -81,6 +81,7 @@ You can view the back-end README.md here - <a href="https://github.com/gennadiy-
   - 4.2.2. [CSS](#css)
   - 4.2.3. [JavaScript (JS) and JSX (JavaScript XML)](#javascript-js-and-jsx-javascript-xml)
 - 4.3. [Accessibility](#accessibility)
+  - 4.3.1. [Accessibility improvement and form design](#accessibility-improvement-and-form-design)
 - 4.4. [Tools testing](#tools-testing)
 - 4.5. [Manual testing](#manual-testing)
   - 4.5.1. [Browser Compatibility](#browser-compatibility)
@@ -923,6 +924,10 @@ The Lighthouse Chrome DevTools extension was utilized to evaluate web pages in t
 
 <br>[Back to top ⇧](#table-of-contents)
 
+#### Accessibility improvement and form design
+
+<br>[Back to top ⇧](#table-of-contents)
+
 ### Tools Testing.
 
 #### Chrome DevTools.
@@ -1297,13 +1302,13 @@ To test the triggering of custom Error 404 page, a link to the homepage was used
 
 ##### Infinite scroll testing
 
-| Element                                   | Users | Test | Outcome                                           | Pass/Fail |
-| ----------------------------------------- | ----- | ---- | ------------------------------------------------- | --------- |
-| Home page                                 | All   |      | The list of paintings features infinite scrolling | Pass      |
-| Faves page                                | All   |      | The list of paintings features infinite scrolling | Pass      |
-| Watchlist                                 | All   |      | The list of paintings features infinite scrolling | Pass      |
-| Profile page (AVAILABLE ARTWORKS section) | All   |      | The list of paintings features infinite scrolling | Pass      |
-| Painting details page (Comment section)   | All   |      | The list of comments features infinite scrolling  | Pass      |
+| Element                                   | Users | Test          | Outcome                                           | Pass/Fail |
+| ----------------------------------------- | ----- | ------------- | ------------------------------------------------- | --------- |
+| Home page                                 | All   | Functionality | The list of paintings features infinite scrolling | Pass      |
+| Faves page                                | All   | Functionality | The list of paintings features infinite scrolling | Pass      |
+| Watchlist                                 | All   | Functionality | The list of paintings features infinite scrolling | Pass      |
+| Profile page (AVAILABLE ARTWORKS section) | All   | Functionality | The list of paintings features infinite scrolling | Pass      |
+| Painting details page (Comment section)   | All   | Functionality | The list of comments features infinite scrolling  | Pass      |
 
 Back to top ⇧
 

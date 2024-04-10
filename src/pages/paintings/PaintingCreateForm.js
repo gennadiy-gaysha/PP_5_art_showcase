@@ -22,7 +22,7 @@ import { NotificationManager } from "react-notifications";
 import "react-notifications/lib/notifications.css";
 
 function PaintingCreateForm() {
-  const { profile, profileCompleted } = useCurrentUserProfile();
+  const { profile } = useCurrentUserProfile();
 
   const [paintingData, setPaintingData] = useState({
     title: "",
@@ -171,7 +171,7 @@ function PaintingCreateForm() {
   const textFields = (
     <div className="text-left">
       <Form.Group controlId="title">
-        <Form.Label className="d-none">Title</Form.Label>
+        <Form.Label className="sr-only">Title</Form.Label>
         <Form.Control
           name="title"
           value={title}
@@ -189,7 +189,7 @@ function PaintingCreateForm() {
       })}
 
       <Form.Group controlId="creation_year">
-        <Form.Label className="d-none">Year created</Form.Label>
+        <Form.Label className="sr-only">Year created</Form.Label>
         <Form.Control
           name="creation_year"
           value={creation_year}
@@ -209,7 +209,7 @@ function PaintingCreateForm() {
       })}
 
       <Form.Group controlId="theme">
-        <Form.Label className="d-none">Theme</Form.Label>
+        <Form.Label className="sr-only">Theme</Form.Label>
         <Form.Control as="select" name="theme" onChange={handleChange}>
           <option value="Select theme">Select theme</option>
 
@@ -229,7 +229,7 @@ function PaintingCreateForm() {
       })}
 
       <Form.Group controlId="technique">
-        <Form.Label className="d-none">Technique</Form.Label>
+        <Form.Label className="sr-only">Technique</Form.Label>
         <Form.Control as="select" name="technique" onChange={handleChange}>
           <option value="Select technique">Select technique</option>
           {TECHNIQUE_CHOICES.map((tech, i) => (
@@ -248,7 +248,7 @@ function PaintingCreateForm() {
       })}
 
       <Form.Group controlId="price">
-        <Form.Label className="d-none">Suggested price</Form.Label>
+        <Form.Label className="sr-only">Suggested price</Form.Label>
         <Form.Control
           name="price"
           value={price}
@@ -268,7 +268,7 @@ function PaintingCreateForm() {
       <div className={styles.dimensionsContainer}>
         <span className={styles.dimensionsLabel}>Dimensions (cm):</span>
         <Form.Group controlId="width" className="mb-0">
-          <Form.Label className="d-none">Width</Form.Label>
+          <Form.Label className="sr-only">Width</Form.Label>
           <Form.Control
             className={styles.dimensionInput}
             name="width"
@@ -279,8 +279,8 @@ function PaintingCreateForm() {
           />
         </Form.Group>
 
-        <Form.Group controlId="width" className="mb-0">
-          <Form.Label className="d-none">Width</Form.Label>
+        <Form.Group controlId="height" className="mb-0">
+          <Form.Label className="sr-only">Height</Form.Label>
           <Form.Control
             className={styles.dimensionInput}
             name="height"
@@ -375,7 +375,7 @@ function PaintingCreateForm() {
                 <div className="d-md-none">{textFields}</div>
               </Container>
             </Col>
-            <Col md={5} lg={4} className="d-none d-md-block p-0 p-md-2">
+            <Col md={5} lg={4} className="sr-only d-md-block p-0 p-md-2">
               <Container className={appStyles.Content}>{textFields}</Container>
             </Col>
           </Row>

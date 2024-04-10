@@ -12,7 +12,7 @@ const OrientationFilter = ({
   return (
     <Form>
       <Form.Group controlId="orientationSelect">
-        <Form.Label className={labelFont}>Orientation</Form.Label>
+        <Form.Label className={labelFont}>Orientation:</Form.Label>
         <Form.Control
           as="select"
           value={selectedOrientation}
