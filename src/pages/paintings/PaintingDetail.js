@@ -21,8 +21,8 @@ import ModalAlert from "../../components/ModalAlert";
 import ModalAlertDeletePainting from "../../components/ModalAlertDeletePainting";
 import { useState } from "react";
 
-import { NotificationManager } from "react-notifications";
-import "react-notifications/lib/notifications.css";
+// import { NotificationManager } from "react-notifications";
+// import "react-notifications/lib/notifications.css";
 
 function Painting(props) {
   const { profileCompleted } = useCurrentUserProfile();
@@ -65,20 +65,20 @@ function Painting(props) {
   const handleDelete = async () => {
     try {
       await axiosRes.delete(`/paintings/${id}/`);
-      NotificationManager.success(
-        "The painting has been successfully deleted.",
-        "Deleted"
-      );
+      // NotificationManager.success(
+      //   "The painting has been successfully deleted.",
+      //   "Deleted"
+      // );
       // Hide modal after confirmation
       setModalShow(false);
       history.push("/");
     } catch (err) {
       console.log(err);
-      NotificationManager.error(
-        "Failed to delete the painting. Please try again.",
-        "Deletion Failed",
-        5000
-      );
+      // NotificationManager.error(
+      //   "Failed to delete the painting. Please try again.",
+      //   "Deletion Failed",
+      //   5000
+      // );
     }
   };
 

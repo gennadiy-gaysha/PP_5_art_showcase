@@ -106,6 +106,22 @@ You can view the back-end README.md here - <a href="https://github.com/gennadiy-
     - [404 Error page testing](#404-error-page-testing)
     - [Infinite scroll testing](#infinite-scroll-testing)
 
+5. [**Technologies Used**](#technologies-used)
+
+- 5.1. [Languages](#languages)
+- 5.2. [Libraries and Frameworks](#libraries-and-frameworks)
+- 5.3. [NPM Packages / Dependencies](#npm-packages--dependencies)
+- 5.4. [Other Tools](#other-tools)
+
+6. [**Downgrading react and react-dom**](#downgrading-react-and-react-dom)
+
+7. [**Deployment To Heroku**](#deployment-to-heroku)
+
+8. [**Cloning and Forking Repository**](#cloning-and-forking-repository)
+
+- 8.1. [Cloning the Repository](#cloning-the-repository)
+- 8.2. [Forking the Repository](#forking-the-repository)
+
 ## User Experience (UX)
 
 ### Project Goals
@@ -1328,9 +1344,51 @@ To test the triggering of custom Error 404 page, a link to the homepage was used
 
 Back to top ⇧
 
-### Downgrading react and react-dom to avoid compatibility issues.
+## Technologies Used
 
-To avoid compatibily issues with React Router Library a previous versions of react and react-dom, i. e. `"^17.0.2"` were installed instead of `react@18 react-dom@18`. The steps were as follows:
+### Languages
+
+- [JavaScript](https://www.javascript.com/) - A dynamic programming language that's used for web development
+- [HTML5](https://en.wikipedia.org/wiki/HTML5) - A markup language used for structuring and presenting content
+- [CSS3](https://en.wikipedia.org/wiki/CSS) - A style sheet language used for describing the presentation of a document
+
+### Libraries and Frameworks
+
+- [React](https://reactjs.org/) - A JavaScript library for building user interfaces.
+- [Bootstrap](https://getbootstrap.com/) - The world's most popular front-end open source toolkit, featuring Sass variables and mixins, a responsive grid system, extensive prebuilt components, and powerful JavaScript plugins.
+- [Font Awesome](https://fontawesome.com/) - A collection of icons and symbols implemented as a font, allowing for easy styling and integration using CSS.
+- [Google Fonts](https://fonts.google.com/) - A service that offers a wide range of free fonts that can be easily embedded in a website through CSS.
+
+### NPM Packages / Dependencies
+
+- [axios](https://www.npmjs.com/package/axios) - A promise-based HTTP client for the browser and Node.js.
+- [react-datepicker](https://www.npmjs.com/package/react-datepicker) - A simple and reusable datepicker component for React.
+- [react-bootstrap](https://react-bootstrap.github.io/) - A package that provides Bootstrap components built with React.
+- [react-dom](https://reactjs.org/docs/react-dom.html) - Serves as the entry point to the DOM and server renderers for React.
+- [react-infinite-scroll-component](https://www.npmjs.com/package/react-infinite-scroll-component) - A component to make infinite scrolling for React applications easier.
+- [react-notifications](https://www.npmjs.com/package/react-notifications) - Component to create and display notifications in React applications.
+- [react-router-dom](https://www.npmjs.com/package/react-router-dom) - The DOM bindings for React Router, which includes the router components for websites.
+
+### Other Tools
+
+- [Favicon](https://favicon.io/) - used to create the favicon.
+- [VSCode](https://code.visualstudio.com/) - used to create and edit the website.
+- [GitHub](https://github.com/) - used to host and deploy the website as well as manage the project.
+- [Colors](https://coolors.co/) - the super fast color palettes generator.
+- [Google Chrome DevTools](https://developer.chrome.com/docs/devtools/) - used to test responsiveness and debug.
+- [Responsive Design Checker](https://www.responsivedesignchecker.com/) - used to test responsiveness.
+- [Balsamiq](https://balsamiq.com/) - a rapid low-fidelity UI wireframing tool.
+- [Heroku](https://dashboard.heroku.com) - used to deploy the website
+- [JSHint Validation](https://jshint.com/) - used to validate JavaScript code
+- **ESLint** - integrates the ESLint tool into VS Code, offering comprehensive linting capabilities for JavaScript and JSX.
+- **Prettier** - integrates the Prettier code formatter into VS Code, which formats JavaScript and JSX code according to a specified style.
+- [Canva](https://www.canva.com/) - free-to-use online graphic design tool, was used to logo and more.
+
+[Back to top](#contents)
+
+## Downgrading react and react-dom
+
+To avoid compatibily issues with React Router Library - "5.3.0" which was utilized in this project, a previous versions of react and react-dom, i. e. `"^17.0.2"` were installed instead of `react@18 react-dom@18`. The steps were as follows:
 
 - Create a New React App:
   `npx create-react-app .`
@@ -1370,5 +1428,85 @@ To avoid compatibily issues with React Router Library a previous versions of rea
   ```
 
 This will be fully compatible with `react-router-dom@5.3.0`
+
+<br>[Back to top ⇧](#table-of-contents)
+
+## Deployment To Heroku
+
+- Initially, a new repository named PP_5_art_showcase was created on GitHub.
+- After launching a new React project in VS Code on my local machine and [downgrading it](#downgrading-react-and-react-dom), I added it to the local repository using the following commands:
+  ```
+  git init
+  git add
+  git commit -m "Initial commit"
+  ```
+- To push the local repository to the remote GitHub repository, the following commands were executed:
+  ```
+  git remote add origin https://github.com/gennadiy-gaysha/PP_5_art_showcase.git
+  git branch -M main
+  git push -u origin main
+  ```
+
+It's time to launch our project on Heroku, making it publicly accessible.
+
+- Head over to [Heroku's platform](https://www.heroku.com).
+- Initiate a new app by clicking 'New app.'
+- Provide the necessary details.
+- Confirm the information and click 'Create app.'
+
+Next, establish a connection between the Heroku app and the GitHub repository:
+
+- Go to the 'Deploy' section.
+- Select 'GitHub' as the deployment method.
+- Locate your repository using the search feature.
+- Hit 'Connect' to link the repository.
+
+Now, it is set to make the project live:
+
+- You'll have the option to enable 'Automatic Deploys' or opt for 'Deploy Branch.'
+- Press 'Deploy Branch' and let the build process complete.
+- Once done, your React application is live and running on Heroku.
+
+<br>[Back to top ⇧](#table-of-contents)
+
+## Cloning and Forking Repository
+
+To make changes to the code without affecting the original version stored in the
+repository you may create a local copy of the repository, through cloning and
+forking methods.
+
+### Cloning the Repository:
+
+- Install Git on your local machine, if it is not already installed.
+- Navigate to the repository you want to clone in a web browser.
+- Click the "Clone or download" button and copy the repository's
+  URL (`https://github.com/gennadiy-gaysha/PP_5_art_showcase`) to your clipboard.
+- Open a terminal or command prompt on your local machine.
+- Change to the directory where you want to clone the repository.
+- Type the command
+  `git clone https://github.com/gennadiy-gaysha/PP_5_art_showcase.git`
+  and press enter.
+- Wait for the repository to download to your local machine.
+- Once the repository is downloaded, you can make changes to the code and use
+  Git to manage and sync those changes with the original repository.
+
+<br>[Back to top ⇧](#table-of-contents)
+
+- ### Forking the Repository:
+
+- Navigate to the repository you want to fork in a web browser.
+- Click the "Fork" button in the top right corner of the page.
+- Select your account as the destination for the forked repository.
+- Wait for the repository to be forked to your account.
+- Once the repository is forked, you can clone it to your local machine using
+  the steps above for cloning a repository.
+- You can make changes to the code and commit those changes to your forked
+  repository. If you want to contribute those changes back to the original
+  repository, you can create a pull request from your forked repository to the
+  original repository.
+
+- These instructions should help you create a local copy of a code repository
+  using both cloning and forking methods, allowing you to make changes to the
+  code and collaborate with other developers on the project.
 
 <br>[Back to top ⇧](#table-of-contents)
