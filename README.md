@@ -113,21 +113,23 @@ You can view the back-end README.md here - <a href="https://github.com/gennadiy-
 - 5.3. [NPM Packages / Dependencies](#npm-packages--dependencies)
 - 5.4. [Other Tools](#other-tools)
 
-6. [**Downgrading react and react-dom**](#downgrading-react-and-react-dom)
+6. [**Known Bugs**]()
 
-7. [**Deployment To Heroku**](#deployment-to-heroku)
+7. [**Downgrading react and react-dom**](#downgrading-react-and-react-dom)
 
-8. [**Cloning and Forking Repository**](#cloning-and-forking-repository)
+8. [**Deployment To Heroku**](#deployment-to-heroku)
 
-- 8.1. [Cloning the Repository](#cloning-the-repository)
-- 8.2. [Forking the Repository](#forking-the-repository)
+9. [**Cloning and Forking Repository**](#cloning-and-forking-repository)
 
-9. [**Credits**](#credits)
+- 9.1. [Cloning the Repository](#cloning-the-repository)
+- 9.2. [Forking the Repository](#forking-the-repository)
 
-- 9.1. [Code](#code)
-- 9.2. [Media](#media)
+10. [**Credits**](#credits)
 
-10. [**Acknowledgements**](#acknowledgements)
+- 10.1. [Code](#code)
+- 10.2. [Media](#media)
+
+11. [**Acknowledgements**](#acknowledgements)
 
 ## User Experience (UX)
 
@@ -1393,6 +1395,10 @@ Back to top ⇧
 
 [Back to top](#contents)
 
+## Known Bugs
+
+[Back to top](#contents)
+
 ## Downgrading react and react-dom
 
 To avoid compatibily issues with React Router Library - "5.3.0" which was utilized in this project, a previous versions of react and react-dom, i. e. `"^17.0.2"` were installed instead of `react@18 react-dom@18`. The steps were as follows:
@@ -1522,14 +1528,14 @@ forking methods.
 
 ### Code
 
-This project draws significant inspiration from the[Code Institute](https://codeinstitute.net/) walk-through project, Moments, and has undergone extensive modifications.
+This project draws significant inspiration from the [Code Institute](https://codeinstitute.net/) walk-through project, Moments, and has undergone extensive modifications.
 
 The ArtShowcase project incorporated and adapted several files originally from the Moments project, including:
 
 - CurrentUserContext.js
 - useRedirect.js
 - axiosDefault.js
-- useClickOutsideToggle
+- useClickOutsideToggle.js
 
 Additionally, to tailor the project to the specific requirements of ArtShowcase, inspiration was taken or certain functionalities were adapted from these files:
 

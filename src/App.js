@@ -25,6 +25,11 @@ import About from "./components/About";
 
 import { useCurrentUserProfile } from "./hooks/useCurrentUserProfile";
 
+import axios from "axios";
+
+// Configure Axios to include credentials with every request
+axios.defaults.withCredentials = true;
+
 function App() {
   const [modalShow, setModalShow] = useState(false);
   const currentUser = useCurrentUser();
