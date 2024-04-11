@@ -122,6 +122,11 @@ You can view the back-end README.md here - <a href="https://github.com/gennadiy-
 - 8.1. [Cloning the Repository](#cloning-the-repository)
 - 8.2. [Forking the Repository](#forking-the-repository)
 
+9. [**Credits**](#credits)
+
+- 9.1. [Code](#code)
+- 9.2. [Media](#media)
+
 ## User Experience (UX)
 
 ### Project Goals
@@ -1508,5 +1513,52 @@ forking methods.
 - These instructions should help you create a local copy of a code repository
   using both cloning and forking methods, allowing you to make changes to the
   code and collaborate with other developers on the project.
+
+<br>[Back to top ⇧](#table-of-contents)
+
+## Credits
+
+### Code
+
+This project draws significant inspiration from the[Code Institute](https://codeinstitute.net/) walk-through project, Moments, and has undergone extensive modifications.
+
+The ArtShowcase project incorporated and adapted several files originally from the Moments project, including:
+
+CurrentUserContext.js
+useRedirect.js
+axiosDefault.js
+useClickOutsideToggle
+
+Additionally, to tailor the project to the specific requirements of ArtShowcase, inspiration was taken or certain functionalities were adapted from these files:
+
+LogInForm.js
+RegistrationForm.js
+Comment.js
+CommentCreateForm.js
+CommentEditForm.js
+UserPasswordForm.js
+Asset.js
+utils.js
+Avatar.js
+
+### Media
+
+- ArtShowcase brand and favicon images were created
+  on [Canva](https://www.canva.com/) by the developer.
+- Background image was taken
+  from [@lifeforstock](https://www.freepik.com/author/lifeforstock)
+
+- Sample paintings images paintors images and About page image were taken from:
+  [KELLEPICS](https://pixabay.com/users/kellepics-4893063/)
+  [1tamara2](https://pixabay.com/users/1tamara2-15516491/)
+  [2210273](https://pixabay.com/users/2210273-2210273/)
+  [ThomasWolter](https://pixabay.com/users/thomaswolter-92511/)
+  [Layers](https://pixabay.com/users/layers-245306/)
+  [ZAIDoopro](https://pixabay.com/users/zaidoopro-10396895/)
+  [Martina_Bulkova](https://pixabay.com/users/martina_bulkova-6772107/)
+  [webdepp](https://pixabay.com/users/webdepp-723434/)
+  [Van3ssa\_](https://pixabay.com/users/van3ssa_-13670757/)
+
+<br>[Back to top ⇧](#table-of-contents)
 
 <br>[Back to top ⇧](#table-of-contents)
