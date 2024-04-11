@@ -127,6 +127,8 @@ You can view the back-end README.md here - <a href="https://github.com/gennadiy-
 - 9.1. [Code](#code)
 - 9.2. [Media](#media)
 
+10. [**Acknowledgements**](#acknowledgements)
+
 ## User Experience (UX)
 
 ### Project Goals
@@ -1524,22 +1526,22 @@ This project draws significant inspiration from the[Code Institute](https://code
 
 The ArtShowcase project incorporated and adapted several files originally from the Moments project, including:
 
-CurrentUserContext.js
-useRedirect.js
-axiosDefault.js
-useClickOutsideToggle
+- CurrentUserContext.js
+- useRedirect.js
+- axiosDefault.js
+- useClickOutsideToggle
 
 Additionally, to tailor the project to the specific requirements of ArtShowcase, inspiration was taken or certain functionalities were adapted from these files:
 
-LogInForm.js
-RegistrationForm.js
-Comment.js
-CommentCreateForm.js
-CommentEditForm.js
-UserPasswordForm.js
-Asset.js
-utils.js
-Avatar.js
+- LogInForm.js
+- RegistrationForm.js
+- Comment.js
+- CommentCreateForm.js
+- CommentEditForm.js
+- UserPasswordForm.js
+- Asset.js
+- utils.js
+- Avatar.js
 
 ### Media
 
@@ -1549,16 +1551,23 @@ Avatar.js
   from [@lifeforstock](https://www.freepik.com/author/lifeforstock)
 
 - Sample paintings images paintors images and About page image were taken from:
-  [KELLEPICS](https://pixabay.com/users/kellepics-4893063/)
-  [1tamara2](https://pixabay.com/users/1tamara2-15516491/)
-  [2210273](https://pixabay.com/users/2210273-2210273/)
-  [ThomasWolter](https://pixabay.com/users/thomaswolter-92511/)
-  [Layers](https://pixabay.com/users/layers-245306/)
-  [ZAIDoopro](https://pixabay.com/users/zaidoopro-10396895/)
-  [Martina_Bulkova](https://pixabay.com/users/martina_bulkova-6772107/)
-  [webdepp](https://pixabay.com/users/webdepp-723434/)
-  [Van3ssa\_](https://pixabay.com/users/van3ssa_-13670757/)
+  - [KELLEPICS](https://pixabay.com/users/kellepics-4893063/)
+  - [1tamara2](https://pixabay.com/users/1tamara2-15516491/)
+  - [2210273](https://pixabay.com/users/2210273-2210273/)
+  - [ThomasWolter](https://pixabay.com/users/thomaswolter-92511/)
+  - [Layers](https://pixabay.com/users/layers-245306/)
+  - [ZAIDoopro](https://pixabay.com/users/zaidoopro-10396895/)
+  - [Martina_Bulkova](https://pixabay.com/users/martina_bulkova-6772107/)
+  - [webdepp](https://pixabay.com/users/webdepp-723434/)
+  - [Van3ssa\_](https://pixabay.com/users/van3ssa_-13670757/)
 
 <br>[Back to top ⇧](#table-of-contents)
+
+## Acknowledgements.
+
+- I extend heartfelt thanks to my partner for her constant love, support, and motivation during this project. Her faith in me propelled me forward, and I couldn't have achieved this without her.
+- To my daughter Anna, who eagerly took on the role of the website's initial beta tester. Her insights and suggestions have been crucial to refining the project.
+- I'm grateful to my mentor, Marcel, for his invaluable advice and direction.
+- Lastly, my appreciation goes to the [Code Institute](https://codeinstitute.net/) and the wonderful Slack community for their unwavering assistance and for equipping me with the vital skills and tools necessary to complete this project successfully.
 
 <br>[Back to top ⇧](#table-of-contents)
