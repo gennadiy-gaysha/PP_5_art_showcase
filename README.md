@@ -113,7 +113,7 @@ You can view the back-end README.md here - <a href="https://github.com/gennadiy-
 - 5.3. [NPM Packages / Dependencies](#npm-packages--dependencies)
 - 5.4. [Other Tools](#other-tools)
 
-6. [**Known Bugs**]()
+6. [**Known Bugs**](#known-bugs)
 
 7. [**Downgrading react and react-dom**](#downgrading-react-and-react-dom)
 
@@ -1399,9 +1399,13 @@ Back to top ⇧
 
 [Back to top](#contents)
 
-- Although registering new users poses no issue across devices, we've encountered a problem with logging in on iOS devices—a problem not present on other platforms. The configuration settings seem appropriately adjusted for a cross-origin setup with JWT authentication. However, iOS enforces stricter cookie policies, particularly concerning cross-site tracking and third-party cookies. Unfortunately, due to the time constraints associated with this project, I haven't been able to address this issue yet. I plan to tackle the login challenges on iOS devices as a future task and to identify the factors affecting cross-origin and cross-device functionality.
+- Although registering new users poses no issue across devices, I've encountered a problem with logging in on iOS devices—a problem not present on other platforms. The configuration settings seem appropriately adjusted for a cross-origin setup with JWT authentication. However, iOS enforces stricter cookie policies, particularly concerning cross-site tracking and third-party cookies. Unfortunately, due to the time constraints associated with this project, I haven't been able to address this issue yet. I plan to tackle the login challenges on iOS devices as a future task and to identify the factors affecting cross-origin and cross-device functionality.
 
-- It was discovered that when rendering project pages, a warning consistently appears in the console related to the use of findDOMNode, which is deprecated in React's StrictMode: "Warning: findDOMNode is deprecated..." Although it does not affect site functionality, this deprecation warning may occur when using certain third-party libraries or older React APIs that internally rely on findDOMNode. The issue seems to stem from the use of OverlayTrigger or a similar component that internally relies on findDOMNode. To resolve this, I should typically update the component to directly use a ref on the element I wish to reference, as suggested by the warning. However, since OverlayTrigger comes from a React Bootstrap, I'll need to ensure I'm using the latest version of the library that's compatible with the current React version and its strict mode requirements. In this project, I do not do this because I work with the library and package versions that were recommended in the walkthrough project.
+- It was discovered that when rendering project pages, a warning consistently appears in the console related to the use of findDOMNode, which is deprecated in React's StrictMode: "Warning: findDOMNode is deprecated..."
+
+![ArtShowcase Warning: findDOMNode is deprecated image](/src/assets/readme_images/findDOMNode_depreciated.png)
+
+- Although it does not affect site functionality, this deprecation warning may occur when using certain third-party libraries or older React APIs that internally rely on findDOMNode. The issue seems to stem from the use of OverlayTrigger or a similar component that internally relies on findDOMNode. To resolve this, it is needed to update the component to directly use a ref on the element I wish to reference, as suggested by the warning. However, since OverlayTrigger comes from a React Bootstrap, I'll need to ensure I'm using the latest version of the library that's compatible with the current React version and its strict mode requirements. In this project, I do not do this because I work with the library and package versions that were recommended in the walkthrough project.
 
 ## Downgrading react and react-dom
 
