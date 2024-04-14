@@ -8,13 +8,13 @@ The premier online destination for emerging artists of modern paintings and the 
 
 Join us as we journey through the captivating world of modern art, bringing artists and art enthusiasts closer together than ever before.
 
-You can view the live site here - <a href="https://pp-5-art-showcase-1029cf70a456.herokuapp.com/" target="_blank" rel="noopener">ART SHOWCASE</a>
+You can view the live site here - [ART SHOWCASE](https://pp-5-art-showcase-1029cf70a456.herokuapp.com/)
 
-You can view the live API here - <a href="https://pp-5-drf-api-cb9dad6bdfdf.herokuapp.com/" >ART SHOWCASE</a>
+You can view the live API here - [ART SHOWCASE API](https://pp-5-drf-api-cb9dad6bdfdf.herokuapp.com/)
 
-You can view the front-end README.md here - <a href="https://github.com/gennadiy-gaysha/PP_5_art_showcase">ART SHOWCASE Front-End README</a>
+You can view the front-end README.md here - [ART SHOWCASE Front-End README](https://github.com/gennadiy-gaysha/PP_5_art_showcase)
 
-You can view the back-end README.md here - <a href="https://github.com/gennadiy-gaysha/PP_5_rest_api">ART SHOWCASE Back-End README</a>
+You can view the back-end README.md here - [ART SHOWCASE Back-End README](https://github.com/gennadiy-gaysha/PP_5_rest_api)
 
 ## Table of Contents
 
