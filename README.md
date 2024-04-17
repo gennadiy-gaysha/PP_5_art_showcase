@@ -115,6 +115,8 @@ You can view the back-end README.md here - [ART SHOWCASE Back-End README](https:
 
 6. [**Known Bugs**](#known-bugs)
 
+- 6.1. [Fixed bugs](#fixed-bugs)
+
 7. [**Downgrading react and react-dom**](#downgrading-react-and-react-dom)
 
 8. [**Deployment To Heroku**](#deployment-to-heroku)
@@ -1457,6 +1459,8 @@ Back to top ⇧
 ![ArtShowcase Warning: findDOMNode is deprecated image](/src/assets/readme_images/findDOMNode_depreciated.png)
 
 - Although it does not affect site functionality, this deprecation warning may occur when using certain third-party libraries or older React APIs that internally rely on findDOMNode. The issue seems to stem from the use of OverlayTrigger or a similar component that internally relies on findDOMNode. To resolve this, it is needed to update the component to directly use a ref on the element I wish to reference, as suggested by the warning. However, since OverlayTrigger comes from a React Bootstrap, I'll need to ensure I'm using the latest version of the library that's compatible with the current React version and its strict mode requirements. In this project, I do not do this because I work with the library and package versions that were recommended in the walkthrough project.
+
+### Fixed bugs
 
 ## Downgrading react and react-dom
 
