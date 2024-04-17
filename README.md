@@ -958,13 +958,21 @@ Copying the HTML code rendered by a single-page application (SPA) in React from 
 Here are the results of validation for other pages:
 
 - Register page:
+  ![HTML Validation image](/src/assets/readme_images/html_success.png)
 - Log in page:
+  ![HTML Validation image](/src/assets/readme_images/html_success.png)
 - Change password page:
+  ![HTML Validation image](/src/assets/readme_images/html_success.png)
 - Product details page:
+  ![HTML Validation image](/src/assets/readme_images/html_success.png)
 - Add Painting page:
+  ![HTML Validation image](/src/assets/readme_images/html_success.png)
 - Profile page:
+  ![HTML Validation image](/src/assets/readme_images/html_success.png)
 - Complete profile page:
+  ![HTML Validation image](/src/assets/readme_images/html_success.png)
 - About page:
+  ![HTML Validation image](/src/assets/readme_images/html_success.png)
 
 #### CSS
 

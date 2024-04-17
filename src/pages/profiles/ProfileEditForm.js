@@ -181,7 +181,7 @@ const ProfileEditForm = () => {
 
   const textFields = (
     <>
-      <Form.Group>
+      <Form.Group controlId="bio">
         <Form.Label className="sr-only">Bio</Form.Label>
         <Form.Control
           as="textarea"
@@ -198,7 +198,7 @@ const ProfileEditForm = () => {
         </Alert>
       ))}
 
-      <Form.Group>
+      <Form.Group controlId="artist-name">
         <Form.Label className="sr-only">Name</Form.Label>
         <Form.Control
           type="text"
@@ -214,7 +214,7 @@ const ProfileEditForm = () => {
         </Alert>
       ))}
 
-      <Form.Group>
+      <Form.Group controlId="home-country">
         <Form.Label className="sr-only">Home Country</Form.Label>
         <Form.Control
           type="text"
@@ -325,11 +325,16 @@ const ProfileEditForm = () => {
                 }}
               />
             </Form.Group>
-            <div className="d-md-none">{textFields}</div>
+            {/* <div className="d-md-none">{textFields}</div> */}
           </Container>
         </Col>
-        <Col md={5} lg={6} className="d-none d-md-block p-0 p-md-2 text-center">
+        {/* <Col md={5} lg={6} className="d-none d-md-block p-0 p-md-2 text-center">
           <Container className={appStyles.Content}>{textFields}</Container>
+        </Col> */}
+        <Col xs={12} md={5} lg={6}>
+          <Container className={appStyles.Content}>
+            <div className="responsive-text-fields">{textFields}</div>
+          </Container>
         </Col>
       </Row>
     </Form>

@@ -63,9 +63,7 @@ export const ProfileDataProvider = ({ children }) => {
 
   const handleUnfollow = async (clickedProfile) => {
     try {
-      const { data } = await axiosRes.delete(
-        `/followers/${clickedProfile.following_id}`
-      );
+      await axiosRes.delete(`/followers/${clickedProfile.following_id}`);
 
       setProfileData((prevState) => {
         // Map over the profiles to update the one that was unfollowed
