@@ -333,7 +333,7 @@ const ProfileEditForm = () => {
         </Col> */}
         <Col xs={12} md={5} lg={6}>
           <Container className={appStyles.Content}>
-            <div className="responsive-text-fields">{textFields}</div>
+            <div>{textFields}</div>
           </Container>
         </Col>
       </Row>

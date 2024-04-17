@@ -411,11 +411,16 @@ function PaintingEditForm() {
                 </Alert>
               );
             })}
-            <div className="d-md-none">{textFields}</div>
+            {/* <div className="d-md-none">{textFields}</div> */}
           </Container>
         </Col>
-        <Col md={5} lg={4} className="d-none d-md-block p-0 p-md-2">
+        {/* <Col md={5} lg={4} className="d-none d-md-block p-0 p-md-2">
           <Container className={appStyles.Content}>{textFields}</Container>
+        </Col> */}
+        <Col xs={12} md={5} lg={4}>
+          <Container className={appStyles.Content}>
+            <div>{textFields}</div>
+          </Container>
         </Col>
       </Row>
     </Form>
