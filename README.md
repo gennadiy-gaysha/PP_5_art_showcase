@@ -968,7 +968,11 @@ Here are the results of validation for other pages:
 - Product details page:
   ![HTML Validation image](/src/assets/readme_images/html_success.png)
 - Add Painting page:
-  ![HTML Validation image](/src/assets/readme_images/html_success.png)
+
+During HTML code validation of the Create Painting Form, I encountered an error: "Element div not allowed as child of element label in this context." This error can be classified as minor in terms of functionality — it will not prevent the application from running. Therefore, it was decided to leave it as is:
+
+![HTML DIV Inside Label error image](/src/assets/readme_images/div_inside_label.png)
+
 - Profile page:
   ![HTML Validation image](/src/assets/readme_images/html_success.png)
 - Complete profile page:
@@ -1461,6 +1465,24 @@ Back to top ⇧
 - Although it does not affect site functionality, this deprecation warning may occur when using certain third-party libraries or older React APIs that internally rely on findDOMNode. The issue seems to stem from the use of OverlayTrigger or a similar component that internally relies on findDOMNode. To resolve this, it is needed to update the component to directly use a ref on the element I wish to reference, as suggested by the warning. However, since OverlayTrigger comes from a React Bootstrap, I'll need to ensure I'm using the latest version of the library that's compatible with the current React version and its strict mode requirements. In this project, I do not do this because I work with the library and package versions that were recommended in the walkthrough project.
 
 ### Fixed bugs
+
+During HTML code validation, pages such as 'Profile Edit Form,' 'Painting Create Form,' and 'Painting Edit Form' encountered a 'Duplicate ID' error for all fields except the 'Image field.' This issue arose because the form fields, referred to by the `{textFields}` variable, were rendered twice in my code—once for smaller screens and once for larger screens—as part of the responsive design setup. Below is an example of the issue:
+
+![Duplicate ID Error image](/src/assets/readme_images/duplicate_id.png)
+
+To correct this and ensure that `{textFields}` is visible on all device sizes but handled by a single instance in the DOM, I updated the JSX structure by making `{textFields}` always visible and removing the `<Col></Col>` components where `{textFields}` were previously rendered:
+
+```
+<Col xs={12} md={5} lg={6}>
+  <Container className={appStyles.Content}>
+    <div>{textFields}</div>
+  </Container>
+</Col>
+```
+
+This amendment eliminated the 'Duplicate ID' error.
+
+[Back to top](#contents)
 
 ## Downgrading react and react-dom
 
