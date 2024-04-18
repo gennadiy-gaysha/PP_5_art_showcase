@@ -246,11 +246,11 @@ function PaintingsPage({ message, filter = "" }) {
             />
           ) : (
             <>
-              <Container
+              {/* <Container
                 className={`${appStyles.Content} ${styles.customWidth}`}
-              >
-                <Asset src={NoResults} message={message} />
-              </Container>
+              > */}
+              <Asset src={NoResults} message={message} />
+              {/* </Container> */}
             </>
           )}
         </>

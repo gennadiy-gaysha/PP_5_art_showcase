@@ -43,7 +43,14 @@ function App() {
               exact
               path="/"
               render={() => (
-                <PaintingsPage message="No results found. Adjust your search options." />
+                <PaintingsPage
+                  message={
+                    <h5 style={{ textAlign: "center", lineHeight: "1.8" }}>
+                      No results found. Adjust your{" "}
+                      <strong>search options.</strong>
+                    </h5>
+                  }
+                />
               )}
             />
             <Route
@@ -52,7 +59,14 @@ function App() {
               render={() =>
                 profileCompleted ? (
                   <PaintingsPage
-                    message="No results found. Adjust the search keyword or add an artist to Faves."
+                    message={
+                      <h5 style={{ textAlign: "center", lineHeight: "1.8" }}>
+                        No results found. Adjust the{" "}
+                        <strong>search options</strong>
+                        <br />
+                        or <strong>add an artist to Faves.</strong>
+                      </h5>
+                    }
                     filter={`owner__followed__owner__profile=${profile_id}&`}
                   />
                 ) : (
@@ -66,7 +80,15 @@ function App() {
               render={() =>
                 profileCompleted ? (
                   <PaintingsPage
-                    message="No results found. Adjust the search keyword or click on the eye under the painting to follow it up."
+                    message={
+                      <h5 style={{ textAlign: "center", lineHeight: "1.8" }}>
+                        No results found. Adjust the{" "}
+                        <strong>search options</strong>
+                        <br />
+                        or click on the <strong>eye</strong> under the painting
+                        to follow it up.
+                      </h5>
+                    }
                     filter={`observations__owner__profile=${profile_id}&ordering=-observations__created_at&`}
                   />
                 ) : (
