@@ -8,6 +8,17 @@ import styles from "../../styles/CommentCreateEditForm.module.css";
 import { NotificationManager } from "react-notifications";
 import "react-notifications/lib/notifications.css";
 
+/**
+ * CommentEditForm allows users to edit an existing comment. It
+ * displays a textarea populated with the current comment content,
+ * enabling users to make changes and submit them. On successful
+ * update, it notifies the user, updates the comment's content in
+ * the comment list state without reloading the page, and toggles
+ * off the edit form view.
+ * Errors during the update process trigger notifications advising
+ * the user of the failure. The form also includes a cancel button
+ * to revert back to the normal view without changes.
+ */
 function CommentEditForm(props) {
   const { id, content, setShowEditForm, setComments } = props;
 

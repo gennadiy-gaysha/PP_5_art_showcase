@@ -17,6 +17,25 @@ import { NotificationManager } from "react-notifications";
 import "react-notifications/lib/notifications.css";
 import { useEffect, useState } from "react";
 
+/**
+ * NavBar is a responsive navigation bar component that provides
+ * links for navigating through the application.
+ * It dynamically adjusts content based on user authentication
+ * status.
+ * For authenticated users, it shows links to manage their artworks,
+ * favorites, and watchlist, as well as an option to log out.
+ * It also displays the user's avatar and a link to their profile.
+ * For guests, it provides links to log in, register, and view the
+ * about page.
+ * The NavBar also includes a logo that changes based on the screen
+ * size and provides a visual cue for navigation home.
+ * Additional functionalities include a collapsible menu for smaller
+ * screens and programmatic navigation to reset filters on the
+ * artwork page.
+ * The component utilizes custom hooks for redirection based on
+ * authentication state and managing click events outside the
+ * component to toggle the expanded state of the navigation menu.
+ */
 const NavBar = ({ onModalShow }) => {
   const [logoSrc, setLogoSrc] = useState(logo);
   const { profileCompleted } = useCurrentUserProfile();

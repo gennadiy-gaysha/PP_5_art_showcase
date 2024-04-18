@@ -21,6 +21,19 @@ import { useCurrentUserProfile } from "../../hooks/useCurrentUserProfile";
 import { NotificationManager } from "react-notifications";
 import "react-notifications/lib/notifications.css";
 
+/**
+ * PaintingCreateForm provides a user interface for creating new
+ * paintings.
+ * It allows users to input details such as title, creation year,
+ * theme, technique, price, and dimensions, and to upload an image
+ * for the painting. The form includes validation to ensure all
+ * fields are filled correctly.
+ * If the user's profile is incomplete, it displays a spinner
+ * instead of the form.
+ * Successful creation of a painting redirects the user to the
+ * painting's detail page, while errors are handled and displayed
+ * to the user.
+ */
 function PaintingCreateForm() {
   const { profile } = useCurrentUserProfile();
 

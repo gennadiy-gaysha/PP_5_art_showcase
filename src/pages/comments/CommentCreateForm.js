@@ -11,6 +11,18 @@ import { axiosRes } from "../../api/axiosDefaults";
 import { NotificationManager } from "react-notifications";
 import "react-notifications/lib/notifications.css";
 
+/**
+ * CommentCreateForm provides an interface for users to create
+ * new comments on a painting.
+ * It displays a text input for writing comments and an avatar
+ * that links to the user's profile.
+ * The form handles comment submission to the server, manages
+ * local state updates for the comment count on the painting,
+ * and dynamically adjusts the comments list.
+ * Success and error notifications inform the user of the outcome
+ * of their submission. The form ensures immediate visual feedback
+ * by resetting the input field upon successful comment creation.
+ */
 function CommentCreateForm(props) {
   const { painting, setPainting, setComments, profileImage, profile_id } =
     props;

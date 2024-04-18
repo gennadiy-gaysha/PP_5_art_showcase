@@ -24,6 +24,18 @@ import "react-datepicker/dist/react-datepicker.css";
 import { NotificationManager } from "react-notifications";
 import "react-notifications/lib/notifications.css";
 
+/**
+ * ProfileEditForm allows users to edit their profile details
+ * including name, bio, home country, gender, birthdate, and
+ * profile image.
+ * It performs validation checks on inputs to ensure all required
+ * fields are filled and meet the criteria before submission.
+ * If validation fails, it displays appropriate error messages.
+ * Successful submissions update the user's profile information
+ * and redirect back to the profile page. The form uses
+ * react-datepicker for birthdate input and supports image uploads
+ * with preview.
+ */
 const ProfileEditForm = () => {
   const currentUser = useCurrentUser();
   const setCurrentUser = useSetCurrentUser();

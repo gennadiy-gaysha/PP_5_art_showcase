@@ -19,6 +19,18 @@ import { fetchMoreData } from "../../utils/utils";
 import { useCurrentUserProfile } from "../../hooks/useCurrentUserProfile";
 import { Redirect } from "react-router-dom";
 
+/**
+ * PaintingPage displays details for a specific painting along with its
+ * comments.
+ * It allows authenticated users with a completed profile to post new
+ * comments and supports infinite scrolling for existing comments.
+ * The component handles fetching data for the painting and its comments
+ * using the painting ID from the URL parameters.
+ * Errors in fetching, like 404 responses, redirect the user to a not
+ * found page.
+ * Rendering varies based on user authentication status and profile
+ * completion, enhancing user interaction based on their state.
+ */
 function PaintingPage() {
   const { profileCompleted } = useCurrentUserProfile();
 

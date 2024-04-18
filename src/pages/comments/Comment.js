@@ -12,6 +12,19 @@ import ModalAlertDeleteComment from "../../components/ModalAlertDeleteComment";
 import { NotificationManager } from "react-notifications";
 import "react-notifications/lib/notifications.css";
 
+/**
+ * Comment displays individual comments on paintings, allowing the
+ * owner to edit or delete them.
+ * It uses a Media component to format the layout, showing the
+ * commenter's avatar linked to their profile.
+ * The component conditionally renders an edit form or the static
+ * text of the comment based on the user's actions.
+ * Owners of comments can delete them via a modal confirmation
+ * dialog.
+ * Successful operations display notifications, and the component
+ * updates the parent painting's and comment list's state to reflect
+ * changes.
+ */
 const Comment = (props) => {
   const [modalShow, setModalShow] = useState(false);
 

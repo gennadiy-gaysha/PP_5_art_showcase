@@ -25,6 +25,17 @@ import { ProfileEditDropdown } from "../../components/MoreDropdown";
 import { useCurrentUserProfile } from "../../hooks/useCurrentUserProfile";
 import { useHistory } from "react-router-dom";
 
+/**
+ * ProfilePage renders detailed information about a user's profile
+ * and their paintings.
+ * It includes functionality for following or unfollowing the user,
+ * editing the profile (if owned), and viewing the user's artworks
+ * displayed in an infinite scrolling list. The page provides
+ * interactive elements for following, editing, and handling profile
+ * and painting details, with conditions based on the user's
+ * authentication and profile completion. Errors in fetching data or
+ * unauthorized access attempts lead to redirections.
+ */
 function ProfilePage() {
   const { profileCompleted } = useCurrentUserProfile();
   const [hasLoaded, setHasLoaded] = useState(false);

@@ -10,6 +10,21 @@ import { useCurrentUserProfile } from "../../hooks/useCurrentUserProfile";
 import ModalAlert from "../../components/ModalAlert";
 import { useState } from "react";
 
+/**
+ * Painting displays a detailed view of a single painting, including
+ * interaction options like observing and commenting.
+ * It allows users to add or remove paintings from their watchlist and
+ * comment on them if they are logged in and their profile is complete.
+ * The component handles various user interactions and state changes,
+ * such as toggling observation status and managing modal displays for
+ * incomplete profiles.
+ * The Painting component dynamically renders different elements based
+ * on the user's authentication status, profile completion, and
+ * ownership of the painting.
+ * It integrates tooltips for better user guidance and uses conditional
+ * rendering to provide appropriate functionality, such as adding or
+ * removing a painting from the watchlist.
+ */
 function Painting(props) {
   const { profileCompleted } = useCurrentUserProfile();
   const [modalShow, setModalShow] = useState(false);

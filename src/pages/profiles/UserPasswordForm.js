@@ -18,6 +18,19 @@ import passwordStyles from "../../styles/RegistrationForm.module.css";
 import { NotificationManager } from "react-notifications";
 import "react-notifications/lib/notifications.css";
 
+/**
+ * UserPasswordForm allows authenticated users to change their
+ * password.
+ * It provides a form with fields for entering and confirming the
+ * new password.
+ * The form includes validations to ensure that passwords are
+ * entered correctly and match. Errors in submission are displayed
+ * through alerts.
+ * On successful password change, a success notification is
+ * displayed and the user is redirected to the previous page.
+ * The visibility of the password can be toggled using an eye icon
+ * for user convenience.
+ */
 const UserPasswordForm = () => {
   const history = useHistory();
   const { id } = useParams();

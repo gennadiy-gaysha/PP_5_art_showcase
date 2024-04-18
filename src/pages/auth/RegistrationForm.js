@@ -12,6 +12,20 @@ import { NotificationManager } from "react-notifications";
 import "react-notifications/lib/notifications.css";
 import { useRedirect } from "../../hooks/useRedirect";
 
+/**
+ * RegistrationForm provides a user interface for new users to
+ * register. It includes fields for username, password, and password
+ * confirmation, with an option to toggle password visibility for
+ * user convenience.
+ * The form performs client-side validations and communicates with
+ * the server to register the user.
+ * It handles and displays any errors that occur during the
+ * registration process.
+ * Upon successful registration, users are notified and redirected
+ * to the login page.
+ * There is also a link for existing users to navigate to the login
+ * page if they already have an account.
+ */
 const RegistrationForm = () => {
   const [showPassword, setShowPassword] = useState(false);
   useRedirect("loggedIn");

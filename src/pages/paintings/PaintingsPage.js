@@ -20,6 +20,28 @@ import { Form } from "react-bootstrap";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { fetchMoreData } from "../../utils/utils";
 
+/**
+ * PaintingsPage is a component that renders a searchable, filterable,
+ * and paginated list of paintings.
+ * It includes functionality to filter paintings by theme, technique,
+ * orientation, and price order, and supports infinite scrolling for
+ * loading additional paintings. The component provides real-time
+ * search capabilities for paintings by title or artist's name.
+ * The component uses several pieces of state to manage the current
+ * filter selections, the list of paintings, the total number of
+ * paintings, and loading state. It interacts with an external API
+ * through axios to fetch painting data based on user input and selected
+ * filters.
+ * The component uses the useEffect hook to handle initial data fetching,
+ * updates to the filters, and cleanup tasks, such as resetting filters
+ * when specified by URL parameters (using react-router-dom's useHistory
+ * and useLocation).
+ * The main UI is built with Bootstrap components arranged in a grid
+ * layout, with conditional rendering to handle different states such as
+ * loading, no results, and displaying the list of paintings. It also
+ * includes form controls for user input and handles form submissions to
+ * prevent page reloads.
+ */
 function PaintingsPage({ message, filter = "" }) {
   const [totalPaintings, setTotalPaintings] = useState(0);
   // useHistory and useLocation Hooks:

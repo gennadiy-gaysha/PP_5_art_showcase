@@ -24,6 +24,19 @@ import { useState } from "react";
 import { NotificationManager } from "react-notifications";
 import "react-notifications/lib/notifications.css";
 
+/**
+ * Painting displays detailed information about a specific painting,
+ * including an image, artist details, and interactive elements such
+ * as editing options for owners, and observation and commenting
+ * functionalities for other users.
+ * It integrates user permissions and profile completion checks to
+ * conditionally render UI elements and interaction options.
+ * This component manages state for modal dialogs and interaction
+ * statuses like observing or commenting on a painting. It provides
+ * links to the artist's profile and leverages tooltips to enhance
+ * user understanding of interactive icons. Actions like editing and
+ * deleting a painting are secured with modal confirmations.
+ */
 function Painting(props) {
   const { profileCompleted } = useCurrentUserProfile();
   const [modalShow, setModalShow] = useState(false);

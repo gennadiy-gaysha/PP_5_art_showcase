@@ -19,6 +19,19 @@ import { NotificationManager } from "react-notifications";
 import "react-notifications/lib/notifications.css";
 import { useRedirect } from "../../hooks/useRedirect";
 
+/**
+ * LogInForm provides an interface for users to log into their
+ * accounts.
+ * It includes form fields for username and password, with the
+ * option to toggle the visibility of the password.
+ * Upon form submission, it sends the login data to the server,
+ * handles authentication, sets the user's login state, and
+ * redirects the user based on the login status.
+ * Error handling is integrated to provide feedback for incorrect
+ * credentials or other login issues.
+ * The form also includes a link to the registration page for
+ * users who do not have an account.
+ */
 function LogInForm() {
   const setCurrentUser = useSetCurrentUser();
   useRedirect("loggedIn");

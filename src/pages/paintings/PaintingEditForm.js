@@ -19,6 +19,19 @@ import { axiosReq } from "../../api/axiosDefaults";
 import { NotificationManager } from "react-notifications";
 import "react-notifications/lib/notifications.css";
 
+/**
+ * PaintingEditForm allows users to edit details of an existing
+ * painting. It provides form inputs for title, creation year, theme,
+ * technique, price, dimensions, and allows for image updates.
+ * The form uses state to manage input values and validation errors,
+ * and interacts with an API to fetch existing painting details and
+ * submit updates.
+ * It includes validation to ensure all fields are correctly filled
+ * out before submission, with feedback provided through alerts. If
+ * the user is not the owner or if the painting does not exist, they
+ * are redirected appropriately. Successful updates redirect to the
+ * painting's detailed view, while errors display notifications.
+ */
 function PaintingEditForm() {
   const [paintingData, setPaintingData] = useState({
     title: "",
