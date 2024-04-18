@@ -20,7 +20,7 @@
 }
 
 /* Media query to stack dimensions vertically on medium screens */
-@media (min-width: 768px) and (max-width: 1199px) {
+@media (min-width: 768px) and (max-width: 1200px) {
   .dimensionsContainer {
     flex-direction: column; /* Stacks flex items vertically */
   }
