@@ -18,3 +18,14 @@
   width: 5rem; /* width of the field */
   margin: 0.25rem 0.8rem 0.25rem 0; /* Spacing around the inputs */
 }
+
+/* Media query to stack dimensions vertically on medium screens */
+@media (min-width: 768px) and (max-width: 1199px) {
+  .dimensionsContainer {
+    flex-direction: column; /* Stacks flex items vertically */
+  }
+  .dimensionInput {
+    width: 100%; /* Ensures each input takes full width of the container */
+    margin-bottom: 10px;
+  }
+}
