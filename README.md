@@ -1408,7 +1408,7 @@ To test the triggering of custom Error 404 page, a link to the homepage was used
 | Profile page (AVAILABLE ARTWORKS section) | All   | Functionality | The list of paintings features infinite scrolling | Pass      |
 | Painting details page (Comment section)   | All   | Functionality | The list of comments features infinite scrolling  | Pass      |
 
-Back to top ⇧
+<br>[Back to top ⇧](#table-of-contents)
 
 ## Technologies Used
 
@@ -1450,11 +1450,9 @@ Back to top ⇧
 - **Prettier** - integrates the Prettier code formatter into VS Code, which formats JavaScript and JSX code according to a specified style.
 - [Canva](https://www.canva.com/) - free-to-use online graphic design tool, was used to logo and more.
 
-[Back to top](#contents)
+<br>[Back to top ⇧](#table-of-contents)
 
 ## Known Bugs
-
-[Back to top](#contents)
 
 - Although registering new users poses no issue across devices, I've encountered a problem with logging in on iOS devices—a problem not present on other platforms. The configuration settings seem appropriately adjusted for a cross-origin setup with JWT authentication. However, iOS enforces stricter cookie policies, particularly concerning cross-site tracking and third-party cookies. Unfortunately, due to the time constraints associated with this project, I haven't been able to address this issue yet. I plan to tackle the login challenges on iOS devices as a future task and to identify the factors affecting cross-origin and cross-device functionality.
 
@@ -1482,7 +1480,7 @@ To correct this and ensure that `{textFields}` is visible on all device sizes bu
 
 This amendment eliminated the 'Duplicate ID' error.
 
-[Back to top](#contents)
+<br>[Back to top ⇧](#table-of-contents)
 
 ## Downgrading react and react-dom
 

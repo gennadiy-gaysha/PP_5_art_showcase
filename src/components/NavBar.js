@@ -1,5 +1,6 @@
 import { Nav, Navbar, Container } from "react-bootstrap";
 import logo from "../assets/logo.png";
+import logo_mobile from "../assets/logo_mobile.png";
 import styles from "../styles/NavBar.module.css";
 import { NavLink, useHistory } from "react-router-dom";
 
@@ -14,10 +15,32 @@ import { useCurrentUserProfile } from "../hooks/useCurrentUserProfile";
 
 import { NotificationManager } from "react-notifications";
 import "react-notifications/lib/notifications.css";
+import { useEffect, useState } from "react";
 
 const NavBar = ({ onModalShow }) => {
+  const [logoSrc, setLogoSrc] = useState(logo);
   const { profileCompleted } = useCurrentUserProfile();
   // const [modalShow, setModalShow] = useState(false);
+
+  // Update logo based on screen width
+  useEffect(() => {
+    function handleResize() {
+      if (window.innerWidth < 480) {
+        setLogoSrc(logo_mobile);
+      } else {
+        setLogoSrc(logo);
+      }
+    }
+
+    // Call handleResize on component mount and setup event listener for resize
+    handleResize();
+    window.addEventListener("resize", handleResize);
+
+    // Cleanup event listener on component unmount
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   const history = useHistory();
   // Function to trigger filter reset.
@@ -148,7 +171,6 @@ const NavBar = ({ onModalShow }) => {
           <Avatar
             src={currentUser?.profile_image}
             text={currentUser?.username}
-            // text="Profile" // only for testing!!!
             height={40}
           />
         </div>
@@ -202,7 +224,7 @@ const NavBar = ({ onModalShow }) => {
     <Navbar
       expanded={expanded}
       className={styles.NavBar}
-      expand="md"
+      expand="xl"
       fixed="top"
     >
       <Container>
@@ -214,7 +236,7 @@ const NavBar = ({ onModalShow }) => {
           }}
         >
           <Navbar.Brand>
-            <img src={logo} alt="logo" height="35" />
+            <img src={logoSrc} alt="logo" className={styles.Logo} />
           </Navbar.Brand>
         </NavLink>
         {currentUser && addPaintingIcon}
