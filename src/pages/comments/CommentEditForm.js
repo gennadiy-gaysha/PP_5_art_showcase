@@ -52,7 +52,7 @@ function CommentEditForm(props) {
       }));
       setShowEditForm(false);
     } catch (err) {
-      console.log(err);
+      // console.log(err);
       NotificationManager.error(
         "Failed to update the comment. Please check your input and try again.",
         "Error!",

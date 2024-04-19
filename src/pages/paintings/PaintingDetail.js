@@ -84,7 +84,7 @@ function Painting(props) {
       setModalShow(false);
       history.push("/");
     } catch (err) {
-      console.log(err);
+      // console.log(err);
       // NotificationManager.error(
       //   "Failed to delete the painting. Please try again.",
       //   "Deletion Failed",
@@ -109,7 +109,7 @@ function Painting(props) {
         }),
       }));
     } catch (err) {
-      console.log(err);
+      // console.log(err);
     }
   };
 
@@ -129,7 +129,7 @@ function Painting(props) {
         }),
       }));
     } catch (err) {
-      console.log(err);
+      // console.log(err);
     }
   };
 

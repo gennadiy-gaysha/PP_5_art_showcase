@@ -70,7 +70,7 @@ function ProfilePage() {
         ) {
           history.push("/404");
         } else {
-          console.log(err);
+          // console.log(err);
         }
       }
     };

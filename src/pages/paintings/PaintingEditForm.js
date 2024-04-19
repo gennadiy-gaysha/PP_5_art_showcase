@@ -90,11 +90,11 @@ function PaintingEditForm() {
             })
           : history.push("/");
       } catch (err) {
-        console.log(err);
+        // console.log(err);
         if (err.response && err.response.status === 404) {
           history.push("/404");
         } else {
-          console.log(err.message);
+          // console.log(err.message);
         }
       }
     };
@@ -185,7 +185,7 @@ function PaintingEditForm() {
       );
       history.push(`/paintings/${id}`);
     } catch (err) {
-      console.log(err);
+      // console.log(err);
       NotificationManager.error(
         "Failed to update the painting. Please check your input and try again.",
         "Error!",

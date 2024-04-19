@@ -73,7 +73,7 @@ const UserPasswordForm = () => {
       );
       history.goBack();
     } catch (err) {
-      console.log(err);
+      // console.log(err);
       NotificationManager.error(
         "Failed to change the password. Please check your input and try again.",
         "Error",

@@ -127,7 +127,7 @@ function PaintingsPage({ message, filter = "" }) {
         setTotalPaintings(data.count);
         setHasLoaded(true);
       } catch (err) {
-        console.log(err);
+        // console.log(err);
       }
     };
 

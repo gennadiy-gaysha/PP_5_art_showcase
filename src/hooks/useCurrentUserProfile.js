@@ -22,7 +22,7 @@ export const useCurrentUserProfile = () => {
         setProfile(fetchedProfile);
         setProfileCompleted(isProfileCompleted(fetchedProfile));
       } catch (err) {
-        console.log(err);
+        // console.log(err);
       }
     };
 

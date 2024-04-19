@@ -89,7 +89,7 @@ const NavBar = ({ onModalShow }) => {
         "Logged Out!"
       );
     } catch (err) {
-      console.log(err);
+      // console.log(err);
       // Display an error notification
       NotificationManager.error(
         "There was a problem logging you out. Please try again.",

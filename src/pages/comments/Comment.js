@@ -69,7 +69,7 @@ const Comment = (props) => {
       // Hide modal after confirmation
       setModalShow(false);
     } catch (err) {
-      console.log(err);
+      // console.log(err);
       NotificationManager.error(
         "Failed to delete the comment. Please try again.",
         "Deletion Failed",

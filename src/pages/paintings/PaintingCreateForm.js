@@ -145,7 +145,7 @@ function PaintingCreateForm() {
       );
       history.push(`/paintings/${data.id}`);
     } catch (err) {
-      console.log(err);
+      // console.log(err);
       NotificationManager.error(
         "Failed to create the painting. Please check your input and try again.",
         "Error!",

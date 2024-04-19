@@ -77,7 +77,7 @@ function Painting(props) {
         }),
       }));
     } catch (err) {
-      console.log(err);
+      // console.log(err);
     }
   };
 
@@ -97,7 +97,7 @@ function Painting(props) {
         }),
       }));
     } catch (err) {
-      console.log(err);
+      // console.log(err);
     }
   };
 

@@ -80,7 +80,7 @@ const ProfileEditForm = () => {
             image,
           });
         } catch (err) {
-          console.log(err);
+          // console.log(err);
           history.push("/");
         }
       } else {
@@ -179,7 +179,7 @@ const ProfileEditForm = () => {
       );
       history.push(`/profiles/${id}/`);
     } catch (err) {
-      console.log(err);
+      // console.log(err);
       if (err.response && err.response.data) {
         setErrors(err.response.data);
       }

@@ -27,7 +27,7 @@ export const fetchMoreData = async (resource, setResource) => {
  */
 export const setTokenTimestamp = (data) => {
   const refreshTokenTimestamp = jwtDecode(data?.refresh_token).exp;
-  console.log(refreshTokenTimestamp);
+  // console.log(refreshTokenTimestamp);
   localStorage.setItem("refreshTokenTimestamp", refreshTokenTimestamp);
 };
 
