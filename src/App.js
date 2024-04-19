@@ -45,10 +45,17 @@ function App() {
               render={() => (
                 <PaintingsPage
                   message={
-                    <h5 style={{ textAlign: "center", lineHeight: "1.8" }}>
-                      No results found. Adjust your{" "}
+                    <div
+                      style={{
+                        textAlign: "center",
+                        lineHeight: "1.8",
+                        marginTop: "30px",
+                        fontSize: "1.1rem",
+                      }}
+                    >
+                      No results found. Adjust the{" "}
                       <strong>search options.</strong>
-                    </h5>
+                    </div>
                   }
                 />
               )}
@@ -60,12 +67,19 @@ function App() {
                 profileCompleted ? (
                   <PaintingsPage
                     message={
-                      <h5 style={{ textAlign: "center", lineHeight: "1.8" }}>
+                      <div
+                        style={{
+                          textAlign: "center",
+                          lineHeight: "1.8",
+                          marginTop: "30px",
+                          fontSize: "1.1rem",
+                        }}
+                      >
                         No results found. Adjust the{" "}
                         <strong>search options</strong>
                         <br />
                         or <strong>add an artist to Faves.</strong>
-                      </h5>
+                      </div>
                     }
                     filter={`owner__followed__owner__profile=${profile_id}&`}
                   />
@@ -81,13 +95,20 @@ function App() {
                 profileCompleted ? (
                   <PaintingsPage
                     message={
-                      <h5 style={{ textAlign: "center", lineHeight: "1.8" }}>
+                      <div
+                        style={{
+                          textAlign: "center",
+                          lineHeight: "1.8",
+                          marginTop: "30px",
+                          fontSize: "1.1rem",
+                        }}
+                      >
                         No results found. Adjust the{" "}
                         <strong>search options</strong>
                         <br />
                         or click on the <strong>eye</strong> under the painting
                         to follow it up.
-                      </h5>
+                      </div>
                     }
                     filter={`observations__owner__profile=${profile_id}&ordering=-observations__created_at&`}
                   />
