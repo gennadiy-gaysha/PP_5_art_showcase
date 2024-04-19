@@ -18,6 +18,7 @@ import { useSetCurrentUser } from "../../contexts/CurrentUserContext";
 import { NotificationManager } from "react-notifications";
 import "react-notifications/lib/notifications.css";
 import { useRedirect } from "../../hooks/useRedirect";
+import { setTokenTimestamp } from "../../utils/utils";
 
 /**
  * LogInForm provides an interface for users to log into their
@@ -65,6 +66,7 @@ function LogInForm() {
     try {
       const { data } = await axios.post("/dj-rest-auth/login/", logInData);
       setCurrentUser(data.user);
+      setTokenTimestamp(data);
       // Display success notification
       NotificationManager.success(
         `Hello ${logInData.username.toUpperCase()}! You are successfully logged in`,

@@ -16,6 +16,7 @@ import { useCurrentUserProfile } from "../hooks/useCurrentUserProfile";
 import { NotificationManager } from "react-notifications";
 import "react-notifications/lib/notifications.css";
 import { useEffect, useState } from "react";
+import { removeTokenTimestamp } from "../utils/utils";
 
 /**
  * NavBar is a responsive navigation bar component that provides
@@ -78,6 +79,7 @@ const NavBar = ({ onModalShow }) => {
     try {
       await axios.post("dj-rest-auth/logout/");
       setCurrentUser(null);
+      removeTokenTimestamp();
       resetFiltersAndNavigate("/");
       // Display a success notification
       NotificationManager.success(

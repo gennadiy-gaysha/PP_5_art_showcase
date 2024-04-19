@@ -1,3 +1,4 @@
+import { jwtDecode } from "jwt-decode";
 import { axiosReq } from "../api/axiosDefaults";
 
 export const fetchMoreData = async (resource, setResource) => {
@@ -19,4 +20,27 @@ export const fetchMoreData = async (resource, setResource) => {
       }, prevResource.results),
     }));
   } catch (err) {}
+};
+
+/**
+ * Stores the refresh token's expiration timestamp in local storage.
+ */
+export const setTokenTimestamp = (data) => {
+  const refreshTokenTimestamp = jwtDecode(data?.refresh_token).exp;
+  console.log(refreshTokenTimestamp);
+  localStorage.setItem("refreshTokenTimestamp", refreshTokenTimestamp);
+};
+
+/**
+ * Checks if there is a refresh token's timestamp in local storage.
+ */
+export const shouldRefreshToken = () => {
+  return !!localStorage.getItem("refreshTokenTimestamp");
+};
+
+/**
+ * Removes the refresh token's timestamp from local storage.
+ */
+export const removeTokenTimestamp = () => {
+  localStorage.removeItem("refreshTokenTimestamp");
 };
