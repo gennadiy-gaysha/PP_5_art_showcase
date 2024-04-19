@@ -181,7 +181,19 @@ function ProfilePage() {
       ) : (
         <Asset
           src={NoResults}
-          message={`No results found, ${profile?.owner} hasn't displayed paintings yet.`}
+          message={
+            <span
+              style={{
+                textAlign: "center",
+                lineHeight: "2",
+                marginTop: "30px",
+                fontSize: "1.1rem",
+              }}
+            >
+              No results found, <strong>{profile?.owner}</strong> hasn't
+              displayed paintings yet.
+            </span>
+          }
         />
       )}
     </>
