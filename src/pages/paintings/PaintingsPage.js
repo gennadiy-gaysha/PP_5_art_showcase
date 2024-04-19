@@ -3,8 +3,6 @@ import React, { useEffect, useState } from "react";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container";
-
-import appStyles from "../../App.module.css";
 import styles from "../../styles/PaintingsPage.module.css";
 import { useLocation } from "react-router-dom";
 import { axiosReq } from "../../api/axiosDefaults";
@@ -19,6 +17,7 @@ import { useHistory } from "react-router-dom";
 import Form from "react-bootstrap/Form";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { fetchMoreData } from "../../utils/utils";
+import { useCurrentUser } from "../../contexts/CurrentUserContext";
 
 /**
  * PaintingsPage is a component that renders a searchable, filterable,
@@ -76,6 +75,8 @@ function PaintingsPage({ message, filter = "" }) {
   const [query, setQuery] = useState(
     sessionStorage.getItem("searchQuery") || ""
   );
+
+  const currentUser = useCurrentUser();
 
   // Hook logic to update session storage:
   useEffect(() => {
@@ -150,6 +151,7 @@ function PaintingsPage({ message, filter = "" }) {
     history,
     query,
     resetSearch,
+    currentUser,
   ]);
 
   const paintings_filters = (
