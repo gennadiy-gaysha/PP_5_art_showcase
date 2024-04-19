@@ -1,4 +1,6 @@
-import { Nav, Navbar, Container } from "react-bootstrap";
+import Navbar from "react-bootstrap/Navbar";
+import Nav from "react-bootstrap/Nav";
+import Container from "react-bootstrap/Container";
 import logo from "../assets/logo.png";
 import logo_mobile from "../assets/logo_mobile.png";
 import styles from "../styles/NavBar.module.css";

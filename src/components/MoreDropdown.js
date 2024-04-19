@@ -1,6 +1,7 @@
 import styles from "../styles/MoreDropdown.module.css";
 import React from "react";
-import { OverlayTrigger, Tooltip } from "react-bootstrap";
+import OverlayTrigger from "react-bootstrap/OverlayTrigger";
+import Tooltip from "react-bootstrap/Tooltip";
 import Dropdown from "react-bootstrap/Dropdown";
 import { useHistory } from "react-router";
 

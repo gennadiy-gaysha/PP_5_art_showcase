@@ -1,6 +1,7 @@
 import React from "react";
-import { Modal, Button } from "react-bootstrap";
-import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
+import Modal from "react-bootstrap/Modal";
+import Button from "react-bootstrap/Button";
+import { useHistory } from "react-router-dom";
 import { useCurrentUser } from "../contexts/CurrentUserContext";
 
 function ModalAlert({ show, onHide }) {

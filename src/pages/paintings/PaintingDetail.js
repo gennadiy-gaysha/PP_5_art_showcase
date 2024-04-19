@@ -1,15 +1,13 @@
 import React from "react";
 import styles from "../../styles/PaintingDetail.module.css";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
-import {
-  Card,
-  Col,
-  Container,
-  Media,
-  OverlayTrigger,
-  Row,
-  Tooltip,
-} from "react-bootstrap";
+import Card from "react-bootstrap/Card";
+import Col from "react-bootstrap/Col";
+import Container from "react-bootstrap/Container";
+import Media from "react-bootstrap/Media";
+import OverlayTrigger from "react-bootstrap/OverlayTrigger";
+import Row from "react-bootstrap/Row";
+import Tooltip from "react-bootstrap/Tooltip";
 import { Link } from "react-router-dom";
 import Avatar from "../../components/Avatar";
 import { axiosRes } from "../../api/axiosDefaults";

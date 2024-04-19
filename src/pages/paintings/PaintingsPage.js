@@ -16,7 +16,7 @@ import TechniqueFilter from "../../components/TechniqueFilter";
 import OrientationFilter from "../../components/OrientationFilter";
 import PriceFilter from "../../components/PriceFilter";
 import { useHistory } from "react-router-dom";
-import { Form } from "react-bootstrap";
+import Form from "react-bootstrap/Form";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { fetchMoreData } from "../../utils/utils";
 
