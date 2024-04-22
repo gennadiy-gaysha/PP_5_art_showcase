@@ -43,7 +43,7 @@ function Painting(props) {
     title,
     // creation_year,
     technique,
-    // theme,
+    theme,
     // width,
     // height,
     // orientation,
@@ -228,12 +228,9 @@ function Painting(props) {
         {/* <span>published: {created_at}</span> */}
         {title && <Card.Title className="text-left">{title}</Card.Title>}
         {owner && <Card.Text>{artist_name}</Card.Text>}
-        {/* {theme} */}
-        {/* <br /> */}
-        Technique: {technique}
-        <br />
-        {/* <br /> */}
-        {/* {orientation} ({width}cm x {height}cm) */}£{price}
+        {theme && <Card.Text>Theme: {theme}</Card.Text>}
+        {technique && <Card.Text>Technique: {technique}</Card.Text>}
+        {price && <Card.Text>£{price}</Card.Text>}
         <div className={styles.PaintingBar}>
           {!currentUser && (
             <>
